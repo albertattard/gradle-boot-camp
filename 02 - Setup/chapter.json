@@ -1,0 +1,146 @@
+{
+  "entries": [
+    {
+      "type": "chapter",
+      "id": "76fe80fc-72fb-43aa-86b6-731d5ac16972",
+      "parameters": [
+        "Setup Gradle"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "d02523af-bc95-4d92-81c2-02b365806473",
+      "parameters": [
+        "zip --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "0b0adbd8-a4f9-4bdb-b817-2e11b2fc2485",
+      "parameters": [
+        "curl --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "2b7841fb-707b-4c3b-9fb7-1a61e6b31839",
+      "parameters": [
+        "curl -s \"https://get.sdkman.io\" | bash"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "421471da-6314-4e21-9a17-af44cfae6055",
+      "parameters": [
+        "source \"$HOME/.sdkman/bin/sdkman-init.sh\""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "eb30d8cb-5935-49f3-a62d-d083fc25cb91",
+      "parameters": [
+        "sdk version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "78f5b83e-adc6-48e0-8613-6ddc0c15886a",
+      "parameters": [
+        "sdk list java"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "dd9430c6-e9a6-455d-bdd3-66c2bf5bb1f4",
+      "parameters": [
+        "sdk install java 17.0.1-oracle"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 300.000000000
+    },
+    {
+      "type": "command",
+      "id": "279f77d1-ac78-4960-a90b-abeb5e16f59a",
+      "parameters": [
+        "java -version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "8f14fb3b-cfd0-4b19-b0f3-57f678d34697",
+      "parameters": [
+        "echo ${JAVA_HOME}"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "da56f2a4-e420-4c36-acfe-cc56ffcb8363",
+      "parameters": [
+        "sdk list gradle"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "b80dfd82-5959-4862-8f87-7e65ebebbb4e",
+      "parameters": [
+        "sdk install gradle 7.3.3"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 300.000000000
+    },
+    {
+      "type": "command",
+      "id": "af85d50e-4974-4a96-b11c-d04ca93cc049",
+      "parameters": [
+        "gradle --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "520ba678-c1d7-4eec-81bd-4c50c3fc094a",
+      "parameters": [
+        "git --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Gradle Boot Camp",
+  "description": "A quick and practical guide to Gradle",
+  "chapters": [
+    {
+      "title": "Introduction",
+      "description": "Introduction to gradle",
+      "path": "01 - Introduction/chapter.json"
+    },
+    {
+      "title": "Setup",
+      "description": "Setup Gradle",
+      "path": "02 - Setup/chapter.json"
+    },
+    {
+      "title": "Fundamentals",
+      "description": "Gradle fundamentals",
+      "path": "03 - Fundamentals/chapter.json"
+    }
+  ]
+}
