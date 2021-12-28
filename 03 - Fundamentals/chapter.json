@@ -24,7 +24,7 @@
       "type": "command",
       "id": "d052c749-3dc7-464f-b01a-204d5cf59366",
       "parameters": [
-        "rm -rf 'simple-gradle-project'"
+        "rm -rf 'gradle-fundamentals'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -34,7 +34,7 @@
       "type": "command",
       "id": "cc11bbfd-07f9-485f-9a8e-5ab5c455dffe",
       "parameters": [
-        "mkdir 'simple-gradle-project'"
+        "mkdir 'gradle-fundamentals'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -43,7 +43,7 @@
     {
       "type": "command",
       "id": "6b365089-9a90-46d3-9909-bb047c44b479",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle tasks"
       ],
@@ -56,7 +56,7 @@
     {
       "type": "command",
       "id": "3b0f556b-24f2-4c45-af29-5974c405c2a6",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git init --initial-branch=main"
       ],
@@ -79,7 +79,7 @@
     {
       "type": "command",
       "id": "bf720953-5f7c-4474-884c-e477f7e70198",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git config user.name '${DEVELOPER_NAME}'"
       ],
@@ -104,7 +104,7 @@
     {
       "type": "command",
       "id": "912e6f02-b785-4a5c-ae68-3e1b2d0fca7b",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git config user.email '${DEVELOPER_EMAIL}'"
       ],
@@ -117,7 +117,7 @@
     {
       "type": "command",
       "id": "a0d3c5e9-297c-4e7c-a1ba-a35b527ec8f8",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "touch 'settings.gradle'"
       ],
@@ -128,14 +128,14 @@
     {
       "type": "git-apply-patch",
       "id": "7e070414-864f-4e1a-aefc-253bb925066d",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "diff --git a/settings.gradle b/settings.gradle",
         "index e69de29..3942fe6 100644",
         "--- a/settings.gradle",
         "+++ b/settings.gradle",
         "@@ -0,0 +1 @@",
-        "+rootProject.name = 'simple-gradle-project'",
+        "+rootProject.name = 'gradle-fundamentals'",
         ""
       ],
       "variables": [],
@@ -145,7 +145,7 @@
     {
       "type": "command",
       "id": "7f5ac02e-3506-432d-9c11-2fd086d6ef78",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle tasks"
       ],
@@ -156,7 +156,7 @@
     {
       "type": "command",
       "id": "b1ba00d3-45c6-4c59-b122-37024acb6595",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "ls -la"
       ],
@@ -167,7 +167,7 @@
     {
       "type": "command",
       "id": "de59de60-4ead-4df2-8bbc-5bb8eb578283",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "touch '.gitignore'"
       ],
@@ -178,7 +178,7 @@
     {
       "type": "git-apply-patch",
       "id": "294317cd-c05d-4ea2-9fe8-1c9a2fddfb42",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "diff --git a/.gitignore b/.gitignore",
         "index e69de29..6bebbc3 100644",
@@ -195,7 +195,7 @@
     {
       "type": "command",
       "id": "1e8c087b-846a-4aa9-9b88-32181f04894c",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git status"
       ],
@@ -206,7 +206,7 @@
     {
       "type": "command",
       "id": "0c0d029f-95e1-4544-b753-839bcdb15a8e",
-      "workingDirectory": "simple-gradle-project",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git add .",
         "git commit --message 'Create gradle project'"
@@ -227,121 +227,8 @@
     },
     {
       "type": "command",
-      "id": "137c64bf-aac7-489b-8a10-e7190e0b5840",
-      "parameters": [
-        "rm -rf 'simple-gradle-task'"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "d770deed-fadf-4d86-aa6e-36a1477477cb",
-      "parameters": [
-        "mkdir 'simple-gradle-task'"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "cb0063bc-64d5-46d4-bebb-86d0f5cedbf6",
-      "workingDirectory": "simple-gradle-task",
-      "parameters": [
-        "git init --initial-branch=main"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "4aa2d1eb-3b56-4e73-a5e4-f298f61b00c3",
-      "workingDirectory": "simple-gradle-task",
-      "parameters": [
-        "git config user.name '${DEVELOPER_NAME}'"
-      ],
-      "variables": [
-        "DEVELOPER_NAME"
-      ],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "6286a7ae-cd25-41a6-abcc-7e03dcbff837",
-      "workingDirectory": "simple-gradle-task",
-      "parameters": [
-        "git config user.email '${DEVELOPER_EMAIL}'"
-      ],
-      "variables": [
-        "DEVELOPER_EMAIL"
-      ],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "4b9c4acc-50f1-40fa-a8c3-a1e31a0d4af3",
-      "workingDirectory": "simple-gradle-task",
-      "parameters": [
-        "touch '.gitignore'"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "git-apply-patch",
-      "id": "972d7a0d-6503-4708-9d80-430d15e51129",
-      "workingDirectory": "simple-gradle-task",
-      "parameters": [
-        "diff --git a/.gitignore b/.gitignore",
-        "index e69de29..6bebbc3 100644",
-        "--- a/.gitignore",
-        "+++ b/.gitignore",
-        "@@ -0,0 +1 @@",
-        "+/.gradle",
-        ""
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "c6ce0d37-da61-46bf-a18d-6d98e39399a5",
-      "workingDirectory": "simple-gradle-task",
-      "parameters": [
-        "touch 'settings.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "git-apply-patch",
-      "id": "2f30e968-f045-4e22-b596-86b7a2ef295b",
-      "workingDirectory": "simple-gradle-task",
-      "parameters": [
-        "diff --git a/settings.gradle b/settings.gradle",
-        "index e69de29..3942fe6 100644",
-        "--- a/settings.gradle",
-        "+++ b/settings.gradle",
-        "@@ -0,0 +1 @@",
-        "+rootProject.name = 'simple-gradle-task'",
-        ""
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
       "id": "953dddcf-09d5-4e47-a6de-f5d76a23dc41",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "touch 'build.gradle'",
         ""
@@ -353,7 +240,7 @@
     {
       "type": "git-apply-patch",
       "id": "b786d36e-7fbd-4e23-9a1c-728adc40c06a",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
         "index e69de29..9746160 100644",
@@ -374,7 +261,7 @@
     {
       "type": "command",
       "id": "06473c6b-3f03-4e9d-94e7-69ef019b5f83",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle hello"
       ],
@@ -385,7 +272,7 @@
     {
       "type": "command",
       "id": "f00ad3ee-7cb5-432f-b55c-baaf4b5ba277",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle tasks"
       ],
@@ -396,7 +283,7 @@
     {
       "type": "command",
       "id": "72414b9b-8e14-42e3-9642-cea72c958d14",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle tasks --all"
       ],
@@ -412,8 +299,8 @@
         "```",
         "Other tasks",
         "-----------",
-        "components - Displays the components produced by root project 'simple-gradle-task'. [deprecated]",
-        "dependentComponents - Displays the dependent components of components in root project 'simple-gradle-task'. [deprecated]",
+        "components - Displays the components produced by root project 'gradle-fundamentals'. [deprecated]",
+        "dependentComponents - Displays the dependent components of components in root project 'gradle-fundamentals'. [deprecated]",
         "hello",
         "```"
       ],
@@ -424,7 +311,7 @@
     {
       "type": "git-apply-patch",
       "id": "35943084-bf5e-4c1a-b4f9-37553bcc107f",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
         "index a6bcd65..5a7c0d3 100644",
@@ -446,7 +333,7 @@
     {
       "type": "command",
       "id": "a551d74c-d212-4325-b989-03b36d271e26",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle tasks"
       ],
@@ -472,7 +359,7 @@
     {
       "type": "command",
       "id": "6662f269-c9bd-4e16-ba7a-d21349c55345",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git add .",
         "git commit --message 'Create gradle task'"
@@ -504,7 +391,7 @@
     {
       "type": "command",
       "id": "b56a61fb-58c0-4bad-a782-e8926a9d054e",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git tag --annotate v1.0.0 --message 'Gradle Build phases'"
       ],
@@ -515,7 +402,7 @@
     {
       "type": "git-apply-patch",
       "id": "3484cce8-d301-4ec7-8502-242f17732636",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
         "index 5a7c0d3..000e332 100644",
@@ -538,7 +425,7 @@
         "--- a/settings.gradle",
         "+++ b/settings.gradle",
         "@@ -1 +1,3 @@",
-        " rootProject.name = 'simple-gradle-task'",
+        " rootProject.name = 'gradle-fundamentals'",
         "+",
         "+println \"The initialization build phase\"",
         ""
@@ -550,7 +437,7 @@
     {
       "type": "command",
       "id": "f3c16fc9-3514-45c2-a524-aff29364c88a",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle hello"
       ],
@@ -584,7 +471,7 @@
     {
       "type": "command",
       "id": "0cf91b55-5602-4f10-a0a0-fd1f359af7d7",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git add .",
         "git commit --message 'Create gradle hello task'"
@@ -596,7 +483,7 @@
     {
       "type": "git-apply-patch",
       "id": "348c720c-ba65-4b1d-8a17-880badd83597",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
         "index 9ffcfb1..f7744fd 100644",
@@ -624,7 +511,7 @@
     {
       "type": "command",
       "id": "bd8b9df2-62e4-4c41-9746-a00422e322aa",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle hello"
       ],
@@ -655,7 +542,7 @@
     {
       "type": "git-apply-patch",
       "id": "b8713710-a118-43ec-841e-1d80365ced0c",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
         "index f7744fd..cd1ae02 100644",
@@ -679,7 +566,7 @@
     {
       "type": "command",
       "id": "04e259ed-db86-45fd-bcae-8a4e67ce877c",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle hello"
       ],
@@ -711,7 +598,7 @@
     {
       "type": "git-apply-patch",
       "id": "f462b909-559e-4e2e-8227-a3589fa82fca",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
         "index cd1ae02..f7744fd 100644",
@@ -735,7 +622,7 @@
     {
       "type": "command",
       "id": "1ada9223-4688-4cee-a307-bbf0e4cfe8b5",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git add .",
         "git commit --message 'Create gradle bye task'"
@@ -757,7 +644,7 @@
     {
       "type": "command",
       "id": "0328858d-3f8e-4cf6-a20d-a08e25d1dc74",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "git tag --annotate 'v2.0.0' --message 'Gradle Wrapper'"
       ],
@@ -768,7 +655,7 @@
     {
       "type": "command",
       "id": "fa351d4b-2336-408f-acee-eaec2ac4dcf4",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle tasks"
       ],
@@ -777,9 +664,26 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "fc780751-9c70-46f9-a3b0-da7a058789e4",
+      "parameters": [
+        "",
+        "```",
+        "Build Setup tasks",
+        "-----------------",
+        "init - Initializes a new Gradle build.",
+        "wrapper - Generates Gradle wrapper files.",
+        "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "fd20bfa0-2838-46d2-a74f-592a8a8b9441",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "gradle wrapper"
       ],
@@ -790,7 +694,7 @@
     {
       "type": "command",
       "id": "91f71f31-3844-4327-980a-f5c5e953ed88",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "tree ."
       ],
@@ -799,9 +703,33 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "7202981d-6f00-42d5-a071-b17786753820",
+      "parameters": [
+        "",
+        "",
+        "```",
+        ".",
+        "|-- build.gradle",
+        "|-- gradle",
+        "|   `-- wrapper",
+        "|       |-- gradle-wrapper.jar",
+        "|       `-- gradle-wrapper.properties",
+        "|-- gradlew",
+        "|-- gradlew.bat",
+        "`-- settings.gradle",
+        "",
+        "2 directories, 6 files",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "252a9022-5526-4420-8958-b3c7fa4e838e",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "cat gradle/wrapper/gradle-wrapper.properties"
       ],
@@ -811,8 +739,19 @@
     },
     {
       "type": "command",
+      "id": "4f0938ab-0cd3-45b2-8f3b-4c8ca3fbb733",
+      "workingDirectory": "gradle-fundamentals",
+      "parameters": [
+        "./gradlew --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
       "id": "c9cc5666-8c45-4ba4-b732-d95d12b154fe",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "./gradlew wrapper --gradle-version=7.3"
       ],
@@ -823,8 +762,19 @@
     },
     {
       "type": "command",
+      "id": "aface566-a2d2-4b9a-8811-3d9ee573b685",
+      "workingDirectory": "gradle-fundamentals",
+      "parameters": [
+        "./gradlew --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
       "id": "f87a390a-9ab0-416b-9853-5ae6a744cb4c",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "cat gradle/wrapper/gradle-wrapper.properties"
       ],
@@ -835,9 +785,20 @@
     {
       "type": "command",
       "id": "cd3c4abd-f827-4818-b32e-fd1611e11c12",
-      "workingDirectory": "simple-gradle-task",
+      "workingDirectory": "gradle-fundamentals",
       "parameters": [
         "./gradlew wrapper --gradle-version=7.3.3"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "c30d1fae-7797-4e11-aa51-271b570f3813",
+      "workingDirectory": "gradle-fundamentals",
+      "parameters": [
+        "./gradlew --version"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -890,7 +851,7 @@
       "id": "8c2c525b-fbe7-4ff6-b21a-2e5548963162",
       "workingDirectory": "hello-world",
       "parameters": [
-        "ls -la"
+        "tree -a ."
       ],
       "variables": [],
       "environmentVariables": [],
