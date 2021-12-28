@@ -11,6 +11,16 @@
       "values": {}
     },
     {
+      "type": "section",
+      "id": "fbbe6496-e197-4734-8524-0e9b36fff432",
+      "parameters": [
+        "Install SDKMAN"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "d02523af-bc95-4d92-81c2-02b365806473",
       "parameters": [
@@ -61,6 +71,16 @@
       "values": {}
     },
     {
+      "type": "section",
+      "id": "51491cfb-3465-410b-853c-667790868c64",
+      "parameters": [
+        "Install Java"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "78f5b83e-adc6-48e0-8613-6ddc0c15886a",
       "parameters": [
@@ -102,6 +122,16 @@
       "values": {}
     },
     {
+      "type": "section",
+      "id": "139208be-3a2e-4b08-879c-4efafebd4309",
+      "parameters": [
+        "Install Gradle"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "da56f2a4-e420-4c36-acfe-cc56ffcb8363",
       "parameters": [
@@ -133,10 +163,30 @@
       "values": {}
     },
     {
+      "type": "section",
+      "id": "df969192-2104-43a1-b98c-abea8566c9e1",
+      "parameters": [
+        "Required Commands"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "520ba678-c1d7-4eec-81bd-4c50c3fc094a",
       "parameters": [
         "git --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "93f74907-91c7-4d1e-9742-ef3cfe5be6b7",
+      "parameters": [
+        "tree --version"
       ],
       "variables": [],
       "environmentVariables": [],

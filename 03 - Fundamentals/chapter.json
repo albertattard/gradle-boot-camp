@@ -219,7 +219,7 @@
       "type": "section",
       "id": "d3271d57-072d-4f7e-9c52-b128806b1c3f",
       "parameters": [
-        "build.gradle"
+        "The build.gradle file"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -739,6 +739,158 @@
       "parameters": [
         "git add .",
         "git commit --message 'Create gradle bye task'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
+      "id": "2777fbe3-3a87-436f-8847-ea373cf41b9c",
+      "parameters": [
+        "The Gradle Wrapper"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "0328858d-3f8e-4cf6-a20d-a08e25d1dc74",
+      "workingDirectory": "simple-gradle-task",
+      "parameters": [
+        "git tag --annotate 'v2.0.0' --message 'Gradle Wrapper'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "fa351d4b-2336-408f-acee-eaec2ac4dcf4",
+      "workingDirectory": "simple-gradle-task",
+      "parameters": [
+        "gradle tasks"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "fd20bfa0-2838-46d2-a74f-592a8a8b9441",
+      "workingDirectory": "simple-gradle-task",
+      "parameters": [
+        "gradle wrapper"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "91f71f31-3844-4327-980a-f5c5e953ed88",
+      "workingDirectory": "simple-gradle-task",
+      "parameters": [
+        "tree ."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "252a9022-5526-4420-8958-b3c7fa4e838e",
+      "workingDirectory": "simple-gradle-task",
+      "parameters": [
+        "cat gradle/wrapper/gradle-wrapper.properties"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "c9cc5666-8c45-4ba4-b732-d95d12b154fe",
+      "workingDirectory": "simple-gradle-task",
+      "parameters": [
+        "./gradlew wrapper --gradle-version=7.3"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 300.000000000
+    },
+    {
+      "type": "command",
+      "id": "f87a390a-9ab0-416b-9853-5ae6a744cb4c",
+      "workingDirectory": "simple-gradle-task",
+      "parameters": [
+        "cat gradle/wrapper/gradle-wrapper.properties"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "cd3c4abd-f827-4818-b32e-fd1611e11c12",
+      "workingDirectory": "simple-gradle-task",
+      "parameters": [
+        "./gradlew wrapper --gradle-version=7.3.3"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
+      "id": "4c51b615-8460-46e2-95ae-e48200c98030",
+      "parameters": [
+        "Create Gradle Project"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "7dfd6885-945d-481d-ab56-23e7c00ff7f0",
+      "parameters": [
+        "rm -rf hello-world"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "04523b30-d856-4145-9736-a34f1447b99f",
+      "parameters": [
+        "mkdir hello-world"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "478f8cd8-a14e-4e4a-8ae0-af4fa79b95aa",
+      "workingDirectory": "hello-world",
+      "parameters": [
+        "gradle init --type basic --dsl groovy --project-name hello-world"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "command",
+      "id": "8c2c525b-fbe7-4ff6-b21a-2e5548963162",
+      "workingDirectory": "hello-world",
+      "parameters": [
+        "ls -la"
       ],
       "variables": [],
       "environmentVariables": [],
