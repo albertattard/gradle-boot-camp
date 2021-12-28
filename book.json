@@ -16,6 +16,11 @@
       "title": "Fundamentals",
       "description": "Gradle fundamentals",
       "path": "03 - Fundamentals/chapter.json"
+    },
+    {
+      "title": "Java Application",
+      "description": "Gradle fundamentals",
+      "path": "04 - Java Application/chapter.json"
     }
   ]
 }
