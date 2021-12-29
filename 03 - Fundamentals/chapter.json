@@ -956,6 +956,30 @@
       "values": {}
     },
     {
+      "type": "command",
+      "id": "672f4c77-7a64-4384-a837-e94d5d5dc58a",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "./gradlew build"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7d51501c-3d4b-44c0-9923-ff0c97532ff0",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "See the ",
+        "[execution options](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_execution_options)",
+        "for more details."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "98366d37-41cb-4410-bf99-f5babf53d698",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -967,7 +991,7 @@
         "@@ -1,5 +1,6 @@",
         " plugins {",
         "     id 'base'",
-        "+    id \"org.barfuin.gradle.taskinfo\" version \"1.3.1\"",
+        "+    id 'org.barfuin.gradle.taskinfo' version '1.3.1'",
         " }",
         " ",
         " tasks.register('hello') {",
