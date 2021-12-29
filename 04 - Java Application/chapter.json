@@ -115,7 +115,8 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {}
+      "values": {},
+      "commandTimeout": 30.000000000
     },
     {
       "type": "command",
@@ -126,7 +127,8 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {}
+      "values": {},
+      "commandTimeout": 30.000000000
     },
     {
       "type": "git-apply-patch",
@@ -201,11 +203,34 @@
       "values": {}
     },
     {
+      "type": "command",
+      "id": "aca12f3b-bfd5-409e-b605-c3977d53c073",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Create project'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "d5799250-3e7c-4ea5-b82a-03ccfeff4898",
       "workingDirectory": "single-java-project",
       "parameters": [
         "The java plugin"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "08f5f1da-f604-402d-af61-5049ca9be582",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git tag --annotate 'v1.0.0' --message 'The java plugin'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -507,11 +532,34 @@
       "values": {}
     },
     {
+      "type": "command",
+      "id": "9f0416f8-70a5-4f4d-af8e-9ce381939873",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Add java plugin'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "c990c43d-51be-486a-8ccf-f14b8eb83e84",
       "workingDirectory": "single-java-project",
       "parameters": [
         "The application plugin"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "ddb88e98-551f-4acf-93db-af96a779bbfe",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git tag --annotate 'v2.0.0' --message 'The application plugin'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -682,11 +730,34 @@
       "values": {}
     },
     {
+      "type": "command",
+      "id": "4b095c67-0283-4aa0-bd50-45e334cab395",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Use the application plugin'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "c64f10ab-ca43-47f8-86e6-523fc9d60ae2",
       "workingDirectory": "single-java-project",
       "parameters": [
         "Dependencies"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "f4c847a4-489b-4268-8172-246d2450a6dd",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git tag --annotate 'v3.0.0' --message 'Dependencies'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -885,11 +956,34 @@
       "values": {}
     },
     {
+      "type": "command",
+      "id": "d195c2bb-2a4e-444f-b706-75ed93d3825f",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Use logger instead of stdout'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "ef6f1360-2730-496b-b377-39d37e81403c",
       "workingDirectory": "single-java-project",
       "parameters": [
         "The dependency check plugin"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "83fa7fef-54fd-4bdb-ab77-9b7c74617966",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git tag --annotate 'v4.0.0' --message 'The dependency check plugin'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1403,7 +1497,8 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {}
+      "values": {},
+      "commandTimeout": 30.000000000
     },
     {
       "type": "command",
@@ -1411,7 +1506,7 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "git add .",
-        "git commit --message 'Create project'"
+        "git commit --message 'Fix log4j vulnerability'"
       ],
       "variables": [],
       "environmentVariables": [],
