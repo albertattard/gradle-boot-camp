@@ -19,8 +19,13 @@
     },
     {
       "title": "Java Application",
-      "description": "Gradle fundamentals",
+      "description": "A simple Java application example",
       "path": "04 - Java Application/chapter.json"
+    },
+    {
+      "title": "Multi-project Application",
+      "description": "A Gradle multi-project example",
+      "path": "05 - Multi-project Application/chapter.json"
     }
   ]
 }
