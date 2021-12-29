@@ -256,6 +256,26 @@
       "values": {}
     },
     {
+      "type": "todo",
+      "id": "3db7fad0-e4c1-45f7-94e6-bd55b58f35e7",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Should we introduce the Java toolchain here?",
+        "",
+        "```",
+        "java {",
+        "    toolchain {",
+        "        languageVersion = JavaLanguageVersion.of(17)",
+        "        vendor = JvmVendorSpec.ORACLE",
+        "    }",
+        "}",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "d31f675d-b085-4d16-a63c-4502354a429a",
       "workingDirectory": "single-java-project",
@@ -1507,6 +1527,28 @@
       "parameters": [
         "git add .",
         "git commit --message 'Fix log4j vulnerability'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "todo",
+      "id": "d5d4774e-bf12-4c46-a669-2defd11c812d",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The application is not yet ready as the JAR file does not contain the dependencies and running it will fail.  Consider adding [ShadowJar gradle plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "todo",
+      "id": "7bfc2d05-61cc-4f8a-a4c1-7f0620625fc4",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Add testing"
       ],
       "variables": [],
       "environmentVariables": [],

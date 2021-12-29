@@ -99,7 +99,7 @@
       "variables": [],
       "environmentVariables": [],
       "values": {},
-      "commandTimeout": 300.000000000
+      "commandTimeout": 60.000000000
     },
     {
       "type": "command",
@@ -150,7 +150,7 @@
       "variables": [],
       "environmentVariables": [],
       "values": {},
-      "commandTimeout": 300.000000000
+      "commandTimeout": 60.000000000
     },
     {
       "type": "command",
