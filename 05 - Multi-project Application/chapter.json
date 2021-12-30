@@ -24,7 +24,7 @@
       "type": "command",
       "id": "d7e0e173-b9ae-43bb-8532-8d66ef1decdb",
       "parameters": [
-        "rm -rf 'multi-project-application-manual'"
+        "rm -rf 'multi-project-application'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -34,7 +34,7 @@
       "type": "command",
       "id": "862371f7-6ef0-4c2c-90c3-0e376cbdf338",
       "parameters": [
-        "mkdir 'multi-project-application-manual'"
+        "mkdir 'multi-project-application'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -43,7 +43,7 @@
     {
       "type": "command",
       "id": "d1c35f2b-acc7-473e-9b09-6e81e56a66eb",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "git init --initial-branch=main"
       ],
@@ -55,7 +55,7 @@
       "type": "variable",
       "id": "a5889d77-a415-49dd-abc1-5b0b9a1f15bd",
       "name": "DEVELOPER_NAME",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "Albert Attard"
       ],
@@ -68,7 +68,7 @@
       "type": "variable",
       "id": "1694212f-35aa-4aba-aa50-2f243c5fb0aa",
       "name": "DEVELOPER_EMAIL",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "albertattard@gmail.com"
       ],
@@ -80,7 +80,7 @@
     {
       "type": "command",
       "id": "10734ccd-174a-46c6-836e-40ea7cb3cbec",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "git config user.name '${DEVELOPER_NAME}'",
         "git config user.email '${DEVELOPER_EMAIL}'"
@@ -95,9 +95,9 @@
     {
       "type": "command",
       "id": "e5b660e7-55d8-494a-b650-e99426b61cdb",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
-        "gradle init --type basic --dsl groovy --project-name multi-project-application-manual"
+        "gradle init --type basic --dsl groovy --project-name multi-project-application"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -107,7 +107,7 @@
     {
       "type": "command",
       "id": "e2759a3f-8b36-4987-9a37-4212a37250c7",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew wrapper --gradle-version=7.3.3"
       ],
@@ -119,7 +119,7 @@
     {
       "type": "command",
       "id": "2eb961d6-f3ac-4702-9253-b708c221a5fa",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew --version"
       ],
@@ -130,7 +130,7 @@
     {
       "type": "git-apply-patch",
       "id": "8f7e9439-cdb2-47ba-8840-cbbb57c8579c",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/settings.gradle b/settings.gradle",
         "index fd273a0..5737df9 100644",
@@ -146,7 +146,7 @@
         "- * in the user manual at https://docs.gradle.org/7.3.3/userguide/multi_project_builds.html",
         "- */",
         "-",
-        " rootProject.name = 'multi-project-application-manual'",
+        " rootProject.name = 'multi-project-application'",
         ""
       ],
       "variables": [],
@@ -156,7 +156,7 @@
     {
       "type": "command",
       "id": "78fe0709-2e51-490f-b65f-2df9550b6f2c",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "rm build.gradle"
       ],
@@ -167,7 +167,7 @@
     {
       "type": "git-apply-patch",
       "id": "19557743-13f8-4814-95e6-a5bf2bbcc3b9",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/.gitignore b/.gitignore",
         "index 1b6985c..92b4736 100644",
@@ -191,7 +191,7 @@
     {
       "type": "command",
       "id": "b834f8d1-3b65-4516-aec1-544e7dbb4965",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "git add .",
         "git commit --message 'Create project'"
@@ -203,7 +203,7 @@
     {
       "type": "section",
       "id": "dab97989-cd59-4693-8fea-25809728eed7",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "Create sub-projects"
       ],
@@ -214,7 +214,7 @@
     {
       "type": "command",
       "id": "0435906c-9070-493a-bfaa-a52a82a70ddf",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew projects"
       ],
@@ -225,11 +225,11 @@
     {
       "type": "markdown",
       "id": "ed8f91b8-9d6d-4101-9eee-ac1c7c2ff51b",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "",
         "```",
-        "Root project 'multi-project-application-manual'",
+        "Root project 'multi-project-application'",
         "No sub-projects",
         "```"
       ],
@@ -250,9 +250,9 @@
     {
       "type": "command",
       "id": "6526c284-5fec-4206-8386-483df26e48b4",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
-        "git tag --annotate 'v1.0.0' --message 'The domain sub-project'"
+        "git tag --annotate 'v1' --message 'The domain sub-project'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -261,7 +261,7 @@
     {
       "type": "command",
       "id": "eeaf9e5e-2ecc-4476-96df-e25180991019",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir 'domain'"
       ],
@@ -272,14 +272,14 @@
     {
       "type": "git-apply-patch",
       "id": "6aaabf0e-a872-494c-bd0e-7c7f0b5ce4e7",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/settings.gradle b/settings.gradle",
         "index 5737df9..fb31821 100644",
         "--- a/settings.gradle",
         "+++ b/settings.gradle",
         "@@ -1 +1,3 @@",
-        " rootProject.name = 'multi-project-application-manual'",
+        " rootProject.name = 'multi-project-application'",
         "+",
         "+include('domain')",
         ""
@@ -291,7 +291,7 @@
     {
       "type": "command",
       "id": "7d1f2920-ec75-40b0-923a-be453e79b21c",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew projects"
       ],
@@ -302,12 +302,12 @@
     {
       "type": "markdown",
       "id": "0973dd70-f5c1-4d13-aad1-2b3bd7a2f309",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "",
         "",
         "```",
-        "Root project 'multi-project-application-manual'",
+        "Root project 'multi-project-application'",
         "\\--- Project ':domain'",
         "```"
       ],
@@ -318,7 +318,7 @@
     {
       "type": "command",
       "id": "989b77ad-7cd8-4904-b40c-68c3abfa73c2",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'domain/src/main/java'",
         "mkdir -p 'domain/src/main/resources'",
@@ -332,7 +332,7 @@
     {
       "type": "command",
       "id": "b58c299f-c853-4bdf-82a0-b19a433ce9bb",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'domain/build.gradle'"
       ],
@@ -343,7 +343,7 @@
     {
       "type": "git-apply-patch",
       "id": "c040eca7-083b-4afc-a775-c059e79e26c1",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/domain/build.gradle b/domain/build.gradle",
         "index e69de29..59a20ef 100644",
@@ -360,9 +360,21 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "bb8652f1-0a93-4084-9e3a-591712baacbd",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "",
+        "[The Java Library Plugin](https://docs.gradle.org/current/userguide/java_library_plugin.html)"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "6c09cba9-02af-422e-8b32-2ac44474b597",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/domain/build.gradle b/domain/build.gradle",
         "index 59a20ef..04cb686 100644",
@@ -388,7 +400,7 @@
     {
       "type": "git-apply-patch",
       "id": "2e8b9904-2a92-4cdb-8aad-59c438f3e31d",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/domain/build.gradle b/domain/build.gradle",
         "index 04cb686..442b3db 100644",
@@ -421,21 +433,9 @@
       "values": {}
     },
     {
-      "type": "markdown",
-      "id": "7b3ed0fa-b713-439f-b3b0-4325abafcb5f",
-      "workingDirectory": "multi-project-application-manual",
-      "parameters": [
-        "",
-        "[`api` and `implementation` separation](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_separation)"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
       "type": "command",
       "id": "82d5a7e5-2961-4c16-bfcc-7f11691607c8",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'domain/src/test/java/gbc/domain'"
       ],
@@ -446,7 +446,7 @@
     {
       "type": "command",
       "id": "67afb9a7-982d-4520-8cfe-b655f1d6f126",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'domain/src/test/java/gbc/domain/CartTest.java'",
         ""
@@ -458,7 +458,7 @@
     {
       "type": "git-apply-patch",
       "id": "2d5982c1-5e13-41e7-a41a-b53be9ad9145",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/domain/src/test/java/gbc/domain/CartTest.java b/domain/src/test/java/gbc/domain/CartTest.java",
         "index e69de29..8c8a6d7 100644",
@@ -516,7 +516,7 @@
     {
       "type": "command",
       "id": "41b0e688-8fa2-4ba1-b9b3-24107d24ac07",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'domain/src/main/java/gbc/domain'"
       ],
@@ -527,7 +527,7 @@
     {
       "type": "command",
       "id": "288e3aa8-faf4-44a1-8cce-97fffdaedf5e",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'domain/src/main/java/gbc/domain/Cart.java'"
       ],
@@ -538,7 +538,7 @@
     {
       "type": "git-apply-patch",
       "id": "845fe4a9-47c4-4d15-82d9-42dea0fdf1da",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/domain/src/main/java/gbc/domain/Cart.java b/domain/src/main/java/gbc/domain/Cart.java",
         "index e69de29..b535779 100644",
@@ -576,7 +576,7 @@
     {
       "type": "command",
       "id": "b94a309a-1116-495f-853b-b91629c8844e",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew build"
       ],
@@ -588,7 +588,7 @@
     {
       "type": "markdown",
       "id": "eef20519-ae2a-46b9-bde5-714da1ee0b2f",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "",
         "```",
@@ -618,7 +618,7 @@
     {
       "type": "command",
       "id": "80ebbda3-f255-466c-98f4-f39164e55fe0",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "tree ."
       ],
@@ -629,7 +629,7 @@
     {
       "type": "markdown",
       "id": "ed4e130c-361f-4a3d-9464-59df2555b03a",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "",
         "```",
@@ -718,7 +718,7 @@
     {
       "type": "command",
       "id": "40572e7e-d8b7-455c-ab7b-5db771fbd327",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "git add .",
         "git commit --message 'Create the domain sub-project'"
@@ -740,9 +740,9 @@
     {
       "type": "command",
       "id": "3e74a280-8397-4e93-98fa-3a7973007a59",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
-        "git tag --annotate 'v2.0.0' --message 'The app sub-project'"
+        "git tag --annotate 'v2' --message 'The app sub-project'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -751,7 +751,7 @@
     {
       "type": "command",
       "id": "6ad57241-da86-48b4-a899-17cb482dd04e",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir 'app'"
       ],
@@ -762,14 +762,14 @@
     {
       "type": "git-apply-patch",
       "id": "23c8f576-dd8e-497c-8e68-f0001f940eb6",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/settings.gradle b/settings.gradle",
         "index c3e2b1b..fb31821 100644",
         "--- a/settings.gradle",
         "+++ b/settings.gradle",
         "@@ -1,3 +1,4 @@",
-        " rootProject.name = 'multi-project-application-manual'",
+        " rootProject.name = 'multi-project-application'",
         " ",
         " include('domain')",
         "+include('app')",
@@ -782,7 +782,7 @@
     {
       "type": "command",
       "id": "0c9639d5-bf52-4a8f-bc71-ccb2a691f634",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'app/build.gradle'"
       ],
@@ -793,7 +793,7 @@
     {
       "type": "git-apply-patch",
       "id": "c39821e9-07d4-4955-996c-c876b4840c67",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
         "index e69de29..9f4232f 100644",
@@ -823,7 +823,7 @@
     {
       "type": "git-apply-patch",
       "id": "22fc18a2-7179-4f8f-87d1-53d0fb5d433f",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
         "index 9f4232f..0f18655 100644",
@@ -846,7 +846,7 @@
     {
       "type": "git-apply-patch",
       "id": "db030367-0b8f-4d1e-a8a9-1c8fc0efb0b0",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
         "index 0f18655..bbbc317 100644",
@@ -873,7 +873,7 @@
     {
       "type": "command",
       "id": "e13ba75d-952c-4724-948e-8167bd96a4a8",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'app/src/main/java'",
         "mkdir -p 'app/src/main/resources'",
@@ -887,7 +887,7 @@
     {
       "type": "command",
       "id": "58ca9f5d-938d-4109-a1ff-9945fec716a3",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'app/src/test/java/gbc/app'"
       ],
@@ -898,7 +898,7 @@
     {
       "type": "command",
       "id": "e1480675-d0fd-4ee3-9ee4-50dd6920c9f8",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'app/src/test/java/gbc/app/MainTest.java'"
       ],
@@ -909,7 +909,7 @@
     {
       "type": "git-apply-patch",
       "id": "96d5c2f8-138d-4c55-9ade-24349b480604",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/src/test/java/gbc/app/MainTest.java b/app/src/test/java/gbc/app/MainTest.java",
         "index e69de29..6494a9d 100644",
@@ -968,7 +968,7 @@
     {
       "type": "command",
       "id": "b85157f6-0904-4c82-a1d6-d74076a79908",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'app/src/main/java/gbc/app'"
       ],
@@ -979,7 +979,7 @@
     {
       "type": "command",
       "id": "164bee75-8335-4723-bd61-1d8eb429c667",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'app/src/main/java/gbc/app/Main.java'"
       ],
@@ -990,7 +990,7 @@
     {
       "type": "git-apply-patch",
       "id": "f89e1d5c-cfc3-4afa-b740-0a1f16e15037",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/src/main/java/gbc/app/Main.java b/app/src/main/java/gbc/app/Main.java",
         "index e69de29..f305de4 100644",
@@ -1021,7 +1021,7 @@
     {
       "type": "command",
       "id": "4dad3a78-ee41-4390-bccb-7b1f8153bb95",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew test"
       ],
@@ -1032,7 +1032,7 @@
     {
       "type": "git-apply-patch",
       "id": "eb1ab2ca-50ab-4f81-a050-44c4661f3836",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
         "index bbbc317..a1fb4bb 100644",
@@ -1058,7 +1058,7 @@
     {
       "type": "command",
       "id": "15b27493-3efc-4806-847d-cdf87a4d2c84",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew run --args=\"Tomatoes Carrots Oranges\""
       ],
@@ -1070,7 +1070,7 @@
     {
       "type": "markdown",
       "id": "96f2097d-d8f6-4990-97a5-12137f78121c",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "",
         "```",
@@ -1088,7 +1088,7 @@
     {
       "type": "git-apply-patch",
       "id": "f73fb3c2-c8b3-4238-bb35-3406c017ee49",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
         "index 500eb5e..536233d 100644",
@@ -1110,7 +1110,7 @@
     {
       "type": "command",
       "id": "4fd25cec-6ef9-4c89-9f5e-6f265da65c3d",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew tasks"
       ],
@@ -1121,7 +1121,7 @@
     {
       "type": "markdown",
       "id": "6d81ab29-61c9-4efe-aed6-321ae7c331c3",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "",
         "```",
@@ -1138,7 +1138,7 @@
     {
       "type": "command",
       "id": "bec1f871-6e38-40b2-b580-f25242793a4b",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew shadowJar"
       ],
@@ -1150,7 +1150,7 @@
     {
       "type": "command",
       "id": "87c735b0-bfe3-4bbd-8435-8ddf5df14f35",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "tree app/build/libs"
       ],
@@ -1161,7 +1161,7 @@
     {
       "type": "markdown",
       "id": "b7063851-fd5d-4b2a-95dd-06e3708d08fb",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "",
         "```",
@@ -1176,9 +1176,666 @@
     {
       "type": "command",
       "id": "db3952c1-de6e-4a4f-b1f9-c48611972bbf",
-      "workingDirectory": "multi-project-application-manual",
+      "workingDirectory": "multi-project-application",
       "parameters": [
         "java -jar app/build/libs/app-all.jar 'Frozen Yoghurt' 'White Sauce'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "dd90f0e2-74d8-46f1-8fea-26c5c4bcfe12",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Create the application sub-project'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
+      "id": "a295450a-9a96-4adc-b902-572b02648f64",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The api configuration"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "63913d1b-d296-43ca-bdd9-84eeca4ec3fb",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "git tag --annotate 'v3' --message 'The api configuration'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "f910ce94-1bcb-4a48-bd75-85d036707548",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/app/src/main/java/gbc/app/Main.java b/app/src/main/java/gbc/app/Main.java",
+        "index f305de4..87b8932 100644",
+        "--- a/app/src/main/java/gbc/app/Main.java",
+        "+++ b/app/src/main/java/gbc/app/Main.java",
+        "@@ -4,8 +4,14 @@ import gbc.domain.Cart;",
+        " ",
+        " import java.util.Arrays;",
+        " ",
+        "+import static com.google.common.base.Preconditions.checkArgument;",
+        "+import static com.google.common.base.Preconditions.checkNotNull;",
+        "+",
+        " public class Main {",
+        "     public static void main(final String[] args) {",
+        "+        checkNotNull(args);",
+        "+        checkArgument(args.length > 0);",
+        "+",
+        "         final Cart cart = new Cart();",
+        "         Arrays.stream(args).forEach(cart::add);",
+        " ",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "d933a51e-f883-413a-ac85-35419c1343dd",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew :app:compileJava"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "expectedExitValue": 1
+    },
+    {
+      "type": "markdown",
+      "id": "01aff8e9-6e7a-4402-91d5-e9a2d298634f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "> Task :app:compileJava FAILED",
+        "/opt/workspace/multi-project-application/app/src/main/java/gbc/app/Main.java:7: error: package com.google.common.base does not exist",
+        "import static com.google.common.base.Preconditions.checkArgument;",
+        "                                    ^",
+        "/opt/workspace/multi-project-application/app/src/main/java/gbc/app/Main.java:7: error: static import only from classes and interfaces",
+        "import static com.google.common.base.Preconditions.checkArgument;",
+        "^",
+        "/opt/workspace/multi-project-application/app/src/main/java/gbc/app/Main.java:8: error: package com.google.common.base does not exist",
+        "import static com.google.common.base.Preconditions.checkNotNull;",
+        "                                    ^",
+        "/opt/workspace/multi-project-application/app/src/main/java/gbc/app/Main.java:8: error: static import only from classes and interfaces",
+        "import static com.google.common.base.Preconditions.checkNotNull;",
+        "^",
+        "/opt/workspace/multi-project-application/app/src/main/java/gbc/app/Main.java:12: error: cannot find symbol",
+        "        checkNotNull(args);",
+        "        ^",
+        "  symbol:   method checkNotNull(String[])",
+        "  location: class Main",
+        "/opt/workspace/multi-project-application/app/src/main/java/gbc/app/Main.java:13: error: cannot find symbol",
+        "        checkArgument(args.length > 0);",
+        "        ^",
+        "  symbol:   method checkArgument(boolean)",
+        "  location: class Main",
+        "6 errors",
+        "",
+        "FAILURE: Build failed with an exception.",
+        "```",
+        "",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "bb8c2ccd-0592-49d1-83e4-76db3bd98001",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew :app:dependencies --configuration runtimeClasspath"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "3b7eaf0c-c318-4d70-8abe-db61648a5cb3",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "runtimeClasspath - Runtime classpath of source set 'main'.",
+        "\\--- project :domain",
+        "     \\--- com.google.guava:guava:31.0.1-jre",
+        "          +--- com.google.guava:failureaccess:1.0.1",
+        "          +--- com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+        "          +--- com.google.code.findbugs:jsr305:3.0.2",
+        "          +--- org.checkerframework:checker-qual:3.12.0",
+        "          +--- com.google.errorprone:error_prone_annotations:2.7.1",
+        "          \\--- com.google.j2objc:j2objc-annotations:1.3",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "5bff8934-f60d-4246-9eee-7975bceb5a8c",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew :app:dependencies --configuration compileClasspath"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "cd8aeb7f-cbf2-4996-997b-d41cf133d858",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "compileClasspath - Compile classpath for source set 'main'.",
+        "\\--- project :domain",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "1c1ba7b0-1c29-45bc-8e0b-e4d4aae150c4",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/domain/build.gradle b/domain/build.gradle",
+        "index 442b3db..1eb93f3 100644",
+        "--- a/domain/build.gradle",
+        "+++ b/domain/build.gradle",
+        "@@ -14,7 +14,7 @@ repositories {",
+        " }",
+        " ",
+        " dependencies {",
+        "-    implementation 'com.google.guava:guava:31.0.1-jre'",
+        "+    api 'com.google.guava:guava:31.0.1-jre'",
+        " }",
+        " ",
+        " testing {",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7b3ed0fa-b713-439f-b3b0-4325abafcb5f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "",
+        "[`api` and `implementation` separation](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_separation)"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "3668b416-c4ec-4029-9dd1-005d3d9dce50",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew :app:dependencies --configuration compileClasspath"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "f2810344-74c6-40a2-b162-a08c357806e3",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "compileClasspath - Compile classpath for source set 'main'.",
+        "\\--- project :domain",
+        "     \\--- com.google.guava:guava:31.0.1-jre",
+        "          +--- com.google.guava:failureaccess:1.0.1",
+        "          +--- com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+        "          +--- com.google.code.findbugs:jsr305:3.0.2",
+        "          +--- org.checkerframework:checker-qual:3.12.0",
+        "          +--- com.google.errorprone:error_prone_annotations:2.7.1",
+        "          \\--- com.google.j2objc:j2objc-annotations:1.3",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "3b8ae29e-30cd-4315-a350-d45c0c8cb9d4",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew :app:compileJava"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
+      "id": "0dfd0f0c-fb63-4750-a0f8-1f8820de18bb",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The buildSrc"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "e6279368-e51d-4539-b478-129e8009b0c4",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "mkdir 'buildSrc'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "44831b56-72e0-4486-afdc-71698893e7af",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "touch 'buildSrc/settings.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "a15669ce-f730-4459-906c-25980d872c02",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "",
+        "[Precompiled script plugins](https://docs.gradle.org/current/userguide/custom_plugins.html#sec:precompiled_plugins)",
+        "",
+        "> We recommend that you also create a `buildSrc/settings.gradle` file, which you may leave empty."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "169ea435-e76f-46c3-8f33-8a14235bc2bc",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "touch 'buildSrc/build.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "29a33bf4-2560-4cba-a442-a9ac599ca573",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/buildSrc/build.gradle b/buildSrc/build.gradle",
+        "index e69de29..6784052 100644",
+        "--- a/buildSrc/build.gradle",
+        "+++ b/buildSrc/build.gradle",
+        "@@ -0,0 +1,3 @@",
+        "+plugins {",
+        "+    id 'groovy-gradle-plugin'",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "21304884-a1b7-48b3-b7a1-a57a875ca379",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "mkdir -p 'buildSrc/src/main/groovy'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "5230563f-bb33-46ea-84cb-06b6d1c915e2",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "touch 'buildSrc/src/main/groovy/gbc.java-common-conventions.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "8e0169c1-f7d3-44b0-8309-7c25a1aa7f08",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/buildSrc/src/main/groovy/gbc.java-common-conventions.gradle b/buildSrc/src/main/groovy/gbc.java-common-conventions.gradle",
+        "index e69de29..4245b7e 100644",
+        "--- a/buildSrc/src/main/groovy/gbc.java-common-conventions.gradle",
+        "+++ b/buildSrc/src/main/groovy/gbc.java-common-conventions.gradle",
+        "@@ -0,0 +1,28 @@",
+        "+plugins {",
+        "+    id 'java'",
+        "+}",
+        "+",
+        "+java {",
+        "+    toolchain {",
+        "+        languageVersion = JavaLanguageVersion.of(17);",
+        "+        vendor = JvmVendorSpec.ORACLE",
+        "+    }",
+        "+}",
+        "+",
+        "+repositories {",
+        "+    mavenCentral()",
+        "+}",
+        "+",
+        "+dependencies {",
+        "+    constraints {",
+        "+        implementation 'com.google.guava:guava:31.0.1-jre'",
+        "+    }",
+        "+}",
+        "+",
+        "+testing {",
+        "+    suites {",
+        "+        test {",
+        "+            useJUnitJupiter('5.8.2')",
+        "+        }",
+        "+    }",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "b53f382c-4df6-4544-b4cb-4904748446f5",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "touch 'buildSrc/src/main/groovy/gbc.java-application-conventions.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "400dd481-d238-4e4b-b203-90e130b2bf5c",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/buildSrc/src/main/groovy/gbc.java-application-conventions.gradle b/buildSrc/src/main/groovy/gbc.java-application-conventions.gradle",
+        "index e69de29..8027559 100644",
+        "--- a/buildSrc/src/main/groovy/gbc.java-application-conventions.gradle",
+        "+++ b/buildSrc/src/main/groovy/gbc.java-application-conventions.gradle",
+        "@@ -0,0 +1,5 @@",
+        "+plugins {",
+        "+    id 'application'",
+        "+    id 'gbc.java-common-conventions'",
+        "+    id 'com.github.johnrengelman.shadow'",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "fd31ff58-db11-44d7-86b6-e90b4527ad26",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/app/build.gradle b/app/build.gradle",
+        "index e74a7fd..7d19e77 100644",
+        "--- a/app/build.gradle",
+        "+++ b/app/build.gradle",
+        "@@ -1,31 +1,11 @@",
+        " plugins {",
+        "-    id 'application'",
+        "-    id 'com.github.johnrengelman.shadow' version '7.1.2'",
+        "+    id 'gbc.java-application-conventions'",
+        " }",
+        " ",
+        " application {",
+        "     mainClass = 'gbc.app.Main'",
+        " }",
+        " ",
+        "-java {",
+        "-    toolchain {",
+        "-        languageVersion = JavaLanguageVersion.of(17);",
+        "-        vendor = JvmVendorSpec.ORACLE",
+        "-    }",
+        "-}",
+        "-",
+        "-repositories {",
+        "-    mavenCentral()",
+        "-}",
+        "-",
+        " dependencies {",
+        "     implementation project(':domain')",
+        " }",
+        "-",
+        "-testing {",
+        "-    suites {",
+        "-        test {",
+        "-            useJUnitJupiter('5.8.2')",
+        "-        }",
+        "-    }",
+        "-}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "b0b2eab2-5ec8-49c1-ab1c-c135c148e8f5",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew build"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "expectedExitValue": 1,
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "4dea8df0-25bc-460e-b918-cb8ae15a3c53",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "FAILURE: Build failed with an exception.",
+        "",
+        "* Where:",
+        "Build file '/opt/workspace/multi-project-application/app/build.gradle' line: 2",
+        "",
+        "* What went wrong:",
+        "An exception occurred applying plugin request [id: 'gbc.java-application-conventions']",
+        "> Failed to apply plugin 'gbc.java-application-conventions'.",
+        "   > org.gradle.api.plugins.UnknownPluginException: Plugin with id 'com.github.johnrengelman.shadow' not found.",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "ff2de26c-89e5-4c8f-af48-6b2020444719",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/buildSrc/build.gradle b/buildSrc/build.gradle",
+        "index 6784052..bb72493 100644",
+        "--- a/buildSrc/build.gradle",
+        "+++ b/buildSrc/build.gradle",
+        "@@ -1,3 +1,11 @@",
+        " plugins {",
+        "     id 'groovy-gradle-plugin'",
+        " }",
+        "+",
+        "+repositories {",
+        "+    gradlePluginPortal()",
+        "+}",
+        "+",
+        "+dependencies {",
+        "+    implementation 'com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin:7.1.2'",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "73c94641-3fae-450e-b0b5-bfca946c4f53",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew build"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 60.000000000
+    },
+    {
+      "type": "command",
+      "id": "29c342e8-1d7a-48ce-88a0-a2032d401945",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "touch 'buildSrc/src/main/groovy/gbc.java-library-conventions.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "d0325251-5cf7-43b3-a397-78a70eee3a32",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/buildSrc/src/main/groovy/gbc.java-library-conventions.gradle b/buildSrc/src/main/groovy/gbc.java-library-conventions.gradle",
+        "index e69de29..20f2f4c 100644",
+        "--- a/buildSrc/src/main/groovy/gbc.java-library-conventions.gradle",
+        "+++ b/buildSrc/src/main/groovy/gbc.java-library-conventions.gradle",
+        "@@ -0,0 +1,4 @@",
+        "+plugins {",
+        "+    id 'java-library'",
+        "+    id 'gbc.java-common-conventions'",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "b3f8d593-827d-4e0a-8a0e-bce619b432ca",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/domain/build.gradle b/domain/build.gradle",
+        "index 1eb93f3..d3b821e 100644",
+        "--- a/domain/build.gradle",
+        "+++ b/domain/build.gradle",
+        "@@ -1,26 +1,7 @@",
+        " plugins {",
+        "-    id 'java-library'",
+        "+    id 'gbc.java-library-conventions'",
+        " }",
+        "-",
+        "-java {",
+        "-    toolchain {",
+        "-        languageVersion = JavaLanguageVersion.of(17);",
+        "-        vendor = JvmVendorSpec.ORACLE",
+        "-    }",
+        "-}",
+        "-",
+        "-repositories {",
+        "-    mavenCentral()",
+        "-}",
+        " ",
+        " dependencies {",
+        "-    api 'com.google.guava:guava:31.0.1-jre'",
+        "+    api 'com.google.guava:guava'",
+        " }",
+        "-",
+        "-testing {",
+        "-    suites {",
+        "-        test {",
+        "-            useJUnitJupiter('5.8.2')",
+        "-        }",
+        "-    }",
+        "-}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "a95ee5d0-6b68-4485-ab34-a27dbf271418",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew build"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "command",
+      "id": "5ca7a09e-a50a-4959-bd18-6c39d5660348",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Move the duplicate configuration to buildSrc'"
       ],
       "variables": [],
       "environmentVariables": [],
