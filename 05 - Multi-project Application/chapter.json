@@ -117,6 +117,17 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "command",
+      "id": "2eb961d6-f3ac-4702-9253-b708c221a5fa",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "./gradlew --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "8f7e9439-cdb2-47ba-8840-cbbb57c8579c",
       "workingDirectory": "multi-project-application-manual",
@@ -231,6 +242,17 @@
       "id": "5f2f881c-d67f-4b44-bd7f-48f52229cc7e",
       "parameters": [
         "The domain sub-project"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "6526c284-5fec-4206-8386-483df26e48b4",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "git tag --annotate 'v1.0.0' --message 'The domain sub-project'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -369,10 +391,10 @@
       "workingDirectory": "multi-project-application-manual",
       "parameters": [
         "diff --git a/domain/build.gradle b/domain/build.gradle",
-        "index 04cb686..4d925ad 100644",
+        "index 04cb686..442b3db 100644",
         "--- a/domain/build.gradle",
         "+++ b/domain/build.gradle",
-        "@@ -8,3 +8,16 @@ java {",
+        "@@ -8,3 +8,19 @@ java {",
         "         vendor = JvmVendorSpec.ORACLE",
         "     }",
         " }",
@@ -383,11 +405,14 @@
         "+",
         "+dependencies {",
         "+    implementation 'com.google.guava:guava:31.0.1-jre'",
-        "+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'",
         "+}",
         "+",
-        "+tasks.withType(Test).configureEach {",
-        "+    useJUnitPlatform()",
+        "+testing {",
+        "+    suites {",
+        "+        test {",
+        "+            useJUnitJupiter('5.8.2')",
+        "+        }",
+        "+    }",
         "+}",
         ""
       ],
@@ -436,13 +461,14 @@
       "workingDirectory": "multi-project-application-manual",
       "parameters": [
         "diff --git a/domain/src/test/java/gbc/domain/CartTest.java b/domain/src/test/java/gbc/domain/CartTest.java",
-        "index e69de29..597efce 100644",
+        "index e69de29..8c8a6d7 100644",
         "--- a/domain/src/test/java/gbc/domain/CartTest.java",
         "+++ b/domain/src/test/java/gbc/domain/CartTest.java",
-        "@@ -0,0 +1,29 @@",
+        "@@ -0,0 +1,42 @@",
         "+package gbc.domain;",
         "+",
         "+import org.junit.jupiter.api.Test;",
+        "+import org.junit.jupiter.api.function.Executable;",
         "+import org.junit.jupiter.params.ParameterizedTest;",
         "+import org.junit.jupiter.params.provider.ValueSource;",
         "+",
@@ -456,17 +482,29 @@
         "+    @ParameterizedTest",
         "+    @ValueSource(strings = {\"\", \"a\", \"too long to be a valid item\"})",
         "+    void failWhenGivenInvalidInput(final String invalidInput) {",
+        "+        /* Given */",
         "+        final Cart cart = new Cart();",
-        "+        assertThrows(IllegalArgumentException.class, () -> cart.add(invalidInput));",
+        "+",
+        "+        /* When */",
+        "+        final Executable executable = () -> cart.add(invalidInput);",
+        "+",
+        "+        /* Then */",
+        "+        assertThrows(IllegalArgumentException.class, executable);",
         "+    }",
         "+",
         "+    @Test",
         "+    void createACartAndItems() {",
+        "+        /* Given */",
         "+        final Cart cart = new Cart();",
         "+        cart.add(\"Tomatoes\");",
         "+        cart.add(\"Carrots\");",
         "+",
-        "+        assertEquals(List.of(\"Tomatoes\", \"Carrots\"), cart.items());",
+        "+        /* When */",
+        "+        final List<String> items = cart.items();",
+        "+",
+        "+        /* Then */",
+        "+        final List<String> expected = List.of(\"Tomatoes\", \"Carrots\");",
+        "+        assertEquals(expected, items);",
         "+    }",
         "+}",
         ""
@@ -520,7 +558,7 @@
         "+",
         "+    public void add(final String item) {",
         "+        checkNotNull(item);",
-        "+        checkArgument(item.matches(\"[\\\\w ]{3,12}\"));",
+        "+        checkArgument(item.matches(\"[\\\\w ]{3,24}\"));",
         "+",
         "+        this.items.add(item);",
         "+    }",
@@ -678,10 +716,33 @@
       "values": {}
     },
     {
+      "type": "command",
+      "id": "40572e7e-d8b7-455c-ab7b-5db771fbd327",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Create the domain sub-project'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "subsection",
       "id": "f98cac37-23e7-4414-98c4-cd7b013a3726",
       "parameters": [
         "The app sub-project"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "3e74a280-8397-4e93-98fa-3a7973007a59",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "git tag --annotate 'v2.0.0' --message 'The app sub-project'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -735,10 +796,10 @@
       "workingDirectory": "multi-project-application-manual",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
-        "index e69de29..01da870 100644",
+        "index e69de29..9f4232f 100644",
         "--- a/app/build.gradle",
         "+++ b/app/build.gradle",
-        "@@ -0,0 +1,10 @@",
+        "@@ -0,0 +1,14 @@",
         "+plugins {",
         "+    id 'application'",
         "+}",
@@ -748,6 +809,10 @@
         "+        languageVersion = JavaLanguageVersion.of(17);",
         "+        vendor = JvmVendorSpec.ORACLE",
         "+    }",
+        "+}",
+        "+",
+        "+repositories {",
+        "+    mavenCentral()",
         "+}",
         ""
       ],
@@ -761,16 +826,43 @@
       "workingDirectory": "multi-project-application-manual",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
-        "index 01da870..1c5ee7b 100644",
+        "index 9f4232f..0f18655 100644",
         "--- a/app/build.gradle",
         "+++ b/app/build.gradle",
-        "@@ -8,3 +8,7 @@ java {",
-        "         vendor = JvmVendorSpec.ORACLE",
-        "     }",
+        "@@ -12,3 +12,7 @@ java {",
+        " repositories {",
+        "     mavenCentral()",
         " }",
         "+",
         "+dependencies {",
         "+    implementation project(':domain')",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "db030367-0b8f-4d1e-a8a9-1c8fc0efb0b0",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "diff --git a/app/build.gradle b/app/build.gradle",
+        "index 0f18655..bbbc317 100644",
+        "--- a/app/build.gradle",
+        "+++ b/app/build.gradle",
+        "@@ -16,3 +16,11 @@ repositories {",
+        " dependencies {",
+        "     implementation project(':domain')",
+        " }",
+        "+",
+        "+testing {",
+        "+    suites {",
+        "+        test {",
+        "+            useJUnitJupiter('5.8.2')",
+        "+        }",
+        "+    }",
         "+}",
         ""
       ],
@@ -787,6 +879,87 @@
         "mkdir -p 'app/src/main/resources'",
         "mkdir -p 'app/src/test/java'",
         "mkdir -p 'app/src/test/resources'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "58ca9f5d-938d-4109-a1ff-9945fec716a3",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "mkdir -p 'app/src/test/java/gbc/app'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "e1480675-d0fd-4ee3-9ee4-50dd6920c9f8",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "touch 'app/src/test/java/gbc/app/MainTest.java'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "96d5c2f8-138d-4c55-9ade-24349b480604",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "diff --git a/app/src/test/java/gbc/app/MainTest.java b/app/src/test/java/gbc/app/MainTest.java",
+        "index e69de29..6494a9d 100644",
+        "--- a/app/src/test/java/gbc/app/MainTest.java",
+        "+++ b/app/src/test/java/gbc/app/MainTest.java",
+        "@@ -0,0 +1,43 @@",
+        "+package gbc.app;",
+        "+",
+        "+import org.junit.jupiter.api.Test;",
+        "+",
+        "+import java.io.ByteArrayOutputStream;",
+        "+import java.io.PrintStream;",
+        "+import java.nio.charset.StandardCharsets;",
+        "+",
+        "+import static org.junit.jupiter.api.Assertions.assertEquals;",
+        "+import static org.junit.jupiter.api.Assertions.assertNotNull;",
+        "+",
+        "+class MainTest {",
+        "+    @Test",
+        "+    void runTheApplication() {",
+        "+        /* Given */",
+        "+        final String[] args = {\"Tomatoes\", \"Carrots\"};",
+        "+",
+        "+        /* When */",
+        "+        final String output = runAndCaptureStandardOut(() -> Main.main(args));",
+        "+",
+        "+        /* Then */",
+        "+        final String expected = \"\"\"",
+        "+                Need to buy",
+        "+                  > Tomatoes",
+        "+                  > Carrots",
+        "+                \"\"\";",
+        "+        assertEquals(expected, output);",
+        "+    }",
+        "+",
+        "+    private static String runAndCaptureStandardOut(final Runnable task) {",
+        "+        assertNotNull(task);",
+        "+",
+        "+        final PrintStream original = System.out;",
+        "+        final ByteArrayOutputStream buffer = new ByteArrayOutputStream();",
+        "+        try (PrintStream bufferedOut = new PrintStream(buffer)) {",
+        "+            System.setOut(bufferedOut);",
+        "+            task.run();",
+        "+        } finally {",
+        "+            System.setOut(original);",
+        "+        }",
+        "+        return buffer.toString(StandardCharsets.UTF_8);",
+        "+    }",
+        "+}",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -820,19 +993,20 @@
       "workingDirectory": "multi-project-application-manual",
       "parameters": [
         "diff --git a/app/src/main/java/gbc/app/Main.java b/app/src/main/java/gbc/app/Main.java",
-        "index e69de29..f31c199 100644",
+        "index e69de29..f305de4 100644",
         "--- a/app/src/main/java/gbc/app/Main.java",
         "+++ b/app/src/main/java/gbc/app/Main.java",
-        "@@ -0,0 +1,14 @@",
+        "@@ -0,0 +1,15 @@",
         "+package gbc.app;",
         "+",
         "+import gbc.domain.Cart;",
         "+",
+        "+import java.util.Arrays;",
+        "+",
         "+public class Main {",
         "+    public static void main(final String[] args) {",
         "+        final Cart cart = new Cart();",
-        "+        cart.add(\"Tomatoes\");",
-        "+        cart.add(\"Carrots\");",
+        "+        Arrays.stream(args).forEach(cart::add);",
         "+",
         "+        System.out.println(\"Need to buy\");",
         "+        cart.items().forEach(item -> System.out.printf(\"  > %s%n\", item));",
@@ -845,25 +1019,36 @@
       "values": {}
     },
     {
+      "type": "command",
+      "id": "4dad3a78-ee41-4390-bccb-7b1f8153bb95",
+      "workingDirectory": "multi-project-application-manual",
+      "parameters": [
+        "./gradlew test"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "eb1ab2ca-50ab-4f81-a050-44c4661f3836",
       "workingDirectory": "multi-project-application-manual",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
-        "index 1c5ee7b..500eb5e 100644",
+        "index bbbc317..a1fb4bb 100644",
         "--- a/app/build.gradle",
         "+++ b/app/build.gradle",
-        "@@ -9,6 +9,10 @@ java {",
-        "     }",
+        "@@ -2,6 +2,10 @@ plugins {",
+        "     id 'application'",
         " }",
         " ",
         "+application {",
         "+    mainClass = 'gbc.app.Main'",
         "+}",
         "+",
-        " dependencies {",
-        "     implementation project(':domain')",
-        " }",
+        " java {",
+        "     toolchain {",
+        "         languageVersion = JavaLanguageVersion.of(17);",
         ""
       ],
       "variables": [],
@@ -875,12 +1060,12 @@
       "id": "15b27493-3efc-4806-847d-cdf87a4d2c84",
       "workingDirectory": "multi-project-application-manual",
       "parameters": [
-        "./gradlew run"
+        "./gradlew run --args=\"Tomatoes Carrots Oranges\""
       ],
       "variables": [],
       "environmentVariables": [],
       "values": {},
-      "expectedExitValue": 1
+      "expectedExitValue": 0
     },
     {
       "type": "markdown",
@@ -889,69 +1074,12 @@
       "parameters": [
         "",
         "```",
-        "* What went wrong:",
-        "Execution failed for task ':app:run'.",
-        "> Could not resolve all files for configuration ':app:runtimeClasspath'.",
-        "   > Cannot resolve external dependency com.google.guava:guava:31.0.1-jre because no repositories are defined.",
-        "     Required by:",
-        "         project :app > project :domain",
-        "```"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "git-apply-patch",
-      "id": "b240256d-0193-4545-aa76-8a806dfd7159",
-      "workingDirectory": "multi-project-application-manual",
-      "parameters": [
-        "diff --git a/app/build.gradle b/app/build.gradle",
-        "index 500eb5e..6d6013a 100644",
-        "--- a/app/build.gradle",
-        "+++ b/app/build.gradle",
-        "@@ -13,6 +13,10 @@ application {",
-        "     mainClass = 'gbc.app.Main'",
-        " }",
-        " ",
-        "+repositories {",
-        "+    mavenCentral()",
-        "+}",
-        "+",
-        " dependencies {",
-        "     implementation project(':domain')",
-        " }",
-        ""
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "f8762d11-4015-490b-82fa-207da57f5702",
-      "workingDirectory": "multi-project-application-manual",
-      "parameters": [
-        "./gradlew run"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "markdown",
-      "id": "ac225e51-ff16-4749-9a3f-af5c36ca1225",
-      "workingDirectory": "multi-project-application-manual",
-      "parameters": [
-        "",
-        "",
-        "```",
         "> Task :app:run",
         "Need to buy",
         "  > Tomatoes",
         "  > Carrots",
-        "```",
-        ""
+        "  > Oranges",
+        "```"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -972,7 +1100,7 @@
         "+    id 'com.github.johnrengelman.shadow' version '7.1.2'",
         " }",
         " ",
-        " java {",
+        " application {",
         ""
       ],
       "variables": [],
@@ -1050,7 +1178,7 @@
       "id": "db3952c1-de6e-4a4f-b1f9-c48611972bbf",
       "workingDirectory": "multi-project-application-manual",
       "parameters": [
-        "java -jar app/build/libs/app-all.jar"
+        "java -jar app/build/libs/app-all.jar 'Frozen Yoghurt' 'White Sauce'"
       ],
       "variables": [],
       "environmentVariables": [],
