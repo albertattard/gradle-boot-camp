@@ -1,0 +1,14 @@
+{
+  "entries": [
+    {
+      "type": "chapter",
+      "id": "c3a5385a-c89e-4c52-8279-61b8a62b3aca",
+      "parameters": [
+        "Custom Gradle Task"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    }
+  ]
+}

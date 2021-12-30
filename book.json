@@ -26,6 +26,11 @@
       "title": "Multi-project Application",
       "description": "A Gradle multi-project example",
       "path": "05 - Multi-project Application/chapter.json"
+    },
+    {
+      "title": "Custom Gradle Task",
+      "description": "A simple Gradle task example",
+      "path": "06 - Custom Gradle Task/chapter.json"
     }
   ]
 }
