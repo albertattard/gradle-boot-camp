@@ -857,7 +857,8 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {}
+      "values": {},
+      "commandTimeout": 50.000000000
     },
     {
       "type": "markdown",
@@ -1547,7 +1548,7 @@
       "id": "29f6299d-8aa1-4386-97cd-40477d289343",
       "workingDirectory": "custom-gradle-task",
       "parameters": [
-        "Check why the next command takes almost 5 minutes."
+        "Check why the next command takes around 5 minutes."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1772,7 +1773,8 @@
       "variables": [],
       "environmentVariables": [],
       "values": {},
-      "expectedExitValue": 1
+      "expectedExitValue": 1,
+      "commandTimeout": 30.000000000
     },
     {
       "type": "markdown",

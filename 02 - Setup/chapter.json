@@ -11,10 +11,41 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "64cd6430-99b5-49b0-a7c1-c8861e805feb",
+      "parameters": [
+        "This book camp requires some software, such as Java and Gradle, to be installed. Follow these steps and make sure that",
+        "all the prerequisites are met before moving on.  Note that these commands are idempotent."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "fbbe6496-e197-4734-8524-0e9b36fff432",
       "parameters": [
         "Install SDKMAN"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "11c1ab27-0fb4-4fd9-a850-3ccc70d5a11e",
+      "parameters": [
+        "We need to install Gradle and there are many ways we can do that, as described [here](https://gradle.org/install/).",
+        "Gradle requires at least Java 8 to be installed. Please note that not all versions of Java are compatible with all",
+        "versions of Gradle. Please refer to",
+        "the [compatibility matrix](https://docs.gradle.org/current/userguide/compatibility.html) for more information about",
+        "this.",
+        "",
+        "I use [SDKMAN](https://sdkman.io/) to install Java and Gradle, as it supports multiple versions. I can have different",
+        "versions of Java and Gradle installed and then switch to which version I need. SDKMAN",
+        "requires [zip](https://linux.die.net/man/1/zip) and [curl](https://linux.die.net/man/1/curl) to be installed. Verify",
+        "that these two programs are installed.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -41,6 +72,16 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "b5f5ae4e-bf01-4dac-97a7-e972280ae060",
+      "parameters": [
+        "Install SDKMAN"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "2b7841fb-707b-4c3b-9fb7-1a61e6b31839",
       "parameters": [
@@ -51,10 +92,32 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "7ce9fc94-0ee3-4b24-8fbe-2e415c93e53c",
+      "parameters": [
+        "As indicated at the end of the installation, you need to source the `sdkman-init.sh` file so that it updates your",
+        "environment as required. You only need to do this once if you like to keep working on the same terminal. If you open a",
+        "new terminal, this will be done automatically as your provide scripts are updated."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "421471da-6314-4e21-9a17-af44cfae6055",
       "parameters": [
         "source \"$HOME/.sdkman/bin/sdkman-init.sh\""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "981d7400-60e8-43a7-9811-d213fed17ae3",
+      "parameters": [
+        "Verify that SDKMAN is properly installed and accessible from the command line."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -79,6 +142,10 @@
       "variables": [],
       "environmentVariables": [],
       "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "3346c01b-9bf0-4c80-af05-ba491182e7c8"
     },
     {
       "type": "command",
