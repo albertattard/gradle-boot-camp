@@ -216,7 +216,7 @@
       "id": "8dd8ce31-6e79-423e-83bc-a9706ad71af4",
       "workingDirectory": "custom-gradle-task",
       "parameters": [
-        "hello ad-hoc task"
+        "Create ad-hoc task"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -227,7 +227,7 @@
       "id": "6c530518-d26b-4e9b-a60e-38c1ce58644a",
       "workingDirectory": "custom-gradle-task",
       "parameters": [
-        "git tag --annotate 'v1' --message 'hello ad-hoc task'"
+        "git tag --annotate 'v1' --message 'Create ad-hoc task'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -327,7 +327,7 @@
       "id": "79003875-deda-49a4-b7cf-d022acd569de",
       "workingDirectory": "custom-gradle-task",
       "parameters": [
-        "generateFixtures ad-hoc Copy task"
+        "Create ad-hoc Copy task"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -338,7 +338,7 @@
       "id": "10048d8b-e9e4-47af-8dcf-0e5a8aa3970b",
       "workingDirectory": "custom-gradle-task",
       "parameters": [
-        "git tag --annotate 'v2' --message 'generateFixtures ad-hoc Copy task'"
+        "git tag --annotate 'v2' --message 'Create ad-hoc Copy task'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -529,18 +529,6 @@
       "values": {}
     },
     {
-      "type": "command",
-      "id": "88e424a5-3b5a-4a9f-a2bd-3f97272aa07b",
-      "workingDirectory": "custom-gradle-task",
-      "parameters": [
-        "git add .",
-        "git commit --message 'Add generateFixtures ad-hoc Copy task'"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
       "type": "markdown",
       "id": "35339c83-7835-4e68-bb6b-ac89baaa44d8",
       "workingDirectory": "custom-gradle-task",
@@ -549,6 +537,18 @@
         "```",
         "On behalf of Gradle Boot Camp, we would like to wish you happy holidays!!",
         "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "88e424a5-3b5a-4a9f-a2bd-3f97272aa07b",
+      "workingDirectory": "custom-gradle-task",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Add generateFixtures ad-hoc Copy task'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2549,6 +2549,17 @@
         "         final File file = getFile().get();",
         "         final String algorithm = getAlgorithm().get();",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "subsection",
+      "id": "0cc8adf9-8ba3-4c0f-9eb4-54d2875e08bc",
+      "workingDirectory": "custom-gradle-task",
+      "parameters": [
+        "Optional properties"
       ],
       "variables": [],
       "environmentVariables": [],
