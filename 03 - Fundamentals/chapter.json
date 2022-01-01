@@ -21,6 +21,18 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "b424d68f-5e6b-4b9b-931b-260d7d960086",
+      "parameters": [
+        "Let's start by deleting the directory that we will be working on `gradle-fundamentals-manual`. This makes sure that",
+        "there is no residue and that we are working in a clean slate.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "d052c749-3dc7-464f-b01a-204d5cf59366",
       "parameters": [
@@ -31,10 +43,36 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "9f623d54-cf1f-4756-b15d-b84ce6380c5f",
+      "parameters": [
+        "Create the directory again.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "cc11bbfd-07f9-485f-9a8e-5ab5c455dffe",
       "parameters": [
         "mkdir 'gradle-fundamentals-manual'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8eeaa445-4768-4ed1-bddb-09935b34fc12",
+      "parameters": [
+        "Gradle helps the programmer through [tasks](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html). For",
+        "example, if we need to compile our code we will use",
+        "the [_compileJava_](https://docs.gradle.org/current/userguide/java_plugin.html) task.",
+        "",
+        "Let's try to list all tasks that are available to us, first.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -54,11 +92,49 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "markdown",
+      "id": "002570eb-97ec-44d9-8c65-44175230bb49",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The task fails.",
+        "",
+        "```",
+        "BUILD FAILED in 1s",
+        "```",
+        "",
+        "If you read the message, Gradle provides a hint to why this has failed.",
+        "",
+        "```",
+        "A Gradle build should contain a 'settings.gradle' or 'settings.gradle.kts' file in its root directory. It may also contain a 'build.gradle' or 'build.gradle.kts' file.",
+        "```",
+        "",
+        "A Gradle project requires at least the `settings.gradle` file. But before we start with Gradle, let's add version",
+        "control so that we can keep track of our changes.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "3b0f556b-24f2-4c45-af29-5974c405c2a6",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git init --initial-branch=main"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "16820954-dfa2-4e92-b07f-197788fd129e",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Set Git's user (_developer_) name, using the providing variable. Press enter after entering your name and the rest will",
+        "update automatically. ",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -90,6 +166,20 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "42fca908-3d18-4309-91f5-7ebe952daad3",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Set Git's user (_developer_) email, using the providing variable. Press enter after entering your name and the rest will",
+        "update automatically. The email is more important than the name as Git uses this to identify you in the event you push",
+        "these to a remote repository.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "variable",
       "id": "8ceb8eba-c74c-42c5-8cc2-ef7c62fc4ca3",
       "name": "DEVELOPER_EMAIL",
@@ -115,11 +205,100 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "4b21f350-1e0c-4b29-86fe-f7815c5e665d",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's turn our attention back to Gradle now and create the `settings.gradle` file.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "a0d3c5e9-297c-4e7c-a1ba-a35b527ec8f8",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "touch 'settings.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "238f77aa-8a21-4bad-aef8-31c5aebefe44",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The file `settings.gradle`, is empty, and that's all good for now. Let's try to list all tasks again.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "2af273a4-3b75-47bb-b5e4-1f7f6bc84b25",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle tasks"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "1745e755-e614-487f-83b3-6d1fe534be46",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "This time, it worked. Gradle listed all available tasks, as shown next.",
+        "",
+        "```",
+        "------------------------------------------------------------",
+        "Tasks runnable from root project 'gradle-fundamentals-manual'",
+        "------------------------------------------------------------",
+        "",
+        "Build Setup tasks",
+        "-----------------",
+        "init - Initializes a new Gradle build.",
+        "wrapper - Generates Gradle wrapper files.",
+        "",
+        "Help tasks",
+        "----------",
+        "buildEnvironment - Displays all buildscript dependencies declared in root project 'gradle-fundamentals-manual'.",
+        "dependencies - Displays all dependencies declared in root project 'gradle-fundamentals-manual'.",
+        "dependencyInsight - Displays the insight into a specific dependency in root project 'gradle-fundamentals-manual'.",
+        "help - Displays a help message.",
+        "javaToolchains - Displays the detected java toolchains.",
+        "outgoingVariants - Displays the outgoing variants of root project 'gradle-fundamentals-manual'.",
+        "projects - Displays the sub-projects of root project 'gradle-fundamentals-manual'.",
+        "properties - Displays the properties of root project 'gradle-fundamentals-manual'.",
+        "tasks - Displays the tasks runnable from root project 'gradle-fundamentals-manual'.",
+        "```",
+        "",
+        "Gradle comes with some tasks, as you can see. Do not worry much about these yet. We will go through the most common",
+        "tasks later on.",
+        "",
+        "Notice that Gradle is using the directory's name as the project name.",
+        "",
+        "```",
+        "Tasks runnable from root project 'gradle-fundamentals-manual'",
+        "```",
+        "",
+        "While this is good, it is better to configure the project's name as this makes the project independent of the",
+        "directories name.",
+        "",
+        "**Why is that important?** When you clone a repository, you can pick the directory you like. Other programmers may us a",
+        "different directory name than you have. Some tasks use the project name as their default value. For example when you",
+        "create a [Jar file](https://docs.oracle.com/en/java/javase/17/docs/specs/jar/jar.html), unless otherwise specified, the",
+        "Jar file will have the name of the project. This may break other things that rely on the Jar file to have a specific",
+        "name. ",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -143,16 +322,16 @@
       "values": {}
     },
     {
-      "type": "command",
-      "id": "7f5ac02e-3506-432d-9c11-2fd086d6ef78",
+      "type": "markdown",
+      "id": "6fc1a9c9-14ee-4ed0-98ba-5477f26a5a07",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "gradle tasks"
+        "If we list the files and the directories under our directory, we will see a `.gradle` directly.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
-      "commandTimeout": 30.000000000
+      "values": {}
     },
     {
       "type": "command",
@@ -160,6 +339,43 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "ls -la"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "efd34765-b4aa-4b15-8335-267b1aee6641",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Gradle uses the `.gradle` directory under the project's root directory as project specific cache directory. More",
+        "information about the Gradle project structure can be",
+        "found [here](https://docs.gradle.org/current/userguide/directory_layout.html#dir:project_root).",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "a411a48c-f50d-45c7-b56f-8ed31c15bab3",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "tree '.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8362222f-c5cf-4ce5-9a30-f5cbaee3f84c",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "This directory should not go into the version control (Git) and we should ignore it.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -194,11 +410,35 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "63744021-d1c4-418c-a9ba-fa6c2f150870",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's list the files and directories that are under version control.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "1e8c087b-846a-4aa9-9b88-32181f04894c",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git status"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "db0e7962-bee6-4928-b38f-7f177fed2359",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "We are now all set and can add both the `.gitignore` and the `settings.gradle` files and commit them.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],

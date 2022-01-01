@@ -15,7 +15,7 @@
       "id": "64cd6430-99b5-49b0-a7c1-c8861e805feb",
       "parameters": [
         "This book camp requires some software, such as Java and Gradle, to be installed. Follow these steps and make sure that",
-        "all the prerequisites are met before moving on.  Note that these commands are idempotent."
+        "all the prerequisites are met before moving on. Note that these commands are idempotent."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -73,9 +73,11 @@
     },
     {
       "type": "markdown",
-      "id": "b5f5ae4e-bf01-4dac-97a7-e972280ae060",
+      "id": "913c24c8-2cab-420d-b93b-470680c675a1",
       "parameters": [
-        "Install SDKMAN"
+        "Install zip and curl before proceeding, if these are not installed.",
+        "",
+        "Install SDKMAN."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -85,7 +87,7 @@
       "type": "command",
       "id": "2b7841fb-707b-4c3b-9fb7-1a61e6b31839",
       "parameters": [
-        "curl -s \"https://get.sdkman.io\" | bash"
+        "curl -s 'https://get.sdkman.io' | bash"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -97,7 +99,11 @@
       "parameters": [
         "As indicated at the end of the installation, you need to source the `sdkman-init.sh` file so that it updates your",
         "environment as required. You only need to do this once if you like to keep working on the same terminal. If you open a",
-        "new terminal, this will be done automatically as your provide scripts are updated."
+        "new terminal, this will be done automatically as your provide scripts are updated.",
+        "",
+        "Please note that the path is wrapped between `\"` (double-quotes) as it needs to evaluate the `${HOME}` environment",
+        "variable.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -134,6 +140,20 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "43ab2d0e-89eb-4f5c-9afd-365d14966dcc",
+      "parameters": [
+        "The current version should be printed.",
+        "",
+        "```",
+        "SDKMAN 5.13.1",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "51491cfb-3465-410b-853c-667790868c64",
       "parameters": [
@@ -145,13 +165,38 @@
     },
     {
       "type": "markdown",
-      "id": "3346c01b-9bf0-4c80-af05-ba491182e7c8"
+      "id": "3346c01b-9bf0-4c80-af05-ba491182e7c8",
+      "parameters": [
+        "Install Java using SDKMAN. Start by listing all versions of Java that are available to be installed. Note that different",
+        "companies, referred to as _vendors_, provided their own Java, which is compatible to any other version of Java. For",
+        "example, [Oracle provides Java 17](https://www.oracle.com/news/announcement/oracle-releases-java-17-2021-09-14/) and so",
+        "does [Amazon](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html). In other words, programs",
+        "written in Java 17 should work fine with any vendor's Java. ",
+        "",
+        "We will install the one provided by Oracle, which",
+        "is [free to use in production](https://blogs.oracle.com/java/post/free-java-license) under",
+        "the [Oracle No-Fee Terms and Conditions (NFTC)](https://www.oracle.com/downloads/licenses/no-fee-license.html) license.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "command",
       "id": "78f5b83e-adc6-48e0-8613-6ddc0c15886a",
       "parameters": [
         "sdk list java"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "1c66fcff-4c83-421a-bbaa-3a6f9713f4d3",
+      "parameters": [
+        "Install the latest version of Java by Oracle, `17.0.1-oracle`."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -169,10 +214,31 @@
       "commandTimeout": 60.000000000
     },
     {
+      "type": "markdown",
+      "id": "260b2498-7f4c-4abf-adb5-6bbfd772f222",
+      "parameters": [
+        "Verify that Java is properly installed."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "279f77d1-ac78-4960-a90b-abeb5e16f59a",
       "parameters": [
-        "java -version"
+        "java --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8059f54b-1a34-4559-960a-0990f1d91e87",
+      "parameters": [
+        "SDKMAN will also set up the `JAVA_HOME` environment variable.  Verify that this is properly set.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -199,10 +265,34 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "93bcf921-7ddb-43c4-ad30-9f7ae49c7761",
+      "parameters": [
+        "Install the latest version of Gradle using a similar approach we used to install Java. A list of available Gradle",
+        "releases can be found [here](https://gradle.org/releases/). Start by listing the available versions of Gradle. Different",
+        "from Java, there is only one distribution of Gradle and we only need to pick the version.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "da56f2a4-e420-4c36-acfe-cc56ffcb8363",
       "parameters": [
         "sdk list gradle"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "c44531da-1218-4f28-93dc-339ae69a61a6",
+      "parameters": [
+        "Install the latest version of Gradle, `7.3.3`.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -220,6 +310,17 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "markdown",
+      "id": "1b8312c5-b9ee-4f9c-afd7-0fca634a91c2",
+      "parameters": [
+        "Verify that Gradle was properly installed.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "af85d50e-4974-4a96-b11c-d04ca93cc049",
       "parameters": [
@@ -234,6 +335,17 @@
       "id": "df969192-2104-43a1-b98c-abea8566c9e1",
       "parameters": [
         "Required Commands"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "4f584123-48d8-4606-b7cc-45bb650a3d00",
+      "parameters": [
+        "Two more programs are required to run all examples shown in the boot camp.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
