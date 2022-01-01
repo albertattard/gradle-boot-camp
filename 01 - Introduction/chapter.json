@@ -9,6 +9,30 @@
       "variables": [],
       "environmentVariables": [],
       "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "5ab58491-4c1d-4b40-a0c4-09851b234e31",
+      "parameters": [
+        "Skill requires time to grasp. If this is your first Gradle experience, then don't expect to master it by just reading",
+        "through. Unfortunately, there are no shortcuts, and you will only learn by doing. I am not telling you this to",
+        "discourage you. On the contrary. I am telling you this so that you don't give up.",
+        "",
+        "Remember that we make mistakes, we make some more, and that's how we learn."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
+      "id": "0c28d9d9-f27d-48da-ae20-988f2c9954a2",
+      "parameters": [
+        "Why Gradle?"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     }
   ]
 }
