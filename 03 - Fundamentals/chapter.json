@@ -929,16 +929,16 @@
         "--- a/build.gradle",
         "+++ b/build.gradle",
         "@@ -8,3 +8,12 @@ tasks.register('hello') {",
-        "         println \"The execution build phase (from within the hello task)\"",
+        "         println 'The execution build phase (from within the hello task)'",
         "     }",
         " }",
         "+",
         "+tasks.register('bye') {",
-        "+    println \"The configuration build phase (from within the bye task)\"",
+        "+    println 'The configuration build phase (from within the bye task)'",
         "+    group = 'Greetings'",
         "+    description = 'A simple task that prints a simple message'",
         "+    doLast {",
-        "+        println \"The execution build phase (from within the bye task)\"",
+        "+        println 'The execution build phase (from within the bye task)'",
         "+    }",
         "+}",
         ""
@@ -1012,10 +1012,21 @@
         " ",
         "-tasks.register('bye') {",
         "+task bye() {",
-        "     println \"The configuration build phase (from within the bye task)\"",
+        "     println 'The configuration build phase (from within the bye task)'",
         "     group = 'Greetings'",
         "     description = 'A simple task that prints a simple message'",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "5c0d1686-121c-437e-96ce-0b396b0e62c4",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's run the `hello` tasks again and observe the output."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1036,6 +1047,7 @@
       "type": "markdown",
       "id": "d26d6d82-c88f-4a28-b82a-bb9cf9cb7725",
       "parameters": [
+        "This time, the `println` statement within then `task bye() { }` is executed.",
         "",
         "```",
         "The initialization build phase",
@@ -1047,7 +1059,84 @@
         "",
         "> Task :hello",
         "The execution build phase (from within the hello task)",
-        "```"
+        "```",
+        "",
+        "**Why is this a problem?**  Let say that the `bye` task's configuration is slow as it accesses the filesystem, for",
+        "example. This will also impact the execution of the `hello` task even the `bye` task is not invoked or required. We can",
+        "simulate this by using an artificial delay of 5 seconds (5000 milliseconds) and try it out.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "6e2fb1e6-748d-44ac-b6a2-377fa635c851",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 0c007db..340e285 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -16,4 +16,5 @@ task bye() {",
+        "     doLast {",
+        "         println 'The execution build phase (from within the bye task)'",
+        "     }",
+        "+    sleep 5000",
+        " }",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "d6212c78-203b-4f23-aa2e-5be88d40589a",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Please note that, while you are free to use any delay you like, the following command has a 10 seconds timeout.",
+        "Using a higher artificial delay will cause the command to fail with a timeout.",
+        "",
+        "Now, let's run the `hello` task one more time.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "943bc603-778e-4226-b6d8-62ff1952ab05",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle hello"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 10.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "bbd9ed83-e41e-4a98-a8a0-fb08166e93fd",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "This time Gradle took longer to run the `hello` task.",
+        "",
+        "```",
+        "BUILD SUCCESSFUL in 5s",
+        "```",
+        "",
+        "Previous runs took less than a second to complete",
+        "",
+        "```",
+        "BUILD SUCCESSFUL in 1s",
+        "```",
+        "",
+        "Let's revert our changes and use the `register()` method instead and keep the artificial delay.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1059,7 +1148,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index cd1ae02..f7744fd 100644",
+        "index 9f760c9..8ee38d2 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
         "@@ -9,7 +9,7 @@ tasks.register('hello') {",
@@ -1068,9 +1157,54 @@
         " ",
         "-task bye() {",
         "+tasks.register('bye') {",
-        "     println \"The configuration build phase (from within the bye task)\"",
+        "     println 'The configuration build phase (from within the bye task)'",
         "     group = 'Greetings'",
         "     description = 'A simple task that prints a simple message'",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "99f38e44-06e7-4a41-ac7b-10a1cbc3cd3f",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Now let's run the `hello` Gradle task again. Remember that the `bye` Gradle task still has the artificial delay of 5",
+        "seconds.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "e8869b97-a740-4404-b76b-1e6b8d02141c",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle hello"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "6447a82b-bf2d-49a1-93cd-d281ae624725",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Note that this time, Gradle was not affected by the artificial delay that we introduce to the `bye` Gradle task.",
+        "",
+        "```",
+        "BUILD SUCCESSFUL in 1s",
+        "```",
+        "",
+        "**What happens when we executed the `bye` Gradle task?**  Gradle will evaluate the `bye` task's configuration and will",
+        "have to wait for it to completes. In this case, Gradle has to wait 5 seconds before executing the `bye` task.",
+        "",
+        "Let's clean our examples and delete the unnecessary `println` statements and artificial delay.",
         ""
       ],
       "variables": [],
@@ -1083,40 +1217,64 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index f7744fd..c47822c 100644",
+        "index 8ee38d2..02f948d 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -1,19 +1,15 @@",
-        "-println \"The configuration build phase\"",
+        "@@ -1,20 +1,15 @@",
+        "-println 'The configuration build phase'",
         "-",
         " tasks.register('hello') {",
-        "-    println \"The configuration build phase (from within the hello task)\"",
+        "-    println 'The configuration build phase (from within the hello task)'",
         "     group = 'Greetings'",
         "     description = 'A simple task that prints a simple message'",
         "     doLast {",
-        "-        println \"The execution build phase (from within the hello task)\"",
-        "+        println \"Hello Gradle\"",
+        "-        println 'The execution build phase (from within the hello task)'",
+        "+        println 'Hello Gradle'",
         "     }",
         " }",
         " ",
         " tasks.register('bye') {",
-        "-    println \"The configuration build phase (from within the bye task)\"",
+        "-    println 'The configuration build phase (from within the bye task)'",
         "     group = 'Greetings'",
         "     description = 'A simple task that prints a simple message'",
         "     doLast {",
-        "-        println \"The execution build phase (from within the bye task)\"",
-        "+        println \"See you later, Gradle\"",
+        "-        println 'The execution build phase (from within the bye task)'",
+        "+        println 'See you later, Gradle'",
         "     }",
+        "-    sleep 5000",
         " }",
         "diff --git a/settings.gradle b/settings.gradle",
-        "index 5ece663..3b3f4fe 100644",
+        "index 19ee5f2..2f9c8e7 100644",
         "--- a/settings.gradle",
         "+++ b/settings.gradle",
         "@@ -1,3 +1 @@",
         " rootProject.name = 'gradle-fundamentals-manual'",
         "-",
-        "-println \"The initialization build phase\"",
+        "-println 'The initialization build phase'",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "678ab1bf-4634-4698-b31b-04628ef20f95",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's run both tasks, to make sure that we didn't break anything by mistake.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "c3bc2486-bf03-4763-85e4-cbe2a619c893",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle hello bye"
       ],
       "variables": [],
       "environmentVariables": [],
