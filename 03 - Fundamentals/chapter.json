@@ -293,11 +293,12 @@
         "While this is good, it is better to configure the project's name as this makes the project independent of the",
         "directories name.",
         "",
-        "**Why is that important?** When you clone a repository, you can pick the directory you like. Other programmers may us a",
-        "different directory name than you have. Some tasks use the project name as their default value. For example when you",
-        "create a [Jar file](https://docs.oracle.com/en/java/javase/17/docs/specs/jar/jar.html), unless otherwise specified, the",
-        "Jar file will have the name of the project. This may break other things that rely on the Jar file to have a specific",
-        "name. ",
+        "- **Why is that important?**",
+        "",
+        "  When you clone a repository, you can pick the directory you like. Other programmers may us a different directory name",
+        "  than you have. Some tasks use the project name as their default value. For example when you create",
+        "  a [Jar file](https://docs.oracle.com/en/java/javase/17/docs/specs/jar/jar.html), unless otherwise specified, the Jar",
+        "  file will have the name of the project. This may break other things that rely on the Jar file to have a specific name. ",
         ""
       ],
       "variables": [],
@@ -326,6 +327,20 @@
       "id": "6fc1a9c9-14ee-4ed0-98ba-5477f26a5a07",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
+        "- **Why did we use the `'` (single quote) to wrap the string and not `\"` (double quotes)?**",
+        "",
+        "  Groovy, the programming language we are using, supports both. Anything wrapped between `'` or `\"` is considered as",
+        "  string. Groovy also supports [string interpolation](https://groovy-lang.org/syntax.html#_string_interpolation).",
+        "  Strings within the `'` are treated as raw strings and are not interpolated, while strings within the `\"` are. Consider",
+        "  the following example",
+        "",
+        "  ```",
+        "  def name = 'Albert Attard'",
+        "  println \"Hello ${name}\"",
+        "  ```",
+        "",
+        "  The string `\"Hello ${name}\"` will be interpolated and the message `Hello Albert Attard` will be printed instead.",
+        "",
         "If we list the files and the directories under our directory, we will see a `.gradle` directly.",
         ""
       ],
@@ -538,17 +553,20 @@
         "method, provides a lazy way to create tasks. There are different ways how a Gradle task can be created. This is the",
         "recommended way as the task is only created when needed. This becomes apparent in projects with large build scripts.",
         "",
-        "**Why is lazy initialisation important?** There are times when tasks load their configuration from files, which tend to",
-        "take longer to create as they interact with the IO. If all tasks are initialised, even those that are not required or",
-        "used, then our task needs to unnecessarily wait for all tasks to be initialised, incurring unnecessarily delays.",
+        "- **Why is lazy initialisation important?**",
         "",
-        "**What's the `doLast { }` block?**",
-        "The [`doLast { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doLast%28org.gradle.api.Action%29)",
-        "block contains the execution logic of a given task. In our case, it is printing a simple message. This is one of the",
-        "[hooks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#N18DD1) that Gradle provides and as the name",
-        "indicates, this is invoked as the last thing.",
-        "The [`doFirst {}`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doFirst%28org.gradle.api.Action%29),",
-        "on the other hand, is invoked first as the name indicates.",
+        "  There are times when tasks load their configuration from files, which tend to take longer to create as they interact",
+        "  with the IO. If all tasks are initialised, even those that are not required or used, then our task needs to",
+        "  unnecessarily wait for all tasks to be initialised, incurring unnecessarily delays.",
+        "",
+        "- **What's the `doLast { }` block?**",
+        "",
+        "  The [`doLast { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doLast%28org.gradle.api.Action%29)",
+        "  block contains the execution logic of a given task. In our case, it is printing a simple message. This is one of the",
+        "  [hooks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#N18DD1) that Gradle provides and as the name",
+        "  indicates, this is invoked as the last thing.",
+        "  The [`doFirst { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doFirst%28org.gradle.api.Action%29),",
+        "  on the other hand, is invoked first as the name indicates.",
         "",
         "Let's take our task for a spin.",
         ""
@@ -582,6 +600,13 @@
         "```",
         "",
         "Printing output is not very common and not that much useful, but it's an easy way to start.",
+        "",
+        "- **Can we run more than one task?**",
+        "",
+        "  Yes, we can run many tasks. Furthermore, a Gradle task may depend on another task, in which case both will run even if",
+        "  we invoke only one. For example, as that we have the tasks _a_ and _b_, when _b_ depends on _a_. If we run task _b_,",
+        "  both tasks _a_ and _b_ will be executed. If, on the other hand, we invoke task _a_, then only task _a_ is executed as",
+        "  this does not depend on any other task.",
         "",
         "Gradle provides a list of tasks that are available to this project. The `hello` task is only available to this project",
         "as it is defined within this project's `build.gradle` file. Furthermore, the tasks names within a project need to be",
@@ -1061,9 +1086,12 @@
         "The execution build phase (from within the hello task)",
         "```",
         "",
-        "**Why is this a problem?**  Let say that the `bye` task's configuration is slow as it accesses the filesystem, for",
-        "example. This will also impact the execution of the `hello` task even the `bye` task is not invoked or required. We can",
-        "simulate this by using an artificial delay of 5 seconds (5000 milliseconds) and try it out.",
+        "- **Why is this a problem?**",
+        "",
+        "  Let say that the `bye` task's configuration is slow as it accesses the filesystem, for example. This will also impact",
+        "  the execution of the `hello` task even the `bye` task is not invoked or required.",
+        "",
+        "Let's simulate this by using an artificial delay of 5 seconds (5000 milliseconds) and try it out.",
         ""
       ],
       "variables": [],
@@ -1201,8 +1229,10 @@
         "BUILD SUCCESSFUL in 1s",
         "```",
         "",
-        "**What happens when we executed the `bye` Gradle task?**  Gradle will evaluate the `bye` task's configuration and will",
-        "have to wait for it to completes. In this case, Gradle has to wait 5 seconds before executing the `bye` task.",
+        "- **What happens when we execute the `bye` Gradle task?**",
+        "",
+        "  Gradle will evaluate the `bye` task's configuration and will have to wait for it to completes. In this case, Gradle",
+        "  has to wait 5 seconds before executing the `bye` task.",
         "",
         "Let's clean our examples and delete the unnecessary `println` statements and artificial delay.",
         ""
@@ -1281,12 +1311,135 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "2ff42333-a031-428e-b790-9b6e19c500cb",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Now that we have both tasks ready, let's commit our changes.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "1ada9223-4688-4cee-a307-bbf0e4cfe8b5",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git add .",
         "git commit --message 'Add bye gradle task'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
+      "id": "687310b1-7e5b-4cea-a2e8-7b925672a609",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Task dependencies and ordering"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "a3bbab56-0192-4888-8845-0dbc9f857fc2",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Dependencies between task is set by",
+        "the [`dependsOn`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html#dependsOn-java.lang.Object...-),",
+        "while [`mustRunAfter`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html#mustRunAfter-java.lang.Object...-)",
+        "and",
+        "[`shouldRunAfter`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html#shouldRunAfter-java.lang.Object...-)",
+        "are used to specify ordering between tasks.",
+        "",
+        "Let's tag our progress before we start.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "4edf3fa3-fbaa-4b16-b702-6a4800fd04c8",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "git tag --annotate 'v2' --message 'Task dependencies and ordering'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "89361b7b-5942-4178-956d-0efe41eb6221",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's make the Gradle task `bye` depends on `hello`.  This means that when we run the `bye` task, the `hello` task is executed as well, even if it is not included in the list of tasks "
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "4d2f6232-5e0a-47bd-bf51-d93565a68505",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 02f948d..c6a5051 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -12,4 +12,5 @@ tasks.register('bye') {",
+        "     doLast {",
+        "         println 'See you later, Gradle'",
+        "     }",
+        "+    dependsOn tasks.named('hello')",
+        " }",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "ece953a1-5393-4bcd-ae1e-af0ed8746b45",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle bye"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "55ad5607-3cfe-4b52-92e6-d1eb11793a8f",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Even though we only ran the `bye` Gradle task, both the `hello` and `bye` Gradle tasks are executed.",
+        "",
+        "```",
+        "> Task :hello",
+        "Hello Gradle",
+        "",
+        "> Task :bye",
+        "See you later, Gradle",
+        "```",
+        "",
+        "- **Why do we need to have a task depending on another?**",
+        "",
+        "  One task may depend on the output of another task. Say we want to run the tests of a Java application (_run test_). We",
+        "  first need to compile the code (_compile code_). The _run test_ task will have to depend on the _compile code_ task as",
+        "  otherwise it cannot run. The tests will run the compiled code, and without the compiled code, there are no tests to",
+        "  run.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
