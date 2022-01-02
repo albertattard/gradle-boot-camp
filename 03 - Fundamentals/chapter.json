@@ -1748,20 +1748,8 @@
       "id": "3636488c-0b64-434c-9962-22649d314411",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Let's commit our changes before moving to the next section.",
+        "The code is as it was at the beginning of the section, thus we have nothing to commit.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "4eb69924-64d2-406b-82cb-069fc5545bf0",
-      "workingDirectory": "gradle-fundamentals-manual",
-      "parameters": [
-        "git add .",
-        "git commit --message 'Finalise the hello task by the bye task'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1919,8 +1907,34 @@
         "2 directories, 6 files",
         "```",
         "",
+        "Two new scripts are added, the `gradlew` (Mac/Linux) and the `gradlew.bat` (Windows) scripts. These two scripts can be",
+        "used to invoke Gradle commands. For example, instead of invoking the `gradle tasks` to list the tasks that belong to",
+        "this Gradle project, we can use the wrapper instead as shown next."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "440aea7c-e1bf-476e-8d46-676d7f8614de",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "./gradlew tasks"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "68ae629d-d0f9-4204-aa0d-218dba83c7eb",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "We will use the Gradle wrapper moving forward.",
+        "",
         "The `gradle/wrapper/gradle-wrapper.properties` file contains the Gradle wrapper properties. We can define which version",
-        "to use from this file.  Let's see the contents of this file.",
+        "to use from this file. Let's see the contents of this file.",
         ""
       ],
       "variables": [],
@@ -1939,6 +1953,25 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "6e5e9660-ae9b-4220-9288-334a38d000a7",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The Gradle wrapper uses the same version of the local Gradle, 7.3.3 in our case as that's the version we have",
+        "installed.",
+        "",
+        "```",
+        "distributionUrl=https\\://services.gradle.org/distributions/gradle-7.3.3-bin.zip",
+        "```",
+        "",
+        "We can check the Gradle wrapper version using the `--version` argument as shown next.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "4f0938ab-0cd3-45b2-8f3b-4c8ca3fbb733",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -1949,6 +1982,27 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 300.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "f983eebf-8458-478c-bf28-609055c92bd0",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "We are using Gradle version 7.3.3 as indicated by the output.",
+        "",
+        "```",
+        "------------------------------------------------------------",
+        "Gradle 7.3.3",
+        "------------------------------------------------------------",
+        "```",
+        "",
+        "We can adjust the Gradle wrapper version manually by updating the `gradle/wrapper/gradle-wrapper.properties` file, or",
+        "using the `wrapper` task with the `--gradle-version` as its argument, as shown next.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "command",
@@ -1963,6 +2017,19 @@
       "commandTimeout": 300.000000000
     },
     {
+      "type": "markdown",
+      "id": "665066d5-8380-40c7-a862-066a6ddfe096",
+      "parameters": [
+        "We set the version of Gradle to 7.3. Given that this is a new version, before running any commands Gradle will first",
+        "download the binaries for this version of Gradle and cache it for the future runs. The next Gradle command will take a",
+        "bit longer to execute for this reason.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "aface566-a2d2-4b9a-8811-3d9ee573b685",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -1975,11 +2042,33 @@
       "commandTimeout": 300.000000000
     },
     {
+      "type": "markdown",
+      "id": "0b268aa4-5b0f-4683-ac79-4f9761831484",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "If we look into the `gradle/wrapper/gradle-wrapper.properties` file, we will see that it's pointing to the new version."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "f87a390a-9ab0-416b-9853-5ae6a744cb4c",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "cat 'gradle/wrapper/gradle-wrapper.properties'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "729256a0-9f65-4c7e-b596-960b6309e278",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's go back to the latest version of Gradle."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1998,11 +2087,75 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "markdown",
+      "id": "b483f7e0-8c68-46b4-b9db-79ef8635ed72",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Verify that we are using version 7.3.3 of Gradle.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "c30d1fae-7797-4e11-aa51-271b570f3813",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "9733b9fc-cd19-4fa2-8897-478aba2250ae",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Now we are back to version 7.3.3.",
+        "",
+        "- **This was quick. How come Gradle did not download the version 7.3.3?**",
+        "",
+        "  Gradle version 7.3.3 was downloaded before and saved in `~/.gradle/wrapper/dists` directory (unless otherwise",
+        "  configure). If we list the contents of this directory we will find all cached Gradle binaries.",
+        "",
+        "  ```",
+        "  ls -l ~/.gradle/wrapper/dists",
+        "  ```",
+        "",
+        "  We worked with only two versions, 7.3 and 7.3.3.",
+        "",
+        "  ```",
+        "  drwxr-xr-x  3 albertattard  staff  96 Jan  2 20:32 gradle-7.3-bin",
+        "  drwxr-xr-x  3 albertattard  staff  96 Jan  2 20:31 gradle-7.3.3-bin",
+        "  ```",
+        "",
+        "  If you delete the contents of this directory, Gradle will re-download these binaries again automatically.",
+        "",
+        "- **What's the difference between the installed Gradle and the Gradle Wrapper?**",
+        "",
+        "  The Gradle wrapper is a program that automatically downloads the correct version of Gradle for us. The Gradle tasks",
+        "  executed by the Gradle wrapper, `./gradlew`, are handles in the same way as when we use the installed version of",
+        "  Gradle.",
+        "",
+        "- **Given that the Gradle Wrapper can do the same things the installed version of Gradle does, do we need ot have Gradle",
+        "  installed locally?**",
+        "",
+        "  The locally installed Gradle has one advantage over the Gradle wrapper. We can use the locally installed Gradle to",
+        "  create a project. So far we have created the project manually, but Gradle provided the",
+        "  built-in [`init` task](https://docs.gradle.org/current/dsl/org.gradle.buildinit.tasks.InitBuild.html) which can be",
+        "  used to create Gradle projects.",
+        "",
+        "  An alternative approach is to have a blueprint repository that you contain the Gradle wrapper. Instead of creating the",
+        "  program using the `init` Gradle task, we can clone the blueprint repository.",
+        "",
+        "  I prefer to have Gradle installed locally as I can quickly create the project I need. The Gradle `init` task is",
+        "  interactive and provides some neat options, such as choosing Kotlin over Groovy as the Gradle configuration language.",
+        "",
+        "Let's add the gradle wrapper to the version source control.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2031,11 +2184,47 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "9cef064f-377b-4226-9c14-aa61f4e248ad",
+      "parameters": [
+        "So far we have only used the tasks that we have created. Gradle comes with many built-in tasks and there are a number of",
+        "tasks developed and maintained by the community. If we want to compile Java code, we don't have to create a task that",
+        "does that. All we need to do is to import the tasks.",
+        "",
+        "Before we start, let's start by tagging our code.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "55a81754-afa2-4b6f-b2c8-f6ba2b3fbc15",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "git tag --annotate 'v3.0.0' --message 'Gradle Plugins'"
+        "git tag --annotate 'v4' --message 'Gradle Plugins'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "fd7ba73e-9acc-4fcb-bee7-79d4df49eb4b",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Tasks are part of a [plugin](https://docs.gradle.org/current/userguide/plugins.html). Gradle provides",
+        "a [repository](https://plugins.gradle.org/) where you can search for plugins.",
+        "",
+        "- **What's a plugin?**",
+        "",
+        "  Plugins enhance Gradle's abilities. Gradle is a very basic tool that can do very few things. When we ran",
+        "  the `./gradle tasks` command, we saw all that Gradle could do. A Gradle plugin comprise a set of tasks, configuration",
+        "  objects and conventions.",
+        "",
+        "Let's see what our project is capable of, by listing its tasks.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2047,6 +2236,44 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew tasks"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "fe723b4a-463e-46ca-9b2c-a17640177992",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Gradle only has the _Build Setup tasks_, the _Greetings tasks_ (that we created), and the _Help tasks_.",
+        "",
+        "```",
+        "Build Setup tasks",
+        "-----------------",
+        "init - Initializes a new Gradle build.",
+        "wrapper - Generates Gradle wrapper files.",
+        "",
+        "Greetings tasks",
+        "---------------",
+        "bye - A simple task that prints a simple message",
+        "hello - A simple task that prints a simple message",
+        "",
+        "Help tasks",
+        "----------",
+        "buildEnvironment - Displays all buildscript dependencies declared in root project 'gradle-fundamentals-manual'.",
+        "dependencies - Displays all dependencies declared in root project 'gradle-fundamentals-manual'.",
+        "dependencyInsight - Displays the insight into a specific dependency in root project 'gradle-fundamentals-manual'.",
+        "help - Displays a help message.",
+        "javaToolchains - Displays the detected java toolchains.",
+        "outgoingVariants - Displays the outgoing variants of root project 'gradle-fundamentals-manual'.",
+        "projects - Displays the sub-projects of root project 'gradle-fundamentals-manual'.",
+        "properties - Displays the properties of root project 'gradle-fundamentals-manual'.",
+        "tasks - Displays the tasks runnable from root project 'gradle-fundamentals-manual'.",
+        "```",
+        "",
+        "Let's introduce the [`base` plugin](https://docs.gradle.org/current/userguide/base_plugin.html).",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2076,6 +2303,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "d4777fda-c550-4b30-ad75-b44194f52a1f",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Now let's list the tasks again."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "e30a3dd6-7f17-4f25-9ecb-b32df18b77d8",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -2090,6 +2328,7 @@
       "type": "markdown",
       "id": "c39c3a3f-fbdc-41f4-a1ce-0dbb64742f81",
       "parameters": [
+        "Two new Gradle groups, the _Build tasks_ and the _Verification tasks_ were added.",
         "",
         "```",
         "Build tasks",
@@ -2104,7 +2343,8 @@
         "------------------",
         "check - Runs all checks.",
         "```",
-        ""
+        "",
+        "Let's run the `build` task."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2126,9 +2366,11 @@
       "id": "7d51501c-3d4b-44c0-9923-ff0c97532ff0",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "See the ",
-        "[execution options](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_execution_options)",
-        "for more details."
+        "The `build` task is ideal to build the project. It depends on two tasks, then `assemble` and the `check` tasks.",
+        "The `assemble` task is used to compile the code, while the `check` task is used to run all tests.",
+        "",
+        "We can use another plugin to determine which tasks depend on what.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
