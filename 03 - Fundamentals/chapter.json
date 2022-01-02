@@ -467,11 +467,36 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "126a0b03-ead3-4fb4-8b11-22d85ab74d6a",
+      "parameters": [
+        "Gradle tasks are defined in a file named `build.gradle`, referred to as the _Gradle build script_.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "953dddcf-09d5-4e47-a6de-f5d76a23dc41",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "touch 'build.gradle'",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "39e11a0e-fa2c-4d8d-b6f7-dd45769bbae9",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's create a very simple task, as shown in the [_hello",
+        "world_](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:hello_world) example, in the",
+        "[_Build Script Basics_](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html) chapter.",
         ""
       ],
       "variables": [],
@@ -500,6 +525,39 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "9d936f80-718f-4c6c-9465-201a6de621be",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The `tasks` variable is an object of",
+        "type [`TaskContainer`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskContainer.html), responsible",
+        "from handling tasks.",
+        "The [`register()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskContainer.html#register-java.lang.String-)",
+        "method, different from",
+        "the [`create()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskContainer.html#create-java.lang.String-)",
+        "method, provides a lazy way to create tasks. There are different ways how a Gradle task can be created. This is the",
+        "recommended way as the task is only created when needed. This becomes apparent in projects with large build scripts.",
+        "",
+        "**Why is lazy initialisation important?** There are times when tasks load their configuration from files, which tend to",
+        "take longer to create as they interact with the IO. If all tasks are initialised, even those that are not required or",
+        "used, then our task needs to unnecessarily wait for all tasks to be initialised, incurring unnecessarily delays.",
+        "",
+        "**What's the `doLast { }` block?**",
+        "The [`doLast { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doLast%28org.gradle.api.Action%29)",
+        "block contains the execution logic of a given task. In our case, it is printing a simple message. This is one of the",
+        "[hooks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#N18DD1) that Gradle provides and as the name",
+        "indicates, this is invoked as the last thing.",
+        "The [`doFirst {}`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doFirst%28org.gradle.api.Action%29),",
+        "on the other hand, is invoked first as the name indicates.",
+        "",
+        "Let's take our task for a spin.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "06473c6b-3f03-4e9d-94e7-69ef019b5f83",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -511,11 +569,51 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "cfcd45b2-7e2e-481c-9086-c04d6ad9131f",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "We named our tasks, `hello`, not very original. We can invoke it through its name. When a task is executed and produces",
+        "output, gradle prints this under the task's name as shown next.",
+        "",
+        "```",
+        "> Task :hello",
+        "Hello Gradle",
+        "```",
+        "",
+        "Printing output is not very common and not that much useful, but it's an easy way to start.",
+        "",
+        "Gradle provides a list of tasks that are available to this project. The `hello` task is only available to this project",
+        "as it is defined within this project's `build.gradle` file. Furthermore, the tasks names within a project need to be",
+        "unique as otherwise Gradle will not be able to tell them apart. Let's list the available Gradle tasks for this project.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "f00ad3ee-7cb5-432f-b55c-baaf4b5ba277",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle tasks"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "f731cad6-7685-419c-90f2-b99e4b391821",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Unfortunately, our tasks is not listed here. Let's use the `--all` argument to print all the tasks, as indicated.",
+        "",
+        "```",
+        "To see all tasks and more detail, run gradle tasks --all",
+        "```",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -536,6 +634,7 @@
       "type": "markdown",
       "id": "67ed76ea-3e32-413d-a1a0-35127a6d68e1",
       "parameters": [
+        "Our `hello` task is listed in the _Other tasks_ section (referred to as _group_).",
         "",
         "```",
         "Other tasks",
@@ -543,7 +642,11 @@
         "components - Displays the components produced by root project 'gradle-fundamentals-manual'. [deprecated]",
         "dependentComponents - Displays the dependent components of components in root project 'gradle-fundamentals-manual'. [deprecated]",
         "hello",
-        "```"
+        "```",
+        "",
+        "Also note that the other tasks have a description, while our `hello` tasks does not. Let's add our task to a group and",
+        "provide it a description.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -572,6 +675,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "1e22ac7a-c81a-4360-999e-7f48929a745a",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's list the project's tasks again."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "a551d74c-d212-4325-b989-03b36d271e26",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -586,12 +700,16 @@
       "type": "markdown",
       "id": "7354f9af-aa44-4b40-aaaa-928330dd00d1",
       "parameters": [
+        "Note that now there is a new group, _Greetings tasks_, that contains our task, as shown next.",
         "",
         "```",
         "Greetings tasks",
         "-----------",
         "hello - A simple task that prints a simple message",
-        "```"
+        "```",
+        "",
+        "This is a good point to stop and commit our changes.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -623,7 +741,22 @@
       "type": "markdown",
       "id": "e155f3b0-1dd4-47ae-b914-34d01a15b3b4",
       "parameters": [
-        "[Build phases](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:build_phases)"
+        "Gradle has three [build phases](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:build_phases)",
+        "",
+        "- **Initialization** - Gradle supports single and multi-project builds. During the initialization phase, Gradle",
+        "  determines which projects are going to take part in the build, and creates a Project instance for each of these",
+        "  projects. The `settings.gradle` file is evaluated during this process.",
+        "",
+        "- **Configuration** - During this phase the project objects are configured. The build scripts, `build.gradle`, of all",
+        "  projects which are part of the build are executed.",
+        "",
+        "- **Execution** - Gradle determines the subset of the tasks, created and configured during the configuration phase, to",
+        "  be executed. The subset is determined by the task name arguments passed to the gradle command and the current",
+        "  directory. Gradle then executes each of the selected tasks.",
+        "",
+        "This section covers these phases and compares between lazy and eager task creation. Let's start by tagging our progress",
+        "so that we can always go back to this point in time and replay these steps.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -634,7 +767,19 @@
       "id": "b56a61fb-58c0-4bad-a782-e8926a9d054e",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "git tag --annotate v1.0.0 --message 'Gradle Build phases'"
+        "git tag --annotate 'v1' --message 'Gradle Build phases'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "a4d4d3d9-1638-4273-8d30-5bc8fbe1e14c",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's introduce `println` statements at various places so that we can observe when these are printed.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -646,29 +791,41 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 5a7c0d3..000e332 100644",
+        "index dfe14df..3932cf8 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
         "@@ -1,7 +1,10 @@",
-        "+println \"The configuration build phase\"",
+        "+println 'The configuration build phase'",
         "+",
         " tasks.register('hello') {",
-        "+    println \"The configuration build phase (from within the hello task)\"",
+        "+    println 'The configuration build phase (from within the hello task)'",
         "     group = 'Greetings'",
         "     description = 'A simple task that prints a simple message'",
         "     doLast {",
         "-        println 'Hello Gradle'",
-        "+        println \"The execution build phase (from within the hello task)\"",
+        "+        println 'The execution build phase (from within the hello task)'",
         "     }",
         " }",
         "diff --git a/settings.gradle b/settings.gradle",
-        "index 3fa3626..44bc4df 100644",
+        "index 2f9c8e7..19ee5f2 100644",
         "--- a/settings.gradle",
         "+++ b/settings.gradle",
         "@@ -1 +1,3 @@",
         " rootProject.name = 'gradle-fundamentals-manual'",
         "+",
-        "+println \"The initialization build phase\"",
+        "+println 'The initialization build phase'",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "1a9999ae-e28e-47f7-8999-ffd60eba9c01",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Now let's run our `hello` tasks again.",
         ""
       ],
       "variables": [],
@@ -690,6 +847,7 @@
       "type": "markdown",
       "id": "4900fa69-0973-4d27-b030-c71c68d2689a",
       "parameters": [
+        "The output from the `println` statements are all shown in the output.",
         "",
         "```",
         "The initialization build phase",
@@ -703,7 +861,35 @@
         "",
         "BUILD SUCCESSFUL in 1s",
         "1 actionable task: 1 executed",
-        "```"
+        "```",
+        "",
+        "The initialization phase (the configuration within the `settings.gradle` file) goes first.",
+        "",
+        "```",
+        "The initialization build phase",
+        "```",
+        "",
+        "The build phase (the configuration within the `build.gradle` file) is next. Note that the `println` statement within",
+        "the `tasks.register('hello') { }` block is evaluated, but not the `println` statement within the `doLast { }` block.",
+        "",
+        "```",
+        "> Configure project :",
+        "The configuration build phase",
+        "The configuration build phase (from within the hello task)",
+        "```",
+        "",
+        "The execution phase goes last. This is when the content within the `doLast { }` block is executed.",
+        "",
+        "```",
+        "> Task :hello",
+        "The execution build phase (from within the hello task)",
+        "```",
+        "",
+        "The execution logic goes in the `doLast { }` block, while the configuration of the task goes within",
+        "the `tasks.register('hello') { }` block.",
+        "",
+        "Let's commit our progress, before proceeding any further.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -716,6 +902,18 @@
       "parameters": [
         "git add .",
         "git commit --message 'Print message for each build phase'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "e450b0bd-96eb-40d6-bad7-0b85de3ccff2",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's register a new task.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -750,6 +948,18 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "49f9e8aa-847b-4f91-9408-035c3ea4cb1e",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Now we have two tasks.  Let's run the `hello` task again and see what's executed and when.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "bd8b9df2-62e4-4c41-9746-a00422e322aa",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -764,6 +974,7 @@
       "type": "markdown",
       "id": "a286cf19-7877-4811-a13f-d8d10303382e",
       "parameters": [
+        "Note that none of the `println` statements within the new task, `bye` were printed.",
         "",
         "```",
         "The initialization build phase",
@@ -774,7 +985,13 @@
         "",
         "> Task :hello",
         "The execution build phase (from within the hello task)",
-        "```"
+        "```",
+        "",
+        "That's because the `bye` task was added using a lazy approach, the `register()` method instead of the `create()` method",
+        "or other eager approaches. Let's change the `bye` task configuration into using an",
+        "eager, [an older](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:task%28java.lang.String%29),",
+        "approach.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
