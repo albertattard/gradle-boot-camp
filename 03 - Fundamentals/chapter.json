@@ -1350,8 +1350,9 @@
       "id": "a3bbab56-0192-4888-8845-0dbc9f857fc2",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Dependencies between task is set by",
-        "the [`dependsOn`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html#dependsOn-java.lang.Object...-),",
+        "Dependencies between task is can be set by",
+        "the [`dependsOn`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html#dependsOn-java.lang.Object...-)",
+        "and [`finalizedBy`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html#finalizedBy-java.lang.Object...-)",
         "while [`mustRunAfter`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html#mustRunAfter-java.lang.Object...-)",
         "and",
         "[`shouldRunAfter`](https://docs.gradle.org/current/javadoc/org/gradle/api/Task.html#shouldRunAfter-java.lang.Object...-)",
@@ -1435,11 +1436,332 @@
         "",
         "- **Why do we need to have a task depending on another?**",
         "",
-        "  One task may depend on the output of another task. Say we want to run the tests of a Java application (_run test_). We",
-        "  first need to compile the code (_compile code_). The _run test_ task will have to depend on the _compile code_ task as",
-        "  otherwise it cannot run. The tests will run the compiled code, and without the compiled code, there are no tests to",
-        "  run.",
+        "  One task may depend on the output of another task. Say we want to run the tests of a Java application (call it the",
+        "  _run test_ task). We first need to compile the code (call it the _compile code_ task). The _run test_ task will have",
+        "  to depend on the _compile code_ task as otherwise it cannot run. The tests will run on the compiled code, and without",
+        "  the compiled code, there are no tests to run.",
+        "",
+        "We can define the task execution, and having one task to be executed before another. For example, if both the `hello`",
+        "and `bye` Gradle tasks are executed, we can set the `hello` to run before the `bye`. Let's revert our last change for",
+        "now."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "503b51fd-8b19-47a9-a06a-77de5fdf5a49",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index c6a5051..02f948d 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -12,5 +12,4 @@ tasks.register('bye') {",
+        "     doLast {",
+        "         println 'See you later, Gradle'",
+        "     }",
+        "-    dependsOn tasks.named('hello')",
+        " }",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "2094f4f8-ebcc-49be-ae49-7f2af7b1e919",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Now, let's execute both tasks."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "71b7ee41-e4d5-4d7d-9d52-3f713046f96a",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle bye hello"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "0c0b9cc8-f781-4d18-a6e8-fd0460f32686",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The tasks are executed in the given order.",
+        "",
+        "```",
+        "> Task :bye",
+        "See you later, Gradle",
+        "",
+        "> Task :hello",
+        "Hello Gradle",
+        "```",
+        "",
+        "We can control that, by using the `mustRunAfter`, as shown next.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "2725b7c4-27d8-4106-b021-b1f111ae6a63",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 02f948d..ba3aec3 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -12,4 +12,5 @@ tasks.register('bye') {",
+        "     doLast {",
+        "         println 'See you later, Gradle'",
+        "     }",
+        "+    mustRunAfter tasks.named('hello')",
+        " }",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "07286b75-c6dd-41fe-86ba-ae04c083c93d",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Now let's run the `bye` task."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "e9e4df1e-5bd8-4c59-8bb2-6c031d3561f9",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle bye"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "f2d9fd8c-6400-4778-b291-07b3a260ad17",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Only the `bye` Gradle task is executed.",
+        "",
+        "```",
+        "> Task :bye",
+        "See you later, Gradle",
+        "```",
+        "",
+        "Now, let's execute both the `bye` and the `hello` tasks in this order.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "9a138abd-b530-4594-a005-c8cf8e8e0fd5",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle bye hello"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "85b9f229-27de-415c-a344-d66ed083418f",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Note that if both the `hello` and `bye` tasks are executed, the `hello` task will be executed before the `bye` task, as",
+        "shown next.",
+        "",
+        "```",
+        "> Task :hello",
+        "Hello Gradle",
+        "",
+        "> Task :bye",
+        "See you later, Gradle",
+        "```",
+        "",
+        "- **What is the difference between `mustRunAfter` and `shouldRunAfter`?**",
+        "",
+        "  This is well described in",
+        "  the [documentation](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:ordering_tasks).",
+        "",
+        "  > There are two ordering rules available: '_must run after_' and '_should run after_'.",
+        "  >",
+        "  > When you use the 'must run after' ordering rule you specify that `taskB` must always run after `taskA`, whenever",
+        "  > both `taskA` and `taskB` will be run. This is expressed as `taskB.mustRunAfter(taskA)`. The 'should run after'",
+        "  > ordering rule is similar but less strict as it will be ignored in two situations. Firstly if using that rule",
+        "  > introduces an ordering cycle. Secondly when using parallel execution and all dependencies of a task have been",
+        "  > satisfied apart from the 'should run after' task, then this task will be run regardless of whether its",
+        "  > 'should run after' dependencies have been run or not. You should use 'should run after' where the ordering is",
+        "  > helpful but not strictly required.",
+        "",
+        "We can instruct Gradle to run a task (say _a_) after another task (say _b_) even if that task (_a_) is not executed,",
+        "using the `finalizedBy`, as shown next.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "4a6c07cb-865c-4fbb-8ae5-40325f454fc0",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index ba3aec3..fb73c9e 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -4,6 +4,7 @@ tasks.register('hello') {",
+        "     doLast {",
+        "         println 'Hello Gradle'",
+        "     }",
+        "+    finalizedBy tasks.named('bye')",
+        " }",
+        " ",
+        " tasks.register('bye') {",
+        "@@ -12,5 +13,4 @@ tasks.register('bye') {",
+        "     doLast {",
+        "         println 'See you later, Gradle'",
+        "     }",
+        "-    mustRunAfter tasks.named('hello')",
+        " }",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7d466d52-785d-49b6-a0f1-05e807b8ffc9",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "We removed the `mustRunAfter` from the `bye` task and added the `finalizedBy` to the `hello` task. Now let's run",
+        "the `hello` task alone.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "793ff822-b4f3-49c8-9fa2-bd8483f510ca",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "gradle hello"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "e23a5863-e1ae-4c87-a438-426a53d3091a",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Both tasks are executed, as shown next, even if the `bye` task is not included in the list of tasks to be executed.",
+        "",
+        "```",
+        "> Task :hello",
+        "Hello Gradle",
+        "",
+        "> Task :bye",
+        "See you later, Gradle",
+        "```",
+        "",
+        "- **Where can we use this?**",
+        "",
+        "  One place I saw this used was with code coverage. After running the tests, we run the code coverage report using",
+        "  the `finalizedBy`, as shown in [The JaCoCo Plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html)",
+        "  documentation, from where the following example was copied.",
+        "",
+        "  ```",
+        "  test {",
+        "    finalizedBy jacocoTestReport // report is always generated after tests run",
+        "  }",
+        "  jacocoTestReport {",
+        "    dependsOn test // tests are required to run before generating the report",
+        "  }",
+        "  ```",
+        "",
+        "  The `jacocoTestReport` task depends on the `test` task, which means that if you run the `jacocoTestReport` task,",
+        "  the `test` task is executed too. On the other hand, if we run the `test` task, then the `jacocoTestReport` task is",
+        "  also executed after the `test` task.",
+        "",
+        "This wraps up dependencies and ordering. Let's revert these changes before moving on to the next section.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "27aaf0f0-9c84-449b-8b42-bfdde79c8fd2",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index fb73c9e..02f948d 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -4,7 +4,6 @@ tasks.register('hello') {",
+        "     doLast {",
+        "         println 'Hello Gradle'",
+        "     }",
+        "-    finalizedBy tasks.named('bye')",
+        " }",
+        " ",
+        " tasks.register('bye') {",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "3636488c-0b64-434c-9962-22649d314411",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's commit our changes before moving to the next section.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "4eb69924-64d2-406b-82cb-069fc5545bf0",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Finalise the hello task by the bye task'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1456,11 +1778,56 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "3bccfea7-64be-4cfb-aead-0e1dfcc73a88",
+      "parameters": [
+        "So far we relied on the installed Gradle. While that usually suffice, it is better that everyone working on the same",
+        "project, including the build pipeline, use the same version of Gradle. Gradle provides",
+        "a [wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html), which can be thought of a portable version",
+        "of Gradle, included with the project. Instead of using the installed version of Gradle, we will use the wrapper instead",
+        "which will ensure that the same version of Gradle is used irrespective from where it is executed.",
+        "",
+        "- **Why is this important?**",
+        "",
+        "  Gradle is not 100% backwards compatible. Gradle 7",
+        "  introduced [breaking changes](https://docs.gradle.org/7.0/userguide/upgrading_version_6.html#changes_7.0), and what",
+        "  worked with Gradle 6 may not necessary works on Gradle 7. Another programmer may introduce new Gradle features which",
+        "  will not work on previous version of Gradle. For example, Java 17 is only supported starting from Gradle 7.3 as shown",
+        "  in the [compatibility matrix](https://docs.gradle.org/current/userguide/compatibility.html).",
+        "",
+        "",
+        "- **Do we need to have Gradle installed if we use the Gradle wrapper?**",
+        "",
+        "  No, the Gradle wrapper is independent of the local Gradle and one is not required to be installed. This is great as we",
+        "  need to maintain one less programs. We don't need to maintain all the programmer's computers or pipelines. We can",
+        "  upgrade the Gradle version in one place, commit those changes and then everyone else will get the new changes, very",
+        "  similar to [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code).",
+        "",
+        "Let's start by tagging the current state of the project before we start with the Gradle wrapper.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "0328858d-3f8e-4cf6-a20d-a08e25d1dc74",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "git tag --annotate 'v2.0.0' --message 'Gradle Wrapper'"
+        "git tag --annotate 'v3' --message 'Gradle Wrapper'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8e556a7b-8b47-40b6-ae56-75b101b4bc5e",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The Gradle wrapper can be added using the `wrapper` task.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1481,6 +1848,7 @@
       "type": "markdown",
       "id": "fc780751-9c70-46f9-a3b0-da7a058789e4",
       "parameters": [
+        "The `wrapper` task is listed under the _Build Setup tasks_ group together with the `init` task.",
         "",
         "```",
         "Build Setup tasks",
@@ -1488,6 +1856,8 @@
         "init - Initializes a new Gradle build.",
         "wrapper - Generates Gradle wrapper files.",
         "```",
+        "",
+        "Let's run the `wrapper` task",
         ""
       ],
       "variables": [],
@@ -1500,6 +1870,19 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle wrapper"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "3186b75e-3923-4228-aecf-97327dd2d758",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The Gradle wrapper is found in a folder named `gradle`. Let's see the folder structure of our project after the Gradle",
+        "wrapper was created.  ",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1520,7 +1903,7 @@
       "type": "markdown",
       "id": "7202981d-6f00-42d5-a071-b17786753820",
       "parameters": [
-        "",
+        "Together to our `setting.gradle` and `build.gradle` files, now we also have the Gradle wrapper related files.",
         "",
         "```",
         ".",
@@ -1534,7 +1917,11 @@
         "`-- settings.gradle",
         "",
         "2 directories, 6 files",
-        "```"
+        "```",
+        "",
+        "The `gradle/wrapper/gradle-wrapper.properties` file contains the Gradle wrapper properties. We can define which version",
+        "to use from this file.  Let's see the contents of this file.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1545,7 +1932,7 @@
       "id": "252a9022-5526-4420-8958-b3c7fa4e838e",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "cat gradle/wrapper/gradle-wrapper.properties"
+        "cat 'gradle/wrapper/gradle-wrapper.properties'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1592,7 +1979,7 @@
       "id": "f87a390a-9ab0-416b-9853-5ae6a744cb4c",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "cat gradle/wrapper/gradle-wrapper.properties"
+        "cat 'gradle/wrapper/gradle-wrapper.properties'"
       ],
       "variables": [],
       "environmentVariables": [],
