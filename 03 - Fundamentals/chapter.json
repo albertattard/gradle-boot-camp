@@ -2128,8 +2128,8 @@
         "  We worked with only two versions, 7.3 and 7.3.3.",
         "",
         "  ```",
-        "  drwxr-xr-x  3 albertattard  staff  96 Jan  2 20:32 gradle-7.3-bin",
-        "  drwxr-xr-x  3 albertattard  staff  96 Jan  2 20:31 gradle-7.3.3-bin",
+        "  drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.3-bin",
+        "  drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.3.3-bin",
         "  ```",
         "",
         "  If you delete the contents of this directory, Gradle will re-download these binaries again automatically.",
@@ -2366,8 +2366,9 @@
       "id": "7d51501c-3d4b-44c0-9923-ff0c97532ff0",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "The `build` task is ideal to build the project. It depends on two tasks, then `assemble` and the `check` tasks.",
-        "The `assemble` task is used to compile the code, while the `check` task is used to run all tests.",
+        "The `build` task is ideal to build the project. It depends on two tasks, then `assemble` and the `check` tasks, both",
+        "part of the [`base` plugin](https://docs.gradle.org/current/userguide/base_plugin.html#sec:base_tasks). The `assemble`",
+        "task is used to compile the code, while the `check` task is used to run all tests.",
         "",
         "We can use another plugin to determine which tasks depend on what.",
         ""
@@ -2399,6 +2400,18 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "df1b71de-0904-46aa-ad87-bb46fa54a32f",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's list all tasks, as this plugin does not use groups for the tasks that it introduces.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "b3b9f5d9-9ce0-4c61-8478-178134dcb1a2",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -2414,7 +2427,7 @@
       "type": "markdown",
       "id": "34fbe9ec-036f-4c9e-a95b-fca97fc6dec7",
       "parameters": [
-        "",
+        "Three new tasks, the `tiJson`, `tiOrder`, and `tiTree`, are made available",
         "",
         "```",
         "Other tasks",
@@ -2426,7 +2439,10 @@
         "tiJson - Creates a JSON file with task dependencies of a given task, and their task types.",
         "tiOrder - Displays which tasks would be executed in what order for a given task, and their task types.",
         "tiTree - Displays task dependencies of a given task as a tree, and their task types.",
-        "```"
+        "```",
+        "",
+        "Let's see what tasks the `build` task depends on.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2448,13 +2464,18 @@
       "type": "markdown",
       "id": "fba468d0-1558-4308-b806-723052221261",
       "parameters": [
+        "The syntax is a bit weired. The `tiTree` task, will cancel the `build` task and instead it simply prints the tasks that",
+        "the `build` task depends on, as shown next.",
         "",
         "```",
         "> Task :tiTree",
         ":build         (org.gradle.api.DefaultTask)",
         "+--- :assemble (org.gradle.api.DefaultTask)",
         "`--- :check    (org.gradle.api.DefaultTask)",
-        "```"
+        "```",
+        "",
+        "Task names can be long, and Gradle is allows us to type partial names instead as shown next.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2466,6 +2487,20 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew build tT"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8e00e784-b3a2-4ae3-bf8f-d1d6f922d872",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The task name `theLongTaskName` can be shortened to `tLTN`, for example, preserving the case.",
+        "",
+        "This concludes the plugin section. Let's commit our changes before moving to the next section.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2494,11 +2529,43 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "928568be-ee78-4ca2-942f-aa268f23ab44",
+      "parameters": [
+        "Any program takes time to start, referred to as [cold start](https://en.wikipedia.org/wiki/Cold_start_%28computing%29).",
+        "Gradle address this problem by using a daemon, referred to as",
+        "the [Gradle Daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html), as described",
+        "in [Why the Gradle Daemon is important for performance](https://docs.gradle.org/current/userguide/gradle_daemon.html#sec:why_the_daemon)",
+        "section. The Gradle Daemon is triggered automatically once we run our first Gradle command.",
+        "",
+        "Let's list all Gradle Daemon.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "841d3552-82f7-438d-b5ff-f7d405ede24e",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew --status"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "2c760e39-5c5d-4ac7-9102-b3755038dc5d",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Here we have one Gradle Daemon running. The Gradle Daemon is version dependent, thus cannot use a Gradle Daemon for",
+        "version 7.3 to run a task for version 7.3.3. ",
+        "",
+        "We can stop all Gradle Daemons using the `--stop` argument.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2527,6 +2594,19 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "ec877cbe-5fe8-40cc-8a6e-39abbd640222",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Next time we run a Gradle task, another daemon will be created. We can also instruct Gradle not to use a daemon, as",
+        "shown next.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "0428cce1-5b45-4e81-9ec6-e760f89b82ab",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -2537,6 +2617,24 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "ff3914c4-03e6-4be6-acba-5b1cfb084f06",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "The Gradle Daemon is Gradle's workhorse. The Gradle tasks are executed by a daemon. When the `--no-daemon` is used, a",
+        "single-use daemon is created and then destroyed as indicated in the output.",
+        "",
+        "```",
+        "To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.3.3/userguide/gradle_daemon.html#sec:disabling_the_daemon.",
+        "Daemon will be stopped at the end of the build ",
+        "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "section",
