@@ -11,10 +11,33 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "57869e3b-3fe9-42b6-8c0d-852783906c77",
+      "parameters": [
+        "In this chapter we will create a simple Java application using Gradle. We will use different plugins to dependencies to",
+        "showcase how we can take advantage from Gradle during development."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "3e774315-b995-4bce-85d7-aec2e52c5166",
       "parameters": [
         "Create the project"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "65e443fe-231b-46e1-8d9b-13faa14bd06c",
+      "parameters": [
+        "Let's start by deleting the directory that we will be working on `single-java-project`. This makes sure that there is no",
+        "residue and that we are working in a clean slate.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -31,10 +54,32 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "fd18f1ff-8219-41cd-9275-95f6bb48f04c",
+      "parameters": [
+        "Create the directory.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "4a670889-c4f3-4e1d-b9ea-29bb1a6549a0",
       "parameters": [
         "mkdir 'single-java-project'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "cd66653e-15fe-491c-b4d9-d8e48499fd44",
+      "parameters": [
+        "Add version control so that we can track our changes.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -52,6 +97,19 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "e392e5fe-01b2-4a73-953b-30432689b1c5",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Set Git's user (_developer_) name, using the providing variable. Press enter after entering your name and the rest will",
+        "update automatically.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "variable",
       "id": "6727d8b9-951e-4a38-9a48-0e5d6fe476f6",
       "name": "DEVELOPER_NAME",
@@ -63,6 +121,20 @@
       "environmentVariables": [],
       "values": {},
       "sensitive": false
+    },
+    {
+      "type": "markdown",
+      "id": "26183d7d-8f9b-4275-83df-d6850e3ab58d",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Set Git's user (_developer_) email, using the providing variable. Press enter after entering your name and the rest will",
+        "update automatically. The email is more important than the name as Git uses this to identify you in the event you push",
+        "these to a remote repository.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "variable",
@@ -96,6 +168,18 @@
       }
     },
     {
+      "type": "markdown",
+      "id": "4881cd81-8b4d-49a5-ab9f-cf89f1bfc136",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's verify that our Git configuration was properly applied.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "92473c0b-2ae3-447f-9356-a4fd112674a0",
       "workingDirectory": "single-java-project",
@@ -103,6 +187,28 @@
         "git config --list"
       ],
       "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "20e11046-66e3-47ab-b184-0bbba803ca1f",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Both name and email should be properly set, as shown next.",
+        "",
+        "```",
+        "user.name=${DEVELOPER_NAME}",
+        "user.email=${DEVELOPER_EMAIL}",
+        "```",
+        "",
+        "Let's create a basic Gradle project using Groovy as the DSL language.",
+        ""
+      ],
+      "variables": [
+        "DEVELOPER_NAME",
+        "DEVELOPER_EMAIL"
+      ],
       "environmentVariables": [],
       "values": {}
     },
@@ -119,6 +225,17 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "markdown",
+      "id": "615c7cb0-e31a-4fdd-a56e-3826e04b8fca",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's also set the version of Gradle to be used to 7.3.3."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "2243a72e-149f-4c39-8342-3c11f39ed4d2",
       "workingDirectory": "single-java-project",
@@ -129,6 +246,18 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "e5e8b55e-0ea6-44a6-92bd-1e6327d4dc49",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's update the `.gitignore` file.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "git-apply-patch",
@@ -149,6 +278,17 @@
         "+bin",
         " build",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "cff8c4c5-0931-4393-b695-f13f802f3f48",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "And remove the comments from the `settings.gradle` file."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -181,6 +321,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "6fe0feaf-b7db-444a-bf3c-4ed6bd436251",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "And the `build.gradle` file."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "9b930e53-1bc8-4804-8e90-d629934d4d32",
       "workingDirectory": "single-java-project",
@@ -196,6 +347,18 @@
         "- * This is a general purpose Gradle build.",
         "- * Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.3.3/samples",
         "- */",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "ed62df0a-54c0-48e0-a718-bfa9372337cf",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Our project us now ready.  Let's commit the changes made so far before moving forward.",
         ""
       ],
       "variables": [],
@@ -226,11 +389,28 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "a92cd35a-503d-45ae-be48-794cf7b301ed",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Gradle provides a plugin that can be used with Java projects,",
+        "the [`java` Gradle plugin](https://docs.gradle.org/current/userguide/java_plugin.html). This plugin includes tasks,",
+        "like [`compileJava`](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.JavaCompile.html)",
+        "and [`test`](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.testing.Test.html).",
+        "",
+        "Let's tag our progress, so that we can refer back to this point in the code if needs be.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "08f5f1da-f604-402d-af61-5049ca9be582",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "git tag --annotate 'v1.0.0' --message 'The java plugin'"
+        "git tag --annotate 'v1' --message 'The java plugin'"
       ],
       "variables": [],
       "environmentVariables": [],

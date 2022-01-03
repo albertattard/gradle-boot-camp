@@ -46,7 +46,7 @@
       "type": "markdown",
       "id": "9f623d54-cf1f-4756-b15d-b84ce6380c5f",
       "parameters": [
-        "Create the directory again.",
+        "Create the directory.",
         ""
       ],
       "variables": [],
@@ -206,13 +206,46 @@
     },
     {
       "type": "markdown",
-      "id": "4b21f350-1e0c-4b29-86fe-f7815c5e665d",
+      "id": "561c85ee-eeb0-4572-bb1a-e1d887c35726",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Let's turn our attention back to Gradle now and create the `settings.gradle` file.",
+        "Let's verify that our Git configuration was properly applied.",
         ""
       ],
       "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "79cc1b39-06af-4815-bdb4-f605213c2bbd",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "git config --list"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "4b21f350-1e0c-4b29-86fe-f7815c5e665d",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Both name and email should be properly set, as shown next.",
+        "",
+        "```",
+        "user.name=${DEVELOPER_NAME}",
+        "user.email=${DEVELOPER_EMAIL}",
+        "```",
+        "",
+        "Let's turn our attention back to Gradle now and create the `settings.gradle` file.",
+        ""
+      ],
+      "variables": [
+        "DEVELOPER_NAME",
+        "DEVELOPER_EMAIL"
+      ],
       "environmentVariables": [],
       "values": {}
     },
