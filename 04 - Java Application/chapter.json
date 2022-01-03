@@ -14,8 +14,9 @@
       "type": "markdown",
       "id": "57869e3b-3fe9-42b6-8c0d-852783906c77",
       "parameters": [
-        "In this chapter we will create a simple Java application using Gradle. We will use different plugins to dependencies to",
-        "showcase how we can take advantage from Gradle during development."
+        "In this chapter we will create a simple Java _hello world_ application and will use Gradle to build our application. We",
+        "will use different plugins to dependencies to showcase how we can take advantage from Gradle during development.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -436,20 +437,11 @@
       "values": {}
     },
     {
-      "type": "todo",
-      "id": "3db7fad0-e4c1-45f7-94e6-bd55b58f35e7",
+      "type": "markdown",
+      "id": "41c84de7-e73a-4e0b-9aed-0b8de728e16d",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Should we introduce the Java toolchain here?",
-        "",
-        "```",
-        "java {",
-        "    toolchain {",
-        "        languageVersion = JavaLanguageVersion.of(17)",
-        "        vendor = JvmVendorSpec.ORACLE",
-        "    }",
-        "}",
-        "```"
+        "Let's list the tasks now available to our project to see what new tasks are available now that we have the `java` plugin."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -471,7 +463,7 @@
       "id": "d31a3569-f77c-40f6-bc22-61d386265273",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "Two new groups, the _Build tasks_ and the _Verification tasks_ are added.",
         "",
         "```",
         "Build tasks",
@@ -491,7 +483,92 @@
         "------------------",
         "check - Runs all checks.",
         "test - Runs the test suite.",
-        "```"
+        "```",
+        "",
+        "The following image (copied from [here](https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks))",
+        "shows all these tasks and their dependencies.",
+        "",
+        "![Figure 1. Java plugin - tasks](https://docs.gradle.org/current/userguide/img/javaPluginTasks.png)",
+        "",
+        "The `java` plugin adds",
+        "the [`java` extension](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.JavaPluginExtension.html) to the",
+        "project. This allows to configure a number of Java related properties, such as the version of Java to be used. Similar",
+        "to the Gradle wrapper, this ensures that the same Java version is used irrespective from where the project is compiled.",
+        "",
+        "Let's set Oracle's Java 17 as our version of Java."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "e7519880-04f6-4d98-ad5f-bd16f57fad27",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 075ba3d..336da42 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -1,3 +1,10 @@",
+        " plugins {",
+        "     id 'java'",
+        " }",
+        "+",
+        "+java {",
+        "+    toolchain {",
+        "+        languageVersion = JavaLanguageVersion.of(17)",
+        "+        vendor = JvmVendorSpec.ORACLE",
+        "+    }",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "82277079-da06-4ffe-a7ed-8b78f9995dba",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "- **What happens if that version of Java is not installed?**",
+        "",
+        "  Gradle will download that particular version of Java and use it to run the tasks. Say that we have Java 8 installed,",
+        "  and we like to compile the code with Java 17. If we include",
+        "  the [`toolchain`](https://docs.gradle.org/current/userguide/toolchains.html), then Gradle will download the right",
+        "  version of Java first and then run the task. In other words, Java 17 is first downloaded and then Gradle uses this",
+        "  Java 17 to compile the Java code, for example.",
+        "",
+        "- **What's the difference between",
+        "  the [`sourceCompatibility`](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.JavaPluginExtension.html#org.gradle.api.plugins.JavaPluginExtension:sourceCompatibility)",
+        "  and the `toolchain`?**",
+        "",
+        "  In the previous version of Gradle, we used the following approach to set the version of Java to be used.",
+        "",
+        "  ```",
+        "  java {",
+        "    sourceCompatibility = JavaVersion.VERSION_17",
+        "    targetCompatibility = JavaVersion.VERSION_17",
+        "  }",
+        "  ```",
+        "",
+        "  This approach merely indicates what version we required, but stops there. If we have an older version of Java, Gradle",
+        "  will still try to run the task with the older version.",
+        "",
+        "  The `toolchain` was added to Gradle to address this problem. Gradle detects what versions of Java are available",
+        "  locally and will download if it does not already exist. Furthermore, this ensures that the project is compiled with",
+        "  the same version of Java irrespective from where this is executed, be it the developer's laptops' or the pipeline.",
+        "",
+        "Maven has introduces",
+        "a [directory structure for Java projects](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)",
+        "and Gradle kept the same structure. We can change this using the `sourceSet` configuration, but it's best if you don't",
+        "change it. Other developers have grown custom to this directory structure and changing it may make it harder for others",
+        "to get used to your project. For example, the Java source file goes under the `src/main/java` directory and that's where",
+        "programmers who are used to Maven and Gradle expect it to be.",
+        "",
+        "Let's create the required directory structure.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -506,6 +583,31 @@
         "mkdir -p src/main/resources",
         "mkdir -p src/test/java",
         "mkdir -p src/test/resources"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "40a568d6-cc5b-4ae3-9761-ba1334c0ad89",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "All our source files will go under the `src` director, including the tests. Other programming languages, like",
+        "Javascript, use a different directory structure and separate the tests into a dedicated `test` root folder. The `src`",
+        "directory has two subdirectories, the `main` and `test`. The production code goes in the `main` while the test code goes",
+        "in the `test` directory.",
+        "",
+        "- **Where would you put the integration tests?**",
+        "",
+        "  While this depends on the team, it is a good practice to separate these tests into their own directory, such",
+        "  as `integrationTest`. You can set up",
+        "  this [manually](https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests) or",
+        "  use a plugin, such as the [Gradle TestSets plugin](https://github.com/unbroken-dome/gradle-testsets-plugin).",
+        "  Alternatively you can use",
+        "  new [`testing` extension](https://docs.gradle.org/current/dsl/org.gradle.testing.base.TestingExtension.html).",
+        "",
+        "Let's explore the `src` directory."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -527,6 +629,7 @@
       "id": "5a1476c3-7182-4d02-bbaf-b49513a1b95f",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The `src` directory should have the following directory structure.",
         "",
         "```",
         "src",
@@ -538,7 +641,12 @@
         "    `-- resources",
         "",
         "6 directories, 0 files",
-        "```"
+        "```",
+        "",
+        "We will create a simple class called `Main.java` (unoriginal, I know) and will put this in a package (directory)",
+        "named `gbc`, short for _**G**radle **B**oot **C**amp_. We will start by creating a new directory named `gbc` within",
+        "the `src/main/java`.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -555,11 +663,34 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "4f24692b-31d7-4758-95be-e68f9a7be616",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's create the `Main.java` source file in this directory.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "1e280391-049e-471d-99ab-d3607ba48ec3",
       "workingDirectory": "single-java-project",
       "parameters": [
         "touch src/main/java/gbc/Main.java"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "0fe3ae9b-4c13-406a-87f6-4ec20630fddf",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's define the class and create the _main_ method."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -589,11 +720,43 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "df21fed1-ee0c-4a3a-8357-33fd8dd3ba6b",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "In the attempt to be a bit different, we are printing `Gradle boot camp` to the standard output rather than the",
+        "traditional `Hello world!!`.",
+        "",
+        "Now that we are all set, let's compile our application. We can use the `compileJava` task or the `assemble` task or",
+        "the `build` task. The latter runs everything for us, and it is quite convenient as it will also run the tests if we had",
+        "any.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "d374306f-2ce9-4dc9-8828-6d1c6b199d54",
       "workingDirectory": "single-java-project",
       "parameters": [
         "./gradlew build"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "05b7ea5d-ca53-4255-89e1-2e1813588710",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "When we run the `build` task, the Java source files are compiled by the `compileJava` task. The compiled Java classes",
+        "are saved under the `build\\classes` directory. The `build` directory is Gradle's default output directory where all the",
+        "build artefacts are stored. Let's see what's inside this directory.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -615,7 +778,7 @@
       "id": "8a8ca2ca-adc6-4e3d-a4f7-49871dd5f0fa",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "The build directory contains several other subdirectories, as shown next.",
         "",
         "```",
         "build",
@@ -641,7 +804,14 @@
         "        `-- MANIFEST.MF",
         "",
         "16 directories, 4 files",
-        "```"
+        "```",
+        "",
+        "Our compiled classes go in the `classes` subdirectory, while",
+        "the [Jar files](https://docs.oracle.com/en/java/javase/17/docs/specs/jar/jar.html) are saved under the `lib`",
+        "subdirectory.",
+        "",
+        "Let's run our application using Java, and not Gradle.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -652,7 +822,33 @@
       "id": "2083de35-8539-4c58-a2cd-9b8309f2fd97",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "java -cp build/classes/java/main gbc.Main"
+        "java -cp 'build/classes/java/main' gbc.Main"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "952e9f0f-d2b3-4777-bf82-8f02d1977cf2",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "We need to make use of the `-cp` argument to set the classpath and point this to the `main` directory and not the",
+        "package. Please refer to",
+        "the [Standard Options for Java](https://docs.oracle.com/en/java/javase/17/docs/specs/man/java.html#standard-options-for-java)",
+        "section for a complete list of available options. Then we need specify the full qualified name of the class, which",
+        "comprise its package and the class name, `gbc.Main`.",
+        "",
+        "This should print out our message to the standard output (also referred to the terminal or console).",
+        "",
+        "```",
+        "Gradle boot camp",
+        "```",
+        "",
+        "The Gradle `build` task also invoked the `assemble` task which in turn invokes",
+        "the [`jar` task](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html). The `jar` task packages",
+        "our application into a Jar file. Let's try running our application using the `-jar` argument.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -663,7 +859,7 @@
       "id": "d2ef5df8-8992-45dd-9ac7-888f8ac97962",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "java -jar build/libs/single-java-project.jar"
+        "java -jar 'build/libs/single-java-project.jar'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -675,10 +871,44 @@
       "id": "c907ac88-795e-42e3-b78f-6b67c1c8e9a6",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The command failed.",
         "",
         "```",
         "no main manifest attribute, in build/libs/single-java-project.jar",
-        "```"
+        "```",
+        "",
+        "Java does not know which class to run, even if our application/Jar-file only contains one class. We need to specify",
+        "the _main_ class.  We can use the `-cp` argument we used before.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "8229fc68-1679-48f9-8ddb-9c2f392199cd",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "java -cp 'build/libs/single-java-project.jar' gbc.Main"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8ba51dbc-afb9-4097-b069-121b71bf350d",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "This is equivalent to our first attempt to run the example, only this time we are pointing to a Jar file instead of a",
+        "directory. This approach requires you to know what's inside the Jar file. You need to know where the _main_ method is. A",
+        "better approach is to update the manifest file, `MANIFEST.MF`, and set the `Main-Class` attribute (or property).",
+        "",
+        "The `jar` Gradle task can be configured to do just that using",
+        "the [`manifest`](https://docs.gradle.org/current/dsl/org.gradle.jvm.tasks.Jar.html#org.gradle.jvm.tasks.Jar:manifest)",
+        "property.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -690,12 +920,12 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 075ba3d..47cb426 100644",
+        "index 336da42..c8741d0 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -1,3 +1,9 @@",
-        " plugins {",
-        "     id 'java'",
+        "@@ -8,3 +8,9 @@ java {",
+        "         vendor = JvmVendorSpec.ORACLE",
+        "     }",
         " }",
         "+",
         "+tasks.named('jar') {",
@@ -703,6 +933,19 @@
         "+        attributes('Main-Class': 'gbc.Main')",
         "+    }",
         "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7134e720-e580-4de4-bb98-4696d0505a6a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Given that we only want to create the Jar file, we can simply run the `jar` Gradle task and not the entire build. Gradle",
+        "is clever enough to only do what's needed and in this case it would probably take the same time to complete.",
         ""
       ],
       "variables": [],
@@ -721,11 +964,37 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "55ce1460-e63d-437c-8748-6aae9853aeae",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's try to run our Jar file, once more."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "f958f5f2-c65f-4df0-9ff8-70d900e63b09",
       "workingDirectory": "single-java-project",
       "parameters": [
         "java -jar build/libs/single-java-project.jar"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "db4e0066-6c4b-4254-8ab6-eba91d255070",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "This time it works as Java can use the `MANIFEST.MD` file to determine the _main_ class and runs it.",
+        "",
+        "We now have created a simple Java application and used Gradle to compile it, set the Jar file's entry point and packaged",
+        "everything into a single Jar file. Let's commit our progress before moving to the next section.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -755,11 +1024,40 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "ec90336a-972f-47ad-8b34-918dc4fd748f",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "So far we built and packaged our application using several Gradle tasks, such as `compileJava` and `jar`. But we did not",
+        "run the application using Gradle, and instead we used Java for that. We can make use from another plugin,",
+        "the [`application` plugin](https://docs.gradle.org/current/userguide/application_plugin.html), which provides additional",
+        "tasks to the `java` plugin.",
+        "",
+        "Let's start by tagging the current state of the project, before proceeding.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "ddb88e98-551f-4acf-93db-af96a779bbfe",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "git tag --annotate 'v2.0.0' --message 'The application plugin'"
+        "git tag --annotate 'v2' --message 'The application plugin'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "c42faaa1-ead4-46a7-bf68-f748dc094a17",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The `application` plugin extends the `java` plugin. We can replace the `java` plugin with the `application` plugin.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -771,7 +1069,7 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 47cb426..39335ae 100644",
+        "index c8741d0..201cc87 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
         "@@ -1,5 +1,5 @@",
@@ -780,7 +1078,21 @@
         "+    id 'application'",
         " }",
         " ",
-        " tasks.named('jar') {",
+        " java {",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7e4d59a6-4cb5-406a-8a5a-d974a9031edc",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The `application` plugin",
+        "adds [new tasks](https://docs.gradle.org/current/userguide/application_plugin.html#sec:application_tasks) to our",
+        "project, such as the `run` task.",
         ""
       ],
       "variables": [],
@@ -803,13 +1115,16 @@
       "id": "2a825c8b-809c-4d50-a876-5a74509ae059",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "The `run` task can be found under the _Application tasks_ group.",
         "",
         "```",
         "Application tasks",
         "-----------------",
         "run - Runs this project as a JVM application",
-        "```"
+        "```",
+        "",
+        "Let's run our application using the `run` task.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -832,12 +1147,18 @@
       "id": "e52733b5-ad98-48aa-9d3d-79fa3b5983b3",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The `run` task fails with a similar message we had before, when we tried to run the Jar file without setting",
+        "the `Main-class` in the `MANIFEST.MD` file.",
         "",
         "```",
         "* What went wrong:",
         "Execution failed for task ':run'.",
         "> No main class specified and classpath is not an executable jar.",
-        "```"
+        "```",
+        "",
+        "We need to configure the application and set",
+        "the [`mainClass` property](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.JavaApplication.html#org.gradle.api.plugins.JavaApplication:mainClass).",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -849,11 +1170,11 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 39335ae..2964592 100644",
+        "index 201cc87..3214c64 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -2,6 +2,10 @@ plugins {",
-        "     id 'application'",
+        "@@ -9,6 +9,10 @@ java {",
+        "     }",
         " }",
         " ",
         "+application {",
