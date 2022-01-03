@@ -408,16 +408,43 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "cfda812e-f3bc-47fd-968e-c1885e972d37",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "We will also ignore the following directories from source version control",
+        "",
+        "- `build` - Used by Gradle to store the build output. When we compile code, for example, the compiled code is saved",
+        "  under this directory and this should not be committed to version control. This is equivalent to the `target` directory",
+        "  for Maven, if you have Maven background.",
+        "- `.idea` - Used by [IntelliJ](https://www.jetbrains.com/idea/)",
+        "- `.vscode` - Used by [VS Code](https://code.visualstudio.com/)",
+        "- `bin` - Used by some VS Code plugins to store the compiler output. These VS code plugins act similarly to Gradle and",
+        "  assist us by compiling the code for us, for example. Their output is saved under the `bin` folder.",
+        "",
+        "While we may not be using all of these, it's a good idea to ignore them nevertheless, given that these files should not",
+        "be version controlled.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "294317cd-c05d-4ea2-9fe8-1c9a2fddfb42",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "diff --git a/.gitignore b/.gitignore",
-        "index e69de29..6bebbc3 100644",
+        "index e69de29..92b4736 100644",
         "--- a/.gitignore",
         "+++ b/.gitignore",
-        "@@ -0,0 +1 @@",
-        "+/.gradle",
+        "@@ -0,0 +1,5 @@",
+        "+.gradle",
+        "+.idea",
+        "+.vscode",
+        "+bin",
+        "+build",
         ""
       ],
       "variables": [],
@@ -2647,10 +2674,39 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "2037456d-58d5-489c-853b-94cb6d6c5397",
+      "parameters": [
+        "In the previous example, we have created the Gradle project manually. Gradle provides",
+        "the [`init` task](https://docs.gradle.org/current/dsl/org.gradle.buildinit.tasks.InitBuild.html) that does just that. In",
+        "this section we will see how to use the Gradle `init` task to create the same project we created before.",
+        "",
+        "We will use a different directory so that we don't overwrite what we have done before. We will start by deleting the",
+        "directory if exists so that we start on a clean slate. This ensures that we don't have any residue from previous runs of",
+        "this example.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "7dfd6885-945d-481d-ab56-23e7c00ff7f0",
       "parameters": [
         "rm -rf 'gradle-fundamentals-init'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "c8bd6ef0-e7c1-4abc-962e-6e817331b2c5",
+      "parameters": [
+        "Create the directory from where we will be working. All subsequent commands are to be executed from within this",
+        "directory.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2667,11 +2723,32 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "58221eb9-0d96-4b98-b326-8d6e18233623",
+      "parameters": [
+        "Let's version control this directory so that we can keep track of the changes."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "a3be2504-4c4d-41b4-8cfe-7da041c953a7",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "git init --initial-branch=main"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "00f215dd-0dc8-4ed2-ba98-b16101796e10",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "We need to configure Git's user name and email address and we can reuse the variables that we set before."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2693,6 +2770,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "303b5bab-3b47-4e95-9185-a690ac852ff3",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "Let's verify that our Git configuration was properly applied."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "d8baf9fa-e589-4e2a-a3b0-d765c5503a41",
       "workingDirectory": "gradle-fundamentals-init",
@@ -2707,6 +2795,7 @@
       "type": "markdown",
       "id": "6586de53-b004-4042-af2d-bbd396b18886",
       "parameters": [
+        "Both name and email should be properly set, as shown next.",
         "",
         "```",
         "user.name=${DEVELOPER_NAME}",
@@ -2717,6 +2806,35 @@
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
       ],
+      "environmentVariables": [],
+      "values": {
+        "DEVELOPER_NAME": "Albert Attard",
+        "DEVELOPER_EMAIL": "albertattard@gmail.com"
+      }
+    },
+    {
+      "type": "markdown",
+      "id": "99e9c2c2-496b-4aa1-9fa1-775fd03b0629",
+      "parameters": [
+        "Now let's create the Gradle project using the `init` task.",
+        "",
+        "The Gradle `init` task is an interactive command and if no arguments are provided, this task will walk us through a",
+        "command-line wizard where we select the type of project, Gradle's DSL (Groovy or Kotlin) and other frameworks that we",
+        "like to use. In this example, we will provide all these options are task arguments.",
+        "",
+        "If you like to run the Gradle `init` tasks, in an interactive mode, please select the following options",
+        "",
+        "- Basic Application (hence the `--type basic`)",
+        "- Groovy DSL (hence the `--dsl groovy`)",
+        "- Use `gradle-fundamentals-init` as the project name (hence the `--project-name gradle-fundamentals-init`)",
+        "",
+        "You may be asked whether you like to use new features, which you may opt in. These will not affect our example. With",
+        "that being said, it is always better to start with the newest features and this will simplify migration in the future as",
+        "you will have fewer steps to follow. Note that software does need to be migrated especially when security",
+        "vulnerabilities are discovered (like the infamous [Log4J Shell vulnerability](https://en.wikipedia.org/wiki/Log4Shell)).",
+        ""
+      ],
+      "variables": [],
       "environmentVariables": [],
       "values": {}
     },
@@ -2731,6 +2849,17 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "91cef74e-3f23-41c1-bbb2-47129df6ae81",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "Let's see what the Gradle `init` task has created."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "command",
@@ -2759,6 +2888,18 @@
         "-rw-r--r--  1 root root 2763 Dec 28 22:14 gradlew.bat",
         "-rw-r--r--  1 root root  373 Dec 28 22:14 settings.gradle",
         "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "478473d0-fc59-4ea0-850b-0edabe45770c",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "The Gradle `init` task has created several things for us, including the Gradle wrapper.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2795,11 +2936,35 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "2b52e3ca-9dfc-4663-a7e4-1a434a867044",
+      "parameters": [
+        "Let's see what's in the `settings.gradle` file.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "82576516-1950-44da-b600-0ba6785f232d",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "cat 'settings.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7d4970af-36c9-4ec8-94b2-2d0bea47cb1c",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "The file contains some comments, which we can delete, and the project name. Let's delete the comments as we don't need",
+        "these.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2832,11 +2997,35 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "5fe71107-5872-408c-bc13-14de6411a8e3",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "Let's see what's in the `build.gradle` file.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "7cd91d1e-f6c9-48f4-9d55-09820fc96b75",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "cat 'build.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "63e0fdf3-5206-428d-ba8d-20dff378fe15",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "This file contains just comments. Let's remove the comments and add the plugins and the `hello` and `bye` tasks that we",
+        "created before."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2860,14 +3049,14 @@
         "- */",
         "+plugins {",
         "+    id 'base'",
-        "+    id \"org.barfuin.gradle.taskinfo\" version \"1.3.1\"",
+        "+    id 'org.barfuin.gradle.taskinfo' version '1.3.1'",
         "+}",
         "+",
         "+tasks.register('hello') {",
         "+    group = 'Greetings'",
         "+    description = 'A simple task that prints a simple message'",
         "+    doLast {",
-        "+        println \"Hello Gradle\"",
+        "+        println 'Hello Gradle'",
         "+    }",
         "+}",
         "+",
@@ -2875,10 +3064,21 @@
         "+    group = 'Greetings'",
         "+    description = 'A simple task that prints a simple message'",
         "+    doLast {",
-        "+        println \"See you later, Gradle\"",
+        "+        println 'See you later, Gradle'",
         "+    }",
         "+}",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "56106280-0361-4856-b482-ce139417568f",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "Let see what's in the 'gradle/wrapper/gradle-wrapper.properties' file."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2900,10 +3100,27 @@
       "id": "717251b9-b64a-4220-a0e9-63a4d934862a",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
+        "The wrapper is pointing to Gradle 7.3.3.",
         "",
         "```",
         "distributionUrl=https\\://services.gradle.org/distributions/gradle-7.3.3-bin.zip",
-        "```"
+        "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "3983fc4e-11b0-456e-813d-c9d5b298e882",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "We can set the version either from the 'gradle/wrapper/gradle-wrapper.properties' or using the `--gradle-version`",
+        "argument to the `wrapper ` task, as shown next. Given that we are already using the required Gradle version, we don't",
+        "need to do anything and the command is only shown here for completeness. This command is idempotent and running it again",
+        "will not change anything.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2921,6 +3138,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "164a3fcd-f7cc-459b-884c-8654c51af9c3",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "The Gradle `init` command also included the `.gitignore` file. Let's see its contents."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "22f3564b-07b6-4453-960e-a3f0c5480b4e",
       "workingDirectory": "gradle-fundamentals-init",
@@ -2932,22 +3160,49 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "148d0c72-f407-4cac-8080-a92ac0b2421d",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "The Gradle `.gradle` and `build` folders are included by default. Let's remove the comments and add some IDE related",
+        "folders, such as `.idea` used by [IntelliJ](https://www.jetbrains.com/idea/) and `.vscode` (and `bin`) used",
+        "by [VS Code](https://code.visualstudio.com/) and some of its plugins.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "1e1ba805-4ba4-436b-9717-17b3e16080b9",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "diff --git a/.gitignore b/.gitignore",
-        "index 1b6985c..e0d53d8 100644",
+        "index 1b6985c..92b4736 100644",
         "--- a/.gitignore",
         "+++ b/.gitignore",
-        "@@ -1,5 +1,3 @@",
+        "@@ -1,5 +1,5 @@",
         "-# Ignore Gradle project-specific cache directory",
         " .gradle",
         "-",
         "-# Ignore Gradle build output directory",
         "+.idea",
+        "+.vscode",
+        "+bin",
         " build",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "5313f650-3d8d-44e4-b6f9-55b79f4ec2be",
+      "workingDirectory": "gradle-fundamentals-init",
+      "parameters": [
+        "We create the same project, this time using the Gradle `init` task, which simplifies the process."
       ],
       "variables": [],
       "environmentVariables": [],
