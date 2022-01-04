@@ -2937,11 +2937,370 @@
       "values": {}
     },
     {
-      "type": "todo",
-      "id": "d5d4774e-bf12-4c46-a669-2defd11c812d",
+      "type": "command",
+      "id": "83b45038-25e2-4c66-8cc3-a19d5014f76d",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "The application is not yet ready as the JAR file does not contain the dependencies and running it will fail.  Consider adding [ShadowJar gradle plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)."
+        "./gradlew jar"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "command",
+      "id": "ae958560-390c-4004-9e82-efb8de5f2330",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "tree 'build/libs'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "53b60e96-59ad-45d0-91bf-04dd11486979",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "java -jar 'build/libs/single-java-project.jar'",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "expectedExitValue": 1
+    },
+    {
+      "type": "markdown",
+      "id": "02b7d789-4e07-427e-9644-5708276a5962",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "Exception in thread \"main\" java.lang.NoClassDefFoundError: org/slf4j/LoggerFactory",
+        "\tat gbc.Main.<clinit>(Main.java:8)",
+        "Caused by: java.lang.ClassNotFoundException: org.slf4j.LoggerFactory",
+        "\tat java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)",
+        "\tat java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)",
+        "\tat java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)",
+        "\t... 1 more",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "7327e6c9-4880-4df7-bf14-723c912d6293",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "jar tf 'build/libs/single-java-project.jar'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "afeca4ad-7e36-4ea8-a7ca-9e5594f8936c",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "```",
+        "META-INF/",
+        "META-INF/MANIFEST.MF",
+        "gbc/",
+        "gbc/Main.class",
+        "log4j2.properties",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "47fbfe7c-f6e7-4d9c-8425-500d675a0ae7",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew dependencies --configuration runtimeClasspath"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "41f1436b-9c7e-4512-a4b3-bd135f522303",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "runtimeClasspath - Runtime classpath of source set 'main'.",
+        "\\--- org.apache.logging.log4j:log4j-slf4j-impl:2.17.1",
+        "     +--- org.slf4j:slf4j-api:1.7.25",
+        "     +--- org.apache.logging.log4j:log4j-api:2.17.1",
+        "     \\--- org.apache.logging.log4j:log4j-core:2.17.1",
+        "          \\--- org.apache.logging.log4j:log4j-api:2.17.1",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "08ea92e7-7cec-482c-9a07-eb69ea4dcb65",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 74a95dd..4de756c 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -31,6 +31,23 @@ testing {",
+        "         test {",
+        "             useJUnitJupiter('5.8.2')",
+        "         }",
+        "+",
+        "+        functionalTest(JvmTestSuite) {",
+        "+            dependencies {",
+        "+                implementation project",
+        "+            }",
+        "+",
+        "+            useJUnitJupiter('5.8.2')",
+        "+",
+        "+            targets {",
+        "+                all {",
+        "+                    testTask.configure {",
+        "+                        shouldRunAfter test",
+        "+                        dependsOn assemble",
+        "+                    }",
+        "+                }",
+        "+            }",
+        "+        }",
+        "     }",
+        " }",
+        " ",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "0cfaae63-81f2-44fe-9ab2-1fa6fabbcb19",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "mkdir -p 'src/functionalTest/java'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "749b2d66-7bb7-4772-8601-6a9dff0adcf6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "mkdir 'src/functionalTest/java/gbc'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "65884160-875d-4fdb-95cf-5beb4dd3d85c",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "touch 'src/functionalTest/java/gbc/RunApplicationTest.java'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "77c232b9-725a-4dc7-b62c-dea462671057",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/src/functionalTest/java/gbc/RunApplicationTest.java b/src/functionalTest/java/gbc/RunApplicationTest.java",
+        "index e69de29..d18c607 100644",
+        "--- a/src/functionalTest/java/gbc/RunApplicationTest.java",
+        "+++ b/src/functionalTest/java/gbc/RunApplicationTest.java",
+        "@@ -0,0 +1,32 @@",
+        "+package gbc;",
+        "+",
+        "+import org.junit.jupiter.api.Test;",
+        "+",
+        "+import java.io.IOException;",
+        "+import java.util.concurrent.TimeUnit;",
+        "+",
+        "+import static org.junit.jupiter.api.Assertions.assertEquals;",
+        "+import static org.junit.jupiter.api.Assertions.fail;",
+        "+",
+        "+public class RunApplicationTest {",
+        "+",
+        "+    @Test",
+        "+    void runApplication() throws IOException, InterruptedException {",
+        "+        /* Given */",
+        "+        final String[] command = {\"java\", \"-jar\", \"build/libs/single-java-project.jar\"};",
+        "+",
+        "+        /* When */",
+        "+        final ProcessBuilder builder = new ProcessBuilder(command);",
+        "+        final Process process = builder.start();",
+        "+        final boolean finishedInTime = process.waitFor(5, TimeUnit.SECONDS);",
+        "+",
+        "+        /* Then */",
+        "+        if (!finishedInTime) {",
+        "+            process.destroyForcibly();",
+        "+            fail(\"Process took longer than expected to complete\");",
+        "+        }",
+        "+",
+        "+        final int exitValue = process.exitValue();",
+        "+        assertEquals(0, exitValue);",
+        "+    }",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "2339cc47-9ab2-417c-b26f-df879a1349d0",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew functionalTest"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "expectedExitValue": 1,
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "14355af8-2aa5-451b-a60b-f6f40820cd6a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "```",
+        "> Task :functionalTest FAILED",
+        "RunApplicationTest > runApplication() FAILED",
+        "    org.opentest4j.AssertionFailedError at RunApplicationTest.java:30",
+        "```"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "fdf1042f-d8a8-4ab4-b295-b1d184b83b41",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index b854e85..f7f9753 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -19,6 +19,10 @@ tasks.named('jar') {",
+        "     manifest {",
+        "         attributes('Main-Class': application.mainClass)",
+        "     }",
+        "+    from {",
+        "+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }",
+        "+    }",
+        "+    duplicatesStrategy = 'exclude'",
+        " }",
+        " ",
+        " testing {",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "10a7f6bf-fa90-4259-944e-c81212bd0842",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew functionalTest"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "84a80796-b6be-4f44-8ff8-02d8f922a34a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "jar tf 'build/libs/single-java-project.jar'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "888885a8-ac37-42a8-9269-93f2fdf93752",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "java -jar 'build/libs/single-java-project.jar'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "a9cb8097-524e-4aa8-80e2-ba1e5266b9ee",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Package application using the jar task'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "subsection",
+      "id": "98a7b82a-fd3a-4369-a962-5fd694ba40c9",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The ShadowJar plugin"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "257137d2-2413-489a-a5af-bf7aed83e3fd",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git tag --annotate 'v7' --message 'The ShadowJar plugin'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "bba9d109-780e-4f8b-9100-dbc3aea6f85a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "We can use the [ShadowJar Gradle plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) instead of configuring the `jar` task ourselves."
       ],
       "variables": [],
       "environmentVariables": [],
