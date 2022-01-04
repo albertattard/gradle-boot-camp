@@ -2464,6 +2464,12 @@
       "id": "df1b71de-0904-46aa-ad87-bb46fa54a32f",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
+        "- **Why is there a version after the `taskinfo` plugin but not after the `base` plugin?**",
+        "",
+        "  The built-in plugins do not require a version as these are packaged with the version of Gradle we are using.",
+        "  The `taskinfo` plugin is developed and maintained by a third party and thus we need to indicate which version of the",
+        "  plugin we want to use.",
+        "",
         "Let's list all tasks, as this plugin does not use groups for the tasks that it introduces.",
         ""
       ],

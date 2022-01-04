@@ -979,7 +979,7 @@
       "id": "f958f5f2-c65f-4df0-9ff8-70d900e63b09",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "java -jar build/libs/single-java-project.jar"
+        "java -jar 'build/libs/single-java-project.jar'"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1191,6 +1191,33 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "5138b9bf-9667-4f93-967e-6c76a0ed7ddb",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "- **Why are we configuring the `application` differently from the `jar`?**",
+        "",
+        "  The `application` is a plugin while the `jar` is a task. We can use similar syntax to configure the `jar` tasks and",
+        "  many examples use the following syntax as it is less verbose.",
+        "",
+        "  ```",
+        "  jar {",
+        "    manifest {",
+        "        attributes('Main-Class': 'gbc.Main')",
+        "    }",
+        "  }",
+        "  ```",
+        "",
+        "  While this works as expected, it loads the task eagerly. It is recommended to configure the tasks using a lazy",
+        "  configuration approach, such as `tasks.named('jar') { }`.",
+        "",
+        "Let's run the application again."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "0f7d96b1-0039-4c0b-81ee-bce4f472f2b4",
       "workingDirectory": "single-java-project",
@@ -1206,11 +1233,15 @@
       "id": "07fdd30a-2e49-49d8-b909-5e929419c954",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The Gradle `run` tasks works as expected.",
         "",
         "```",
         "> Task :run",
         "Gradle boot camp",
-        "```"
+        "```",
+        "",
+        "Note that both the `jar` and the `application` are pointing to the same class, `gbc.Main`. The `jar` task can refer to",
+        "the `application`'s `mainClass` instead, making it easier to maintain."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1222,10 +1253,10 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 2964592..631d58b 100644",
+        "index 3214c64..093551e 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -8,6 +8,6 @@ application {",
+        "@@ -15,6 +15,6 @@ application {",
         " ",
         " tasks.named('jar') {",
         "     manifest {",
@@ -1240,11 +1271,63 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "1c42876d-6504-424f-abe8-27409b3a1651",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's re-create the Jar file again to make sure that all is working well.",
+        "",
+        "Ideally we capture this in a test and automate all the testing as much as possible, instead of trying things manually.",
+        "We will cover testing later on and will introduce a test then.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "ece184da-0e5a-4ef4-a32b-c48fc846fc7e",
       "workingDirectory": "single-java-project",
       "parameters": [
         "./gradlew jar"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "fed0550f-9e9b-4224-b339-14ff58e8d5dd",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's run the application again, using the `java -jar` and not Gradle to make sure that the `MANIFEST.MD` file is",
+        "properly set.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "2428fcb1-55d2-4f3f-a741-4c0d6e85acc2",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "java -jar 'build/libs/single-java-project.jar'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "24a9b458-0cb9-41b7-a121-d5a02ebe9a04",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "We are all set. We switched to the `application` plugin and configure the Jar file entry point. Let's commit our changes",
+        "before moving on to the next section.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1274,11 +1357,42 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "747e106b-81dc-4936-ac35-9181b85a6b53",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Applications use third-party dependencies, and so far we have not used any. In this section we will make use of the (",
+        "infamous) [log4j logging library](https://logging.apache.org/log4j/2.x/) to demonstrate further plugins.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "f4c847a4-489b-4268-8172-246d2450a6dd",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "git tag --annotate 'v3.0.0' --message 'Dependencies'"
+        "git tag --annotate 'v3' --message 'Dependencies'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "d388d597-3aa8-4bc0-ba20-a80c43e1a397",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The [`java` plugin](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_plugin_and_dependency_management)",
+        "adds a number",
+        "of [dependency configurations](https://docs.gradle.org/current/userguide/declaring_dependencies.html#sec:what-are-dependency-configurations)",
+        "to our project.",
+        "",
+        "Let's add an out-date version of log4j. Kindly note that this version of log4j has security vulnerabilities and should",
+        "not be used.  We are using this version here for demonstration purposes, and it will be updated at a later stage.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1290,10 +1404,10 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 631d58b..da9ced0 100644",
+        "index 093551e..d4bb980 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -11,3 +11,7 @@ tasks.named('jar') {",
+        "@@ -18,3 +18,7 @@ tasks.named('jar') {",
         "         attributes('Main-Class': application.mainClass)",
         "     }",
         " }",
@@ -1302,6 +1416,17 @@
         "+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.14.1'",
         "+}",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "19bfd205-96ee-41dd-b1bb-ebd118cc4cc6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's build the application, using the Gradle `build` task."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1320,15 +1445,37 @@
       "expectedExitValue": 1
     },
     {
+      "type": "markdown",
+      "id": "031436e1-7453-4010-8e64-c4a3ba04909c",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The `build` task fails.",
+        "",
+        "```",
+        "* What went wrong:",
+        "Execution failed for task ':compileJava'.",
+        "> Could not resolve all files for configuration ':compileClasspath'.",
+        "   > Cannot resolve external dependency org.apache.logging.log4j:log4j-slf4j-impl:2.14.1 because no repositories are defined.",
+        "```",
+        "",
+        "The message contains our solution. We have not configured the repositories from where Gradle can download these",
+        "dependencies.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "801f7f7b-580a-4858-b6cb-8253647262be",
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index da9ced0..872ddf8 100644",
+        "index d4bb980..47fe21e 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -12,5 +12,9 @@ tasks.named('jar') {",
+        "@@ -19,6 +19,10 @@ tasks.named('jar') {",
         "     }",
         " }",
         " ",
@@ -1338,6 +1485,23 @@
         "+",
         " dependencies {",
         "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.14.1'",
+        " }",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "382dc809-c325-47ac-87d6-c81a45854016",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "We instructed Gradle to use [Maven repository](https://mvnrepository.com/). We can have multiple repositories, including",
+        "internal ones only accessible to the organisation we work for. This is quite a common practice where companies screen",
+        "the dependencies and only allow the use of trusted dependencies.",
+        "",
+        "Let's build the project once more.",
         ""
       ],
       "variables": [],
@@ -1355,6 +1519,31 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "b685ce35-8ab6-4c75-abde-dbf9e07ce36b",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The `build` task may take a bit longer to run as it needs to download the dependencies, if these do not already exist.",
+        "",
+        "- **Where are the dependencies saved?**",
+        "",
+        "  By default, Gradle saves the dependencies under the `~/.gradle/caches/modules-2` directory. You can check what's",
+        "  dependencies are downloaded using the following command.",
+        "",
+        "  ```",
+        "  ls -l ~/.gradle/caches/modules-2/files-2.1",
+        "  ```",
+        "",
+        "  Please note that this may produce a long list of dependencies, depending on how many dependencies you have",
+        "  already downloaded.",
+        "",
+        "Let's update our class to make sure of the logger instead of simply printing to the standard output."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "git-apply-patch",
@@ -1386,6 +1575,29 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "8373c0dd-2267-4f0d-ab50-f0789d47f004",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "- **What is the difference between the [SLF4J](https://www.slf4j.org/) and the Log4J?**",
+        "",
+        "  SLF4J is a logging [Façade](https://en.wikipedia.org/wiki/Facade_pattern), while Log4J is a logger. Instead of working",
+        "  directly with a logger, such as",
+        "  Log4J, [Java Logger](https://docs.oracle.com/en/java/javase/17/docs/api/java.logging/java/util/logging/Logger.html)",
+        "  or [logback](https://logback.qos.ch/) to name a few, we can use a façade and then configure the façade to pass all",
+        "  logging requests to a specific implementation, such as Log4J, Java Logger, or logback.",
+        "",
+        "  The advantage of this approach is that our code becomes disconnected from the logging library, and we can switch from",
+        "  one implementation to the next without having to change our code.",
+        "",
+        "Let's run the application again.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "49e5cd6a-a562-49bd-9895-9e61aced9719",
       "workingDirectory": "single-java-project",
@@ -1401,13 +1613,19 @@
       "id": "b332c747-e91f-44e5-925b-4719b8e59759",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The application did not output anything to the standard output anymore. The following warnings may also appear instead.",
         "",
         "```",
         "> Task :run",
         "log4j:WARN Please initialize the log4j system properly.",
         "log4j:WARN No appenders could be found for logger (gbc.Main).",
         "log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.",
-        "```"
+        "```",
+        "",
+        "We need to configure the logger such that it prints to the standard output. Each logger implementation has its own",
+        "configuration. The new version of Log4J (referred to as _Log4J 2_) make use of",
+        "the `src/main/resources/log4j2.properties` file. Let's start by creating this file.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1419,6 +1637,27 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "touch 'src/main/resources/log4j2.properties'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "4decdb55-1ae6-4901-86cb-1acf4dcb895a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "- **How come the `log4j2.properties` file was created under the `resources` directory?**",
+        "",
+        "  The Java source file are expected to be placed under the `src/main/java` directory. If we have Kotlin source files,",
+        "  these are expected to be found under the `src/main/kotlin` directory. Properties files, like the `log4j2.properties`,",
+        "  are expected to be placed under the `src/main/resources` together with other files that are not source code, but are",
+        "  still required by the program.",
+        "  The [`processResources` task](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_tasks), will copy",
+        "  these files and make them available with the rest of the compiled classes.",
+        "",
+        "Let's configure the Log4J so that it prints everything to the standard output.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1439,11 +1678,23 @@
         "+appender.stdout.type = Console",
         "+appender.stdout.name = stdout",
         "+appender.stdout.layout.type = PatternLayout",
-        "+appender.stdout.layout.pattern = [%d{yy-MMM-dd HH:mm:ss:SSS}] [%p] [%c{1}:%L] - %m%n",
+        "+appender.stdout.layout.pattern = [%d{dd-MMM-yyy HH:mm:ss:SSS}] [%p] [%c{1}:%L] - %m%n",
         "+",
         "+rootLogger.level = debug",
         "+rootLogger.appenderRefs = a",
         "+rootLogger.appenderRef.a.ref = stdout",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "d245efe6-6233-4526-a431-580e460f18aa",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's run the application again.",
         ""
       ],
       "variables": [],
@@ -1466,11 +1717,21 @@
       "id": "9bad9952-08c1-40b8-8789-84af15a0c94f",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "Note that this time, our program printed the `Gradle boot camp` and included other (fancy) information.",
         "",
         "```",
         "> Task :run",
-        "[21-Dec-29 13:02:36:248] [DEBUG] [Main:10] - Gradle boot camp",
-        "```"
+        "[27-Apr-2077 12:34:56:789] [DEBUG] [Main:10] - Gradle boot camp",
+        "```",
+        "",
+        "This can be changed from the `src/main/resources/log4j2.properties` file.",
+        "",
+        "```",
+        "appender.stdout.layout.pattern = [%d{dd-MMM-yyy HH:mm:ss:SSS}] [%p] [%c{1}:%L] - %m%n",
+        "```",
+        "",
+        "This concludes are section about dependencies.  Let's commit our changes before heading to the next section.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1500,11 +1761,40 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "8870eb1f-fa36-4481-87cf-acfe0b749ae2",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "In the previous section we used a vulnerable dependency on purpose, an old and vulnerable version of Log4J. In this",
+        "section we will add a new Gradle plugin that helps us scan for such vulnerabilities.",
+        "",
+        "Let's tag our project so that we have a reference point.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "83fa7fef-54fd-4bdb-ab77-9b7c74617966",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "git tag --annotate 'v4.0.0' --message 'The dependency check plugin'"
+        "git tag --annotate 'v4' --message 'The dependency check plugin'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "a56ba1ce-543a-4637-98b1-0c806da1452a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's add",
+        "the [`org.owasp.dependencycheck`](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/index.html)",
+        "(referred to as `dependency-check`) plugin.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1516,7 +1806,7 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 872ddf8..c974495 100644",
+        "index 47fe21e..fc30f2d 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
         "@@ -1,5 +1,6 @@",
@@ -1525,7 +1815,19 @@
         "+    id 'org.owasp.dependencycheck' version '6.5.1'",
         " }",
         " ",
-        " application {",
+        " java {",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "0117d668-0ef7-41b7-89eb-1a7cff840c37",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The `dependency-check` plugin add new tasks to our Gradle project.",
         ""
       ],
       "variables": [],
@@ -1549,6 +1851,7 @@
       "id": "f7ba8527-e8c8-45dd-af98-07667dead1db",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The `dependency-check` plugin provides four new tasks, under the _OWASP dependency-check tasks_ group.",
         "",
         "```",
         "OWASP dependency-check tasks",
@@ -1557,7 +1860,12 @@
         "dependencyCheckAnalyze - Identifies and reports known vulnerabilities (CVEs) in project dependencies.",
         "dependencyCheckPurge - Purges the local cache of the NVD.",
         "dependencyCheckUpdate - Downloads and stores updates from the NVD CVE data feeds.",
-        "```"
+        "```",
+        "",
+        "Let's run",
+        "the [`dependencyCheckAnalyze` task](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html).",
+        "Please note that this may take several minutes to run as it needs to download the missing vulnerabilities' database.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1576,6 +1884,17 @@
       "commandTimeout": 600.000000000
     },
     {
+      "type": "markdown",
+      "id": "e9e3fd32-d65e-4414-8eba-50ce30275768",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The `dependencyCheckAnalyze` task will produce a report under the `build/reports` directory."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "a3852a80-4de2-4b3b-9ae1-24a5efb050e2",
       "workingDirectory": "single-java-project",
@@ -1587,12 +1906,65 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "bee6dde9-0f2f-424d-ae00-63e32ada6bab",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The `build/reports/dependency-check-report.html` contains a detailed and interactive description of the vulnerabilities found in our dependencies, including the transitive dependencies.",
+        "",
+        "```",
+        "build/reports",
+        "`-- dependency-check-report.html",
+        "```",
+        "",
+        "We are using a vulnerable dependency on purpose, as indicated by the task's output.",
+        "",
+        "```",
+        "One or more dependencies were identified with known vulnerabilities in single-java-project:",
+        "",
+        "log4j-api-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-44832, CVE-2021-45046, CVE-2021-45105",
+        "log4j-core-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105",
+        "log4j-slf4j-impl-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-slf4j-impl@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105",
+        "```",
+        "",
+        "Let's run all tests, the `check` task, and see what happens given that we have vulnerable dependencies.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "a27d5c35-9ea1-411b-8532-e72c92ce9807",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew check"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "db6d78a8-d48a-4e10-b624-2faa738c8e5b",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Unfortunately, the tests pass. We have a task that checks the dependencies, but this is not part of our tests. Let's add",
+        "the `org.barfuin.gradle.taskinfo` plugin and see what tasks the `check` task depends on.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "efdb06f2-95db-4fb7-afb0-52b0b5230340",
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 5539686..4306472 100644",
+        "index fc30f2d..d397ad8 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
         "@@ -1,6 +1,7 @@",
@@ -1602,7 +1974,20 @@
         "+    id 'org.barfuin.gradle.taskinfo' version '1.3.1'",
         " }",
         " ",
-        " application {",
+        " java {",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7226ae10-139f-437e-ba35-08ff247f0c69",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's see what tasks the `check` task depends on. In other words, when we run the `check` task, what other tasks are",
+        "executed.",
         ""
       ],
       "variables": [],
@@ -1626,6 +2011,7 @@
       "id": "ace576be-78df-4663-b587-99fcdc54e46a",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The `check` task depends only on the `test` task.",
         "",
         "```",
         "> Task :tiTree",
@@ -1640,7 +2026,12 @@
         "          |         +--- :compileJava      (org.gradle.api.tasks.compile.JavaCompile)",
         "          |         `--- :processResources (org.gradle.language.jvm.tasks.ProcessResources)",
         "          `--- :processTestResources       (org.gradle.language.jvm.tasks.ProcessResources)",
-        "```"
+        "```",
+        "",
+        "The dependency check is not part of the `check` task. We need to configure the `check` task and make it depends on",
+        "the `dependencyCheckAnalyze` task so that when we run `check`, we run both the tests and the dependency check. Using",
+        "vulnerable dependencies is a critical as having faulty code.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1652,10 +2043,10 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 4306472..c433a3e 100644",
+        "index d397ad8..c960256 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -21,3 +21,7 @@ repositories {",
+        "@@ -28,3 +28,7 @@ repositories {",
         " dependencies {",
         "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.14.1'",
         " }",
@@ -1664,6 +2055,17 @@
         "+    dependsOn 'dependencyCheckAnalyze'",
         "+}",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "dec7c4a9-9f9a-4ff7-b1c5-55d8ffbe11ed",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's print the dependency tree for the `check` task again."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1685,6 +2087,7 @@
       "id": "51127ae6-59bf-49cc-ae21-6afbe6a82e96",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The `check` task now depends on the `dependencyCheckAnalyze` too.",
         "",
         "```",
         "> Task :tiTree",
@@ -1700,7 +2103,10 @@
         "          |         +--- :compileJava      (org.gradle.api.tasks.compile.JavaCompile)",
         "          |         `--- :processResources (org.gradle.language.jvm.tasks.ProcessResources)",
         "          `--- :processTestResources       (org.gradle.language.jvm.tasks.ProcessResources)",
-        "```"
+        "```",
+        "",
+        "Let's run the `check` tasks again. This will not run the `test` and the `dependencyCheckAnalyze` tasks.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1723,8 +2129,34 @@
       "id": "d39293a4-2d71-44e5-8e0a-6bd1ccd36fdd",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The project still make use of vulnerable dependencies",
         "",
-        "The dependency check [configuration](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html) page."
+        "```",
+        "One or more dependencies were identified with known vulnerabilities in single-java-project:",
+        "",
+        "log4j-api-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-44832, CVE-2021-45046, CVE-2021-45105",
+        "log4j-core-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105",
+        "log4j-slf4j-impl-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-slf4j-impl@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-44228, CVE-2021-44832, CVE-2021-45046, CVE-2021-45105",
+        "```",
+        "",
+        "Yes, the `check` tasks succeeds.",
+        "",
+        "```",
+        "BUILD SUCCESSFUL in 11s",
+        "3 actionable tasks: 3 executed",
+        "```",
+        "",
+        "We need to [configure](https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html)",
+        "the `dependencyCheckAnalyze` so that it fails if we have vulnerable dependencies. By default,",
+        "the `dependencyCheckAnalyze` tasks does not fail.",
+        "",
+        "> Specifies if the build should be failed if a CVSS score equal to or above a specified level is identified. The default",
+        "> is 11; since the CVSS scores are 0-10, by default the build will never fail. More information on CVSS scores can be",
+        "> found at the NVD",
+        "",
+        "Let's set the `failBuildOnCVSS` property and set this",
+        "to [9, fails for critical vulnerabilities only](https://nvd.nist.gov/vuln-metrics/cvss).",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1736,10 +2168,10 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index c433a3e..711bde4 100644",
+        "index c960256..ac38c69 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -25,3 +25,7 @@ dependencies {",
+        "@@ -32,3 +32,7 @@ dependencies {",
         " tasks.named('check') {",
         "     dependsOn 'dependencyCheckAnalyze'",
         " }",
@@ -1748,6 +2180,17 @@
         "+    failBuildOnCVSS = 9",
         "+}",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "d384f378-aabb-40fe-8f5e-b1bc0803abb2",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's run `check` again."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1771,21 +2214,33 @@
       "id": "b2083ab2-46e6-4f43-aa15-2bfb1fda9e72",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The task `dependencyCheckAnalyze` failed.",
         "",
         "```",
-        "> Task :dependencyCheckAnalyze",
-        "Verifying dependencies for project single-java-project",
-        "Checking for updates and analyzing dependencies for vulnerabilities",
-        "Generating report for project single-java-project",
-        "Found 8 vulnerabilities in project single-java-project",
+        "> Task :dependencyCheckAnalyze FAILED",
         "",
+        "FAILURE: Build failed with an exception.",
         "",
-        "One or more dependencies were identified with known vulnerabilities in single-java-project:",
+        "* What went wrong:",
+        "Execution failed for task ':dependencyCheckAnalyze'.",
+        "> ",
+        "  ",
+        "  Dependency-Analyze Failure:",
+        "  One or more dependencies were identified with vulnerabilities that have a CVSS score greater than '9.0': CVE-2021-45046, CVE-2021-44228",
+        "  See the dependency-check report for more details.",
+        "```",
         "",
-        "log4j-api-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-api@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-45046, CVE-2021-45105",
-        "log4j-core-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-44228, CVE-2021-45046, CVE-2021-45105",
-        "log4j-slf4j-impl-2.14.1.jar (pkg:maven/org.apache.logging.log4j/log4j-slf4j-impl@2.14.1, cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*) : CVE-2021-44228, CVE-2021-45046, CVE-2021-45105",
-        "```"
+        "and with the `check` task",
+        "",
+        "```",
+        "BUILD FAILED in 4s",
+        "1 actionable task: 1 executed",
+        "```",
+        "",
+        "- **How to investigate this problem?**",
+        "",
+        "  We can run the `dependencies` task to check what dependencies are being used.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1807,14 +2262,18 @@
       "id": "294de2e5-2e7a-4ca0-90cb-8fcf407221af",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "The following three dependencies are used when the code is compiled.",
         "",
         "```",
         "compileClasspath - Compile classpath for source set 'main'.",
         "\\--- org.apache.logging.log4j:log4j-slf4j-impl:2.14.1",
         "     +--- org.slf4j:slf4j-api:1.7.25",
         "     \\--- org.apache.logging.log4j:log4j-api:2.14.1",
-        "```"
+        "```",
+        "",
+        "We set the `--configuration` to `compileClasspath`. Now let's see what dependencies are used when we run the",
+        "application.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1836,7 +2295,7 @@
       "id": "40fc02b0-0c2f-45d1-9e23-a1c250175cee",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "Note that runtime make use of more dependencies.",
         "",
         "```",
         "runtimeClasspath - Runtime classpath of source set 'main'.",
@@ -1845,7 +2304,16 @@
         "     +--- org.apache.logging.log4j:log4j-api:2.14.1",
         "     \\--- org.apache.logging.log4j:log4j-core:2.14.1",
         "          \\--- org.apache.logging.log4j:log4j-api:2.14.1",
-        "```"
+        "```",
+        "",
+        "- **Why is this important?**",
+        "",
+        "  The vulnerable dependency may be found in the runtime and not compile time.",
+        "",
+        "The `dependencyCheckAnalyze` indicated that the faulty dependency is `org.apache.logging.log4j/log4j-api`. Let's see",
+        "what is pulling this dependency. In our dependencies, we only included",
+        "the `org.apache.logging.log4j:log4j-slf4j-impl:2.14.1` dependency.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1867,12 +2335,18 @@
       "id": "231ac9da-f73f-441b-8bba-1bee18705768",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "In fact, this transitive dependency was pulled in by our dependency.",
         "",
         "```",
         "org.apache.logging.log4j:log4j-api:2.14.1",
         "\\--- org.apache.logging.log4j:log4j-slf4j-impl:2.14.1",
         "     \\--- compileClasspath",
-        "```"
+        "```",
+        "",
+        "The `dependencyInsight` task is quite useful to determine why a dependency ended up in our project.",
+        "",
+        "Let's set the version of the transitive dependency `org.apache.logging.log4j:log4j-api` to `2.17.1`.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1884,10 +2358,10 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index ef691a8..eebee59 100644",
+        "index ac38c69..fd737d9 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -19,6 +19,7 @@ repositories {",
+        "@@ -26,6 +26,7 @@ repositories {",
         " }",
         " ",
         " dependencies {",
@@ -1895,6 +2369,18 @@
         "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.14.1'",
         " }",
         " ",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "fd502603-5c51-4215-ac35-b9ee5a18b39a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Now we have two different versions of the same dependency, `2.14.1` and `2.17.1`. Let's check the dependencies again.",
         ""
       ],
       "variables": [],
@@ -1917,7 +2403,7 @@
       "id": "dc26cf73-2e56-4ba1-a9d9-c771b92c9a06",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "Both version are listed.",
         "",
         "```",
         "compileClasspath - Compile classpath for source set 'main'.",
@@ -1925,7 +2411,18 @@
         "\\--- org.apache.logging.log4j:log4j-slf4j-impl:2.14.1",
         "     +--- org.slf4j:slf4j-api:1.7.25",
         "     \\--- org.apache.logging.log4j:log4j-api:2.14.1 -> 2.17.1",
-        "```"
+        "```",
+        "",
+        "- **Which version will be used?**",
+        "",
+        "  Gradle will always use the latest version as indicated by the `->`",
+        "",
+        "  ```",
+        "       \\--- org.apache.logging.log4j:log4j-api:2.14.1 -> 2.17.1",
+        "  ```",
+        "",
+        "Now let's change our version from `2.17.1` and `2.12.1`.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1937,10 +2434,10 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index eebee59..24b62f8 100644",
+        "index fd737d9..79ae6e6 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -19,7 +19,7 @@ repositories {",
+        "@@ -26,7 +26,7 @@ repositories {",
         " }",
         " ",
         " dependencies {",
@@ -1949,6 +2446,18 @@
         "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.14.1'",
         " }",
         " ",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "4541438a-15a9-45ed-a892-f65bbafb52f9",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's check again and see which dependency is used.",
         ""
       ],
       "variables": [],
@@ -1971,6 +2480,7 @@
       "id": "25867a3d-3f4c-41be-895f-a79260cf9c4e",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "Note that Gradle will go for the latest version, even if this is a transitive dependency.",
         "",
         "```",
         "compileClasspath - Compile classpath for source set 'main'.",
@@ -1978,7 +2488,13 @@
         "\\--- org.apache.logging.log4j:log4j-slf4j-impl:2.14.1",
         "     +--- org.slf4j:slf4j-api:1.7.25",
         "     \\--- org.apache.logging.log4j:log4j-api:2.14.1",
-        "```"
+        "```",
+        "",
+        "In this case, version `2.14.1` is used and not the `2.12.1` we included.",
+        "",
+        "Let's head back the dependency problem and bump up the version of `org.apache.logging.log4j:log4j-slf4j-impl`",
+        "dependency.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1990,10 +2506,10 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "diff --git a/build.gradle b/build.gradle",
-        "index 24b62f8..30f80f4 100644",
+        "index 79ae6e6..c04016e 100644",
         "--- a/build.gradle",
         "+++ b/build.gradle",
-        "@@ -19,8 +19,7 @@ repositories {",
+        "@@ -26,8 +26,7 @@ repositories {",
         " }",
         " ",
         " dependencies {",
@@ -2004,6 +2520,17 @@
         " ",
         " tasks.named('check') {",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "b6e07dbe-60de-49d9-a1b6-0737a306db6d",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's run the `check` task again."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2022,6 +2549,24 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "markdown",
+      "id": "18bc956f-96c3-48d0-983f-08fb6c090532",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The `check` task finished successfully. The `dependencyCheckAnalyze` task ensures that our dependencies do not contain",
+        "vulnerabilities. The `dependencyCheckAnalyze` can be triggered daily on a pipeline to make sure that projects that are",
+        "not being actively developed do not contain vulnerable dependencies. Dedicated services,",
+        "like [dependabot](https://github.com/dependabot), can be configured to do the same thing. These services can also be",
+        "configured to create pull-requests to update to a safe version.",
+        "",
+        "This concludes this section. Let's commit our changes before moving on.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "e3e09122-9c7b-44f7-99d3-7272f358f055",
       "workingDirectory": "single-java-project",
@@ -2034,11 +2579,11 @@
       "values": {}
     },
     {
-      "type": "todo",
-      "id": "d5d4774e-bf12-4c46-a669-2defd11c812d",
+      "type": "section",
+      "id": "33c1d390-23f4-44d6-9c8d-79232bafb7d9",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "The application is not yet ready as the JAR file does not contain the dependencies and running it will fail.  Consider adding [ShadowJar gradle plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)."
+        "Testing"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2050,6 +2595,28 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "Add testing"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
+      "id": "7a0a2fd9-2083-4567-b906-743253bc2428",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Package the application"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "todo",
+      "id": "d5d4774e-bf12-4c46-a669-2defd11c812d",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The application is not yet ready as the JAR file does not contain the dependencies and running it will fail.  Consider adding [ShadowJar gradle plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)."
       ],
       "variables": [],
       "environmentVariables": [],
