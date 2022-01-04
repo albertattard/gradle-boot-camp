@@ -2590,6 +2590,17 @@
       "values": {}
     },
     {
+      "type": "command",
+      "id": "31df643b-5570-44c0-bc6a-936aba231f8d",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git tag --annotate 'v5' --message 'Testing'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "a5c31ae5-9e8f-40b0-b54f-2147a41c3c83",
       "workingDirectory": "single-java-project",
@@ -2892,11 +2903,34 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "command",
+      "id": "0227f666-2b57-4e04-ac1b-ac34b7274dae",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Add JUnit'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "7a0a2fd9-2083-4567-b906-743253bc2428",
       "workingDirectory": "single-java-project",
       "parameters": [
         "Package the application"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "bda73e53-e442-4a58-989d-1344cd665277",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "git tag --annotate 'v6' --message 'Package the application'"
       ],
       "variables": [],
       "environmentVariables": [],
