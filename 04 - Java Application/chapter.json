@@ -1275,6 +1275,46 @@
       "id": "1c42876d-6504-424f-abe8-27409b3a1651",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "- **What happens if the `application` is configured after the `jar`?**",
+        "",
+        "  Consider the following, order.",
+        "",
+        "  ```",
+        "  tasks.named('jar') {",
+        "      manifest {",
+        "          attributes('Main-Class': application.mainClass)",
+        "      }",
+        "  }",
+        "  ",
+        "  application {",
+        "      mainClass = 'gbc.Main'",
+        "  }",
+        "  ```",
+        "",
+        "  The `application.mainClass` is a property and not the value. Therefore, it will still work, even if we use the older",
+        "  approach to configure the `jar` task, as shown next.",
+        "",
+        "  ```",
+        "  jar {",
+        "      manifest {",
+        "          attributes('Main-Class': application.mainClass)",
+        "      }",
+        "  }",
+        "",
+        "  application {",
+        "      mainClass = 'gbc.Main'",
+        "  }",
+        "  ```",
+        "",
+        "  Gradle evaluates the property at the latest point in time, when we execute the task. If on the other hand we retrieve",
+        "  the value, `application.mainClass.get()`, before this is set, then Gradle will fail to run.",
+        "",
+        "  ```",
+        "  * What went wrong:",
+        "  A problem occurred evaluating root project 'single-java-project'.",
+        "  > Cannot query the value of extension 'application' property 'mainClass' because it has no value available.",
+        "  ```",
+        "",
         "Let's re-create the Jar file again to make sure that all is working well.",
         "",
         "Ideally we capture this in a test and automate all the testing as much as possible, instead of trying things manually.",
@@ -1361,8 +1401,8 @@
       "id": "747e106b-81dc-4936-ac35-9181b85a6b53",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Applications use third-party dependencies, and so far we have not used any. In this section we will make use of the (",
-        "infamous) [log4j logging library](https://logging.apache.org/log4j/2.x/) to demonstrate further plugins.",
+        "Applications use third-party dependencies, and so far we have not used any. In this section we will make use of the ",
+        "(infamous) [log4j logging library](https://logging.apache.org/log4j/2.x/) to demonstrate further plugins.",
         ""
       ],
       "variables": [],
@@ -2621,7 +2661,13 @@
     },
     {
       "type": "markdown",
-      "id": "0c4cbe95-f64a-47f8-ad8a-54f286b545d6"
+      "id": "0c4cbe95-f64a-47f8-ad8a-54f286b545d6",
+      "parameters": [
+        "Let's configure Gradle to use JUnit 5 testing framework."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "git-apply-patch",
@@ -2658,8 +2704,12 @@
       "id": "285be319-a2ac-44e7-a669-5ac383c4934a",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Gradle is starting to support different testing suites out of the box. This is an experimental feature and may not be",
-        "ready for production use. Let's see what dependencies are added to the `runtimeClasspath`."
+        "Gradle is starting to support different testing suites out of the box, as experimental feature. Alternatively, we can",
+        "use plugins like the [Gradle TestSets plugin](https://github.com/unbroken-dome/gradle-testsets-plugin), or configure it",
+        "manually.",
+        "",
+        "Let's see what dependencies are added to the `runtimeClasspath`.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3298,21 +3348,22 @@
         "",
         "- **Why do we need to distinguish between these different types of tests?**",
         "",
-        "  Unit tests, tend to be quick and provide quick feedback. Generally, these take milliseconds to run.",
+        "  _Unit tests_, tend to be quick and provide quick feedback. Generally, these take milliseconds to run.",
         "",
-        "  Integration tests, need to interact with other processed and make intra-process, or worse/slower inter-process,",
+        "  _Integration tests_, need to interact with other processed and make intra-process, or worse/slower inter-process,",
         "  communication. These tests may take seconds instead of milliseconds to run, making them slower. Therefore, we tend to",
-        "  have less of the integration test and more of the unit tests.",
+        "  have less of the _integration test_ and more of the _unit tests_.",
         "",
-        "  Functional tests simulate the application. Similar to integration tests, the application interacts with other",
-        "  processes and make intra-process, or worse/slower inter-process, communication. Furthermore, functional tests cover a",
-        "  user journey from start to end. Each test may require a couple of seconds to complete, making it the slowest type of",
-        "  test.",
+        "  _Functional tests_ simulate user behaviour. Similar to _integration tests_, during the _functional tests_ the",
+        "  application interacts with other processes and make intra-process, or worse/slower inter-process, communication.",
+        "  Furthermore, _functional tests_ cover a user journey from start to end. Each test may require a couple of seconds to",
+        "  complete, making it the slowest type of test.",
         "",
-        "  Separating the tests, allows use to run each group separately. While developing we can run the unit tests and obtain",
-        "  very quick feedback. We don't need to interact with other processes and don't need to have any other things running.",
-        "  Before pushing the changes to the remote repository, we run all tests (unit, integration and functional) to make sure",
-        "  that all is well before pushing.",
+        "  Separating the tests, allows use to run each group separately. While developing, we can run the _unit tests_ as often",
+        "  as we need and obtain very quick feedback. We don't need to interact with other processes and don't need to have any",
+        "  other things running (like a database or other services) for the _unit tests_ to work. Before pushing the changes to",
+        "  the remote repository, we run all tests (_unit tests_, _integration tests_ and _functional tests_) to make sure that",
+        "  all is well before pushing.",
         "",
         "Let's create a new test suite, called `functionalTest`. Will will make sure that our application runs properly from the",
         "command line.",
@@ -3401,7 +3452,7 @@
       "id": "a707b468-a172-4727-8cd0-ce66ed7238ed",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Continue from here!!"
+        "Let's add the `gbc` package (directory)."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3419,11 +3470,52 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "3f9b224b-68ed-48ef-b108-ffcc5775f064",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's create the functional test that will run the application using the command",
+        "",
+        "```",
+        "java -jar build/libs/single-java-project.jar",
+        "```",
+        "",
+        "Java provides",
+        "the [`ProcessBuilder`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/ProcessBuilder.html) and",
+        "the [`Process`](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Process.html) classes to run a",
+        "command. We can use these to run our application and make sure it finishes without errors. We can use",
+        "the [exit status](https://en.wikipedia.org/wiki/Exit_status) to determine whether the application ran successfully or",
+        "failed. An exit status of `0` indicates that the application finished without errors.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "65884160-875d-4fdb-95cf-5beb4dd3d85c",
       "workingDirectory": "single-java-project",
       "parameters": [
         "touch 'src/functionalTest/java/gbc/RunApplicationTest.java'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "323fc1b7-ef28-4e08-9895-02da157cbfc2",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's run the application from our functional test and determine whether it finished successfully or not.",
+        "",
+        "- **Am I correct to understand that we are running a Java application from within another Java application?**",
+        "",
+        "  Yes, our function test is running a command, which happens to be another Java application. This is irrelevant as all",
+        "  we care about in this functional test is that the command finishes executing in five seconds and that it finishes",
+        "  without errors (exit status 0). We can use this example for any other type of application. ",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3478,6 +3570,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "57a8718c-93c3-4d6e-afb3-165c8a9bbaf6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's run the functional tests only."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "2339cc47-9ab2-417c-b26f-df879a1349d0",
       "workingDirectory": "single-java-project",
@@ -3495,12 +3598,16 @@
       "id": "14355af8-2aa5-451b-a60b-f6f40820cd6a",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The functional test, failed as expected.",
         "",
         "```",
         "> Task :functionalTest FAILED",
         "RunApplicationTest > runApplication() FAILED",
         "    org.opentest4j.AssertionFailedError at RunApplicationTest.java:30",
-        "```"
+        "```",
+        "",
+        "With the test complete, let's update the `jar` task configuration such that it includes the runtime dependencies.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3533,6 +3640,22 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "f559e24e-d0e8-4d10-8b18-f840fb78d906",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The above configuration will take all dependencies Jar files, expand them and package them together with our code. There",
+        "can be cases where files already exists, such as `README.MD` or `LICENCE`. In this case we are simply excluding",
+        "duplicates (`duplicatesStrategy = 'exclude'`).",
+        "",
+        "Let's run the test again.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "10a7f6bf-fa90-4259-944e-c81212bd0842",
       "workingDirectory": "single-java-project",
@@ -3543,6 +3666,19 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "b0884c81-4ae0-4020-a51b-34f980ae32a6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The functional test now passes. This means that out application is finishing without errors. Let's explore the new Jar",
+        "file's contents.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "command",
@@ -3556,11 +3692,56 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "a528fb79-b063-4d1e-884c-8829cacd489a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "This time we have a very long list of other classes in our Jar file.",
+        "",
+        "- **Do we need all that?**",
+        "",
+        "  Unfortunately no. When including dependencies in a project, there are deployed/packaged with the application, making",
+        "  the final Jar file bigger. This is known as a _Fat Jar_ (or _Uber Jar_). This is wasteful, but you cannot simply",
+        "  remove classes that you don't think you need. Classes may be loaded using reflection which makes it harder to",
+        "  determine what's needed and what's not.",
+        "",
+        "  The [Java modules system](https://www.oracle.com/corporate/features/understanding-java-9-modules.html) together",
+        "  with [JLink](https://docs.oracle.com/en/java/javase/17/docs/specs/man/jlink.html) can be used to create a small",
+        "  version of the application containing only the required modules. This also includes the JVM as part of the deployment",
+        "  unit.",
+        "",
+        "  The [GraalVM](https://www.graalvm.org/) does something similar too as it only takes what's needed but limits the use",
+        "  of reflection. The GraalVM is doing more than just this.",
+        "",
+        "Let's run the application.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "888885a8-ac37-42a8-9269-93f2fdf93752",
       "workingDirectory": "single-java-project",
       "parameters": [
         "java -jar 'build/libs/single-java-project.jar'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "d8f68a4a-d65f-4d16-aae8-bd415ed2e87e",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "We were able to package the application into a single Jar file, which can be deployed and used in production, using the",
+        "Gradle `jar` task. In the next section we will do the same thing, but using a plugin. In most cases, plugins exists that",
+        "do just the thing you need, and it's best to simply use them instead. ",
+        "",
+        "Let's commit our changes before moving on.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3594,7 +3775,7 @@
       "id": "32280b15-92c9-4056-9abf-8ecea2402e6d",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Gradle plugins already exists that create a Fat Jar, as we did before.",
+        "Gradle plugins already exists that can create a Fat Jar.",
         "The [ShadowJar Gradle plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) is a popular plugin",
         "that does just this.",
         "",
@@ -3621,7 +3802,8 @@
       "id": "bba9d109-780e-4f8b-9100-dbc3aea6f85a",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "We can use the [ShadowJar Gradle plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow) instead of configuring the `jar` task ourselves."
+        "Let's add the ShadowJar Gradle plugin and remove the `jar` configuration.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3668,6 +3850,18 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "9100c812-9572-41eb-811d-1a2c797886cc",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's see what new tasks were introduced with the new plugin.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "53c59c66-9512-4c63-99e8-5197e7ed0f80",
       "workingDirectory": "single-java-project",
@@ -3684,13 +3878,18 @@
       "id": "d96aefae-aae4-47c4-b4a4-f8b010036b63",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "A new group, named _Shadow tasks_, is added",
         "",
         "```",
         "Shadow tasks",
         "------------",
         "knows - Do you know who knows?",
         "shadowJar - Create a combined JAR of project and runtime dependencies",
-        "```"
+        "```",
+        "",
+        "The `shadowJar` task is the task responsible from creating our Fat Jar file. Let's see how the `assemble` task is",
+        "affected with this new plugin.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3712,6 +3911,7 @@
       "id": "a2c516e3-7ea4-40a1-9e82-ac7cc86309bc",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The `assemble` task now also depends on the `shadowDistTar` and `shadowDistZip` tasks, as shown next.",
         "",
         "```",
         "> Task :tiTree",
@@ -3764,7 +3964,12 @@
         "",
         "BUILD SUCCESSFUL in 823ms",
         "1 actionable task: 1 executed",
-        "```"
+        "```",
+        "",
+        "When our application is assembled, the `shadowJar` task is also invoked.",
+        "",
+        "Let's verify that our application is still working as expected, after the introduction of the ShadowJar Gradle plugin.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
