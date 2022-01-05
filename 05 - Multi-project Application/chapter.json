@@ -1126,6 +1126,20 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "5c26c4c3-94e6-4db5-aebe-9efc866fd36a",
+      "parameters": [
+        "The _domain_ part is ready. Let's now turn our focus to the _app_ part. The _app_ will depend on the _domain_ and it",
+        "will use classes created in the _domain_ sub-project.",
+        "",
+        "Let's start by tagging our progress.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "3e74a280-8397-4e93-98fa-3a7973007a59",
       "workingDirectory": "multi-project-application",
@@ -1137,11 +1151,35 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "baf54603-4ba8-4c8b-b618-9c56e7f7996b",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's create the `app` directory. All _app_ related code will go here.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "6ad57241-da86-48b4-a899-17cb482dd04e",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir 'app'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "bc95e348-ccef-49ee-98a2-404d5c89e238",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We should not forget to include the new sub-project to the `settings.gradle` file.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1168,6 +1206,26 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "ebdcad45-5707-4e8a-a64e-20fe4c46e07f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The `include` takes a list, and instead of two lines we can write the above as",
+        "",
+        "```",
+        "include('domain', 'app')",
+        "```",
+        "",
+        "I prefer to add these individually, but this is just a personal taste.",
+        "",
+        "We need to create the `build.gradle` for the _app_ sub-project.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "0c9639d5-bf52-4a8f-bc71-ccb2a691f634",
       "workingDirectory": "multi-project-application",
@@ -1179,15 +1237,29 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "9f7d945d-7101-4c8b-a477-95cc7ed7f7cd",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The _app_ sub-project will contain the _main_ method. Therefore, we can make use from the `application` plugin. Let's",
+        "set the Java to version 17 and add the repository and finally, let's add the test suite. We will be using the JUnit 5",
+        "testing framework.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "c39821e9-07d4-4955-996c-c876b4840c67",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
-        "index e69de29..9f4232f 100644",
+        "index e69de29..82b9d4b 100644",
         "--- a/app/build.gradle",
         "+++ b/app/build.gradle",
-        "@@ -0,0 +1,14 @@",
+        "@@ -0,0 +1,22 @@",
         "+plugins {",
         "+    id 'application'",
         "+}",
@@ -1202,6 +1274,26 @@
         "+repositories {",
         "+    mavenCentral()",
         "+}",
+        "+",
+        "+testing {",
+        "+    suites {",
+        "+        test {",
+        "+            useJUnitJupiter('5.8.2')",
+        "+        }",
+        "+    }",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "12fcf7ca-87db-44ff-9202-8d430c5af419",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We can also add other sub-project as dependencies. Let's add the _domain_ sub-project.",
         ""
       ],
       "variables": [],
@@ -1214,17 +1306,20 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
-        "index 9f4232f..0f18655 100644",
+        "index 82b9d4b..bbbc317 100644",
         "--- a/app/build.gradle",
         "+++ b/app/build.gradle",
-        "@@ -12,3 +12,7 @@ java {",
-        " repositories {",
+        "@@ -13,6 +13,10 @@ repositories {",
         "     mavenCentral()",
         " }",
-        "+",
+        " ",
         "+dependencies {",
         "+    implementation project(':domain')",
         "+}",
+        "+",
+        " testing {",
+        "     suites {",
+        "         test {",
         ""
       ],
       "variables": [],
@@ -1232,26 +1327,17 @@
       "values": {}
     },
     {
-      "type": "git-apply-patch",
-      "id": "db030367-0b8f-4d1e-a8a9-1c8fc0efb0b0",
+      "type": "markdown",
+      "id": "28ae616a-4fdc-4197-8267-30fe3cbf7872",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "diff --git a/app/build.gradle b/app/build.gradle",
-        "index 0f18655..bbbc317 100644",
-        "--- a/app/build.gradle",
-        "+++ b/app/build.gradle",
-        "@@ -16,3 +16,11 @@ repositories {",
-        " dependencies {",
-        "     implementation project(':domain')",
-        " }",
-        "+",
-        "+testing {",
-        "+    suites {",
-        "+        test {",
-        "+            useJUnitJupiter('5.8.2')",
-        "+        }",
-        "+    }",
-        "+}",
+        "Let's create the directories required by a Java project.",
+        "",
+        "- **What happens if we don't create all the directories?**",
+        "",
+        "  Nothing. We can only create the directories we need. For example, if we will not use the _resources_ then we don't",
+        "  need to have `resources` directories. I simply create these four for convenience, but can be created at a later stage",
+        "  when required.",
         ""
       ],
       "variables": [],
@@ -1273,6 +1359,25 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "88582ff7-8462-46a3-be75-0b6a24291661",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The classes within the _app_ sub-project will use a different package. We will use the `app` package (directory).",
+        "",
+        "- **Why do we need to have a different package?**",
+        "",
+        "  While it is not a must to have a different package, it is very convenient. When the application is packaged as a",
+        "  single Fat Jar, all classes will be brought together. If we use the same packages (directories), then there is a risk",
+        "  of having two classes with same name and in the same package, in different sub-projects. When merged, one of the",
+        "  classes will be used while the other skipped.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "58ca9f5d-938d-4109-a1ff-9945fec716a3",
       "workingDirectory": "multi-project-application",
@@ -1284,11 +1389,50 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "084dfc54-338c-4647-a1f3-1a4e757f0d4f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Like before, let's create our test `MainTest.java` class first.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "e1480675-d0fd-4ee3-9ee4-50dd6920c9f8",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'app/src/test/java/gbc/app/MainTest.java'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8a426273-ed85-4571-8b97-1a28c665a02f",
+      "parameters": [
+        "Our application is very basic as the idea is not to build a complicated application but to focus on the Gradle",
+        "multi-project features. The user will interact with the application using command line arguments, as shown next.",
+        "",
+        "```",
+        "java -jar app/build/libs/shopping-cart.jar 'Tomatoes' 'Carrots'",
+        "```",
+        "",
+        "The user added two items to the shopping-cart and the application will print the following to the standard output.",
+        "",
+        "```",
+        "Need to buy",
+        "  > Tomatoes",
+        "  > Carrots",
+        "```",
+        "",
+        "Let's write a unit test that captures this. Note that we will not cover functional tests in this chapter. Please refer",
+        "to the section _Package the application_ within the _Java Application_ chapter for more information about test suites. ",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1354,6 +1498,18 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "3132a724-0df5-4606-855c-ed546baaa71b",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Our test is complete. Let's turn our focus on the implementation starting by creating the `gbc.app` package (`gbc/app`",
+        "directory)."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "b85157f6-0904-4c82-a1d6-d74076a79908",
       "workingDirectory": "multi-project-application",
@@ -1365,11 +1521,34 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "266c3159-e8a4-47ce-bba5-d0dcdc350917",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's create the `Main.java` class and implement the required logic.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "164bee75-8335-4723-bd61-1d8eb429c667",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'app/src/main/java/gbc/app/Main.java'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "70f804b9-6ad6-474d-9881-149fda541433",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Add the following code to the `Main.java` class."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1407,11 +1586,95 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "0e3f1812-cf31-447e-8c0c-6c1594b65113",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's run the tests again."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "4dad3a78-ee41-4390-bccb-7b1f8153bb95",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew test"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "32cdde44-6c52-4b6d-9ee1-9016ecdb6829",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Note that both sub-project tests were executed.",
+        "",
+        "```",
+        "> Task :domain:compileJava UP-TO-DATE",
+        "> Task :app:compileJava UP-TO-DATE",
+        "> Task :app:processResources NO-SOURCE",
+        "> Task :app:classes UP-TO-DATE",
+        "> Task :app:compileTestJava UP-TO-DATE",
+        "> Task :app:processTestResources NO-SOURCE",
+        "> Task :app:testClasses UP-TO-DATE",
+        "> Task :domain:processResources NO-SOURCE",
+        "> Task :domain:classes UP-TO-DATE",
+        "> Task :domain:jar UP-TO-DATE",
+        "> Task :app:test UP-TO-DATE",
+        "> Task :domain:compileTestJava UP-TO-DATE",
+        "> Task :domain:processTestResources NO-SOURCE",
+        "> Task :domain:testClasses UP-TO-DATE",
+        "> Task :domain:test UP-TO-DATE",
+        "```",
+        "",
+        "- **Both sub-projects have the `test` task. What happens if only one of the sub-projects have a given task?**",
+        "",
+        "  Gradle will run the task for that sub-project. Say that only the _domain_ sub-project has the task `xyz`. When we run",
+        "  the command `./gradlew xyz`, the `xyz` task within the _domain_ sub-project is executed. The _app_ sub-project is",
+        "  unaffected.",
+        "",
+        "- **Can we run the test for one of the sub-projects?**",
+        "",
+        "  Yes. We can specify which sub-project. Say we like to run the tests for the _domain_ sub-project. Then we can run the",
+        "  following command.",
+        "",
+        "  ```",
+        "  ./gradlew :domain:test --console=verbose",
+        "  ```",
+        "",
+        "  You will notice that only the following tasks were executed, and the _app_ tests did not actually run.",
+        "",
+        "  ```",
+        "  > Task :domain:compileJava UP-TO-DATE",
+        "  > Task :domain:processResources NO-SOURCE",
+        "  > Task :domain:classes UP-TO-DATE",
+        "  > Task :domain:compileTestJava UP-TO-DATE",
+        "  > Task :domain:processTestResources NO-SOURCE",
+        "  > Task :domain:testClasses UP-TO-DATE",
+        "  > Task :domain:test UP-TO-DATE",
+        "  ```",
+        "",
+        "  There a small catch, if you can call it so. The _app_ sub-project depends on the _domain_ sub-project. So when we",
+        "  specify tasks to be executed on the _app_ sub-project, tasks from the _domain_ sub-project will be executed too. We",
+        "  cannot, for example, compile the code in the _app_ without first compiling the code in the _domain_.",
+        "",
+        "  ```",
+        "  ./gradlew :app:compileJava --console=verbose",
+        "  ```",
+        "",
+        "  The above command will compile the code in both sub-projects",
+        "",
+        "  ```",
+        "  > Task :domain:compileJava UP-TO-DATE",
+        "  > Task :app:compileJava UP-TO-DATE",
+        "  ```",
+        "",
+        "Let's configure the application's main class."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1444,6 +1707,18 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "d89f0036-7c71-4cd3-a9b2-e550f727f60f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We are all set to run the application using Gradle. We can pass the command line arguments using",
+        "the [`--args` argument](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/JavaExec.html#setArgsString-java.lang.String-)."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "15b27493-3efc-4806-847d-cdf87a4d2c84",
       "workingDirectory": "multi-project-application",
@@ -1460,6 +1735,7 @@
       "id": "96f2097d-d8f6-4990-97a5-12137f78121c",
       "workingDirectory": "multi-project-application",
       "parameters": [
+        "This will print each item added to the shopping-cart.",
         "",
         "```",
         "> Task :app:run",
@@ -1467,7 +1743,11 @@
         "  > Tomatoes",
         "  > Carrots",
         "  > Oranges",
-        "```"
+        "```",
+        "",
+        "We know that our Jar file is not yet a Fat Jar as we are missing the classes from the Guava dependency. Let's use the",
+        "ShadowJar plugin to create the Fat Jar.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
