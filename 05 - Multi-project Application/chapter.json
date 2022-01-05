@@ -19,8 +19,9 @@
         "this by using multiple-project application.",
         "",
         "In this chapter will have a simple shipping-cart (part of the _domain_) and another class that retrieves the list of",
-        "items and then prints the shopping-cart contents (part of the _app_). The application is kept very simple as the focus",
-        "here is how to set uo and take advantage of multiple-project builds.",
+        "items and then prints the shopping-cart contents (part of the _app_). The user can add items to the shopping-cart via",
+        "command line arguments. Each item must comprise letters and numbers and must be between 3 and 24 letters long. The",
+        "application is kept very simple as the focus here is how to set up and take advantage of multiple-project builds.",
         ""
       ],
       "variables": [],
@@ -342,7 +343,7 @@
       "parameters": [
         "This multi-project will contain two sub-projects",
         "",
-        "- the _domain_ - will put the shopping-cart login here",
+        "- the _domain_ - will put the shopping-cart logic here",
         "- the _app_ - will put the code that interacts with the user here",
         "",
         "Let's start by listing the current projects.",
@@ -368,11 +369,16 @@
       "id": "ed8f91b8-9d6d-4101-9eee-ac1c7c2ff51b",
       "workingDirectory": "multi-project-application",
       "parameters": [
+        "This Gradle project has no sub-projects yet.",
         "",
         "```",
         "Root project 'multi-project-application'",
         "No sub-projects",
-        "```"
+        "```",
+        "",
+        "We need to create two sub-projects. The _domain_ does not depend on anything else while the _app_ sub-project will",
+        "depend on the _domain_. Given this dependency constraint, it is best to start from the _domain_.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -383,6 +389,17 @@
       "id": "5f2f881c-d67f-4b44-bd7f-48f52229cc7e",
       "parameters": [
         "The domain sub-project"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "170a7787-fe20-466f-9ab4-c966134e3195",
+      "parameters": [
+        "Let's start by tagging the project's state so that we can refer back to this point if we need to.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -400,11 +417,36 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "b19d81e6-094a-4bd6-b813-be461dd56498",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We can start by creating a new directory, `domain`. The name of the directory should match the sub-project name to avoid",
+        "confusion.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "eeaf9e5e-2ecc-4476-96df-e25180991019",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir 'domain'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "e9d7898d-11a5-455a-8f5b-9ada4b275020",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The sub-projects are determined during the initialisation phase, during which the `settings.gradle` file is processed.",
+        "We need to include our new sub-project in the `settings.gradle` file."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -430,6 +472,18 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "b1249a91-89dc-4c3a-83bf-7be0f761475a",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's list the sub-projects found in this Gradle project.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "7d1f2920-ec75-40b0-923a-be453e79b21c",
       "workingDirectory": "multi-project-application",
@@ -445,12 +499,15 @@
       "id": "0973dd70-f5c1-4d13-aad1-2b3bd7a2f309",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
+        "Our new sub-project should now be listed.",
         "",
         "```",
         "Root project 'multi-project-application'",
         "\\--- Project ':domain'",
-        "```"
+        "```",
+        "",
+        "We will be using the Java programming language. Let's set up the directory structure.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -471,11 +528,39 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "baa9b242-dea8-4a65-9ab9-0e00c8cc2ac8",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Each sub-project needs to have its own `build.gradle` file and then define the plugins they will use and configure their",
+        "respective tasks. Let's start by creating the `domain/build.gradle` file first."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "b58c299f-c853-4bdf-82a0-b19a433ce9bb",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'domain/build.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "164814e4-74f3-4074-a143-71dbe4c0204b",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The _domain_ sub-project will not be the starting point, and thus will not have a _main_ method. Therefore, the is no",
+        "need to use the `application` plugin. Instead we can use",
+        "the [`java-library` Plugin](https://docs.gradle.org/current/userguide/java_library_plugin.html). This is similar to",
+        "the `java` Plugin, but it provides specific things for projects that are meant to be used as libraries (or dependencies).",
+        "The terms dependencies and libraries are used interchangeably.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -505,8 +590,7 @@
       "id": "bb8652f1-0a93-4084-9e3a-591712baacbd",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
-        "[The Java Library Plugin](https://docs.gradle.org/current/userguide/java_library_plugin.html)"
+        "Let's set the Java version to Java 17 using the `toolchain`."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -533,6 +617,17 @@
         "+    }",
         "+}",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "07251054-db76-4254-bb98-4558cc5da19a",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's add the [Guava dependency](https://mvnrepository.com/artifact/com.google.guava/guava) and use JUnit 5 testing framework."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -574,6 +669,20 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "0fde4db9-7073-4b24-81a9-ffb692af3448",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "This completes the Gradle configuration of the _domain_ sub-project.",
+        "",
+        "All the code that we will add to the _domain_, will be within the `domain` package (directory). Let's create the",
+        "package, starting from the test."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "82d5a7e5-2961-4c16-bfcc-7f11691607c8",
       "workingDirectory": "multi-project-application",
@@ -585,11 +694,42 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "52394a06-2e5f-4611-93a1-8e457a47daa2",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Now, let's create the test class, before the actual class. The order which these classes are created does not matter and",
+        "you can follow the order you prefer. This is not a TDD boot camp.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "67afb9a7-982d-4520-8cfe-b655f1d6f126",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'domain/src/test/java/gbc/domain/CartTest.java'",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "fae34044-8cfb-43ca-bcf3-b364b1dfbefa",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Each item must comprise letters and numbers and must be between 3 and 24 letters long. Let's add two tests, one that",
+        "assert that an exception is thrown when an invalid item is provided to the shopping-cart. The second test verifies that",
+        "the shopping-cart can take valid items and is able ti print them.",
+        "",
+        "We can take advantage from",
+        "the [`@ParameterizedTest`](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests) to",
+        "provide the test with several invalid inputs.",
         ""
       ],
       "variables": [],
@@ -655,6 +795,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "0bea45f0-3dd4-457a-b84c-89aa609c89e7",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "There is no point running the test now as this class will not compile. Let's create the package (directory)."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "41b0e688-8fa2-4ba1-b9b3-24107d24ac07",
       "workingDirectory": "multi-project-application",
@@ -666,11 +817,34 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "ce677e11-1f27-42a9-aa91-8ff126d35bce",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's create the `Cart.java` class.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "288e3aa8-faf4-44a1-8cce-97fffdaedf5e",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'domain/src/main/java/gbc/domain/Cart.java'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "2734a2a3-0756-4c37-9d7d-cd0514b2c6a2",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's implement the shopping-cart solution."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -715,6 +889,65 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "bb98a659-f9a7-4d9a-beec-575f2703570b",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "- **Why are we returning a copy of the list (`return List.copyOf(items);`)?**",
+        "",
+        "  This is referred to as defensive copying. If we return the list, anyone can simply modify it for us. Consider the",
+        "  following example.",
+        "",
+        "  ```",
+        "  final Cart cart = new Cart();",
+        "  cart.items().add(\"a\");",
+        "  cart.items().add(\"b\");",
+        "  cart.items().add(\"c\");",
+        "  ```",
+        "",
+        "  The above example bypasses the validation added to the `Cart`'s `add()` method, as we are adding the items directly to",
+        "  the `List`. To prevent this problem we return a copy instead. Changes to the returned list, if allowed, will not",
+        "  affect the list of item inside the `Cart`.",
+        "",
+        "  Following is an alternative approach that achieves the same thing, without creating a new list everytime.",
+        "",
+        "  ```",
+        "  package gbc.domain;",
+        "",
+        "  import java.util.ArrayList;",
+        "  import java.util.Collections;",
+        "  import java.util.List;",
+        "",
+        "  import static com.google.common.base.Preconditions.checkArgument;",
+        "  import static com.google.common.base.Preconditions.checkNotNull;",
+        "",
+        "  public class Cart {",
+        "      private final List<String> items = new ArrayList<>();",
+        "      private final List<String> immutable = Collections.unmodifiableList(items);",
+        "",
+        "      public void add(final String item) {",
+        "          checkNotNull(item);",
+        "          checkArgument(item.matches(\"[\\\\w ]{3,24}\"));",
+        "",
+        "          this.items.add(item);",
+        "      }",
+        "",
+        "      public List<String> items() {",
+        "          return immutable;",
+        "      }",
+        "  }",
+        "  ```",
+        "",
+        "  Refer to _Item 50: Make defensive copies when needed_ in the book _Effective Java_, for more information about this",
+        "  pattern.",
+        "",
+        "Let's build the project. Note that we are not build the _domain_ sub-project but the whole project."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "b94a309a-1116-495f-853b-b91629c8844e",
       "workingDirectory": "multi-project-application",
@@ -731,12 +964,7 @@
       "id": "eef20519-ae2a-46b9-bde5-714da1ee0b2f",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
-        "```",
-        "./gradlew build --console=verbose",
-        "```",
-        "",
-        "The tasks are now prefixed with the sub-project name, `:domain`, as shown next.",
+        "Notice that the tasks are now prefixed with the sub-project name, `:domain`, as shown next.",
         "",
         "```",
         "> Task :domain:compileJava",
@@ -750,7 +978,13 @@
         "> Task :domain:test NO-SOURCE",
         "> Task :domain:check UP-TO-DATE",
         "> Task :domain:build",
-        "```"
+        "```",
+        "",
+        "Use the `--console=verbose` argument if this is not visible on the console.",
+        "",
+        "Let's analyse the directory structure of our project.",
+        "",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -772,6 +1006,7 @@
       "id": "ed4e130c-361f-4a3d-9464-59df2555b03a",
       "workingDirectory": "multi-project-application",
       "parameters": [
+        "Note that we have a `build` directory under the _domain_ sub-project.  Each sub-project will have its `build` directory.  The output of each sub-project is saved under the respective `build` directory.",
         "",
         "```",
         ".",
@@ -850,7 +1085,19 @@
         "`-- settings.gradle",
         "",
         "49 directories, 24 files",
-        "```"
+        "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "edc14579-d34c-4c64-9df6-58ed24638a76",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We are ready from our _domain_ sub-project. Let's commit our changes before moving to the _app_ sub-project."
       ],
       "variables": [],
       "environmentVariables": [],

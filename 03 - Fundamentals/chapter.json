@@ -2430,6 +2430,29 @@
         "part of the [`base` plugin](https://docs.gradle.org/current/userguide/base_plugin.html#sec:base_tasks). The `assemble`",
         "task is used to compile the code, while the `check` task is used to run all tests.",
         "",
+        "We can use the `--console=verbose` argument to see all the tasks that are executed.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "ebb7ca33-86dd-460a-ac5b-cc081c1339e9",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "./gradlew build --console=verbose"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8476e5ea-1af3-43f9-af85-b9fd655ba1f3",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
         "We can use another plugin to determine which tasks depend on what.",
         ""
       ],
