@@ -11,6 +11,23 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "fdf4616f-4318-435f-8255-515e902cb767",
+      "parameters": [
+        "In software architecture we may need to apply dependency bounds and only allow dependency in one direction and not the",
+        "other. For example, the _domain_ should not be dependent on the _database_ or the _UI_, but vice versa. We can enforce",
+        "this by using multiple-project application.",
+        "",
+        "In this chapter will have a simple shipping-cart (part of the _domain_) and another class that retrieves the list of",
+        "items and then prints the shopping-cart contents (part of the _app_). The application is kept very simple as the focus",
+        "here is how to set uo and take advantage of multiple-project builds.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "0c164524-88b9-4d2e-9bba-4fed6a09ec6e",
       "parameters": [
@@ -21,10 +38,13 @@
       "values": {}
     },
     {
-      "type": "command",
-      "id": "d7e0e173-b9ae-43bb-8532-8d66ef1decdb",
+      "type": "markdown",
+      "id": "0bce7069-bf41-4070-a45a-1dad55bfab56",
       "parameters": [
-        "rm -rf 'multi-project-application'"
+        "Let's start by deleting the directory that we will be working on `multi-project-application` and creating it again. This",
+        "makes sure that there is no residue and that we are working in a clean slate. We will not create the two sub-projects",
+        "just yet as these are set up in later sections.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -32,8 +52,9 @@
     },
     {
       "type": "command",
-      "id": "862371f7-6ef0-4c2c-90c3-0e376cbdf338",
+      "id": "d7e0e173-b9ae-43bb-8532-8d66ef1decdb",
       "parameters": [
+        "rm -rf 'multi-project-application'",
         "mkdir 'multi-project-application'"
       ],
       "variables": [],
@@ -41,11 +62,13 @@
       "values": {}
     },
     {
-      "type": "command",
+      "type": "markdown",
       "id": "d1c35f2b-acc7-473e-9b09-6e81e56a66eb",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "git init --initial-branch=main"
+        "Set Git's user (_developer_) name, using the providing variable. Press enter after entering your name and the rest will",
+        "update automatically.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -65,6 +88,20 @@
       "sensitive": false
     },
     {
+      "type": "markdown",
+      "id": "be66ddfa-3149-4d25-ba5b-fdbbd2f4529c",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Set Git's user (_developer_) email, using the providing variable. Press enter after entering your name and the rest will",
+        "update automatically. The email is more important than the name as Git uses this to identify you in the event you push",
+        "these to a remote repository.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "variable",
       "id": "1694212f-35aa-4aba-aa50-2f243c5fb0aa",
       "name": "DEVELOPER_EMAIL",
@@ -78,10 +115,23 @@
       "sensitive": false
     },
     {
+      "type": "markdown",
+      "id": "9d7fa1e0-0918-4fc1-822d-e08840d3e583",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Add version control so that we can track our changes.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "10734ccd-174a-46c6-836e-40ea7cb3cbec",
       "workingDirectory": "multi-project-application",
       "parameters": [
+        "git init --initial-branch=main",
         "git config user.name '${DEVELOPER_NAME}'",
         "git config user.email '${DEVELOPER_EMAIL}'"
       ],
@@ -93,35 +143,73 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "2beed857-f077-4085-8ea6-d4e7154b3b25",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's verify that our Git configuration was properly applied.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "743bf9c8-63ff-439a-8419-8a8599cfb457",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "git config --list",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "ea2ffe46-1f56-4af7-9e1a-7b8c12e146d7",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Both name and email should be properly set, as shown next.",
+        "",
+        "```",
+        "user.name=${DEVELOPER_NAME}",
+        "user.email=${DEVELOPER_EMAIL}",
+        "```",
+        "",
+        "Let's create a basic Gradle project using Groovy as the DSL language, and set the Gradle version to 7.3.3.",
+        ""
+      ],
+      "variables": [
+        "DEVELOPER_NAME",
+        "DEVELOPER_EMAIL"
+      ],
+      "environmentVariables": [],
+      "values": {
+        "DEVELOPER_NAME": "Albert Attard",
+        "DEVELOPER_EMAIL": "albertattard@gmail.com"
+      }
+    },
+    {
       "type": "command",
       "id": "e5b660e7-55d8-494a-b650-e99426b61cdb",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "gradle init --type basic --dsl groovy --project-name multi-project-application"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {},
-      "commandTimeout": 30.000000000
-    },
-    {
-      "type": "command",
-      "id": "e2759a3f-8b36-4987-9a37-4212a37250c7",
-      "workingDirectory": "multi-project-application",
-      "parameters": [
-        "./gradlew wrapper --gradle-version=7.3.3"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {},
-      "commandTimeout": 30.000000000
-    },
-    {
-      "type": "command",
-      "id": "2eb961d6-f3ac-4702-9253-b708c221a5fa",
-      "workingDirectory": "multi-project-application",
-      "parameters": [
+        "gradle init --type basic --dsl groovy --project-name multi-project-application",
+        "./gradlew wrapper --gradle-version=7.3.3",
         "./gradlew --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "3230a26e-6f27-4bd7-88ee-44772ea02923",
+      "parameters": [
+        "Let's remove the comments from the `settings.gradle` file."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -154,11 +242,12 @@
       "values": {}
     },
     {
-      "type": "command",
-      "id": "78fe0709-2e51-490f-b65f-2df9550b6f2c",
+      "type": "markdown",
+      "id": "7828a715-1df7-4a63-ada9-62fdaf5bf26e",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "rm build.gradle"
+        "Let's update the `.gitignore` file so that we ignore the IDE related files.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -189,6 +278,41 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "1255dc88-13eb-43b1-8198-6adb0e6a2def",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We will have multiple projects, therefore we don't need to have a `build.gradle` file at this level. Let's delete it.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "78fe0709-2e51-490f-b65f-2df9550b6f2c",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "rm build.gradle"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "e201f315-e202-42c0-a715-55c51e165115",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "This completes our project setup. Let's commit the changes before moving to the next step.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "b834f8d1-3b65-4516-aec1-544e7dbb4965",
       "workingDirectory": "multi-project-application",
@@ -206,6 +330,23 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Create sub-projects"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "1445bf99-0329-4470-9772-58c5e5c311b8",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "This multi-project will contain two sub-projects",
+        "",
+        "- the _domain_ - will put the shopping-cart login here",
+        "- the _app_ - will put the code that interacts with the user here",
+        "",
+        "Let's start by listing the current projects.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
