@@ -1896,11 +1896,39 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "b0f307e3-7c95-4773-b9f3-ec3c765ed7a2",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Clean the build and run the `shadowJar` task again.",
+        "",
+        "- **Why do we need to clean (delete) the `build` directory?**",
+        "",
+        "  If we simply run the `shadowJar` task, the Jar file from the previous build will be there.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "e67129ea-d382-4774-a676-7acad0859ba2",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew clean shadowJar"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "95d1dbb7-2659-4e6f-ba66-499e06de92f8",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let run the new application."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1912,6 +1940,20 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "java -jar app/build/libs/shopping-cart.jar 'Frozen Yoghurt' 'White Sauce'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "48f147e1-ded5-45a4-a9b3-328a350b174f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Our basic, multi-project shopping-cart is ready. We have two sub-projects, the _domain_ and the _app_, and split the",
+        "classes accordingly. The application is packaged together in a single Fat Jar, using the `shadowJar` task. Let's commit",
+        "our changes, before moving on to the next section.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
