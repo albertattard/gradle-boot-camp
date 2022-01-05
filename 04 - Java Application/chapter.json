@@ -456,7 +456,8 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {}
+      "values": {},
+      "commandTimeout": 30.000000000
     },
     {
       "type": "markdown",
@@ -1751,7 +1752,8 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {}
+      "values": {},
+      "commandTimeout": 30.000000000
     },
     {
       "type": "markdown",
@@ -3665,7 +3667,7 @@
       "variables": [],
       "environmentVariables": [],
       "values": {},
-      "commandTimeout": 30.000000000
+      "commandTimeout": 60.000000000
     },
     {
       "type": "markdown",
@@ -3736,9 +3738,85 @@
       "id": "d8f68a4a-d65f-4d16-aae8-bd415ed2e87e",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The output contains a warning by log4j.",
+        "",
+        "```",
+        "WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.",
+        "```",
+        "",
+        "We need to add another attribute in the `MANIFEST.MD` file, as described in",
+        "this [stackoverflow post](https://stackoverflow.com/questions/53049346/is-log4j2-compatible-with-java-11)."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "c4c6bd15-fc23-49bb-9bfd-5075d4691023",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index f7f9753..f75ff54 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -17,7 +17,7 @@ application {",
+        " ",
+        " tasks.named('jar') {",
+        "     manifest {",
+        "-        attributes('Main-Class': application.mainClass)",
+        "+        attributes('Main-Class': application.mainClass, 'Multi-Release': 'true')",
+        "     }",
+        "     from {",
+        "         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "39cc512a-f869-4c33-b7f5-5d58497f969b",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's create the Jar file and try it again."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "2d5b8dd8-2634-4e6b-be61-694e224988a2",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew assemble --quiet",
+        "java -jar 'build/libs/single-java-project.jar'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "51b15e54-cb74-46f0-998f-97017038bea0",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The warning is not showing anymore.",
+        "",
+        "- **What the `--quiet` argument?**",
+        "",
+        "  Gradle provide",
+        "  several [logging levels](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level).",
+        "  The `--quiet`, or `-q` for short, instructs Gradle to produce only the important information and nothing else. Given",
+        "  that here we have two commands, `./gradlew ...` and `java -jar ...` and we are only interested in the output of the",
+        "  latter, we instructed Gradle to be quite and not to pollute the output with unnecessary things.",
+        "",
         "We were able to package the application into a single Jar file, which can be deployed and used in production, using the",
         "Gradle `jar` task. In the next section we will do the same thing, but using a plugin. In most cases, plugins exists that",
-        "do just the thing you need, and it's best to simply use them instead. ",
+        "do just the thing you need, and it's best to simply use them instead.",
         "",
         "Let's commit our changes before moving on.",
         ""
@@ -3832,7 +3910,7 @@
         " ",
         "-tasks.named('jar') {",
         "-    manifest {",
-        "-        attributes('Main-Class': application.mainClass)",
+        "-        attributes('Main-Class': application.mainClass, 'Multi-Release': 'true')",
         "-    }",
         "-    from {",
         "-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }",
@@ -3989,6 +4067,27 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "markdown",
+      "id": "a670905d-c109-4662-83bf-d900a2cc4aeb",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The test failed.",
+        "",
+        "```",
+        "> Task :functionalTest FAILED",
+        "",
+        "RunApplicationTest > runApplication() FAILED",
+        "    org.opentest4j.AssertionFailedError at RunApplicationTest.java:30",
+        "```",
+        "",
+        "This means that the Jar file is not created as expected. Let's see what Jar file(s) were created.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "800297c4-dae0-42c4-b9ab-7c5c04d0d45b",
       "workingDirectory": "single-java-project",
@@ -4004,12 +4103,20 @@
       "id": "9d9c1ea3-3d12-432c-9234-9b90fc104bea",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "Under the `build/libs` directory, we have two Jar files.",
         "",
         "```",
         "build/libs",
         "|-- single-java-project-all.jar",
         "`-- single-java-project.jar",
-        "```"
+        "```",
+        "",
+        "The `single-java-project-all.jar` was created by the `shadowJar` task, while the `single-java-project.jar` was created",
+        "by the `jar` task. Given that we removed all the configuration of the the `jar` task, the created Jar file is missing",
+        "the manifest and the runtime dependencies.",
+        "",
+        "We are going to use the `shadowJar` to create our Jar file, thus we can disable the `jar` task.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -4050,6 +4157,18 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "fcc12c0b-2a4b-4d79-a7bf-0267d1fa2051",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let create the Jar file again. But before doing that, let's first delete the existing ones, using the `clean` task.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "2732f84e-86b3-4e16-b4d7-601e47a5f36e",
       "workingDirectory": "single-java-project",
@@ -4060,6 +4179,17 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "ea01196f-5f11-41e0-b9c6-ecb383d4a675",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's see the contents of the `build/libs` directory."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "command",
@@ -4077,11 +4207,22 @@
       "id": "13429333-4883-4703-a0b3-7012f6c28bfd",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "Now we only have one Jar file, create by the `shadowJar` task.",
         "",
         "```",
         "build/libs",
         "`-- single-java-project-all.jar",
-        "```"
+        "```",
+        "",
+        "- **Why did we disable the `jar` task?**",
+        "",
+        "  We are going to use the `shadowJar`, and therefore we don't need the `jar` to run. Disabling tasks that you don't need",
+        "  will speed the build performance as Gradle does not need to run tasks unnecessarily.",
+        "",
+        "The `shadowJar` is appending a classifier (`-all`) to the Jar file. We can either change our test to point to the new",
+        "file name (`single-java-project-all.jar`), or configure the `shadowJar` task and drop the classifier. We will do the",
+        "latter.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -4114,6 +4255,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "a459408f-56cb-4749-97c2-3978bc15e606",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's create the Jar file, once more."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "c718b674-e8cc-4b8a-9079-c1da809ef049",
       "workingDirectory": "single-java-project",
@@ -4130,7 +4282,10 @@
       "id": "b89c0cb4-03ef-401e-a05e-2174592f3517",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "While this change works, and is according to",
+        "the [documentation](https://imperceptiblethoughts.com/shadow/configuration/#configuring-output-name), it produces",
+        "warnings. There was an [issue](https://github.com/johnrengelman/shadow/issues/598) about this too, but was closed by the",
+        "author.",
         "",
         "```",
         "> Task :shadowJar",
@@ -4145,7 +4300,10 @@
         "",
         "Execution optimizations have been disabled for 1 invalid unit(s) of work during this build to ensure correctness.",
         "Please consult deprecation warnings for more details.",
-        "```"
+        "```",
+        "",
+        "Let's run the functional tests one more and see whether these changes work as expected.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -4164,11 +4322,104 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "markdown",
+      "id": "3f21104e-0065-411b-9d56-d28f8581435d",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The functional test passes. This means that despite these warnings, our application is behaving as expected. Let's run",
+        "the application.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "eb526cc3-78dd-4b90-8701-c0ef54d93e09",
       "workingDirectory": "single-java-project",
       "parameters": [
         "java -jar 'build/libs/single-java-project.jar'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "00f2c892-e8da-4b72-9f03-ee37407478a6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The warning has returned.",
+        "",
+        "```",
+        "WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.",
+        "```",
+        "",
+        "Unfortunately, we need to add the missing attribute manually.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "b631582c-b11c-462e-9811-0ae6b4d59a6c",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 288d6d2..7308d49 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -55,6 +55,9 @@ tasks.named('distZip') {",
+        " ",
+        " tasks.named('shadowJar') {",
+        "     archiveClassifier.set ''",
+        "+    manifest {",
+        "+        attributes('Multi-Release': 'true')",
+        "+    }",
+        " }",
+        " ",
+        " repositories {",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "9e84af85-a516-4224-90ad-a0dce3255c8c",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's create the Jar file and try it again.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "e9edb939-0470-4d81-a051-a83907c222aa",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew assemble --quiet",
+        "java -jar 'build/libs/single-java-project.jar'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "25af9c3d-4f84-4541-b7d3-e13a452c17db",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "This concludes our section. Let's commit the changes made before moving to the next chapter.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
