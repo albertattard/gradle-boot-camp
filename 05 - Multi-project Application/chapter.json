@@ -1983,11 +1983,48 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "f8437044-272f-4981-bd41-91cb3f3fa59f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The `java-library` plugin exposes two configurations that can be used to declare dependencies: `api`",
+        "and `implementation`. We have used the `implementation` configuration. In the section we are going to see the difference",
+        "between these two configurations and how can be used.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "63913d1b-d296-43ca-bdd9-84eeca4ec3fb",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "git tag --annotate 'v3' --message 'The api configuration'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "6d6fd521-3622-481c-a9b2-51b251151027",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The _app_ sub-project depends on the _domain_ project, which in turn depends on the _Guava_ dependency. The _app_",
+        "sub-project depends on the _Guava_ dependency transitively.",
+        "",
+        "- **Can we use the _Guava_ dependency from within the _app_ sub-project without including in the _app_ sub-project",
+        "  dependencies?**",
+        "",
+        "  No. If we want to use the _Guava_ dependency from within the _app_ sub-project then we need to include it in the list",
+        "  of dependencies of the _app_ sub-project or... change the configuration within the _domain_ project",
+        "  from `implementation` to `api`.",
+        "",
+        "Let's try to use the _Guava_ dependency from within the _app_ sub-project without including in the _app_ sub-project",
+        "dependencies.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2024,6 +2061,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "15655c53-6fd1-45bc-a6fc-8324f83b1379",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Now let's try to compile the code."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "d933a51e-f883-413a-ac85-35419c1343dd",
       "workingDirectory": "multi-project-application",
@@ -2040,7 +2088,7 @@
       "id": "01aff8e9-6e7a-4402-91d5-e9a2d298634f",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
+        "The compiler fails.",
         "",
         "```",
         "> Task :app:compileJava FAILED",
@@ -2071,6 +2119,7 @@
         "FAILURE: Build failed with an exception.",
         "```",
         "",
+        "Let's understand why this is failing. Let's list the runtime dependencies for the _app_ sub-project.",
         ""
       ],
       "variables": [],
@@ -2093,7 +2142,8 @@
       "id": "3b7eaf0c-c318-4d70-8abe-db61648a5cb3",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
+        "At runtime (not compile time), the Guava dependency and its dependencies are all available. In other words",
+        "the `Main.class` has access to the Guava dependency.",
         "",
         "```",
         "runtimeClasspath - Runtime classpath of source set 'main'.",
@@ -2105,7 +2155,10 @@
         "          +--- org.checkerframework:checker-qual:3.12.0",
         "          +--- com.google.errorprone:error_prone_annotations:2.7.1",
         "          \\--- com.google.j2objc:j2objc-annotations:1.3",
-        "```"
+        "```",
+        "",
+        "Now, let see the compile time dependency for the _app_ sub-project.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2127,12 +2180,16 @@
       "id": "cd8aeb7f-cbf2-4996-997b-d41cf133d858",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
+        "The _app_ sub-project has only access to the classes found within the _domain_ sub-project, and nothing more.",
         "",
         "```",
         "compileClasspath - Compile classpath for source set 'main'.",
         "\\--- project :domain",
-        "```"
+        "```",
+        "",
+        "That's because the _domain_ sub-project is using the `implementation` configuration. Let's switch to the `api`",
+        "configuration.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2167,8 +2224,7 @@
       "id": "7b3ed0fa-b713-439f-b3b0-4325abafcb5f",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
-        "[`api` and `implementation` separation](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_separation)"
+        "Now let's see the compile time dependencies for the _app_ sub-project, once again."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2190,7 +2246,8 @@
       "id": "f2810344-74c6-40a2-b162-a08c357806e3",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
+        "Now, the transitive dependencies are made visible without the need to including them in the _app_ sub-project",
+        "dependencies list.",
         "",
         "```",
         "compileClasspath - Compile classpath for source set 'main'.",
@@ -2202,7 +2259,14 @@
         "          +--- org.checkerframework:checker-qual:3.12.0",
         "          +--- com.google.errorprone:error_prone_annotations:2.7.1",
         "          \\--- com.google.j2objc:j2objc-annotations:1.3",
-        "```"
+        "```",
+        "",
+        "The `api` configuration makes the compile time dependencies much like the runtime dependencies for the _app_",
+        "sub-project. When it comes to libraries, I prefer the `api` configuration over the `implementation`, but other firmly",
+        "believe that each sub-project should include the dependencies they need and not rely on transitive dependencies.",
+        "",
+        "Compile the application once more.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2220,6 +2284,29 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "97bbe289-6510-490c-baf7-82d1550f1b24",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The application now compiles without error."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "c75a6d6d-493b-4abd-910a-110b749afdcb",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "git add .",
+        "git commit --message 'Switch to api configuration and expose dependencies'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "section",
       "id": "0dfd0f0c-fb63-4750-a0f8-1f8820de18bb",
       "workingDirectory": "multi-project-application",
@@ -2229,6 +2316,10 @@
       "variables": [],
       "environmentVariables": [],
       "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "bc5ee302-6e18-474b-b663-c1a4195e6a3b"
     },
     {
       "type": "command",
