@@ -1759,7 +1759,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
-        "index 500eb5e..536233d 100644",
+        "index bbbc317..cf80c2a 100644",
         "--- a/app/build.gradle",
         "+++ b/app/build.gradle",
         "@@ -1,5 +1,6 @@",
@@ -1776,6 +1776,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "9ae9ee01-fe66-4514-80fd-7e4087509aae",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's list the tasks available to our project."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "4fd25cec-6ef9-4c89-9f5e-6f265da65c3d",
       "workingDirectory": "multi-project-application",
@@ -1784,20 +1795,25 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {}
+      "values": {},
+      "commandTimeout": 30.000000000
     },
     {
       "type": "markdown",
       "id": "6d81ab29-61c9-4efe-aed6-321ae7c331c3",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
+        "The ShadowJar plugin add the _Shadow tasks_ group.",
+        " ",
         "```",
         "Shadow tasks",
         "------------",
         "knows - Do you know who knows?",
         "shadowJar - Create a combined JAR of project and runtime dependencies",
-        "```"
+        "```",
+        "",
+        "Let's create the Fat Jar.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1816,6 +1832,17 @@
       "commandTimeout": 30.000000000
     },
     {
+      "type": "markdown",
+      "id": "cc57a343-2756-40cd-aaf9-1ea64991e4a4",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's list the created Jar files."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "87c735b0-bfe3-4bbd-8435-8ddf5df14f35",
       "workingDirectory": "multi-project-application",
@@ -1831,11 +1858,49 @@
       "id": "b7063851-fd5d-4b2a-95dd-06e3708d08fb",
       "workingDirectory": "multi-project-application",
       "parameters": [
+        "The application name is not as expected.",
         "",
         "```",
         "app/build/libs",
         "`-- app-all.jar",
-        "```"
+        "```",
+        "",
+        "We want our application to be called `shopping-cart.jar`. Let's configure the `shadowJar` task.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "1d5d4a4e-6a3f-4b44-adf5-da69d4dccb61",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "diff --git a/app/build.gradle b/app/build.gradle",
+        "index e74a7fd..5a35bb2 100644",
+        "--- a/app/build.gradle",
+        "+++ b/app/build.gradle",
+        "@@ -29,3 +29,7 @@ testing {",
+        "         }",
+        "     }",
+        " }",
+        "+",
+        "+tasks.named('shadowJar') {",
+        "+    archiveFileName.set 'shopping-cart.jar'",
+        "+}",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "e67129ea-d382-4774-a676-7acad0859ba2",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "./gradlew clean shadowJar"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1846,7 +1911,7 @@
       "id": "db3952c1-de6e-4a4f-b1f9-c48611972bbf",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "java -jar app/build/libs/app-all.jar 'Frozen Yoghurt' 'White Sauce'"
+        "java -jar app/build/libs/shopping-cart.jar 'Frozen Yoghurt' 'White Sauce'"
       ],
       "variables": [],
       "environmentVariables": [],
