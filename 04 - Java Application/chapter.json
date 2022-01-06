@@ -529,38 +529,62 @@
       "values": {}
     },
     {
+      "type": "question",
+      "id": "e44039ef-e61c-49de-b955-4527d8179186",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Answer:5",
+        "Gradle will download that particular version of Java and use it to run the tasks. Say that we have Java 8 installed, and",
+        "we like to compile the code with Java 17. If we include",
+        "the [`toolchain`](https://docs.gradle.org/current/userguide/toolchains.html), then Gradle will download the right",
+        "version of Java first and then run the task. In other words, Java 17 is first downloaded and then Gradle uses this Java",
+        "17 to compile the Java code, for example.",
+        "Question:2",
+        "What happens if that version of Java is not installed?",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "343e786c-5e2d-4e1f-abab-e04ca9ff507a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:5",
+        "What's the difference between",
+        "the [`sourceCompatibility`](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.JavaPluginExtension.html#org.gradle.api.plugins.JavaPluginExtension:sourceCompatibility)",
+        "and the `toolchain`?",
+        "",
+        "",
+        "Answer:16",
+        "In the previous version of Gradle, we used the following approach to set the version of Java to be used.",
+        "",
+        "```",
+        "java {",
+        "    sourceCompatibility = JavaVersion.VERSION_17",
+        "    targetCompatibility = JavaVersion.VERSION_17",
+        "}",
+        "```",
+        "",
+        "This approach merely indicates what version we required, but stops there. If we have an older version of Java, Gradle",
+        "will still try to run the task with the older version.",
+        "",
+        "The `toolchain` was added to Gradle to address this problem. Gradle detects what versions of Java are available locally",
+        "and will download if it does not already exist. Furthermore, this ensures that the project is compiled with the same",
+        "version of Java irrespective from where this is executed, be it the developer's laptops' or the pipeline.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "markdown",
       "id": "82277079-da06-4ffe-a7ed-8b78f9995dba",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "- **What happens if that version of Java is not installed?**",
-        "",
-        "  Gradle will download that particular version of Java and use it to run the tasks. Say that we have Java 8 installed,",
-        "  and we like to compile the code with Java 17. If we include",
-        "  the [`toolchain`](https://docs.gradle.org/current/userguide/toolchains.html), then Gradle will download the right",
-        "  version of Java first and then run the task. In other words, Java 17 is first downloaded and then Gradle uses this",
-        "  Java 17 to compile the Java code, for example.",
-        "",
-        "- **What's the difference between",
-        "  the [`sourceCompatibility`](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.JavaPluginExtension.html#org.gradle.api.plugins.JavaPluginExtension:sourceCompatibility)",
-        "  and the `toolchain`?**",
-        "",
-        "  In the previous version of Gradle, we used the following approach to set the version of Java to be used.",
-        "",
-        "  ```",
-        "  java {",
-        "    sourceCompatibility = JavaVersion.VERSION_17",
-        "    targetCompatibility = JavaVersion.VERSION_17",
-        "  }",
-        "  ```",
-        "",
-        "  This approach merely indicates what version we required, but stops there. If we have an older version of Java, Gradle",
-        "  will still try to run the task with the older version.",
-        "",
-        "  The `toolchain` was added to Gradle to address this problem. Gradle detects what versions of Java are available",
-        "  locally and will download if it does not already exist. Furthermore, this ensures that the project is compiled with",
-        "  the same version of Java irrespective from where this is executed, be it the developer's laptops' or the pipeline.",
-        "",
         "Maven has introduces",
         "a [directory structure for Java projects](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)",
         "and Gradle kept the same structure. We can change this using the `sourceSet` configuration, but it's best if you don't",
@@ -598,17 +622,40 @@
         "Javascript, use a different directory structure and separate the tests into a dedicated `test` root folder. The `src`",
         "directory has two subdirectories, the `main` and `test`. The production code goes in the `main` while the test code goes",
         "in the `test` directory.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "7e6b10f8-4021-4000-a451-8c1ff564a477",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:2",
+        "Where would you put the integration tests?",
         "",
-        "- **Where would you put the integration tests?**",
-        "",
-        "  While this depends on the team, it is a good practice to separate these tests into their own directory, such",
-        "  as `integrationTest`. You can set up",
-        "  this [manually](https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests) or",
-        "  use a plugin, such as the [Gradle TestSets plugin](https://github.com/unbroken-dome/gradle-testsets-plugin).",
-        "  Alternatively you can use",
-        "  new [`testing` extension](https://docs.gradle.org/current/dsl/org.gradle.testing.base.TestingExtension.html).",
-        "",
-        "Let's explore the `src` directory."
+        "Answer:7",
+        "While this depends on the team, it is a good practice to separate these tests into their own directory, such",
+        "as `integrationTest`. You can set up",
+        "this [manually](https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests) or",
+        "use a plugin, such as the [Gradle TestSets plugin](https://github.com/unbroken-dome/gradle-testsets-plugin).",
+        "Alternatively you can use",
+        "new [`testing` extension](https://docs.gradle.org/current/dsl/org.gradle.testing.base.TestingExtension.html).",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "64d367ff-5597-450f-82e2-47359a5b21f6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's explore the `src` directory.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2281,11 +2328,21 @@
         "BUILD FAILED in 4s",
         "1 actionable task: 1 executed",
         "```",
-        "",
-        "- **How to investigate this problem?**",
-        "",
-        "  We can run the `dependencies` task to check what dependencies are being used.",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "450f03be-ab66-4ef4-8a6b-2b8335aee3b7",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:1",
+        "How to investigate this problem?",
+        "Answer:1",
+        "We can run the `dependencies` task to check what dependencies are being used."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2350,15 +2407,36 @@
         "     \\--- org.apache.logging.log4j:log4j-core:2.14.1",
         "          \\--- org.apache.logging.log4j:log4j-api:2.14.1",
         "```",
+        "  ",
         "",
-        "- **Why is this important?**",
-        "",
-        "  The vulnerable dependency may be found in the runtime and not compile time.",
-        "",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "cdd3f2e3-21d7-4aa7-a027-9fdd34585085",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:1",
+        "Why is this important?",
+        "Answer:1",
+        "The vulnerable dependency may be found in the runtime and not compile time."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "8f7ce3c8-9e33-4358-a551-70281d8b3b52",
+      "workingDirectory": "single-java-project",
+      "parameters": [
         "The `dependencyCheckAnalyze` indicated that the faulty dependency is `org.apache.logging.log4j/log4j-api`. Let's see",
         "what is pulling this dependency. In our dependencies, we only included",
-        "the `org.apache.logging.log4j:log4j-slf4j-impl:2.14.1` dependency.",
-        ""
+        "the `org.apache.logging.log4j:log4j-slf4j-impl:2.14.1` dependency."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2469,6 +2547,36 @@
         "",
         "Now let's change our version from `2.17.1` and `2.12.1`.",
         ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "30ddabfd-1e80-4ef1-aa81-811761cba9aa",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:1",
+        "Which version will be used?",
+        "Answer:6",
+        "Gradle will always use the latest version as indicated by the `->`",
+        "",
+        "```",
+        "     \\--- org.apache.logging.log4j:log4j-api:2.14.1 -> 2.17.1",
+        "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "29a378d9-5f8a-42ae-94aa-3c2583b8b6fb",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Now let's change our version from `2.17.1` and `2.12.1`, which is less than the one pulled in by the `log4j-slf4j-impl` dependency."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2816,6 +2924,36 @@
         "  directory has access to the `compileClasspath` when this is compiled. When we run the code, always under",
         "  the `src/main` directory, Gradle makes available all dependencies under the `runtimeClasspath`.",
         "",
+        "Let's create the package named `gbc` where we will put our test class.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "d16078e8-9fe0-4f39-bf9a-d68104775023",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:2",
+        "Can we use JUnit from within our `Main.java` class?",
+        "",
+        "Answer:4",
+        "Not with the current setup. Gradle is able to partition the environments. Code that is found under the `src/main`",
+        "directory has access to the `compileClasspath` when this is compiled. When we run the code, always under the `src/main`",
+        "directory, Gradle makes available all dependencies under the `runtimeClasspath`.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "16a31550-c1af-46ca-aefb-4f9403d2fdf6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
         "Let's create the package named `gbc` where we will put our test class.",
         ""
       ],
@@ -3379,6 +3517,49 @@
       "values": {}
     },
     {
+      "type": "question",
+      "id": "36f4d4ae-14a2-49c2-b33d-b7d99cd890b0",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:1",
+        "Why do we need to distinguish between these different types of tests?",
+        "Answer:17",
+        "_Unit tests_, tend to be quick and provide quick feedback. Generally, these take milliseconds to run.",
+        "",
+        "_Integration tests_, need to interact with other processed and make intra-process, or worse/slower inter-process,",
+        "communication. These tests may take seconds instead of milliseconds to run, making them slower. Therefore, we tend to",
+        "have less of the _integration test_ and more of the _unit tests_.",
+        "",
+        "_Functional tests_ simulate user behaviour. Similar to _integration tests_, during the _functional tests_ the",
+        "application interacts with other processes and make intra-process, or worse/slower inter-process, communication.",
+        "Furthermore, _functional tests_ cover a user journey from start to end. Each test may require a couple of seconds to",
+        "complete, making it the slowest type of test.",
+        "",
+        "Separating the tests, allows use to run each group separately. While developing, we can run the _unit tests_ as often as",
+        "we need and obtain very quick feedback. We don't need to interact with other processes and don't need to have any other",
+        "things running (like a database or other services) for the _unit tests_ to work. Before pushing the changes to the",
+        "remote repository, we run all tests (_unit tests_, _integration tests_ and _functional tests_) to make sure that all is",
+        "well before pushing.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7280b53f-02f9-4c86-851d-a7b4ff1c9048",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's create a new test suite, called `functionalTest`. Will will make sure that our application runs properly from the",
+        "command line.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "08ea92e7-7cec-482c-9a07-eb69ea4dcb65",
       "workingDirectory": "single-java-project",
@@ -3426,13 +3607,35 @@
         "then there is no need to run the slower functional tests (fast feedback). Different form the unit test, the functional",
         "test need the application. By separating these types of tests, we can make the functional tests depend on the `assemble`",
         "task.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "eb1710b7-2984-4bf5-bf13-adc8580277bf",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:2",
+        "Why do we need to depend on the `assemble` task and not the `jar` task?",
         "",
-        "- **Why do we need to depend on the `assemble` task and not the `jar` task?**",
-        "",
-        "  There are many ways to create a Jar file. We can create our custom task that does that or use a third party library.",
-        "  The `assemble` task will depend on the tasks that create Jar file. By depending on the `assemble` we become",
-        "  implementation independent.",
-        "",
+        "Answer:4",
+        "There are many ways to create a Jar file. We can create our custom task that does that or use a third party library.",
+        "The `assemble` task will depend on the tasks that create Jar file. By depending on the `assemble` we become",
+        "implementation independent.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "c89074b1-64df-4ccd-83de-4fd9180e600b",
+      "workingDirectory": "single-java-project",
+      "parameters": [
         "Let's create the `functionalTest` directories.",
         ""
       ],
@@ -3514,12 +3717,23 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "Let's run the application from our functional test and determine whether it finished successfully or not.",
-        "",
-        "- **Am I correct to understand that we are running a Java application from within another Java application?**",
-        "",
-        "  Yes, our function test is running a command, which happens to be another Java application. This is irrelevant as all",
-        "  we care about in this functional test is that the command finishes executing in five seconds and that it finishes",
-        "  without errors (exit status 0). We can use this example for any other type of application. ",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "b709fa8d-a9f7-41ad-922c-a8d2e83eef52",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:1",
+        "Am I correct to understand that we are running a Java application from within another Java application?",
+        "Answer:4",
+        "Yes, our function test is running a command, which happens to be another Java application. This is irrelevant as all we",
+        "care about in this functional test is that the command finishes executing in five seconds and that it finishes without",
+        "errors (exit status 0). We can use this example for any other type of application.",
         ""
       ],
       "variables": [],
@@ -3702,22 +3916,42 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "This time we have a very long list of other classes in our Jar file.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "572ab07b-e19e-40fe-ad5d-5ae6b48a899f",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:1",
+        "Do we need all that?",
+        "Answer:12",
+        "Unfortunately no. When including dependencies in a project, there are deployed/packaged with the application, making the",
+        "final Jar file bigger. This is known as a _Fat Jar_ (or _Uber Jar_). This is wasteful, but you cannot simply remove",
+        "classes that you don't think you need. Classes may be loaded using reflection which makes it harder to determine what's",
+        "needed and what's not.",
         "",
-        "- **Do we need all that?**",
+        "The [Java modules system](https://www.oracle.com/corporate/features/understanding-java-9-modules.html) together",
+        "with [JLink](https://docs.oracle.com/en/java/javase/17/docs/specs/man/jlink.html) can be used to create a small version",
+        "of the application containing only the required modules. This also includes the JVM as part of the deployment unit.",
         "",
-        "  Unfortunately no. When including dependencies in a project, there are deployed/packaged with the application, making",
-        "  the final Jar file bigger. This is known as a _Fat Jar_ (or _Uber Jar_). This is wasteful, but you cannot simply",
-        "  remove classes that you don't think you need. Classes may be loaded using reflection which makes it harder to",
-        "  determine what's needed and what's not.",
-        "",
-        "  The [Java modules system](https://www.oracle.com/corporate/features/understanding-java-9-modules.html) together",
-        "  with [JLink](https://docs.oracle.com/en/java/javase/17/docs/specs/man/jlink.html) can be used to create a small",
-        "  version of the application containing only the required modules. This also includes the JVM as part of the deployment",
-        "  unit.",
-        "",
-        "  The [GraalVM](https://www.graalvm.org/) does something similar too as it only takes what's needed but limits the use",
-        "  of reflection. The GraalVM is doing more than just this.",
-        "",
+        "The [GraalVM](https://www.graalvm.org/) does something similar too as it only takes what's needed but limits the use of",
+        "reflection. The GraalVM is doing more than just this.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "ffcacf0c-e2cb-4482-9cf1-6287863c9f66",
+      "workingDirectory": "single-java-project",
+      "parameters": [
         "Let's run the application.",
         ""
       ],
@@ -3817,6 +4051,41 @@
         "  that here we have two commands, `./gradlew ...` and `java -jar ...` and we are only interested in the output of the",
         "  latter, we instructed Gradle to be quite and not to pollute the output with unnecessary things.",
         "",
+        "We were able to package the application into a single Jar file, which can be deployed and used in production, using the",
+        "Gradle `jar` task. In the next section we will do the same thing, but using a plugin. In most cases, plugins exists that",
+        "do just the thing you need, and it's best to simply use them instead.",
+        "",
+        "Let's commit our changes before moving on.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "3f6af2db-10f7-47c7-b5b8-e6f19a2aa602",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:1",
+        "What the `--quiet` argument?",
+        "Answer:6",
+        "Gradle provide several [logging levels](https://docs.gradle.org/current/userguide/logging.html#sec:choosing_a_log_level).",
+        "The `--quiet`, or `-q` for short, instructs Gradle to produce only the important information and nothing else. Given",
+        "that here we have two commands, `./gradlew ...` and `java -jar ...` and we are only interested in the output of the",
+        "latter, we instructed Gradle to be quiet and not to pollute the output with unnecessary things.",
+        "",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "06f32c4d-b9a9-49ac-b73f-def2501dda42",
+      "workingDirectory": "single-java-project",
+      "parameters": [
         "We were able to package the application into a single Jar file, which can be deployed and used in production, using the",
         "Gradle `jar` task. In the next section we will do the same thing, but using a plugin. In most cases, plugins exists that",
         "do just the thing you need, and it's best to simply use them instead.",
@@ -4216,12 +4485,33 @@
         "build/libs",
         "`-- single-java-project-all.jar",
         "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "6e07ce1c-2ce2-44c0-b267-7df9fa5f8ec2",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Question:2",
+        "Why did we disable the `jar` task?",
         "",
-        "- **Why did we disable the `jar` task?**",
-        "",
-        "  We are going to use the `shadowJar`, and therefore we don't need the `jar` to run. Disabling tasks that you don't need",
-        "  will speed the build performance as Gradle does not need to run tasks unnecessarily.",
-        "",
+        "Answer:2",
+        "We are going to use the `shadowJar`, and therefore we don't need the `jar` to run. Disabling tasks that you don't need",
+        "will speed the build performance as Gradle does not need to run tasks unnecessarily."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "a50d3699-a0f5-4a83-8586-dae0f714ce59",
+      "workingDirectory": "single-java-project",
+      "parameters": [
         "The `shadowJar` is appending a classifier (`-all`) to the Jar file. We can either change our test to point to the new",
         "file name (`single-java-project-all.jar`), or configure the `shadowJar` task and drop the classifier. We will do the",
         "latter.",

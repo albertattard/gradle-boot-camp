@@ -339,6 +339,25 @@
       "values": {}
     },
     {
+      "type": "question",
+      "id": "86ee499f-91fd-4dcb-8a4a-ee78faefed29",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "Why is that important?",
+        "",
+        "Answer:5",
+        "When you clone a repository, you can pick the directory you like. Other programmers may us a different directory name",
+        "than you have. Some tasks use the project name as their default value. For example when you create",
+        "a [Jar file](https://docs.oracle.com/en/java/javase/17/docs/specs/jar/jar.html), unless otherwise specified, the Jar",
+        "file will have the name of the project. This may break other things that rely on the Jar file to have a specific name. ",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "7e070414-864f-4e1a-aefc-253bb925066d",
       "workingDirectory": "gradle-fundamentals-manual",
@@ -356,25 +375,38 @@
       "values": {}
     },
     {
+      "type": "question",
+      "id": "f463b8ea-d829-4dcf-b42f-87a84031703d",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "Why did we use the `'` (single quote) to wrap the string and not `\"` (double quotes)?",
+        "",
+        "Answer:12",
+        "Groovy, the programming language we are using, supports both. Anything wrapped between `'` or `\"` is considered as",
+        "string. Groovy also supports [string interpolation](https://groovy-lang.org/syntax.html#_string_interpolation). Strings",
+        "within the `'` are treated as raw strings and are not interpolated, while strings within the `\"` are. Consider the",
+        "following example",
+        "",
+        "```",
+        "def name = 'Albert Attard'",
+        "println \"Hello ${name}\"",
+        "```",
+        "",
+        "The string `\"Hello ${name}\"` will be interpolated and the message `Hello Albert Attard` will be printed instead.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "markdown",
       "id": "6fc1a9c9-14ee-4ed0-98ba-5477f26a5a07",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "- **Why did we use the `'` (single quote) to wrap the string and not `\"` (double quotes)?**",
-        "",
-        "  Groovy, the programming language we are using, supports both. Anything wrapped between `'` or `\"` is considered as",
-        "  string. Groovy also supports [string interpolation](https://groovy-lang.org/syntax.html#_string_interpolation).",
-        "  Strings within the `'` are treated as raw strings and are not interpolated, while strings within the `\"` are. Consider",
-        "  the following example",
-        "",
-        "  ```",
-        "  def name = 'Albert Attard'",
-        "  println \"Hello ${name}\"",
-        "  ```",
-        "",
-        "  The string `\"Hello ${name}\"` will be interpolated and the message `Hello Albert Attard` will be printed instead.",
-        "",
         "If we list the files and the directories under our directory, we will see a `.gradle` directly.",
+        "",
         ""
       ],
       "variables": [],
@@ -612,22 +644,55 @@
         "the [`create()`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/TaskContainer.html#create-java.lang.String-)",
         "method, provides a lazy way to create tasks. There are different ways how a Gradle task can be created. This is the",
         "recommended way as the task is only created when needed. This becomes apparent in projects with large build scripts.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "770997d7-dae5-4b6c-a6a6-ab0bbb8355ca",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "Why is lazy initialisation important?",
         "",
-        "- **Why is lazy initialisation important?**",
-        "",
-        "  There are times when tasks load their configuration from files, which tend to take longer to create as they interact",
-        "  with the IO. If all tasks are initialised, even those that are not required or used, then our task needs to",
-        "  unnecessarily wait for all tasks to be initialised, incurring unnecessarily delays.",
-        "",
-        "- **What's the `doLast { }` block?**",
-        "",
-        "  The [`doLast { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doLast%28org.gradle.api.Action%29)",
-        "  block contains the execution logic of a given task. In our case, it is printing a simple message. This is one of the",
-        "  [hooks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#N18DD1) that Gradle provides and as the name",
-        "  indicates, this is invoked as the last thing.",
-        "  The [`doFirst { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doFirst%28org.gradle.api.Action%29),",
-        "  on the other hand, is invoked first as the name indicates.",
-        "",
+        "Answer:4",
+        "There are times when tasks load their configuration from files, which tend to take longer to create as they interact",
+        "with the IO. If all tasks are initialised, even those that are not required or used, then our task needs to",
+        "unnecessarily wait for all tasks to be initialised, incurring unnecessarily delays.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "7c15bc11-ef9d-425e-bd96-1ea8baf3f50d",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:1",
+        "What's the `doLast { }` block?",
+        "Answer:7",
+        "The [`doLast { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doLast%28org.gradle.api.Action%29)",
+        "block contains the execution logic of a given task. In our case, it is printing a simple message. This is one of the",
+        "[hooks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#N18DD1) that Gradle provides and as the name",
+        "indicates, this is invoked as the last thing.",
+        "The [`doFirst { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doFirst%28org.gradle.api.Action%29),",
+        "on the other hand, is invoked first as the name indicates.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "16cca94c-d5b2-4b20-9a98-40be194ef598",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
         "Let's take our task for a spin.",
         ""
       ],
@@ -660,14 +725,37 @@
         "```",
         "",
         "Printing output is not very common and not that much useful, but it's an easy way to start.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "cc6187bc-4e3b-47b4-b0e4-fb81a79d182f",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:3",
+        "Can we run more than one task?",
         "",
-        "- **Can we run more than one task?**",
         "",
-        "  Yes, we can run many tasks. Furthermore, a Gradle task may depend on another task, in which case both will run even if",
-        "  we invoke only one. For example, as that we have the tasks _a_ and _b_, when _b_ depends on _a_. If we run task _b_,",
-        "  both tasks _a_ and _b_ will be executed. If, on the other hand, we invoke task _a_, then only task _a_ is executed as",
-        "  this does not depend on any other task.",
-        "",
+        "Answer:5",
+        "Yes, we can run many tasks. Furthermore, a Gradle task may depend on another task, in which case both will run even if",
+        "we invoke only one. For example, as that we have the tasks _a_ and _b_, when _b_ depends on _a_. If we run task _b_,",
+        "both tasks _a_ and _b_ will be executed. If, on the other hand, we invoke task _a_, then only task _a_ is executed as",
+        "this does not depend on any other task.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "fdefb9e4-24e2-4686-9d0d-19aad67a8c42",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
         "Gradle provides a list of tasks that are available to this project. The `hello` task is only available to this project",
         "as it is defined within this project's `build.gradle` file. Furthermore, the tasks names within a project need to be",
         "unique as otherwise Gradle will not be able to tell them apart. Let's list the available Gradle tasks for this project.",
@@ -1145,12 +1233,31 @@
         "> Task :hello",
         "The execution build phase (from within the hello task)",
         "```",
-        "",
-        "- **Why is this a problem?**",
-        "",
-        "  Let say that the `bye` task's configuration is slow as it accesses the filesystem, for example. This will also impact",
-        "  the execution of the `hello` task even the `bye` task is not invoked or required.",
-        "",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "89a51bb7-de0f-4382-a141-621281dc8530",
+      "parameters": [
+        "Question:1",
+        "Why is this a problem?",
+        "Answer:3",
+        "Let say that the `bye` task's configuration is slow as it accesses the filesystem, for example. This will also impact",
+        "the execution of the `hello` task even when the `bye` task is not invoked or required.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "f90f8f6b-9889-4707-af1f-2277f4ed884b",
+      "parameters": [
         "Let's simulate this by using an artificial delay of 5 seconds (5000 milliseconds) and try it out.",
         ""
       ],
@@ -1288,12 +1395,34 @@
         "```",
         "BUILD SUCCESSFUL in 1s",
         "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "ab1786db-b680-4062-9a63-8551f74f79f8",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "What happens when we execute the `bye` Gradle task?",
         "",
-        "- **What happens when we execute the `bye` Gradle task?**",
-        "",
-        "  Gradle will evaluate the `bye` task's configuration and will have to wait for it to completes. In this case, Gradle",
-        "  has to wait 5 seconds before executing the `bye` task.",
-        "",
+        "Answer:3",
+        "Gradle will evaluate the `bye` task's configuration and will have to wait for it to completes. In this case, Gradle",
+        "has to wait 5 seconds before executing the `bye` task.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "1b9316b1-8ed4-4399-94a7-1e4b13dba6a3",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
         "Let's clean our examples and delete the unnecessary `println` statements and artificial delay.",
         ""
       ],
@@ -1493,17 +1622,40 @@
         "> Task :bye",
         "See you later, Gradle",
         "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "bd0aefb8-fc94-42ff-86ec-cae0da81d259",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "Why do we need to have a task depending on another?",
         "",
-        "- **Why do we need to have a task depending on another?**",
-        "",
-        "  One task may depend on the output of another task. Say we want to run the tests of a Java application (call it the",
-        "  _run test_ task). We first need to compile the code (call it the _compile code_ task). The _run test_ task will have",
-        "  to depend on the _compile code_ task as otherwise it cannot run. The tests will run on the compiled code, and without",
-        "  the compiled code, there are no tests to run.",
-        "",
+        "Answer:5",
+        "One task may depend on the output of another task. Say we want to run the tests of a Java application (call it the",
+        "_run test_ task). We first need to compile the code (call it the _compile code_ task). The _run test_ task will have to",
+        "depend on the _compile code_ task as otherwise it cannot run. The tests will run on the compiled code, and without the",
+        "compiled code, there are no tests to run.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "90386ecf-8c7a-4e44-a8e7-fc3b849c62ce",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
         "We can define the task execution, and having one task to be executed before another. For example, if both the `hello`",
         "and `bye` Gradle tasks are executed, we can set the `hello` to run before the `bye`. Let's revert our last change for",
-        "now."
+        "now.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1662,22 +1814,44 @@
         "> Task :bye",
         "See you later, Gradle",
         "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "4e39f4f9-14c7-44e3-967a-21688b8fd21d",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "What is the difference between `mustRunAfter` and `shouldRunAfter`?",
         "",
-        "- **What is the difference between `mustRunAfter` and `shouldRunAfter`?**",
+        "Answer:13",
+        "This is well described in",
+        "the [documentation](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:ordering_tasks).",
         "",
-        "  This is well described in",
-        "  the [documentation](https://docs.gradle.org/current/userguide/more_about_tasks.html#sec:ordering_tasks).",
-        "",
-        "  > There are two ordering rules available: '_must run after_' and '_should run after_'.",
-        "  >",
-        "  > When you use the 'must run after' ordering rule you specify that `taskB` must always run after `taskA`, whenever",
-        "  > both `taskA` and `taskB` will be run. This is expressed as `taskB.mustRunAfter(taskA)`. The 'should run after'",
-        "  > ordering rule is similar but less strict as it will be ignored in two situations. Firstly if using that rule",
-        "  > introduces an ordering cycle. Secondly when using parallel execution and all dependencies of a task have been",
-        "  > satisfied apart from the 'should run after' task, then this task will be run regardless of whether its",
-        "  > 'should run after' dependencies have been run or not. You should use 'should run after' where the ordering is",
-        "  > helpful but not strictly required.",
-        "",
+        "> There are two ordering rules available: '_must run after_' and '_should run after_'.",
+        ">",
+        "> When you use the 'must run after' ordering rule you specify that `taskB` must always run after `taskA`, whenever",
+        "> both `taskA` and `taskB` will be run. This is expressed as `taskB.mustRunAfter(taskA)`. The 'should run after'",
+        "> ordering rule is similar but less strict as it will be ignored in two situations. Firstly if using that rule",
+        "> introduces an ordering cycle. Secondly when using parallel execution and all dependencies of a task have been",
+        "> satisfied apart from the 'should run after' task, then this task will be run regardless of whether its",
+        "> 'should run after' dependencies have been run or not. You should use 'should run after' where the ordering is",
+        "> helpful but not strictly required.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "0f80755e-d6bc-4586-b887-67b69602dbfe",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
         "We can instruct Gradle to run a task (say _a_) after another task (say _b_) even if that task (_a_) is not executed,",
         "using the `finalizedBy`, as shown next.",
         ""
@@ -1753,26 +1927,48 @@
         "> Task :bye",
         "See you later, Gradle",
         "```",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "eeae9799-9e48-491d-89b4-9dd3a4f9dfbc",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "Where can we use this?",
         "",
-        "- **Where can we use this?**",
+        "Answer:17",
+        "One place I saw this used was with code coverage. After running the tests, we run the code coverage report using",
+        "the `finalizedBy`, as shown in [The JaCoCo Plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html)",
+        "documentation, from where the following example was copied.",
         "",
-        "  One place I saw this used was with code coverage. After running the tests, we run the code coverage report using",
-        "  the `finalizedBy`, as shown in [The JaCoCo Plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html)",
-        "  documentation, from where the following example was copied.",
-        "",
-        "  ```",
-        "  test {",
+        "```",
+        "test {",
         "    finalizedBy jacocoTestReport // report is always generated after tests run",
-        "  }",
-        "  jacocoTestReport {",
+        "}",
+        "jacocoTestReport {",
         "    dependsOn test // tests are required to run before generating the report",
-        "  }",
-        "  ```",
+        "}",
+        "```",
         "",
-        "  The `jacocoTestReport` task depends on the `test` task, which means that if you run the `jacocoTestReport` task,",
-        "  the `test` task is executed too. On the other hand, if we run the `test` task, then the `jacocoTestReport` task is",
-        "  also executed after the `test` task.",
-        "",
+        "The `jacocoTestReport` task depends on the `test` task, which means that if you run the `jacocoTestReport` task,",
+        "the `test` task is executed too. On the other hand, if we run the `test` task, then the `jacocoTestReport` task is also",
+        "executed after the `test` task.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "babf7008-716d-4712-bf40-a1ea424d9a6e",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
         "This wraps up dependencies and ordering. Let's revert these changes before moving on to the next section.",
         ""
       ],
@@ -1834,23 +2030,56 @@
         "a [wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html), which can be thought of a portable version",
         "of Gradle, included with the project. Instead of using the installed version of Gradle, we will use the wrapper instead",
         "which will ensure that the same version of Gradle is used irrespective from where it is executed.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "720e77e8-414d-452f-aad0-2813c69069f9",
+      "parameters": [
+        "Question:3",
+        "Why is this important?",
         "",
-        "- **Why is this important?**",
         "",
-        "  Gradle is not 100% backwards compatible. Gradle 7",
-        "  introduced [breaking changes](https://docs.gradle.org/7.0/userguide/upgrading_version_6.html#changes_7.0), and what",
-        "  worked with Gradle 6 may not necessary works on Gradle 7. Another programmer may introduce new Gradle features which",
-        "  will not work on previous version of Gradle. For example, Java 17 is only supported starting from Gradle 7.3 as shown",
-        "  in the [compatibility matrix](https://docs.gradle.org/current/userguide/compatibility.html).",
+        "Answer:6",
+        "Gradle is not 100% backwards compatible. Gradle 7",
+        "introduced [breaking changes](https://docs.gradle.org/7.0/userguide/upgrading_version_6.html#changes_7.0), and what",
+        "worked with Gradle 6 may not necessary works on Gradle 7. Another programmer may introduce new Gradle features which",
+        "will not work on previous version of Gradle. For example, Java 17 is only supported starting from Gradle 7.3 as shown in",
+        "the [compatibility matrix](https://docs.gradle.org/current/userguide/compatibility.html).",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "c22b39a8-a975-4d3e-85b2-b19facbe4da3",
+      "parameters": [
+        "Question:4",
+        "Do we need to have Gradle installed if we use the Gradle wrapper?",
         "",
         "",
-        "- **Do we need to have Gradle installed if we use the Gradle wrapper?**",
         "",
-        "  No, the Gradle wrapper is independent of the local Gradle and one is not required to be installed. This is great as we",
-        "  need to maintain one less programs. We don't need to maintain all the programmer's computers or pipelines. We can",
-        "  upgrade the Gradle version in one place, commit those changes and then everyone else will get the new changes, very",
-        "  similar to [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code).",
-        "",
+        "Answer:5",
+        "No, the Gradle wrapper is independent of the local Gradle and one is not required to be installed. This is great as we",
+        "need to maintain one less programs. We don't need to maintain all the programmer's computers or pipelines. We can",
+        "upgrade the Gradle version in one place, commit those changes and then everyone else will get the new changes, very",
+        "similar to [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code).",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "a782f0e5-3379-4e0d-a386-95b008917ed1",
+      "parameters": [
         "Let's start by tagging the current state of the project before we start with the Gradle wrapper.",
         ""
       ],
@@ -2175,46 +2404,93 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "Now we are back to version 7.3.3.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "f4ad84e0-9d55-4a92-a2c6-642c0e484ff8",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "This was quick. How come Gradle did not download the version 7.3.3?",
         "",
-        "- **This was quick. How come Gradle did not download the version 7.3.3?**",
+        "Answer:16",
+        "Gradle version 7.3.3 was downloaded before and saved in `~/.gradle/wrapper/dists` directory (unless otherwise configure)",
+        ". If we list the contents of this directory we will find all cached Gradle binaries.",
         "",
-        "  Gradle version 7.3.3 was downloaded before and saved in `~/.gradle/wrapper/dists` directory (unless otherwise",
-        "  configure). If we list the contents of this directory we will find all cached Gradle binaries.",
+        "```",
+        "ls -l ~/.gradle/wrapper/dists",
+        "```",
         "",
-        "  ```",
-        "  ls -l ~/.gradle/wrapper/dists",
-        "  ```",
+        "We worked with only two versions, 7.3 and 7.3.3.",
         "",
-        "  We worked with only two versions, 7.3 and 7.3.3.",
+        "```",
+        "drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.3-bin",
+        "drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.3.3-bin",
+        "```",
         "",
-        "  ```",
-        "  drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.3-bin",
-        "  drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.3.3-bin",
-        "  ```",
+        "If you delete the contents of this directory, Gradle will re-download these binaries again automatically.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "f19a2f4a-87eb-4b86-bc8a-1dad11a49d22",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:4",
+        "What's the difference between the installed Gradle and the Gradle Wrapper?",
         "",
-        "  If you delete the contents of this directory, Gradle will re-download these binaries again automatically.",
         "",
-        "- **What's the difference between the installed Gradle and the Gradle Wrapper?**",
         "",
-        "  The Gradle wrapper is a program that automatically downloads the correct version of Gradle for us. The Gradle tasks",
-        "  executed by the Gradle wrapper, `./gradlew`, are handles in the same way as when we use the installed version of",
-        "  Gradle.",
+        "Answer:3",
+        "The Gradle wrapper is a program that automatically downloads the correct version of Gradle for us. The Gradle tasks",
+        "executed by the Gradle wrapper, `./gradlew`, are handles in the same way as when we use the installed version of Gradle.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "50e0343a-4cb8-499e-870c-bd73e0274025",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:3",
+        "Given that the Gradle Wrapper can do the same things the installed version of Gradle does, do we need to have Gradle",
+        "installed locally?",
         "",
-        "- **Given that the Gradle Wrapper can do the same things the installed version of Gradle does, do we need ot have Gradle",
-        "  installed locally?**",
+        "Answer:11",
+        "The locally installed Gradle has one advantage over the Gradle wrapper. We can use the locally installed Gradle to",
+        "create a project. So far we have created the project manually, but Gradle provided the",
+        "built-in [`init` task](https://docs.gradle.org/current/dsl/org.gradle.buildinit.tasks.InitBuild.html) which can be used",
+        "to create Gradle projects.",
         "",
-        "  The locally installed Gradle has one advantage over the Gradle wrapper. We can use the locally installed Gradle to",
-        "  create a project. So far we have created the project manually, but Gradle provided the",
-        "  built-in [`init` task](https://docs.gradle.org/current/dsl/org.gradle.buildinit.tasks.InitBuild.html) which can be",
-        "  used to create Gradle projects.",
+        "An alternative approach is to have a blueprint repository that you contain the Gradle wrapper. Instead of creating the",
+        "program using the `init` Gradle task, we can clone the blueprint repository.",
         "",
-        "  An alternative approach is to have a blueprint repository that you contain the Gradle wrapper. Instead of creating the",
-        "  program using the `init` Gradle task, we can clone the blueprint repository.",
-        "",
-        "  I prefer to have Gradle installed locally as I can quickly create the project I need. The Gradle `init` task is",
-        "  interactive and provides some neat options, such as choosing Kotlin over Groovy as the Gradle configuration language.",
-        "",
-        "Let's add the gradle wrapper to the version source control.",
+        "I prefer to have Gradle installed locally as I can quickly create the project I need. The Gradle `init` task is",
+        "interactive and provides some neat options, such as choosing Kotlin over Groovy as the Gradle configuration language.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "0e156078-53fc-405b-9491-f148610c3cf8",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Let's add the Gradle wrapper to the version source control.",
         ""
       ],
       "variables": [],
@@ -2276,13 +2552,35 @@
       "parameters": [
         "Tasks are part of a [plugin](https://docs.gradle.org/current/userguide/plugins.html). Gradle provides",
         "a [repository](https://plugins.gradle.org/) where you can search for plugins.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "question",
+      "id": "59d7a987-a488-465c-9a89-9e73e3d43d64",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Question:2",
+        "What's a plugin?",
         "",
-        "- **What's a plugin?**",
-        "",
-        "  Plugins enhance Gradle's abilities. Gradle is a very basic tool that can do very few things. When we ran",
-        "  the `./gradle tasks` command, we saw all that Gradle could do. A Gradle plugin comprise a set of tasks, configuration",
-        "  objects and conventions.",
-        "",
+        "Answer:4",
+        "Plugins enhance Gradle's abilities. Gradle is a very basic tool that can do very few things. When we ran",
+        "the `./gradle tasks` command, we saw all that Gradle could do. A Gradle plugin comprise a set of tasks, configuration",
+        "objects and conventions.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "5c009d8b-0eff-47f3-a205-9b5c3c3ba952",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
         "Let's see what our project is capable of, by listing its tasks.",
         ""
       ],
@@ -2483,16 +2781,27 @@
       "values": {}
     },
     {
+      "type": "question",
+      "id": "98a9a9a0-9e9a-4cb5-9851-58100afe4fa3",
+      "workingDirectory": "gradle-fundamentals-manual",
+      "parameters": [
+        "Answer:4",
+        "The built-in plugins do not require a version as these are packaged with the version of Gradle we are using.",
+        "The `taskinfo` plugin is developed and maintained by a third party and thus we need to indicate which version of the",
+        "plugin we want to use.",
+        "",
+        "Question:1",
+        "Why is there a version after the `taskinfo` plugin but not after the `base` plugin?"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "markdown",
       "id": "df1b71de-0904-46aa-ad87-bb46fa54a32f",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "- **Why is there a version after the `taskinfo` plugin but not after the `base` plugin?**",
-        "",
-        "  The built-in plugins do not require a version as these are packaged with the version of Gradle we are using.",
-        "  The `taskinfo` plugin is developed and maintained by a third party and thus we need to indicate which version of the",
-        "  plugin we want to use.",
-        "",
         "Let's list all tasks, as this plugin does not use groups for the tasks that it introduces.",
         ""
       ],
