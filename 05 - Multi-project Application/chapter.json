@@ -612,7 +612,7 @@
         "+",
         "+java {",
         "+    toolchain {",
-        "+        languageVersion = JavaLanguageVersion.of(17);",
+        "+        languageVersion = JavaLanguageVersion.of(17)",
         "+        vendor = JvmVendorSpec.ORACLE",
         "+    }",
         "+}",
@@ -1266,7 +1266,7 @@
         "+",
         "+java {",
         "+    toolchain {",
-        "+        languageVersion = JavaLanguageVersion.of(17);",
+        "+        languageVersion = JavaLanguageVersion.of(17)",
         "+        vendor = JvmVendorSpec.ORACLE",
         "+    }",
         "+}",
@@ -1699,7 +1699,7 @@
         "+",
         " java {",
         "     toolchain {",
-        "         languageVersion = JavaLanguageVersion.of(17);",
+        "         languageVersion = JavaLanguageVersion.of(17)",
         ""
       ],
       "variables": [],
@@ -2319,7 +2319,43 @@
     },
     {
       "type": "markdown",
-      "id": "bc5ee302-6e18-474b-b663-c1a4195e6a3b"
+      "id": "bc5ee302-6e18-474b-b663-c1a4195e6a3b",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "If you observe closely, you will notice that both `build.gradle` files are quite similar. They have lots of duplication.",
+        "Gradle provides a way to refactor the duplication into a single place. In this section we will refactor both",
+        "sub-projects and tack advantage of",
+        "the [`buildSrc`](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources).",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "680dbd5e-ef84-4b6c-9497-35862bea21dc",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "git tag --annotate 'v4' --message 'The buildSrc'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "01232859-5b04-4010-80ff-54ccd2944596",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Gradle automatically compiles and tests this code under the `buildSrc` directory and make it available to the project",
+        "(and sub-projects) build script (`build.gradle`). There can only be one `buildSrc` directory and this must be at the",
+        "project root directory.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "command",
@@ -2327,6 +2363,24 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir 'buildSrc'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "a15669ce-f730-4459-906c-25980d872c02",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "It is recommended to include the `settings.gradle` file, even if it is left empty.",
+        "",
+        "> We recommend that you also create a `buildSrc/settings.gradle` file, which you may leave empty.",
+        "",
+        "See",
+        "the [precompiled script plugins](https://docs.gradle.org/current/userguide/custom_plugins.html#sec:precompiled_plugins)",
+        "section for more details.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2345,13 +2399,12 @@
     },
     {
       "type": "markdown",
-      "id": "a15669ce-f730-4459-906c-25980d872c02",
+      "id": "c5e775b9-3daf-4f19-a9cb-4ea6a020a56e",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "",
-        "[Precompiled script plugins](https://docs.gradle.org/current/userguide/custom_plugins.html#sec:precompiled_plugins)",
-        "",
-        "> We recommend that you also create a `buildSrc/settings.gradle` file, which you may leave empty."
+        "The `buildSrc` can be seen as another sub-project, even though it is not. It needs to have its own `build.gradle` as we",
+        "need to define plugins and dependencies that we will be using.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2363,6 +2416,19 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/build.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "bb677b84-7d85-4d66-822d-b54a1dbb9e4f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We need to include the `groovy-gradle-plugin` plugin. With this plugin, Gradle will be able to precompile the code found",
+        "within the `buildSrc` directory and make this available to the rest of the project (and sub-projects).",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2388,6 +2454,19 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "b61bea8d-0884-41aa-848b-45b329425775",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The idea is to reduce the duplication found in the `domain/build.gradle` and `app/build.gradle` build scripts. These are",
+        "using the Groovy DSL. So, let's create the Groovy directory structure for the common configuration.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "21304884-a1b7-48b3-b7a1-a57a875ca379",
       "workingDirectory": "multi-project-application",
@@ -2399,11 +2478,98 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "59c1669f-dde7-4874-ac99-750737993cd0",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's create the `gbc.java-common-conventions.gradle` file and start putting the common configuration there. The file",
+        "name is important as this will be used as a plugin name, as shown next.",
+        "",
+        "```",
+        "plugins {",
+        "    id 'gbc.java-common-conventions'",
+        "}",
+        "```",
+        "",
+        "When importing this script, we omit the file extension.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "5230563f-bb33-46ea-84cb-06b6d1c915e2",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/src/main/groovy/gbc.java-common-conventions.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "e5af80a6-3edd-4806-814f-80879ea0858d",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Both the `domain/build.gradle` and `app/build.gradle` build scripts use",
+        "",
+        "- the `java` plugin",
+        "",
+        "  ```",
+        "  plugins {",
+        "      id 'java'",
+        "  }",
+        "  ```",
+        "",
+        "- Java 17, through the toolchain",
+        "",
+        "  ```",
+        "  java {",
+        "      toolchain {",
+        "          languageVersion = JavaLanguageVersion.of(17)",
+        "          vendor = JvmVendorSpec.ORACLE",
+        "      }",
+        "  }",
+        "  ```",
+        "",
+        "- the Maven central repository",
+        "",
+        "  ```",
+        "  repositories {",
+        "      mavenCentral()",
+        "  }",
+        "  ```",
+        "",
+        "- the JUnit 5 testing framework",
+        "",
+        "  ```",
+        "  testing {",
+        "      suites {",
+        "          test {",
+        "            useJUnitJupiter('5.8.2')",
+        "          }",
+        "      }",
+        "  }",
+        "  ```",
+        "",
+        "The `domain/build.gradle` also includes a dependency. We can create a constraint so that whoever includes this",
+        "dependency can omit the version and the one specified here will be picked.",
+        "",
+        "```",
+        "dependencies {",
+        "    constraints {",
+        "        implementation 'com.google.guava:guava:31.0.1-jre'",
+        "    }",
+        "}",
+        "```",
+        "",
+        "Note that the above simply provides a default version number and does not enforce the version to be used. ",
+        "",
+        "We can put all these in the `gbc.java-common-conventions.gradle` file.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2425,7 +2591,7 @@
         "+",
         "+java {",
         "+    toolchain {",
-        "+        languageVersion = JavaLanguageVersion.of(17);",
+        "+        languageVersion = JavaLanguageVersion.of(17)",
         "+        vendor = JvmVendorSpec.ORACLE",
         "+    }",
         "+}",
@@ -2454,11 +2620,44 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "ab600d2e-933c-4981-a952-8e7f572265ae",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We can stop here, and use the `gbc.java-common-conventions.gradle` script as it is, or take it one step further and",
+        "define an application and a library specific common configurations. Let's do that.",
+        "",
+        "We have to sub-project types, a `java-library` (the _domain_ sub-project) and an `application` (the _app_ sub-project),",
+        "where the latter depends on the former. It is simpler to start with the project that has the least dependants as this",
+        "has the least impact. Changing the _domain_ sub-project will affect both the _domain_ and the _app_ sub-projects while",
+        "changing the _app_ will only affect the _app_ sub-project. The _domain_ sub-project is not affected.",
+        "",
+        "Let's create another configuration script for the `application` type sub-projects.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "b53f382c-4df6-4544-b4cb-4904748446f5",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/src/main/groovy/gbc.java-application-conventions.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "05c02d79-34f9-48d5-a534-989fefafcefe",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "This is quite simple. It extends the `gbc.java-common-conventions` plugin defined before, and the `application`",
+        "and `shadowJar` plugins. No need to add anything else.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2486,15 +2685,27 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "f7a73f82-ad65-4aca-afaf-5f5ccffbe26f",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Now, we can simplify the `app/build.gradle` build script by simply using the `gbc.java-application-conventions` plugin.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "fd31ff58-db11-44d7-86b6-e90b4527ad26",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "diff --git a/app/build.gradle b/app/build.gradle",
-        "index e74a7fd..7d19e77 100644",
+        "index c2bc0fb..d52ee60 100644",
         "--- a/app/build.gradle",
         "+++ b/app/build.gradle",
-        "@@ -1,31 +1,11 @@",
+        "@@ -1,35 +1,15 @@",
         " plugins {",
         "-    id 'application'",
         "-    id 'com.github.johnrengelman.shadow' version '7.1.2'",
@@ -2507,7 +2718,7 @@
         " ",
         "-java {",
         "-    toolchain {",
-        "-        languageVersion = JavaLanguageVersion.of(17);",
+        "-        languageVersion = JavaLanguageVersion.of(17)",
         "-        vendor = JvmVendorSpec.ORACLE",
         "-    }",
         "-}",
@@ -2519,7 +2730,7 @@
         " dependencies {",
         "     implementation project(':domain')",
         " }",
-        "-",
+        " ",
         "-testing {",
         "-    suites {",
         "-        test {",
@@ -2527,6 +2738,10 @@
         "-        }",
         "-    }",
         "-}",
+        "-",
+        " tasks.named('shadowJar') {",
+        "     archiveFileName.set 'shopping-cart.jar'",
+        " }",
         ""
       ],
       "variables": [],
@@ -2544,14 +2759,39 @@
       "environmentVariables": [],
       "values": {},
       "expectedExitValue": 1,
-      "commandTimeout": 30.000000000
+      "commandTimeout": 60.000000000
     },
     {
       "type": "markdown",
       "id": "4dea8df0-25bc-460e-b918-cb8ae15a3c53",
       "workingDirectory": "multi-project-application",
       "parameters": [
+        "First note that we have new tasks, related to the `buildSrc`. Anything within the `buildSrc` is built and tested",
+        "automatically, before the project related tasks are executed.",
         "",
+        "```",
+        "> Task :buildSrc:extractPluginRequests",
+        "> Task :buildSrc:generatePluginAdapters",
+        "> Task :buildSrc:compileJava",
+        "> Task :buildSrc:compileGroovy NO-SOURCE",
+        "> Task :buildSrc:compileGroovyPlugins",
+        "> Task :buildSrc:pluginDescriptors",
+        "> Task :buildSrc:processResources",
+        "> Task :buildSrc:classes",
+        "> Task :buildSrc:jar",
+        "> Task :buildSrc:assemble",
+        "> Task :buildSrc:pluginUnderTestMetadata",
+        "> Task :buildSrc:compileTestJava NO-SOURCE",
+        "> Task :buildSrc:compileTestGroovy NO-SOURCE",
+        "> Task :buildSrc:processTestResources NO-SOURCE",
+        "> Task :buildSrc:testClasses",
+        "> Task :buildSrc:test NO-SOURCE",
+        "> Task :buildSrc:validatePlugins",
+        "> Task :buildSrc:check",
+        "> Task :buildSrc:build",
+        "```",
+        "",
+        "Unfortunately our build failed.",
         "",
         "```",
         "FAILURE: Build failed with an exception.",
@@ -2563,7 +2803,22 @@
         "An exception occurred applying plugin request [id: 'gbc.java-application-conventions']",
         "> Failed to apply plugin 'gbc.java-application-conventions'.",
         "   > org.gradle.api.plugins.UnknownPluginException: Plugin with id 'com.github.johnrengelman.shadow' not found.",
-        "```"
+        "```",
+        "",
+        "Gradle is not able to determine the `com.github.johnrengelman.shadow` plugin version. Furthermore, we cannot provide the",
+        "version for this plugin in the `buildSrc/src/main/groovy/gbc.java-application-conventions.gradle` file similar to what",
+        "we did before. The following will not work.",
+        "",
+        "```",
+        "plugins {",
+        "    id 'application'",
+        "    id 'gbc.java-common-conventions'",
+        "    id 'com.github.johnrengelman.shadow' version '7.1.2'",
+        "}",
+        "```",
+        "",
+        "Instead, we need to include this in the `buildSrc/build.gradle` dependencies list.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2597,6 +2852,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "75069853-8f0a-4203-872d-deac733137e6",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Now Gradle know which version of the `shadowJar` plugin to use. Let's build it again."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "73c94641-3fae-450e-b0b5-bfca946c4f53",
       "workingDirectory": "multi-project-application",
@@ -2609,11 +2875,33 @@
       "commandTimeout": 60.000000000
     },
     {
+      "type": "markdown",
+      "id": "148dd98c-73b3-4ca5-adc4-479911bae0d2",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "The _app_ sub-project is now ready.  Let's do the same for the _domain_ sub-project."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "29c342e8-1d7a-48ce-88a0-a2032d401945",
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/src/main/groovy/gbc.java-library-conventions.gradle'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "b328fae0-d86b-4021-a8c6-7695ad3f98be",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "This is slightly simpler as it only uses the `java-library` plugin."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2640,6 +2928,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "29271322-0fcb-4368-afa2-979e68fb3593",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's remove the unnecessary configuration from the `domain/build.gradle` build script."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "b3f8d593-827d-4e0a-8a0e-bce619b432ca",
       "workingDirectory": "multi-project-application",
@@ -2656,7 +2955,7 @@
         "-",
         "-java {",
         "-    toolchain {",
-        "-        languageVersion = JavaLanguageVersion.of(17);",
+        "-        languageVersion = JavaLanguageVersion.of(17)",
         "-        vendor = JvmVendorSpec.ORACLE",
         "-    }",
         "-}",
@@ -2684,6 +2983,17 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "5f7214c1-59bd-4776-ac99-ac3f2a7b7936",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Build the project once more."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "a95ee5d0-6b68-4485-ab34-a27dbf271418",
       "workingDirectory": "multi-project-application",
@@ -2694,6 +3004,17 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "6571480b-a3e0-45b3-93f9-1e31515db780",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "We have successfully refactored the duplication out into a common place and imported it as a plugin."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "command",
