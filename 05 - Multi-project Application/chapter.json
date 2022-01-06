@@ -204,7 +204,7 @@
       "variables": [],
       "environmentVariables": [],
       "values": {},
-      "commandTimeout": 30.000000000
+      "commandTimeout": 60.000000000
     },
     {
       "type": "markdown",
@@ -1605,7 +1605,8 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {}
+      "values": {},
+      "commandTimeout": 30.000000000
     },
     {
       "type": "markdown",
@@ -1829,7 +1830,7 @@
       "variables": [],
       "environmentVariables": [],
       "values": {},
-      "commandTimeout": 30.000000000
+      "commandTimeout": 60.000000000
     },
     {
       "type": "markdown",
@@ -3003,7 +3004,7 @@
       "variables": [],
       "environmentVariables": [],
       "values": {},
-      "commandTimeout": 30.000000000
+      "commandTimeout": 60.000000000
     },
     {
       "type": "markdown",
