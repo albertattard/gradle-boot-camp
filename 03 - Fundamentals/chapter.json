@@ -325,13 +325,6 @@
         "",
         "While this is good, it is better to configure the project's name as this makes the project independent of the",
         "directories name.",
-        "",
-        "- **Why is that important?**",
-        "",
-        "  When you clone a repository, you can pick the directory you like. Other programmers may us a different directory name",
-        "  than you have. Some tasks use the project name as their default value. For example when you create",
-        "  a [Jar file](https://docs.oracle.com/en/java/javase/17/docs/specs/jar/jar.html), unless otherwise specified, the Jar",
-        "  file will have the name of the project. This may break other things that rely on the Jar file to have a specific name. ",
         ""
       ],
       "variables": [],
