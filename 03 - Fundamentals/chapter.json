@@ -666,8 +666,9 @@
       "id": "7c15bc11-ef9d-425e-bd96-1ea8baf3f50d",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Question:1",
+        "Question:2",
         "What's the `doLast { }` block?",
+        "",
         "Answer:7",
         "The [`doLast { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doLast%28org.gradle.api.Action%29)",
         "block contains the execution logic of a given task. In our case, it is printing a simple message. This is one of the",
@@ -1236,8 +1237,9 @@
       "type": "question",
       "id": "89a51bb7-de0f-4382-a141-621281dc8530",
       "parameters": [
-        "Question:1",
+        "Question:2",
         "Why is this a problem?",
+        "",
         "Answer:3",
         "Let say that the `bye` task's configuration is slow as it accesses the filesystem, for example. This will also impact",
         "the execution of the `hello` task even when the `bye` task is not invoked or required.",
@@ -2778,13 +2780,14 @@
       "id": "98a9a9a0-9e9a-4cb5-9851-58100afe4fa3",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
+        "Question:2",
+        "Why is there a version after the `taskinfo` plugin but not after the `base` plugin?",
+        "",
         "Answer:4",
         "The built-in plugins do not require a version as these are packaged with the version of Gradle we are using.",
         "The `taskinfo` plugin is developed and maintained by a third party and thus we need to indicate which version of the",
         "plugin we want to use.",
-        "",
-        "Question:1",
-        "Why is there a version after the `taskinfo` plugin but not after the `base` plugin?"
+        ""
       ],
       "variables": [],
       "environmentVariables": [],

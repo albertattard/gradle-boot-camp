@@ -1983,12 +1983,12 @@
       "id": "713fa451-948b-4182-8a29-77e2e60e0a84",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "Question:3",
+        "Question:2",
         "Why do we need to clean (delete) the `build` directory?",
         "",
-        "  ",
-        "Answer:1",
-        "If we simply run the `shadowJar` task, the Jar file from the previous build will be there."
+        "Answer:2",
+        "If we simply run the `shadowJar` task, the Jar file from the previous build will be there.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
