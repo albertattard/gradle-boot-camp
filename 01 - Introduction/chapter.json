@@ -28,9 +28,33 @@
     },
     {
       "type": "section",
+      "id": "0dc0f920-d075-46e2-8fe3-167d94d7b16d",
+      "parameters": [
+        "What's Gradle?"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "d7c5f0e7-6ba6-4f20-a605-a8d54c1972e6",
+      "parameters": [
+        "Programming is more than just typing. We need to compile our code, run tests, package the code and deploy it amongst",
+        "other things. Gradle is a built tool, like [Ant](https://ant.apache.org/) and [Maven](https://maven.apache.org/) to name",
+        "two, that can help to free programmer from these mundane tasks. Things that do not require thought, such as compile the",
+        "code or run the test, can be automated. Gradle, like any built-tool, excels at these things and can be used instead.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
       "id": "0c28d9d9-f27d-48da-ae20-988f2c9954a2",
       "parameters": [
-        "Why Gradle?"
+        "Given that there are different built tools, why Gradle?"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -40,23 +64,6 @@
       "type": "markdown",
       "id": "ae83f0b6-3bc1-4994-a490-f00332b44d5a",
       "parameters": [
-        "Programming is more than just typing. We need to compile our code, run tests, package the code and deploy it amongst",
-        "other things. Built tools, like [Ant](https://ant.apache.org/), [Maven](https://maven.apache.org/)",
-        "and Gradle, help with that by freeing the programmer from mundane tasks.",
-        ""
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "question",
-      "id": "28767af3-75ff-46e1-9a87-b4e4748b557a",
-      "parameters": [
-        "Question:2",
-        "Given that there are different built tools, why Gradle?",
-        "",
-        "Answer:10",
         "Gradle joined the party late, and learnt from its predecessors. Gradle has two key things in it favour",
         "",
         "- Uses Groovy (or Kotlin) as its configuration language. Maven uses XML, which is bloated and limited in its abilities.",
