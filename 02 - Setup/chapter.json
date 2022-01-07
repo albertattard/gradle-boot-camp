@@ -14,7 +14,7 @@
       "type": "markdown",
       "id": "64cd6430-99b5-49b0-a7c1-c8861e805feb",
       "parameters": [
-        "This book camp requires some software, such as Java and Gradle, to be installed. Follow these steps and make sure that",
+        "This boot camp requires some software, such as Java and Gradle, to be installed. Follow these steps and make sure that",
         "all the prerequisites are met before moving on. Note that these commands are idempotent."
       ],
       "variables": [],
