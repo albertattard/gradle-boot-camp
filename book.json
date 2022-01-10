@@ -8,7 +8,7 @@
       "path": "01 - Introduction/chapter.json"
     },
     {
-      "title": "Setup",
+      "title": "Setup Gradle",
       "description": "The subsequent chapters rely on Gradle to be set up and require some additional third party programs.  This section provides a step by step guide about how to install the required software.",
       "path": "02 - Setup/chapter.json"
     },

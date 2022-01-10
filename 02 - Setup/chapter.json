@@ -174,8 +174,10 @@
         "written in Java 17 should work fine with any vendor's Java. ",
         "",
         "We will install the one provided by Oracle, which",
-        "is [free to use in production](https://blogs.oracle.com/java/post/free-java-license) under",
+        "is now [free to use in production](https://blogs.oracle.com/java/post/free-java-license) under",
         "the [Oracle No-Fee Terms and Conditions (NFTC)](https://www.oracle.com/downloads/licenses/no-fee-license.html) license.",
+        "In the past, Oracle required you to have a commercial license if you wanted to use Java in production.  This created a ",
+        "bit of confusion, but now Oracle went back and made Java free to use in production.",
         ""
       ],
       "variables": [],
