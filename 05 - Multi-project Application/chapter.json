@@ -64,16 +64,6 @@
     },
     {
       "type": "markdown",
-      "id": "bf682937-c835-4ebc-8223-55a32977e209",
-      "parameters": [
-        "Delete me!!"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "markdown",
       "id": "d1c35f2b-acc7-473e-9b09-6e81e56a66eb",
       "workingDirectory": "multi-project-application",
       "parameters": [
