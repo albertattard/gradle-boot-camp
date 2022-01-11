@@ -12,6 +12,26 @@
     },
     {
       "type": "markdown",
+      "id": "5ece1e79-23c0-419e-a532-6b8ce96cc4a3",
+      "parameters": [
+        "_Introduction to this chapter_."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "section",
+      "id": "3cf1ca6b-8f0a-4d4f-8af0-290810e804d4",
+      "parameters": [
+        "Create the project"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
       "id": "cf61b924-5632-4bc8-b9fa-25d47a2c5ecd",
       "parameters": [
         "Let's start by deleting the directory that we will be working on `custom-gradle-task` and creating it again. This makes ",
@@ -112,40 +132,73 @@
         "DEVELOPER_EMAIL"
       ],
       "environmentVariables": [],
-      "values": {
-        "DEVELOPER_NAME": "Albert Attard"
-      }
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "2ee10d00-1253-48e3-8987-22f8a825dc30",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's verify that our Git configuration was properly applied.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "8d5c0397-0f60-4b7f-a933-997eedc47c72",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "git config --list",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "ea2ffe46-1f56-4af7-9e1a-7b8c12e146d7",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Both name and email should be properly set, as shown next.",
+        "",
+        "```",
+        "user.name=${DEVELOPER_NAME}",
+        "user.email=${DEVELOPER_EMAIL}",
+        "```",
+        "",
+        "Let's create a basic Gradle project using Groovy as the DSL language, and set the Gradle version to 7.3.3.",
+        ""
+      ],
+      "variables": [
+        "DEVELOPER_NAME",
+        "DEVELOPER_EMAIL"
+      ],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "command",
       "id": "2c92a27a-0b53-4b56-ad3c-d270e1b365c9",
       "workingDirectory": "custom-gradle-task",
       "parameters": [
-        "gradle init --type basic --dsl groovy --project-name custom-gradle-task"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {},
-      "commandTimeout": 30.000000000
-    },
-    {
-      "type": "command",
-      "id": "e0ca2397-a2d0-4cf3-81ed-215e94933a46",
-      "workingDirectory": "custom-gradle-task",
-      "parameters": [
-        "./gradlew wrapper --gradle-version=7.3.3"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {},
-      "commandTimeout": 30.000000000
-    },
-    {
-      "type": "command",
-      "id": "c774fe0a-bf91-4b48-b8ab-a110abe59d38",
-      "workingDirectory": "custom-gradle-task",
-      "parameters": [
+        "gradle init --type basic --dsl groovy --project-name custom-gradle-task",
+        "./gradlew wrapper --gradle-version=7.3.3",
         "./gradlew --version"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {},
+      "commandTimeout": 60.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "cb8d5bba-b812-4a3b-aae4-03c8e8c317b3",
+      "parameters": [
+        "Let's remove the comments from the `settings.gradle` file."
       ],
       "variables": [],
       "environmentVariables": [],
@@ -178,6 +231,16 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "1031483b-0bcc-4497-9060-304e220bad2f",
+      "parameters": [
+        "Let's remove the comments from the `build.gradle` file."
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "git-apply-patch",
       "id": "dcd17055-6d79-45e2-af48-b158950e86e9",
       "workingDirectory": "custom-gradle-task",
@@ -193,6 +256,18 @@
         "- * This is a general purpose Gradle build.",
         "- * Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.3.3/samples",
         "- */",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "9d7b4879-b68e-46bd-a80f-b34947aeab69",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "Let's update the `.gitignore` file so that we ignore the IDE related files.",
         ""
       ],
       "variables": [],
@@ -217,6 +292,18 @@
         "+.vscode",
         "+bin",
         " build",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "7967a5ce-e242-43e4-87d4-16cfdbb08cb5",
+      "workingDirectory": "multi-project-application",
+      "parameters": [
+        "This completes our project setup. Let's commit the changes before moving to the next step.",
         ""
       ],
       "variables": [],

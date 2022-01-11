@@ -187,10 +187,7 @@
         "DEVELOPER_EMAIL"
       ],
       "environmentVariables": [],
-      "values": {
-        "DEVELOPER_NAME": "Albert Attard",
-        "DEVELOPER_EMAIL": "albertattard@gmail.com"
-      }
+      "values": {}
     },
     {
       "type": "command",
