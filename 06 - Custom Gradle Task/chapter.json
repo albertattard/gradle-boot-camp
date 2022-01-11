@@ -35,21 +35,12 @@
       "values": {}
     },
     {
-      "type": "command",
-      "id": "aa249fd7-4365-4289-9d2d-b991013c6f5e",
+      "type": "markdown",
+      "id": "25fbbc8a-e089-40a6-bebb-7a7535c0f227",
       "parameters": [
-        "mkdir 'custom-gradle-task'"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "command",
-      "id": "b2503ab4-3841-44fe-a81e-87fa48ecbc78",
-      "workingDirectory": "custom-gradle-task",
-      "parameters": [
-        "git init --initial-branch=main"
+        "Set Git's user (_developer_) name, using the providing variable. Press enter after entering your name and the rest will",
+        "update automatically.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -69,6 +60,20 @@
       "sensitive": false
     },
     {
+      "type": "markdown",
+      "id": "4fe49cc7-0bf2-46ba-bd96-975070a44912",
+      "workingDirectory": "custom-gradle-task",
+      "parameters": [
+        "Set Git's user (_developer_) email, using the providing variable. Press enter after entering your name and the rest will",
+        "update automatically. The email is more important than the name as Git uses this to identify you in the event you push",
+        "these to a remote repository.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "variable",
       "id": "94b13a18-2cd3-4495-8bd9-e5b452bb1f8c",
       "name": "DEVELOPER_EMAIL",
@@ -82,18 +87,34 @@
       "sensitive": false
     },
     {
+      "type": "markdown",
+      "id": "90e6ebbb-577c-4021-b4b6-0de313640c1b",
+      "workingDirectory": "custom-gradle-task",
+      "parameters": [
+        "Add version control so that we can track our changes and configure the developer's details.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "3b2041c2-ee90-4c5e-8427-e6778ef30f03",
       "workingDirectory": "custom-gradle-task",
       "parameters": [
+        "git init --initial-branch=main",
         "git config user.name '${DEVELOPER_NAME}'",
         "git config user.email '${DEVELOPER_EMAIL}'"
       ],
       "variables": [
-        "DEVELOPER_NAME"
+        "DEVELOPER_NAME",
+        "DEVELOPER_EMAIL"
       ],
       "environmentVariables": [],
-      "values": {}
+      "values": {
+        "DEVELOPER_NAME": "Albert Attard"
+      }
     },
     {
       "type": "command",

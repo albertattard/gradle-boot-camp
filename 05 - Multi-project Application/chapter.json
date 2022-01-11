@@ -120,7 +120,7 @@
       "id": "9d7fa1e0-0918-4fc1-822d-e08840d3e583",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "Add version control so that we can track our changes.",
+        "Add version control so that we can track our changes and configure the developer's details.",
         ""
       ],
       "variables": [],
