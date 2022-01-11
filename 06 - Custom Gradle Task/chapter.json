@@ -11,10 +11,24 @@
       "values": {}
     },
     {
+      "type": "markdown",
+      "id": "cf61b924-5632-4bc8-b9fa-25d47a2c5ecd",
+      "parameters": [
+        "Let's start by deleting the directory that we will be working on `custom-gradle-task` and creating it again. This makes ",
+        "sure that there is no residue and that we are working in a clean slate. We will not create the two sub-projects just yet ",
+        "as these are set up in later sections.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
       "type": "command",
       "id": "3d5ee1ce-2a6a-4594-adc1-f687aa14fab9",
       "parameters": [
-        "rm -rf 'custom-gradle-task'"
+        "rm -rf 'custom-gradle-task'",
+        "mkdir 'custom-gradle-task'"
       ],
       "variables": [],
       "environmentVariables": [],

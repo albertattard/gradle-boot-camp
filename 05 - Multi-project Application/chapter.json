@@ -4,7 +4,7 @@
       "type": "chapter",
       "id": "b13469f8-3eb8-4ed3-9534-6b611b671de7",
       "parameters": [
-        "Multi-project Application"
+        "Multi-Project Application"
       ],
       "variables": [],
       "environmentVariables": [],
@@ -57,6 +57,16 @@
       "parameters": [
         "rm -rf 'multi-project-application'",
         "mkdir 'multi-project-application'"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
+      "id": "bf682937-c835-4ebc-8223-55a32977e209",
+      "parameters": [
+        "Delete me!!"
       ],
       "variables": [],
       "environmentVariables": [],
