@@ -233,6 +233,30 @@
     },
     {
       "type": "markdown",
+      "id": "06c9ec96-f556-462e-a2c8-63b0a5962e4b",
+      "parameters": [
+        "Let make this version of Java the default version.",
+        "",
+        "If you have other versions of Java installed, one of these may be used instead. Setting this version as the default Java",
+        "version, will ensure that we use this version of Java unless otherwise specified.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "b46c6187-ce55-4a26-831d-0e99091a0775",
+      "parameters": [
+        "sdk default java 17.0.1-oracle"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "markdown",
       "id": "260b2498-7f4c-4abf-adb5-6bbfd772f222",
       "parameters": [
         "Verify that Java is properly installed."
@@ -326,6 +350,27 @@
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 30.000000000
+    },
+    {
+      "type": "markdown",
+      "id": "b2916486-1d09-450f-832f-09995db18cff",
+      "parameters": [
+        "Set this version of Gradle as the default version.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
+    },
+    {
+      "type": "command",
+      "id": "08a3cc9d-e995-4e4b-9a00-b6e99bb4656a",
+      "parameters": [
+        "sdk default gradle 7.3.3"
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "markdown",
