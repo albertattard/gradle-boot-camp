@@ -208,12 +208,28 @@
       "type": "command",
       "id": "dd9430c6-e9a6-455d-bdd3-66c2bf5bb1f4",
       "parameters": [
-        "sdk install java 17.0.1-oracle"
+        "y | sdk install java 17.0.1-oracle"
       ],
       "variables": [],
       "environmentVariables": [],
       "values": {},
       "commandTimeout": 120.000000000
+    },
+    {
+      "type": "question",
+      "id": "6fd6fc59-b4a2-461e-ad35-e6961fb2bd67",
+      "parameters": [
+        "Question:1",
+        "Why did we pipe `y` to the `sdk install ...` command?",
+        "Answer:4",
+        "The `sdk` command is interactive and will ask you whether you like to set this version as the default version. Due to",
+        "the limitations of the Sociable Weaver Application, we are not able to interact with the command. Therefore, we need to",
+        "answer the question (blindly) with a yes (`y`). That's why we pipe in `y` to the command.",
+        ""
+      ],
+      "variables": [],
+      "environmentVariables": [],
+      "values": {}
     },
     {
       "type": "markdown",
@@ -304,7 +320,7 @@
       "type": "command",
       "id": "b80dfd82-5959-4862-8f87-7e65ebebbb4e",
       "parameters": [
-        "sdk install gradle 7.3.3"
+        "y | sdk install gradle 7.3.3"
       ],
       "variables": [],
       "environmentVariables": [],

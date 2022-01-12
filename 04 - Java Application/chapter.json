@@ -185,7 +185,7 @@
       "id": "92473c0b-2ae3-447f-9356-a4fd112674a0",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "git config --list"
+        "git config --list --local"
       ],
       "variables": [],
       "environmentVariables": [],

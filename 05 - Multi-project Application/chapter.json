@@ -160,8 +160,7 @@
       "id": "743bf9c8-63ff-439a-8419-8a8599cfb457",
       "workingDirectory": "multi-project-application",
       "parameters": [
-        "git config --list",
-        ""
+        "git config --list --local"
       ],
       "variables": [],
       "environmentVariables": [],
