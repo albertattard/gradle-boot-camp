@@ -399,7 +399,6 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "If we list the files and the directories under our directory, we will see a `.gradle` directly.",
-        "",
         ""
       ],
       "variables": [],
@@ -846,7 +845,8 @@
       "id": "1e22ac7a-c81a-4360-999e-7f48929a745a",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Let's list the project's tasks again."
+        "Let's list the project's tasks again.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1193,7 +1193,8 @@
       "id": "5c0d1686-121c-437e-96ce-0b396b0e62c4",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Let's run the `hello` tasks again and observe the output."
+        "Let's run the `hello` tasks again and observe the output.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1565,7 +1566,9 @@
       "id": "89361b7b-5942-4178-956d-0efe41eb6221",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Let's make the Gradle task `bye` depends on `hello`.  This means that when we run the `bye` task, the `hello` task is executed as well, even if it is not included in the list of tasks "
+        "Let's make the Gradle task `bye` depends on `hello`. This means that when we run the `bye` task, the `hello` task is",
+        "executed as well, even if it is not included in the list of tasks.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1682,7 +1685,8 @@
       "id": "2094f4f8-ebcc-49be-ae49-7f2af7b1e919",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Now, let's execute both tasks."
+        "Now, let's execute both tasks.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1747,7 +1751,8 @@
       "id": "07286b75-c6dd-41fe-86ba-ae04c083c93d",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Now let's run the `bye` task."
+        "Now let's run the `bye` task.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2153,7 +2158,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "The Gradle wrapper is found in a folder named `gradle`. Let's see the folder structure of our project after the Gradle",
-        "wrapper was created.  ",
+        "wrapper was created.",
         ""
       ],
       "variables": [],
@@ -2193,7 +2198,8 @@
         "",
         "Two new scripts are added, the `gradlew` (Mac/Linux) and the `gradlew.bat` (Windows) scripts. These two scripts can be",
         "used to invoke Gradle commands. For example, instead of invoking the `gradle tasks` to list the tasks that belong to",
-        "this Gradle project, we can use the wrapper instead as shown next."
+        "this Gradle project, we can use the wrapper instead as shown next.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2330,7 +2336,8 @@
       "id": "0b268aa4-5b0f-4683-ac79-4f9761831484",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "If we look into the `gradle/wrapper/gradle-wrapper.properties` file, we will see that it's pointing to the new version."
+        "If we look into the `gradle/wrapper/gradle-wrapper.properties` file, we will see that it's pointing to the new version.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2352,7 +2359,8 @@
       "id": "729256a0-9f65-4c7e-b596-960b6309e278",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Let's go back to the latest version of Gradle."
+        "Let's go back to the latest version of Gradle.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2661,7 +2669,8 @@
       "id": "d4777fda-c550-4b30-ad75-b44194f52a1f",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Now let's list the tasks again."
+        "Now let's list the tasks again.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2698,7 +2707,8 @@
         "check - Runs all checks.",
         "```",
         "",
-        "Let's run the `build` task."
+        "Let's run the `build` task.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3094,7 +3104,8 @@
       "type": "markdown",
       "id": "58221eb9-0d96-4b98-b326-8d6e18233623",
       "parameters": [
-        "Let's version control this directory so that we can keep track of the changes."
+        "Let's version control this directory so that we can keep track of the changes.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3116,7 +3127,8 @@
       "id": "00f215dd-0dc8-4ed2-ba98-b16101796e10",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "We need to configure Git's user name and email address and we can reuse the variables that we set before."
+        "We need to configure Git's user name and email address and we can reuse the variables that we set before.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3142,7 +3154,8 @@
       "id": "303b5bab-3b47-4e95-9185-a690ac852ff3",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "Let's verify that our Git configuration was properly applied."
+        "Let's verify that our Git configuration was properly applied.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3168,7 +3181,8 @@
         "```",
         "user.name=${DEVELOPER_NAME}",
         "user.email=${DEVELOPER_EMAIL}",
-        "```"
+        "```",
+        ""
       ],
       "variables": [
         "DEVELOPER_NAME",
@@ -3223,7 +3237,8 @@
       "id": "91cef74e-3f23-41c1-bbb2-47129df6ae81",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "Let's see what the Gradle `init` task has created."
+        "Let's see what the Gradle `init` task has created.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3245,17 +3260,18 @@
       "id": "b5a8955c-0448-4de5-8c60-75d859c7ed9c",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "",
+        "We should see something similar to the following",
         "",
         "```",
-        "-rw-r--r--  1 root root  154 Dec 28 22:14 .gitattributes",
-        "-rw-r--r--  1 root root  103 Dec 28 22:14 .gitignore",
-        "-rw-r--r--  1 root root  200 Dec 28 22:14 build.gradle",
-        "drwxr-xr-x  3 root root   96 Dec 28 22:14 gradle",
-        "-rwxr-xr-x  1 root root 8047 Dec 28 22:14 gradlew",
-        "-rw-r--r--  1 root root 2763 Dec 28 22:14 gradlew.bat",
-        "-rw-r--r--  1 root root  373 Dec 28 22:14 settings.gradle",
-        "```"
+        "-rw-r--r--  1 root root  154 Apr 27 12:34 .gitattributes",
+        "-rw-r--r--  1 root root  103 Apr 27 12:34 .gitignore",
+        "-rw-r--r--  1 root root  200 Apr 27 12:34 build.gradle",
+        "drwxr-xr-x  3 root root   96 Apr 27 12:34 gradle",
+        "-rwxr-xr-x  1 root root 8047 Apr 27 12:34 gradlew",
+        "-rw-r--r--  1 root root 2763 Apr 27 12:34 gradlew.bat",
+        "-rw-r--r--  1 root root  373 Apr 27 12:34 settings.gradle",
+        "```",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3288,7 +3304,7 @@
       "type": "markdown",
       "id": "4a0751be-81ab-49ed-b779-c22cdba301cb",
       "parameters": [
-        "",
+        "The Gradle wrapper is found within the `gradle` directory",
         "",
         "```",
         "gradle",
@@ -3297,16 +3313,8 @@
         "    `-- gradle-wrapper.properties",
         "",
         "1 directory, 2 files",
-        "```"
-      ],
-      "variables": [],
-      "environmentVariables": [],
-      "values": {}
-    },
-    {
-      "type": "markdown",
-      "id": "2b52e3ca-9dfc-4663-a7e4-1a434a867044",
-      "parameters": [
+        "```",
+        "",
         "Let's see what's in the `settings.gradle` file.",
         ""
       ],
@@ -3339,11 +3347,26 @@
       "values": {}
     },
     {
-      "type": "command",
+      "type": "git-apply-patch",
       "id": "3af7de84-a14a-4d96-807f-2a78c13cb1d1",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "echo \"rootProject.name = 'gradle-fundamentals-init'\" > settings.gradle"
+        "diff --git a/settings.gradle b/settings.gradle",
+        "index fd273a0..5737df9 100644",
+        "--- a/settings.gradle",
+        "+++ b/settings.gradle",
+        "@@ -1,10 +1 @@",
+        "-/*",
+        "- * This file was generated by the Gradle 'init' task.",
+        "- *",
+        "- * The settings file is used to specify which projects to include in your build.",
+        "- *",
+        "- * Detailed information about configuring a multi-project build in Gradle can be found",
+        "- * in the user manual at https://docs.gradle.org/7.3.3/userguide/multi_project_builds.html",
+        "- */",
+        "-",
+        " rootProject.name = 'gradle-fundamentals-init'",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3385,11 +3408,22 @@
       "values": {}
     },
     {
-      "type": "command",
+      "type": "git-apply-patch",
       "id": "18b1a9f4-a5d1-4b1f-96c8-922b20b27c6a",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "> 'build.gradle'"
+        "diff --git a/build.gradle b/build.gradle",
+        "index 893ec91..e69de29 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -1,6 +0,0 @@",
+        "-/*",
+        "- * This file was generated by the Gradle 'init' task.",
+        "- *",
+        "- * This is a general purpose Gradle build.",
+        "- * Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.3.3/samples",
+        "- */",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3448,7 +3482,8 @@
       "id": "56106280-0361-4856-b482-ce139417568f",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "Let see what's in the 'gradle/wrapper/gradle-wrapper.properties' file."
+        "Let see what's in the 'gradle/wrapper/gradle-wrapper.properties' file.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3496,7 +3531,8 @@
       "id": "164a3fcd-f7cc-459b-884c-8654c51af9c3",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "The Gradle `init` command also included the `.gitignore` file. Let's see its contents."
+        "The Gradle `init` command also included the `.gitignore` file. Let's see its contents.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3556,7 +3592,8 @@
       "id": "5313f650-3d8d-44e4-b6f9-55b79f4ec2be",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "We create the same project, this time using the Gradle `init` task, which simplifies the process."
+        "We create the same project, this time using the Gradle `init` task, which simplifies the process.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],

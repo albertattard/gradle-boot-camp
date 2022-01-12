@@ -163,10 +163,7 @@
         "DEVELOPER_EMAIL"
       ],
       "environmentVariables": [],
-      "values": {
-        "DEVELOPER_NAME": "Albert Attard",
-        "DEVELOPER_EMAIL": "albertattard@gmail.com"
-      }
+      "values": {}
     },
     {
       "type": "markdown",
@@ -230,7 +227,8 @@
       "id": "615c7cb0-e31a-4fdd-a56e-3826e04b8fca",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's also set the version of Gradle to be used to 7.3.3."
+        "Let's also set the version of Gradle to be used to 7.3.3.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -289,7 +287,8 @@
       "id": "cff8c4c5-0931-4393-b695-f13f802f3f48",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "And remove the comments from the `settings.gradle` file."
+        "And remove the comments from the `settings.gradle` file.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -326,7 +325,8 @@
       "id": "6fe0feaf-b7db-444a-bf3c-4ed6bd436251",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "And the `build.gradle` file."
+        "And the `build.gradle` file.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -359,7 +359,7 @@
       "id": "ed62df0a-54c0-48e0-a718-bfa9372337cf",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Our project us now ready.  Let's commit the changes made so far before moving forward.",
+        "Our project us now ready. Let's commit the changes made so far before moving forward.",
         ""
       ],
       "variables": [],
@@ -441,7 +441,8 @@
       "id": "41c84de7-e73a-4e0b-9aed-0b8de728e16d",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's list the tasks now available to our project to see what new tasks are available now that we have the `java` plugin."
+        "Let's list the tasks now available to our project to see what new tasks are available now that we have the `java` plugin.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -496,7 +497,8 @@
         "project. This allows to configure a number of Java related properties, such as the version of Java to be used. Similar",
         "to the Gradle wrapper, this ensures that the same Java version is used irrespective from where the project is compiled.",
         "",
-        "Let's set Oracle's Java 17 as our version of Java."
+        "Let's set Oracle's Java 17 as our version of Java.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -533,14 +535,15 @@
       "id": "e44039ef-e61c-49de-b955-4527d8179186",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Answer:5",
+        "Question:2",
+        "What happens if that version of Java is not installed?",
+        "",
+        "Answer:6",
         "Gradle will download that particular version of Java and use it to run the tasks. Say that we have Java 8 installed, and",
         "we like to compile the code with Java 17. If we include",
         "the [`toolchain`](https://docs.gradle.org/current/userguide/toolchains.html), then Gradle will download the right",
         "version of Java first and then run the task. In other words, Java 17 is first downloaded and then Gradle uses this Java",
         "17 to compile the Java code, for example.",
-        "Question:2",
-        "What happens if that version of Java is not installed?",
         ""
       ],
       "variables": [],
@@ -552,11 +555,10 @@
       "id": "343e786c-5e2d-4e1f-abab-e04ca9ff507a",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Question:5",
+        "Question:4",
         "What's the difference between",
         "the [`sourceCompatibility`](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.JavaPluginExtension.html#org.gradle.api.plugins.JavaPluginExtension:sourceCompatibility)",
         "and the `toolchain`?",
-        "",
         "",
         "Answer:16",
         "In the previous version of Gradle, we used the following approach to set the version of Java to be used.",
@@ -738,7 +740,8 @@
       "id": "0fe3ae9b-4c13-406a-87f6-4ec20630fddf",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's define the class and create the _main_ method."
+        "Let's define the class and create the _main_ method.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1016,7 +1019,8 @@
       "id": "55ce1460-e63d-437c-8748-6aae9853aeae",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's try to run our Jar file, once more."
+        "Let's try to run our Jar file, once more.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1303,7 +1307,8 @@
         "```",
         "",
         "Note that both the `jar` and the `application` are pointing to the same class, `gbc.Main`. The `jar` task can refer to",
-        "the `application`'s `mainClass` instead, making it easier to maintain."
+        "the `application`'s `mainClass` instead, making it easier to maintain.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -1540,7 +1545,8 @@
       "id": "19bfd205-96ee-41dd-b1bb-ebd118cc4cc6",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's build the application, using the Gradle `build` task."
+        "Let's build the application, using the Gradle `build` task.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2051,7 +2057,8 @@
       "id": "e9e3fd32-d65e-4414-8eba-50ce30275768",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "The `dependencyCheckAnalyze` task will produce a report under the `build/reports` directory."
+        "The `dependencyCheckAnalyze` task will produce a report under the `build/reports` directory.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2229,7 +2236,8 @@
       "id": "dec7c4a9-9f9a-4ff7-b1c5-55d8ffbe11ed",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's print the dependency tree for the `check` task again."
+        "Let's print the dependency tree for the `check` task again.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2354,7 +2362,8 @@
       "id": "d384f378-aabb-40fe-8f5e-b1bc0803abb2",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's run `check` again."
+        "Let's run `check` again.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2512,7 +2521,8 @@
       "parameters": [
         "The `dependencyCheckAnalyze` indicated that the faulty dependency is `org.apache.logging.log4j/log4j-api`. Let's see",
         "what is pulling this dependency. In our dependencies, we only included",
-        "the `org.apache.logging.log4j:log4j-slf4j-impl:2.14.1` dependency."
+        "the `org.apache.logging.log4j:log4j-slf4j-impl:2.14.1` dependency.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2643,7 +2653,8 @@
       "id": "29a378d9-5f8a-42ae-94aa-3c2583b8b6fb",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Now let's change our version from `2.17.1` and `2.12.1`, which is less than the one pulled in by the `log4j-slf4j-impl` dependency."
+        "Now let's change our version from `2.17.1` and `2.12.1`, which is less than the one pulled in by the `log4j-slf4j-impl` dependency.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2751,7 +2762,8 @@
       "id": "b6e07dbe-60de-49d9-a1b6-0737a306db6d",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's run the `check` task again."
+        "Let's run the `check` task again.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -2842,7 +2854,8 @@
       "type": "markdown",
       "id": "0c4cbe95-f64a-47f8-ad8a-54f286b545d6",
       "parameters": [
-        "Let's configure Gradle to use JUnit 5 testing framework."
+        "Let's configure Gradle to use JUnit 5 testing framework.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3062,7 +3075,8 @@
       "id": "cd7310be-737e-4bc6-8e80-1d38102bd998",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's create the class, with an empty body for now."
+        "Let's create the class, with an empty body for now.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3322,7 +3336,8 @@
       "parameters": [
         "This time the tests worked.",
         "",
-        "Let's commit our changes before moving to the next section."
+        "Let's commit our changes before moving to the next section.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3356,7 +3371,8 @@
       "id": "9005b7cc-6982-4dda-9ed3-7b7781457017",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Our application is ready to be packaged and shipped for use."
+        "Our application is ready to be packaged and shipped for use.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3378,7 +3394,8 @@
       "id": "807d9b7c-0e00-46de-8fbb-a95a70dd3f56",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's start by creating the Jar file, using the `jar` Gradle task."
+        "Let's start by creating the Jar file, using the `jar` Gradle task.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3401,7 +3418,8 @@
       "id": "8b921a5a-ef92-444d-8aee-c03fbb822a0e",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "This will package our application into a Jar file and save it under the `build/libs` directory."
+        "This will package our application into a Jar file and save it under the `build/libs` directory.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3698,7 +3716,8 @@
       "id": "a707b468-a172-4727-8cd0-ce66ed7238ed",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's add the `gbc` package (directory)."
+        "Let's add the `gbc` package (directory).",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -3832,7 +3851,8 @@
       "id": "57a8718c-93c3-4d6e-afb3-165c8a9bbaf6",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's run the functional tests only."
+        "Let's run the functional tests only.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -4022,7 +4042,8 @@
         "```",
         "",
         "We need to add another attribute in the `MANIFEST.MD` file, as described in",
-        "this [stackoverflow post](https://stackoverflow.com/questions/53049346/is-log4j2-compatible-with-java-11)."
+        "this [stackoverflow post](https://stackoverflow.com/questions/53049346/is-log4j2-compatible-with-java-11).",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -4057,7 +4078,8 @@
       "id": "39cc512a-f869-4c33-b7f5-5d58497f969b",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's create the Jar file and try it again."
+        "Let's create the Jar file and try it again.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -4483,7 +4505,8 @@
       "id": "ea01196f-5f11-41e0-b9c6-ecb383d4a675",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's see the contents of the `build/libs` directory."
+        "Let's see the contents of the `build/libs` directory.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -4525,9 +4548,10 @@
         "Question:2",
         "Why did we disable the `jar` task?",
         "",
-        "Answer:2",
+        "Answer:3",
         "We are going to use the `shadowJar`, and therefore we don't need the `jar` to run. Disabling tasks that you don't need",
-        "will speed the build performance as Gradle does not need to run tasks unnecessarily."
+        "will speed the build performance as Gradle does not need to run tasks unnecessarily.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
@@ -4578,7 +4602,8 @@
       "id": "a459408f-56cb-4749-97c2-3978bc15e606",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Let's create the Jar file, once more."
+        "Let's create the Jar file, once more.",
+        ""
       ],
       "variables": [],
       "environmentVariables": [],
