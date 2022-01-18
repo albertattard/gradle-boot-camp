@@ -4,6 +4,7 @@
       "type": "chapter",
       "id": "76fe80fc-72fb-43aa-86b6-731d5ac16972",
       "parameters": [
+        "Title:1",
         "Setup Gradle"
       ],
       "variables": [],
