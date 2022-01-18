@@ -5,7 +5,9 @@
       "id": "0b0d5dcd-a111-49de-8815-f78edb541090",
       "parameters": [
         "Title:1",
-        "Fundamentals"
+        "Fundamentals",
+        "Description:1",
+        "Covers the fundamentals of Gradle, assuming that the reader has little knowledge of Gradle."
       ],
       "variables": [],
       "environmentVariables": [],

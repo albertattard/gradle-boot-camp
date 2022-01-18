@@ -5,7 +5,10 @@
       "id": "1ada9223-4688-4cee-a307-bbf0e4cfe8b5",
       "parameters": [
         "Title:1",
-        "Java Application"
+        "Java Application",
+        "Description:2",
+        "Takes the Gradle fundamental concepts and applies them to create a Java application that takes advantage of Gradle's",
+        "abilities to automate nuance tasks."
       ],
       "variables": [],
       "environmentVariables": [],

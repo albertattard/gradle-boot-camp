@@ -5,7 +5,10 @@
       "id": "76fe80fc-72fb-43aa-86b6-731d5ac16972",
       "parameters": [
         "Title:1",
-        "Setup Gradle"
+        "Setup Gradle",
+        "Description:2",
+        "The subsequent chapters rely on Gradle to be set up and require some additional third party programs.  This section",
+        "provides a step by step guide about how to install the required software."
       ],
       "variables": [],
       "environmentVariables": [],

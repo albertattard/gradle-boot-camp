@@ -5,7 +5,9 @@
       "id": "b13469f8-3eb8-4ed3-9534-6b611b671de7",
       "parameters": [
         "Title:1",
-        "Multi-Project Application"
+        "Multi-Project Application",
+        "Description:1",
+        "A more advanced example of how Gradle can be used with large applications, comprising smaller projects."
       ],
       "variables": [],
       "environmentVariables": [],
