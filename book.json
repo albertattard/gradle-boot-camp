@@ -2,35 +2,11 @@
   "title": "Gradle Boot Camp",
   "description": "A quick and practical guide to Gradle",
   "chapters": [
-    {
-      "title": "Introduction",
-      "description": "A brief introduction to build tools in general and where Gradle fits in all this.",
-      "path": "01 - Introduction/chapter.json"
-    },
-    {
-      "title": "Setup Gradle",
-      "description": "The subsequent chapters rely on Gradle to be set up and require some additional third party programs.  This section provides a step by step guide about how to install the required software.",
-      "path": "02 - Setup/chapter.json"
-    },
-    {
-      "title": "Fundamentals",
-      "description": "Covers the fundamentals of Gradle, assuming that the reader has little knowledge of Gradle.",
-      "path": "03 - Fundamentals/chapter.json"
-    },
-    {
-      "title": "Java Application",
-      "description": "Takes the Gradle fundamental concepts and applies them to create a Java application that takes advantage of Gradle's abilities to automate nuance tasks.",
-      "path": "04 - Java Application/chapter.json"
-    },
-    {
-      "title": "Multi-Project Application",
-      "description": "A more advanced example of how Gradle can be used with large applications, comprising smaller projects.",
-      "path": "05 - Multi-project Application/chapter.json"
-    },
-    {
-      "title": "Custom Gradle Task",
-      "description": "A simple Gradle task example",
-      "path": "06 - Custom Gradle Task/chapter.json"
-    }
+    "01 - Introduction/chapter.json",
+    "02 - Setup/chapter.json",
+    "03 - Fundamentals/chapter.json",
+    "04 - Java Application/chapter.json",
+    "05 - Multi-project Application/chapter.json",
+    "06 - Custom Gradle Task/chapter.json"
   ]
 }
