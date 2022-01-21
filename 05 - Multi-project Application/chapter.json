@@ -10,8 +10,7 @@
         "A more advanced example of how Gradle can be used with large applications, comprising smaller projects."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -28,8 +27,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -38,8 +36,7 @@
         "Create the project"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -51,8 +48,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -62,8 +58,7 @@
         "mkdir 'multi-project-application'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -75,8 +70,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "variable",
@@ -88,7 +82,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "sensitive": false
     },
     {
@@ -102,8 +95,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "variable",
@@ -115,7 +107,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "sensitive": false
     },
     {
@@ -127,8 +118,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -143,8 +133,7 @@
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
       ],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -155,8 +144,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -166,8 +154,7 @@
         "git config --list --local"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -188,8 +175,7 @@
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
       ],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -202,7 +188,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -212,8 +197,7 @@
         "Let's remove the comments from the `settings.gradle` file."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -238,8 +222,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -250,8 +233,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -274,8 +256,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -286,8 +267,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -297,8 +277,7 @@
         "rm build.gradle"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -309,8 +288,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -321,8 +299,7 @@
         "git commit --message 'Create project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -332,8 +309,7 @@
         "Create sub-projects"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -349,8 +325,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -360,8 +335,7 @@
         "./gradlew projects"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -380,8 +354,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "subsection",
@@ -390,8 +363,7 @@
         "The domain sub-project"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -401,8 +373,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -412,8 +383,7 @@
         "git tag --annotate 'v1' --message 'The domain sub-project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -425,8 +395,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -436,8 +405,7 @@
         "mkdir 'domain'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -448,8 +416,7 @@
         "We need to include our new sub-project in the `settings.gradle` file."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -467,8 +434,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -479,8 +445,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -490,8 +455,7 @@
         "./gradlew projects"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -509,8 +473,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -523,8 +486,7 @@
         "mkdir -p 'domain/src/test/resources'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -535,8 +497,7 @@
         "respective tasks. Let's start by creating the `domain/build.gradle` file first."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -546,8 +507,7 @@
         "touch 'domain/build.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -562,8 +522,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -581,8 +540,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -592,8 +550,7 @@
         "Let's set the Java version to Java 17 using the `toolchain`."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -618,8 +575,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -629,8 +585,7 @@
         "Let's add the [Guava dependency](https://mvnrepository.com/artifact/com.google.guava/guava) and use JUnit 5 testing framework."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -664,8 +619,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -678,8 +632,7 @@
         "package, starting from the test."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -689,8 +642,7 @@
         "mkdir -p 'domain/src/test/java/gbc/domain'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -702,8 +654,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -714,8 +665,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -732,8 +682,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -790,8 +739,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -801,8 +749,7 @@
         "There is no point running the test now as this class will not compile. Let's create the package (directory)."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -812,8 +759,7 @@
         "mkdir -p 'domain/src/main/java/gbc/domain'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -824,8 +770,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -835,8 +780,7 @@
         "touch 'domain/src/main/java/gbc/domain/Cart.java'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -846,8 +790,7 @@
         "Let's implement the shopping-cart solution."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -884,8 +827,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -943,8 +885,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -954,8 +895,7 @@
         "Let's build the project. Note that we are not build the _domain_ sub-project but the whole project."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -966,7 +906,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -997,8 +936,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1008,8 +946,7 @@
         "tree ."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1099,8 +1036,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1110,8 +1046,7 @@
         "We are ready from our _domain_ sub-project. Let's commit our changes before moving to the _app_ sub-project."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1122,8 +1057,7 @@
         "git commit --message 'Create the domain sub-project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "subsection",
@@ -1132,8 +1066,7 @@
         "The app sub-project"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1146,8 +1079,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1157,8 +1089,7 @@
         "git tag --annotate 'v2' --message 'The app sub-project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1169,8 +1100,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1180,8 +1110,7 @@
         "mkdir 'app'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1192,8 +1121,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1212,8 +1140,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1232,8 +1159,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1243,8 +1169,7 @@
         "touch 'app/build.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1257,8 +1182,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1295,8 +1219,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1307,8 +1230,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1333,8 +1255,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1345,8 +1266,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1363,8 +1283,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1377,8 +1296,7 @@
         "mkdir -p 'app/src/test/resources'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1390,8 +1308,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1408,8 +1325,7 @@
         "used while the other skipped."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1419,8 +1335,7 @@
         "mkdir -p 'app/src/test/java/gbc/app'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1431,8 +1346,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1442,8 +1356,7 @@
         "touch 'app/src/test/java/gbc/app/MainTest.java'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1469,8 +1382,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1528,8 +1440,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1540,8 +1451,7 @@
         "directory)."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1551,8 +1461,7 @@
         "mkdir -p 'app/src/main/java/gbc/app'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1563,8 +1472,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1574,8 +1482,7 @@
         "touch 'app/src/main/java/gbc/app/Main.java'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1585,8 +1492,7 @@
         "Add the following code to the `Main.java` class."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1616,8 +1522,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1627,8 +1532,7 @@
         "Let's run the tests again."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1639,7 +1543,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -1669,8 +1572,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1687,8 +1589,7 @@
         "  unaffected."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1735,8 +1636,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1747,8 +1647,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1773,8 +1672,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1785,8 +1683,7 @@
         "the [`--args` argument](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/JavaExec.html#setArgsString-java.lang.String-)."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1797,7 +1694,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 0
     },
     {
@@ -1820,8 +1716,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1842,8 +1737,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1853,8 +1747,7 @@
         "Let's list the tasks available to our project."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1865,7 +1758,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -1886,8 +1778,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1898,7 +1789,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -1909,8 +1799,7 @@
         "Let's list the created Jar files."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1920,8 +1809,7 @@
         "tree app/build/libs"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1939,8 +1827,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1962,8 +1849,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1974,8 +1860,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1990,8 +1875,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2002,7 +1886,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2013,8 +1896,7 @@
         "Let run the new application."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2024,8 +1906,7 @@
         "java -jar app/build/libs/shopping-cart.jar 'Frozen Yoghurt' 'White Sauce'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2038,8 +1919,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2050,8 +1930,7 @@
         "git commit --message 'Create the application sub-project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -2061,8 +1940,7 @@
         "The api configuration"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2075,8 +1953,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2086,8 +1963,7 @@
         "git tag --annotate 'v3' --message 'The api configuration'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2099,8 +1975,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -2118,8 +1993,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2131,8 +2005,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2161,8 +2034,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2172,8 +2044,7 @@
         "Now let's try to compile the code."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2184,7 +2055,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1
     },
     {
@@ -2227,8 +2097,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2238,8 +2107,7 @@
         "./gradlew :app:dependencies --configuration runtimeClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2265,8 +2133,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2276,8 +2143,7 @@
         "./gradlew :app:dependencies --configuration compileClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2296,8 +2162,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2320,8 +2185,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2331,8 +2195,7 @@
         "Now let's see the compile time dependencies for the _app_ sub-project, once again."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2342,8 +2205,7 @@
         "./gradlew :app:dependencies --configuration compileClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2373,8 +2235,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2384,8 +2245,7 @@
         "./gradlew :app:compileJava"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2395,8 +2255,7 @@
         "The application now compiles without error."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2407,8 +2266,7 @@
         "git commit --message 'Switch to api configuration and expose dependencies'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -2418,8 +2276,7 @@
         "The buildSrc"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2433,8 +2290,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2444,8 +2300,7 @@
         "git tag --annotate 'v4' --message 'The buildSrc'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2458,8 +2313,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2469,8 +2323,7 @@
         "mkdir 'buildSrc'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2487,8 +2340,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2498,8 +2350,7 @@
         "touch 'buildSrc/settings.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2511,8 +2362,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2522,8 +2372,7 @@
         "touch 'buildSrc/build.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2535,8 +2384,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2554,8 +2402,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2567,8 +2414,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2578,8 +2424,7 @@
         "mkdir -p 'buildSrc/src/main/groovy'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2599,8 +2444,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2610,8 +2454,7 @@
         "touch 'buildSrc/src/main/groovy/gbc.java-common-conventions.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2676,8 +2519,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2720,8 +2562,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2740,8 +2581,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2751,8 +2591,7 @@
         "touch 'buildSrc/src/main/groovy/gbc.java-application-conventions.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2764,8 +2603,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2785,8 +2623,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2797,8 +2634,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2849,8 +2685,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2861,7 +2696,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 60.000000000
     },
@@ -2925,8 +2759,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2952,8 +2785,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2963,8 +2795,7 @@
         "Now Gradle know which version of the `shadowJar` plugin to use. Let's build it again."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2975,7 +2806,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -2986,8 +2816,7 @@
         "The _app_ sub-project is now ready.  Let's do the same for the _domain_ sub-project."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2997,8 +2826,7 @@
         "touch 'buildSrc/src/main/groovy/gbc.java-library-conventions.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3008,8 +2836,7 @@
         "This is slightly simpler as it only uses the `java-library` plugin."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3028,8 +2855,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3039,8 +2865,7 @@
         "Let's remove the unnecessary configuration from the `domain/build.gradle` build script."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3083,8 +2908,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3094,8 +2918,7 @@
         "Build the project once more."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3106,7 +2929,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -3117,8 +2939,7 @@
         "We have successfully refactored the duplication out into a common place and imported it as a plugin."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3129,8 +2950,7 @@
         "git commit --message 'Move the duplicate configuration to buildSrc'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     }
   ]
 }

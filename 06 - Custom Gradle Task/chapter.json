@@ -10,8 +10,7 @@
         "A simple Gradle task example"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -25,8 +24,7 @@
         "In this chapter we will create custom tasks both ad-hoc and class based."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -35,8 +33,7 @@
         "Create the project"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -48,8 +45,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -59,8 +55,7 @@
         "mkdir 'custom-gradle-task'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -71,8 +66,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "variable",
@@ -84,7 +78,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "sensitive": false
     },
     {
@@ -98,8 +91,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "variable",
@@ -111,7 +103,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "sensitive": false
     },
     {
@@ -123,8 +114,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -139,8 +129,7 @@
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
       ],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -151,8 +140,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -162,8 +150,7 @@
         "git config --list --local"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -184,8 +171,7 @@
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
       ],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -198,7 +184,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -208,8 +193,7 @@
         "Let's remove the comments from the `settings.gradle` file."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -234,8 +218,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -244,8 +227,7 @@
         "Let's remove the comments from the `build.gradle` file."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -255,8 +237,7 @@
         "> 'build.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -267,8 +248,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -291,8 +271,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -303,8 +282,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -315,8 +293,7 @@
         "git commit --message 'Create project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -326,8 +303,7 @@
         "Gradle ad-hoc task"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -341,8 +317,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "subsection",
@@ -352,8 +327,7 @@
         "Create ad-hoc task"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -365,8 +339,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -376,8 +349,7 @@
         "git tag --annotate 'v1' --message 'Create ad-hoc task'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -389,8 +361,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -413,8 +384,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -443,8 +413,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -454,8 +423,7 @@
         "./gradlew tasks"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -471,8 +439,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -482,8 +449,7 @@
         "./gradlew hello"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -501,8 +467,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -513,8 +478,7 @@
         "git commit --message 'Add hello ad-hoc task'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "subsection",
@@ -524,8 +488,7 @@
         "Create ad-hoc Copy task"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -535,8 +498,7 @@
         "git tag --annotate 'v2' --message 'Create ad-hoc Copy task'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -546,8 +508,7 @@
         "mkdir 'fixtures'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -558,8 +519,7 @@
         "touch 'fixtures/happy-holidays.txt'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -581,8 +541,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -605,8 +564,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -616,8 +574,7 @@
         "./gradlew generateFixtures"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -627,8 +584,7 @@
         "tree build"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -644,8 +600,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -655,8 +610,7 @@
         "cat 'build/fixtures/happy-holidays.txt'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -670,8 +624,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -697,8 +650,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -708,8 +660,7 @@
         "./gradlew generateFixtures"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -719,8 +670,7 @@
         "cat 'build/fixtures/happy-holidays.txt'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -733,8 +683,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -745,8 +694,7 @@
         "git commit --message 'Add generateFixtures ad-hoc Copy task'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -756,8 +704,7 @@
         "Gradle class task"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "subsection",
@@ -767,8 +714,7 @@
         "Hello class task (groovy)"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -778,8 +724,7 @@
         "git tag --annotate 'v3' --message 'Hello class task (groovy)'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -789,8 +734,7 @@
         "mkdir 'buildSrc'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -801,8 +745,7 @@
         "touch 'buildSrc/build.gradle'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -812,8 +755,7 @@
         "mkdir -p 'buildSrc/src/main/groovy/gbc'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -823,8 +765,7 @@
         "touch 'buildSrc/src/main/groovy/gbc/HelloTask.groovy'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -845,8 +786,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -873,8 +813,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -903,8 +842,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -915,7 +853,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -930,8 +867,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -970,8 +906,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -982,7 +917,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -998,8 +932,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1039,8 +972,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1051,7 +983,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 50.000000000
     },
     {
@@ -1066,8 +997,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1089,8 +1019,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1100,8 +1029,7 @@
         "./gradlew hello"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1114,8 +1042,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1126,8 +1053,7 @@
         "git commit --message 'Add hello class task (groovy)'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "subsection",
@@ -1137,8 +1063,7 @@
         "Compute file hash class task (java)"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1148,8 +1073,7 @@
         "git tag --annotate 'v4' --message 'Compute file hash class task (java)'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1161,8 +1085,7 @@
         "mkdir -p 'buildSrc/src/test/resources/fixtures'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1172,8 +1095,7 @@
         "touch 'buildSrc/src/test/resources/fixtures/sample.txt'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1194,8 +1116,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1206,8 +1127,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1237,8 +1157,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1248,8 +1167,7 @@
         "[Using GradleRunner with Java and JUnit](https://docs.gradle.org/current/userguide/test_kit.html#example_using_gradlerunner_with_java_and_junit)"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1259,8 +1177,7 @@
         "touch 'buildSrc/src/test/java/gbc/HashFileTaskTest.java'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1296,8 +1213,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1339,8 +1255,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1371,8 +1286,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1406,8 +1320,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1442,8 +1355,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1454,7 +1366,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 60.000000000
     },
@@ -1482,8 +1393,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1506,8 +1416,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1518,7 +1427,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -1572,8 +1480,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1584,7 +1491,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -1605,8 +1511,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1616,8 +1521,7 @@
         "touch 'buildSrc/src/main/java/gbc/HashFileTask.java'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1639,8 +1543,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1651,7 +1554,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -1734,8 +1636,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "todo",
@@ -1745,8 +1646,7 @@
         "Check why the next command takes around 5 minutes."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1757,7 +1657,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 600.000000000
     },
@@ -1779,8 +1678,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1816,8 +1714,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1828,7 +1725,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -1860,8 +1756,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1872,7 +1767,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -1895,8 +1789,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1954,8 +1847,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1966,7 +1858,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -1984,8 +1875,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2017,8 +1907,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2029,7 +1918,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2062,8 +1950,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2074,7 +1961,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -2092,8 +1978,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2145,8 +2030,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2157,7 +2041,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2192,8 +2075,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2204,7 +2086,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -2226,8 +2107,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2273,8 +2153,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2306,8 +2185,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2333,8 +2211,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2372,8 +2249,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2384,7 +2260,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2395,8 +2270,7 @@
         "Default parameters values (by convention)"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2406,8 +2280,7 @@
         "openssl dgst -sha512 'buildSrc/src/test/resources/fixtures/sample.txt'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2457,8 +2330,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2469,7 +2341,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -2488,8 +2359,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2526,8 +2396,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2552,8 +2421,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2564,7 +2432,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -2608,8 +2475,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2652,8 +2518,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2664,7 +2529,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2709,8 +2573,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2747,8 +2610,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "subsection",
@@ -2758,8 +2620,7 @@
         "Optional properties"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     }
   ]
 }

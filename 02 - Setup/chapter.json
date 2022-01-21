@@ -11,8 +11,7 @@
         "provides a step by step guide about how to install the required software."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -22,8 +21,7 @@
         "all the prerequisites are met before moving on. Note that these commands are idempotent."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -32,8 +30,7 @@
         "Install SDKMAN"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -52,8 +49,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -62,8 +58,7 @@
         "zip --version"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -72,8 +67,7 @@
         "curl --version"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -84,8 +78,7 @@
         "Install SDKMAN."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -94,8 +87,7 @@
         "curl -s 'https://get.sdkman.io' | bash"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -110,8 +102,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -120,8 +111,7 @@
         "source \"$HOME/.sdkman/bin/sdkman-init.sh\""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -130,8 +120,7 @@
         "Verify that SDKMAN is properly installed and accessible from the command line."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -140,8 +129,7 @@
         "sdk version"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -154,8 +142,7 @@
         "```"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -164,8 +151,7 @@
         "Install Java"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -185,8 +171,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -195,8 +180,7 @@
         "sdk list java"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -205,8 +189,7 @@
         "Install the latest version of Java by Oracle, `17.0.1-oracle`."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -216,7 +199,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 120.000000000
     },
     {
@@ -232,8 +214,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -246,8 +227,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -256,8 +236,7 @@
         "sdk default java 17.0.1-oracle"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -266,8 +245,7 @@
         "Verify that Java is properly installed."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -276,8 +254,7 @@
         "java --version"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -287,8 +264,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -297,8 +273,7 @@
         "echo ${JAVA_HOME}"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -307,8 +282,7 @@
         "Install Gradle"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -320,8 +294,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -330,8 +303,7 @@
         "sdk list gradle"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -341,8 +313,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -352,7 +323,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -363,8 +333,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -373,8 +342,7 @@
         "sdk default gradle 7.3.3"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -384,8 +352,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -394,8 +361,7 @@
         "gradle --version"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -404,8 +370,7 @@
         "Required Commands"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -415,8 +380,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -425,8 +389,7 @@
         "git --version"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -435,8 +398,7 @@
         "tree --version"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     }
   ]
 }

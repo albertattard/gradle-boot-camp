@@ -11,8 +11,7 @@
         "abilities to automate nuance tasks."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -23,8 +22,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -33,8 +31,7 @@
         "Create the project"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -45,8 +42,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -55,8 +51,7 @@
         "rm -rf 'single-java-project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -66,8 +61,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -76,8 +70,7 @@
         "mkdir 'single-java-project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -87,8 +80,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -98,8 +90,7 @@
         "git init --initial-branch=main"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -111,8 +102,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "variable",
@@ -124,7 +114,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "sensitive": false
     },
     {
@@ -138,8 +127,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "variable",
@@ -151,7 +139,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "sensitive": false
     },
     {
@@ -166,8 +153,7 @@
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
       ],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -178,8 +164,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -189,8 +174,7 @@
         "git config --list --local"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -211,8 +195,7 @@
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
       ],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -223,7 +206,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -235,8 +217,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -247,7 +228,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -259,8 +239,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -283,8 +262,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -295,8 +273,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -321,8 +298,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -333,8 +309,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -355,8 +330,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -367,8 +341,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -379,8 +352,7 @@
         "git commit --message 'Create project'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -390,8 +362,7 @@
         "The java plugin"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -407,8 +378,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -418,8 +388,7 @@
         "git tag --annotate 'v1' --message 'The java plugin'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -437,8 +406,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -449,8 +417,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -461,7 +428,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -505,8 +471,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -531,8 +496,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -551,8 +515,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -583,8 +546,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -602,8 +564,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -616,8 +577,7 @@
         "mkdir -p src/test/resources"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -631,8 +591,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -652,8 +611,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -664,8 +622,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -675,8 +632,7 @@
         "tree src"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -703,8 +659,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -713,8 +668,7 @@
       "parameters": [
         "mkdir src/main/java/gbc"
       ],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -725,8 +679,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -736,8 +689,7 @@
         "touch src/main/java/gbc/Main.java"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -748,8 +700,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -771,8 +722,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -788,8 +738,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -800,7 +749,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -814,8 +762,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -825,8 +772,7 @@
         "tree build"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -869,8 +815,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -880,8 +825,7 @@
         "java -cp 'build/classes/java/main' gbc.Main"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -906,8 +850,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -918,7 +861,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1
     },
     {
@@ -937,8 +879,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -948,8 +889,7 @@
         "java -cp 'build/libs/single-java-project.jar' gbc.Main"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -966,8 +906,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -991,8 +930,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1004,8 +942,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1015,8 +952,7 @@
         "./gradlew jar"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1027,8 +963,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1038,8 +973,7 @@
         "java -jar 'build/libs/single-java-project.jar'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1053,8 +987,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1065,8 +998,7 @@
         "git commit --message 'Add java plugin'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -1076,8 +1008,7 @@
         "The application plugin"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1093,8 +1024,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1104,8 +1034,7 @@
         "git tag --annotate 'v2' --message 'The application plugin'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1116,8 +1045,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1138,8 +1066,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1152,8 +1079,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1164,7 +1090,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -1184,8 +1109,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1196,7 +1120,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1
     },
     {
@@ -1218,8 +1141,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1244,8 +1166,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1272,8 +1193,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1284,8 +1204,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1295,8 +1214,7 @@
         "./gradlew run"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1315,8 +1233,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1338,8 +1255,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1390,8 +1306,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1405,8 +1320,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1416,8 +1330,7 @@
         "./gradlew jar"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1429,8 +1342,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1440,8 +1352,7 @@
         "java -jar 'build/libs/single-java-project.jar'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1453,8 +1364,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1465,8 +1375,7 @@
         "git commit --message 'Use the application plugin'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -1476,8 +1385,7 @@
         "Dependencies"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1489,8 +1397,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1500,8 +1407,7 @@
         "git tag --annotate 'v3' --message 'Dependencies'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1518,8 +1424,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1541,8 +1446,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1553,8 +1457,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1565,7 +1468,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1
     },
     {
@@ -1587,8 +1489,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1613,8 +1514,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1629,8 +1529,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1641,7 +1540,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -1653,8 +1551,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1677,8 +1574,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1689,8 +1585,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1718,8 +1613,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1741,8 +1635,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1753,8 +1646,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1765,7 +1657,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -1788,8 +1679,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1799,8 +1689,7 @@
         "touch 'src/main/resources/log4j2.properties'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -1820,8 +1709,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1832,8 +1720,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1858,8 +1745,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1870,8 +1756,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1882,7 +1767,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -1907,8 +1791,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1919,8 +1802,7 @@
         "git commit --message 'Use logger instead of stdout'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -1930,8 +1812,7 @@
         "The dependency check plugin"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1945,8 +1826,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -1956,8 +1836,7 @@
         "git tag --annotate 'v4' --message 'The dependency check plugin'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -1970,8 +1849,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -1992,8 +1870,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2004,8 +1881,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2016,7 +1892,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2041,8 +1916,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2053,7 +1927,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 600.000000000
     },
     {
@@ -2065,8 +1938,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2076,8 +1948,7 @@
         "tree build/reports"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2105,8 +1976,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2117,7 +1987,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2130,8 +1999,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2153,8 +2021,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2166,8 +2033,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2178,7 +2044,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2209,8 +2074,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2232,8 +2096,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2244,8 +2107,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2255,8 +2117,7 @@
         "./gradlew check tiTree"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2285,8 +2146,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2297,7 +2157,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2335,8 +2194,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2358,8 +2216,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2370,8 +2227,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2382,7 +2238,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -2416,8 +2271,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -2432,8 +2286,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2443,8 +2296,7 @@
         "./gradlew dependencies --configuration compileClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2465,8 +2317,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2476,8 +2327,7 @@
         "./gradlew dependencies --configuration runtimeClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2499,8 +2349,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -2515,8 +2364,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2529,8 +2377,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2541,7 +2388,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2563,8 +2409,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2586,8 +2431,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2598,8 +2442,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2609,8 +2452,7 @@
         "./gradlew dependencies --configuration compileClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2629,8 +2471,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -2649,8 +2490,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2661,8 +2501,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2685,8 +2524,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2697,8 +2535,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2708,8 +2545,7 @@
         "./gradlew dependencies --configuration compileClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2733,8 +2569,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2758,8 +2593,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2770,8 +2604,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2782,7 +2615,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -2800,8 +2632,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2812,8 +2643,7 @@
         "git commit --message 'Fix log4j vulnerability'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -2823,8 +2653,7 @@
         "Testing"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2840,8 +2669,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2851,8 +2679,7 @@
         "git tag --annotate 'v5' --message 'Testing'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2862,8 +2689,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -2892,8 +2718,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2908,8 +2733,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2919,8 +2743,7 @@
         "./gradlew dependencies --configuration runtimeClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -2943,8 +2766,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -2955,7 +2777,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -3004,8 +2825,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -3022,8 +2842,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3034,8 +2853,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3045,8 +2863,7 @@
         "mkdir 'src/test/java/gbc'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3060,8 +2877,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3071,8 +2887,7 @@
         "touch 'src/test/java/gbc/MainTest.java'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3083,8 +2898,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3104,8 +2918,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3119,8 +2932,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3159,8 +2971,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3176,8 +2987,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3220,8 +3030,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3234,8 +3043,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3246,7 +3054,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -3284,8 +3091,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3307,8 +3113,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3318,8 +3123,7 @@
         "Let's run the tests again."
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3330,7 +3134,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -3344,8 +3147,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3356,8 +3158,7 @@
         "git commit --message 'Add JUnit'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "section",
@@ -3367,8 +3168,7 @@
         "Package the application"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3379,8 +3179,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3390,8 +3189,7 @@
         "git tag --annotate 'v6' --message 'Package the application'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3402,8 +3200,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3414,7 +3211,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -3426,8 +3222,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3437,8 +3232,7 @@
         "tree 'build/libs'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3462,8 +3256,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3475,7 +3268,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1
     },
     {
@@ -3499,8 +3291,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3510,8 +3301,7 @@
         "jar tf 'build/libs/single-java-project.jar'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3532,8 +3322,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3543,8 +3332,7 @@
         "./gradlew dependencies --configuration runtimeClasspath"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3572,8 +3360,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -3603,8 +3390,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3616,8 +3402,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3655,8 +3440,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3670,8 +3454,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -3688,8 +3471,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3700,8 +3482,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3712,8 +3493,7 @@
         "mkdir -p 'src/functionalTest/resources'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3724,8 +3504,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3735,8 +3514,7 @@
         "mkdir 'src/functionalTest/java/gbc'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3758,8 +3536,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3769,8 +3546,7 @@
         "touch 'src/functionalTest/java/gbc/RunApplicationTest.java'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3781,8 +3557,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -3799,8 +3574,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3847,8 +3621,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3859,8 +3632,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3871,7 +3643,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -3892,8 +3663,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -3918,8 +3688,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3934,8 +3703,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3946,7 +3714,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -3959,8 +3726,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -3970,8 +3736,7 @@
         "jar tf 'build/libs/single-java-project.jar'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -3982,8 +3747,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -4008,8 +3772,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4020,8 +3783,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4031,8 +3793,7 @@
         "java -jar 'build/libs/single-java-project.jar'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4050,8 +3811,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -4074,8 +3834,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4086,8 +3845,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4099,7 +3857,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -4111,8 +3868,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -4130,8 +3886,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4146,8 +3901,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4158,8 +3912,7 @@
         "git commit --message 'Package application using the jar task'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "subsection",
@@ -4169,8 +3922,7 @@
         "The ShadowJar plugin"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4185,8 +3937,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4196,8 +3947,7 @@
         "git tag --annotate 'v7' --message 'The ShadowJar plugin'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4208,8 +3958,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -4248,8 +3997,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4260,8 +4008,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4272,7 +4019,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -4294,8 +4040,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4305,8 +4050,7 @@
         "./gradlew assemble tiTree"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4374,8 +4118,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4386,7 +4129,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -4408,8 +4150,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4419,8 +4160,7 @@
         "tree 'build/libs'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4443,8 +4183,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -4477,8 +4216,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4489,8 +4227,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4501,7 +4238,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 60.000000000
     },
     {
@@ -4513,8 +4249,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4524,8 +4259,7 @@
         "tree 'build/libs'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4541,8 +4275,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "question",
@@ -4558,8 +4291,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4572,8 +4304,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -4598,8 +4329,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4610,8 +4340,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4622,7 +4351,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -4654,8 +4382,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4666,7 +4393,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -4679,8 +4405,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4690,8 +4415,7 @@
         "java -jar 'build/libs/single-java-project.jar'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4708,8 +4432,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "git-apply-patch",
@@ -4733,8 +4456,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "markdown",
@@ -4745,8 +4467,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4758,7 +4479,6 @@
       ],
       "variables": [],
       "environmentVariables": [],
-      "values": {},
       "commandTimeout": 30.000000000
     },
     {
@@ -4770,8 +4490,7 @@
         ""
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     },
     {
       "type": "command",
@@ -4782,8 +4501,7 @@
         "git commit --message 'Use the shadow jar plugin'"
       ],
       "variables": [],
-      "environmentVariables": [],
-      "values": {}
+      "environmentVariables": []
     }
   ]
 }
