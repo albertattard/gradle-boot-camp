@@ -8,9 +8,7 @@
         "Multi-Project Application",
         "Description:1",
         "A more advanced example of how Gradle can be used with large applications, comprising smaller projects."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -25,18 +23,14 @@
         "command line arguments. Each item must comprise letters and numbers and must be between 3 and 24 letters long. The",
         "application is kept very simple as the focus here is how to set up and take advantage of multiple-project builds.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "0c164524-88b9-4d2e-9bba-4fed6a09ec6e",
       "parameters": [
         "Create the project"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -46,9 +40,7 @@
         "makes sure that there is no residue and that we are working in a clean slate. We will not create the two sub-projects",
         "just yet as these are set up in later sections.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -56,9 +48,7 @@
       "parameters": [
         "rm -rf 'multi-project-application'",
         "mkdir 'multi-project-application'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -68,9 +58,7 @@
         "Set Git's user (_developer_) name, using the providing variable. Press enter after entering your name and the rest will",
         "update automatically.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "variable",
@@ -80,8 +68,6 @@
       "parameters": [
         "Albert Attard"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "sensitive": false
     },
     {
@@ -93,9 +79,7 @@
         "update automatically. The email is more important than the name as Git uses this to identify you in the event you push",
         "these to a remote repository.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "variable",
@@ -105,8 +89,6 @@
       "parameters": [
         "albertattard@gmail.com"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "sensitive": false
     },
     {
@@ -116,9 +98,7 @@
       "parameters": [
         "Add version control so that we can track our changes and configure the developer's details.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -132,8 +112,7 @@
       "variables": [
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
-      ],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -142,9 +121,7 @@
       "parameters": [
         "Let's verify that our Git configuration was properly applied.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -152,9 +129,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "git config --list --local"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -174,8 +149,7 @@
       "variables": [
         "DEVELOPER_NAME",
         "DEVELOPER_EMAIL"
-      ],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -186,8 +160,6 @@
         "./gradlew wrapper --gradle-version=7.3.3",
         "./gradlew --version"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 60.000000000
     },
     {
@@ -195,9 +167,7 @@
       "id": "3230a26e-6f27-4bd7-88ee-44772ea02923",
       "parameters": [
         "Let's remove the comments from the `settings.gradle` file."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -220,9 +190,7 @@
         "-",
         " rootProject.name = 'multi-project-application'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -231,9 +199,7 @@
       "parameters": [
         "Let's update the `.gitignore` file so that we ignore the IDE related files.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -254,9 +220,7 @@
         "+bin",
         " build",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -265,9 +229,7 @@
       "parameters": [
         "We will have multiple projects, therefore we don't need to have a `build.gradle` file at this level. Let's delete it.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -275,9 +237,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "rm build.gradle"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -286,9 +246,7 @@
       "parameters": [
         "This completes our project setup. Let's commit the changes before moving to the next step.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -297,9 +255,7 @@
       "parameters": [
         "git add .",
         "git commit --message 'Create project'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
@@ -307,9 +263,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Create sub-projects"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -323,9 +277,7 @@
         "",
         "Let's start by listing the current projects.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -333,9 +285,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew projects"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -352,18 +302,14 @@
         "We need to create two sub-projects. The _domain_ does not depend on anything else while the _app_ sub-project will",
         "depend on the _domain_. Given this dependency constraint, it is best to start from the _domain_.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "subsection",
       "id": "5f2f881c-d67f-4b44-bd7f-48f52229cc7e",
       "parameters": [
         "The domain sub-project"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -371,9 +317,7 @@
       "parameters": [
         "Let's start by tagging the project's state so that we can refer back to this point if we need to.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -381,9 +325,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "git tag --annotate 'v1' --message 'The domain sub-project'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -393,9 +335,7 @@
         "We can start by creating a new directory, `domain`. The name of the directory should match the sub-project name to avoid",
         "confusion.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -403,9 +343,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir 'domain'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -414,9 +352,7 @@
       "parameters": [
         "The sub-projects are determined during the initialisation phase, during which the `settings.gradle` file is processed.",
         "We need to include our new sub-project in the `settings.gradle` file."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -432,9 +368,7 @@
         "+",
         "+include('domain')",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -443,9 +377,7 @@
       "parameters": [
         "Let's list the sub-projects found in this Gradle project.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -453,9 +385,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew projects"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -471,9 +401,7 @@
         "",
         "We will be using the Java programming language. Let's set up the directory structure.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -484,9 +412,7 @@
         "mkdir -p 'domain/src/main/resources'",
         "mkdir -p 'domain/src/test/java'",
         "mkdir -p 'domain/src/test/resources'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -495,9 +421,7 @@
       "parameters": [
         "Each sub-project needs to have its own `build.gradle` file and then define the plugins they will use and configure their",
         "respective tasks. Let's start by creating the `domain/build.gradle` file first."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -505,9 +429,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'domain/build.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -520,9 +442,7 @@
         "the `java` Plugin, but it provides specific things for projects that are meant to be used as libraries (or dependencies).",
         "The terms dependencies and libraries are used interchangeably.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -538,9 +458,7 @@
         "+    id 'java-library'",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -548,9 +466,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let's set the Java version to Java 17 using the `toolchain`."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -573,9 +489,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -583,9 +497,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let's add the [Guava dependency](https://mvnrepository.com/artifact/com.google.guava/guava) and use JUnit 5 testing framework."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -617,9 +529,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -630,9 +540,7 @@
         "",
         "All the code that we will add to the _domain_, will be within the `domain` package (directory). Let's create the",
         "package, starting from the test."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -640,9 +548,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'domain/src/test/java/gbc/domain'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -652,9 +558,7 @@
         "Now, let's create the test class, before the actual class. The order which these classes are created does not matter and",
         "you can follow the order you prefer. This is not a TDD boot camp.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -663,9 +567,7 @@
       "parameters": [
         "touch 'domain/src/test/java/gbc/domain/CartTest.java'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -680,9 +582,7 @@
         "the [`@ParameterizedTest`](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests) to",
         "provide the test with several invalid inputs.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -737,9 +637,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -747,9 +645,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "There is no point running the test now as this class will not compile. Let's create the package (directory)."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -757,9 +653,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'domain/src/main/java/gbc/domain'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -768,9 +662,7 @@
       "parameters": [
         "Let's create the `Cart.java` class.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -778,9 +670,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'domain/src/main/java/gbc/domain/Cart.java'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -788,9 +678,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let's implement the shopping-cart solution."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -825,9 +713,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -883,9 +769,7 @@
         "Refer to _Item 50: Make defensive copies when needed_ in the book _Effective Java_, for more information about this",
         "pattern.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -893,9 +777,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let's build the project. Note that we are not build the _domain_ sub-project but the whole project."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -904,8 +786,6 @@
       "parameters": [
         "./gradlew build"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -934,9 +814,7 @@
         "Let's analyse the directory structure of our project.",
         "",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -944,9 +822,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "tree ."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1034,9 +910,7 @@
         "49 directories, 24 files",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1044,9 +918,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "We are ready from our _domain_ sub-project. Let's commit our changes before moving to the _app_ sub-project."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1055,18 +927,14 @@
       "parameters": [
         "git add .",
         "git commit --message 'Create the domain sub-project'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "subsection",
       "id": "f98cac37-23e7-4414-98c4-cd7b013a3726",
       "parameters": [
         "The app sub-project"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1077,9 +945,7 @@
         "",
         "Let's start by tagging our progress.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1087,9 +953,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "git tag --annotate 'v2' --message 'The app sub-project'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1098,9 +962,7 @@
       "parameters": [
         "Let's create the `app` directory. All _app_ related code will go here.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1108,9 +970,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir 'app'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1119,9 +979,7 @@
       "parameters": [
         "We should not forget to include the new sub-project to the `settings.gradle` file.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1138,9 +996,7 @@
         " include('domain')",
         "+include('app')",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1157,9 +1013,7 @@
         "",
         "We need to create the `build.gradle` for the _app_ sub-project.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1167,9 +1021,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'app/build.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1180,9 +1032,7 @@
         "set the Java to version 17 and add the repository and finally, let's add the test suite. We will be using the JUnit 5",
         "testing framework.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1217,9 +1067,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1228,9 +1076,7 @@
       "parameters": [
         "We can also add other sub-project as dependencies. Let's add the _domain_ sub-project.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1253,9 +1099,7 @@
         "     suites {",
         "         test {",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1264,9 +1108,7 @@
       "parameters": [
         "Let's create the directories required by a Java project.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1281,9 +1123,7 @@
         "to have `resources` directories. I simply create these four for convenience, but can be created at a later stage when",
         "required.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1294,9 +1134,7 @@
         "mkdir -p 'app/src/main/resources'",
         "mkdir -p 'app/src/test/java'",
         "mkdir -p 'app/src/test/resources'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1306,9 +1144,7 @@
         "The classes within the _app_ sub-project will use a different package. We will use the `app` package (directory).",
         "",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1323,9 +1159,7 @@
         "Fat Jar, all classes will be brought together. If we use the same packages (directories), then there is a risk of having",
         "two classes with same name and in the same package, in different sub-projects. When merged, one of the classes will be",
         "used while the other skipped."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1333,9 +1167,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'app/src/test/java/gbc/app'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1344,9 +1176,7 @@
       "parameters": [
         "Like before, let's create our test `MainTest.java` class first.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1354,9 +1184,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'app/src/test/java/gbc/app/MainTest.java'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1380,9 +1208,7 @@
         "Let's write a unit test that captures this. Note that we will not cover functional tests in this chapter. Please refer",
         "to the section _Package the application_ within the _Java Application_ chapter for more information about test suites. ",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1438,9 +1264,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1449,9 +1273,7 @@
       "parameters": [
         "Our test is complete. Let's turn our focus on the implementation starting by creating the `gbc.app` package (`gbc/app`",
         "directory)."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1459,9 +1281,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'app/src/main/java/gbc/app'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1470,9 +1290,7 @@
       "parameters": [
         "Let's create the `Main.java` class and implement the required logic.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1480,9 +1298,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'app/src/main/java/gbc/app/Main.java'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1490,9 +1306,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Add the following code to the `Main.java` class."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1520,9 +1334,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1530,9 +1342,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let's run the tests again."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1541,8 +1351,6 @@
       "parameters": [
         "./gradlew test"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -1570,9 +1378,7 @@
         "> Task :domain:test UP-TO-DATE",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1587,9 +1393,7 @@
         "  Gradle will run the task for that sub-project. Say that only the _domain_ sub-project has the task `xyz`. When we run",
         "  the command `./gradlew xyz`, the `xyz` task within the _domain_ sub-project is executed. The _app_ sub-project is",
         "  unaffected."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1634,9 +1438,7 @@
         "> Task :app:compileJava UP-TO-DATE",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1645,9 +1447,7 @@
       "parameters": [
         "Let's configure the application's main class.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1670,9 +1470,7 @@
         "     toolchain {",
         "         languageVersion = JavaLanguageVersion.of(17)",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1681,9 +1479,7 @@
       "parameters": [
         "We are all set to run the application using Gradle. We can pass the command line arguments using",
         "the [`--args` argument](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/JavaExec.html#setArgsString-java.lang.String-)."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1692,8 +1488,6 @@
       "parameters": [
         "./gradlew run --args=\"Tomatoes Carrots Oranges\""
       ],
-      "variables": [],
-      "environmentVariables": [],
       "expectedExitValue": 0
     },
     {
@@ -1714,9 +1508,7 @@
         "We know that our Jar file is not yet a Fat Jar as we are missing the classes from the Guava dependency. Let's use the",
         "ShadowJar plugin to create the Fat Jar.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1735,9 +1527,7 @@
         " ",
         " application {",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1745,9 +1535,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let's list the tasks available to our project."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1756,8 +1544,6 @@
       "parameters": [
         "./gradlew tasks"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -1776,9 +1562,7 @@
         "",
         "Let's create the Fat Jar.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1787,8 +1571,6 @@
       "parameters": [
         "./gradlew shadowJar"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 60.000000000
     },
     {
@@ -1797,9 +1579,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let's list the created Jar files."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1807,9 +1587,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "tree app/build/libs"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1825,9 +1603,7 @@
         "",
         "We want our application to be called `shopping-cart.jar`. Let's configure the `shadowJar` task.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1847,9 +1623,7 @@
         "+    archiveFileName.set 'shopping-cart.jar'",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1858,9 +1632,7 @@
       "parameters": [
         "Clean the build and run the `shadowJar` task again.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1873,9 +1645,7 @@
         "Answer:2",
         "If we simply run the `shadowJar` task, the Jar file from the previous build will be there.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1884,8 +1654,6 @@
       "parameters": [
         "./gradlew clean shadowJar"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -1894,9 +1662,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let run the new application."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1904,9 +1670,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "java -jar app/build/libs/shopping-cart.jar 'Frozen Yoghurt' 'White Sauce'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1917,9 +1681,7 @@
         "classes accordingly. The application is packaged together in a single Fat Jar, using the `shadowJar` task. Let's commit",
         "our changes, before moving on to the next section.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1928,9 +1690,7 @@
       "parameters": [
         "git add .",
         "git commit --message 'Create the application sub-project'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
@@ -1938,9 +1698,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "The api configuration"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1951,9 +1709,7 @@
         "and `implementation`. We have used the `implementation` configuration. In the section we are going to see the difference",
         "between these two configurations and how can be used.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1961,9 +1717,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "git tag --annotate 'v3' --message 'The api configuration'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1973,9 +1727,7 @@
         "The _app_ sub-project depends on the _domain_ project, which in turn depends on the _Guava_ dependency. The _app_",
         "sub-project depends on the _Guava_ dependency transitively.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1991,9 +1743,7 @@
         "dependencies of the _app_ sub-project or... change the configuration within the _domain_ project from `implementation`",
         "to `api`.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2003,9 +1753,7 @@
         "Let's try to use the Guava dependency from within the _app_ sub-project without including in the _app_ sub-project",
         "dependencies.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2032,9 +1780,7 @@
         "         Arrays.stream(args).forEach(cart::add);",
         " ",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2042,9 +1788,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Now let's try to compile the code."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2053,8 +1797,6 @@
       "parameters": [
         "./gradlew :app:compileJava"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "expectedExitValue": 1
     },
     {
@@ -2095,9 +1837,7 @@
         "",
         "Let's understand why this is failing. Let's list the runtime dependencies for the _app_ sub-project.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2105,9 +1845,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew :app:dependencies --configuration runtimeClasspath"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2131,9 +1869,7 @@
         "",
         "Now, let see the compile time dependency for the _app_ sub-project.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2141,9 +1877,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew :app:dependencies --configuration compileClasspath"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2160,9 +1894,7 @@
         "That's because the _domain_ sub-project is using the `implementation` configuration. Let's switch to the `api`",
         "configuration.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2183,9 +1915,7 @@
         " ",
         " testing {",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2193,9 +1923,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Now let's see the compile time dependencies for the _app_ sub-project, once again."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2203,9 +1931,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew :app:dependencies --configuration compileClasspath"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2233,9 +1959,7 @@
         "",
         "Compile the application once more.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2243,9 +1967,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "./gradlew :app:compileJava"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2253,9 +1975,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "The application now compiles without error."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2264,9 +1984,7 @@
       "parameters": [
         "git add .",
         "git commit --message 'Switch to api configuration and expose dependencies'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
@@ -2274,9 +1992,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "The buildSrc"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2288,9 +2004,7 @@
         "sub-projects and tack advantage of",
         "the [`buildSrc`](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources).",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2298,9 +2012,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "git tag --annotate 'v4' --message 'The buildSrc'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2311,9 +2023,7 @@
         "(and sub-projects) build script (`build.gradle`). There can only be one `buildSrc` directory and this must be at the",
         "project root directory.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2321,9 +2031,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir 'buildSrc'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2338,9 +2046,7 @@
         "the [precompiled script plugins](https://docs.gradle.org/current/userguide/custom_plugins.html#sec:precompiled_plugins)",
         "section for more details.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2348,9 +2054,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/settings.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2360,9 +2064,7 @@
         "The `buildSrc` can be seen as another sub-project, even though it is not. It needs to have its own `build.gradle` as we",
         "need to define plugins and dependencies that we will be using.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2370,9 +2072,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/build.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2382,9 +2082,7 @@
         "We need to include the `groovy-gradle-plugin` plugin. With this plugin, Gradle will be able to precompile the code found",
         "within the `buildSrc` directory and make this available to the rest of the project (and sub-projects).",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2400,9 +2098,7 @@
         "+    id 'groovy-gradle-plugin'",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2412,9 +2108,7 @@
         "The idea is to reduce the duplication found in the `domain/build.gradle` and `app/build.gradle` build scripts. These are",
         "using the Groovy DSL. So, let's create the Groovy directory structure for the common configuration.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2422,9 +2116,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "mkdir -p 'buildSrc/src/main/groovy'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2442,9 +2134,7 @@
         "",
         "When importing this script, we omit the file extension.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2452,9 +2142,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/src/main/groovy/gbc.java-common-conventions.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2517,9 +2205,7 @@
         "",
         "We can put all these in the `gbc.java-common-conventions.gradle` file.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2560,9 +2246,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2579,9 +2263,7 @@
         "",
         "Let's create another configuration script for the `application` type sub-projects.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2589,9 +2271,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/src/main/groovy/gbc.java-application-conventions.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2601,9 +2281,7 @@
         "This is quite simple. It extends the `gbc.java-common-conventions` plugin defined before, and the `application`",
         "and `shadowJar` plugins. No need to add anything else.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2621,9 +2299,7 @@
         "+    id 'com.github.johnrengelman.shadow'",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2632,9 +2308,7 @@
       "parameters": [
         "Now, we can simplify the `app/build.gradle` build script by simply using the `gbc.java-application-conventions` plugin.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2683,9 +2357,7 @@
         "     archiveFileName.set 'shopping-cart.jar'",
         " }",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2694,8 +2366,6 @@
       "parameters": [
         "./gradlew build"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "expectedExitValue": 1,
       "commandTimeout": 60.000000000
     },
@@ -2757,9 +2427,7 @@
         "",
         "Instead, we need to include this in the `buildSrc/build.gradle` dependencies list.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2783,9 +2451,7 @@
         "+    implementation 'com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin:7.1.2'",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2793,9 +2459,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Now Gradle know which version of the `shadowJar` plugin to use. Let's build it again."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2804,8 +2468,6 @@
       "parameters": [
         "./gradlew build"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 60.000000000
     },
     {
@@ -2814,9 +2476,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "The _app_ sub-project is now ready.  Let's do the same for the _domain_ sub-project."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2824,9 +2484,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "touch 'buildSrc/src/main/groovy/gbc.java-library-conventions.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2834,9 +2492,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "This is slightly simpler as it only uses the `java-library` plugin."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2853,9 +2509,7 @@
         "+    id 'gbc.java-common-conventions'",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2863,9 +2517,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Let's remove the unnecessary configuration from the `domain/build.gradle` build script."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2906,9 +2558,7 @@
         "-    }",
         "-}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2916,9 +2566,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "Build the project once more."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2927,8 +2575,6 @@
       "parameters": [
         "./gradlew build"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 60.000000000
     },
     {
@@ -2937,9 +2583,7 @@
       "workingDirectory": "multi-project-application",
       "parameters": [
         "We have successfully refactored the duplication out into a common place and imported it as a plugin."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2948,9 +2592,7 @@
       "parameters": [
         "git add .",
         "git commit --message 'Move the duplicate configuration to buildSrc'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     }
   ]
 }

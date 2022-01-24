@@ -9,9 +9,7 @@
         "Description:2",
         "The subsequent chapters rely on Gradle to be set up and require some additional third party programs.  This section",
         "provides a step by step guide about how to install the required software."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -19,18 +17,14 @@
       "parameters": [
         "This boot camp requires some software, such as Java and Gradle, to be installed. Follow these steps and make sure that",
         "all the prerequisites are met before moving on. Note that these commands are idempotent."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "fbbe6496-e197-4734-8524-0e9b36fff432",
       "parameters": [
         "Install SDKMAN"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -47,27 +41,21 @@
         "requires [zip](https://linux.die.net/man/1/zip) and [curl](https://linux.die.net/man/1/curl) to be installed. Verify",
         "that these two programs are installed.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "d02523af-bc95-4d92-81c2-02b365806473",
       "parameters": [
         "zip --version"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "0b0adbd8-a4f9-4bdb-b817-2e11b2fc2485",
       "parameters": [
         "curl --version"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -76,18 +64,14 @@
         "Install zip and curl before proceeding, if these are not installed.",
         "",
         "Install SDKMAN."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "2b7841fb-707b-4c3b-9fb7-1a61e6b31839",
       "parameters": [
         "curl -s 'https://get.sdkman.io' | bash"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -100,36 +84,28 @@
         "Please note that the path is wrapped between `\"` (double-quotes) as it needs to evaluate the `${HOME}` environment",
         "variable.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "421471da-6314-4e21-9a17-af44cfae6055",
       "parameters": [
         "source \"$HOME/.sdkman/bin/sdkman-init.sh\""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
       "id": "981d7400-60e8-43a7-9811-d213fed17ae3",
       "parameters": [
         "Verify that SDKMAN is properly installed and accessible from the command line."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "eb30d8cb-5935-49f3-a62d-d083fc25cb91",
       "parameters": [
         "sdk version"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -140,18 +116,14 @@
         "```",
         "SDKMAN 5.13.1",
         "```"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "51491cfb-3465-410b-853c-667790868c64",
       "parameters": [
         "Install Java"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -169,27 +141,21 @@
         "In the past, Oracle required you to have a commercial license if you wanted to use Java in production.  This created a ",
         "bit of confusion, but now Oracle went back and made Java free to use in production.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "78f5b83e-adc6-48e0-8613-6ddc0c15886a",
       "parameters": [
         "sdk list java"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
       "id": "1c66fcff-4c83-421a-bbaa-3a6f9713f4d3",
       "parameters": [
         "Install the latest version of Java by Oracle, `17.0.1-oracle`."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -197,8 +163,6 @@
       "parameters": [
         "y | sdk install java 17.0.1-oracle"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 120.000000000
     },
     {
@@ -212,9 +176,7 @@
         "the limitations of the Sociable Weaver Application, we are not able to interact with the command. Therefore, we need to",
         "answer the question (blindly) with a yes (`y`). That's why we pipe in `y` to the command.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -225,36 +187,28 @@
         "If you have other versions of Java installed, one of these may be used instead. Setting this version as the default Java",
         "version, will ensure that we use this version of Java unless otherwise specified.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "b46c6187-ce55-4a26-831d-0e99091a0775",
       "parameters": [
         "sdk default java 17.0.1-oracle"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
       "id": "260b2498-7f4c-4abf-adb5-6bbfd772f222",
       "parameters": [
         "Verify that Java is properly installed."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "279f77d1-ac78-4960-a90b-abeb5e16f59a",
       "parameters": [
         "java --version"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -262,27 +216,21 @@
       "parameters": [
         "SDKMAN will also set up the `JAVA_HOME` environment variable.  Verify that this is properly set.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "8f14fb3b-cfd0-4b19-b0f3-57f678d34697",
       "parameters": [
         "echo ${JAVA_HOME}"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "139208be-3a2e-4b08-879c-4efafebd4309",
       "parameters": [
         "Install Gradle"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -292,18 +240,14 @@
         "releases can be found [here](https://gradle.org/releases/). Start by listing the available versions of Gradle. Different",
         "from Java, there is only one distribution of Gradle and we only need to pick the version.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "da56f2a4-e420-4c36-acfe-cc56ffcb8363",
       "parameters": [
         "sdk list gradle"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -311,9 +255,7 @@
       "parameters": [
         "Install the latest version of Gradle, `7.3.3`.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -321,8 +263,6 @@
       "parameters": [
         "y | sdk install gradle 7.3.3"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -331,18 +271,14 @@
       "parameters": [
         "Set this version of Gradle as the default version.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "08a3cc9d-e995-4e4b-9a00-b6e99bb4656a",
       "parameters": [
         "sdk default gradle 7.3.3"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -350,27 +286,21 @@
       "parameters": [
         "Verify that Gradle was properly installed.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "af85d50e-4974-4a96-b11c-d04ca93cc049",
       "parameters": [
         "gradle --version"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "df969192-2104-43a1-b98c-abea8566c9e1",
       "parameters": [
         "Required Commands"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -378,27 +308,21 @@
       "parameters": [
         "Two more programs are required to run all examples shown in the boot camp.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "520ba678-c1d7-4eec-81bd-4c50c3fc094a",
       "parameters": [
         "git --version"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "93f74907-91c7-4d1e-9742-ef3cfe5be6b7",
       "parameters": [
         "tree --version"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     }
   ]
 }

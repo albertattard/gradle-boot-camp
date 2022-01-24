@@ -8,9 +8,7 @@
         "Introduction",
         "Description:1",
         "A brief introduction to build tools in general and where Gradle fits in all this."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -23,18 +21,14 @@
         "",
         "Remember that we make mistakes, we make some more, and that's how we learn.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "0dc0f920-d075-46e2-8fe3-167d94d7b16d",
       "parameters": [
         "What's Gradle?"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -45,18 +39,14 @@
         "two, that can help to free programmer from these mundane tasks. Things that do not require thought, such as compile the",
         "code or run the test, can be automated. Gradle, like any built-tool, excels at these things and can be used instead.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "0c28d9d9-f27d-48da-ae20-988f2c9954a2",
       "parameters": [
         "Given that there are different built tools, why Gradle?"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -72,9 +62,7 @@
         "  > now taking roughly 20 minutes on average, 3-4 times faster than before. Local builds are taking an average of 2",
         "  > minutes 30 seconds, which is 20-30 times faster than before.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     }
   ]
 }

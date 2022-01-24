@@ -8,18 +8,14 @@
         "Fundamentals",
         "Description:1",
         "Covers the fundamentals of Gradle, assuming that the reader has little knowledge of Gradle."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "fc609ed0-16a3-4529-abee-4e585a721e16",
       "parameters": [
         "The setting.gradle file"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -28,18 +24,14 @@
         "Let's start by deleting the directory that we will be working on `gradle-fundamentals-manual`. This makes sure that",
         "there is no residue and that we are working in a clean slate.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "d052c749-3dc7-464f-b01a-204d5cf59366",
       "parameters": [
         "rm -rf 'gradle-fundamentals-manual'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -47,18 +39,14 @@
       "parameters": [
         "Create the directory.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "cc11bbfd-07f9-485f-9a8e-5ab5c455dffe",
       "parameters": [
         "mkdir 'gradle-fundamentals-manual'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -70,9 +58,7 @@
         "",
         "Let's try to list all tasks that are available to us, first.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -81,8 +67,6 @@
       "parameters": [
         "gradle tasks"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "expectedExitValue": 1,
       "commandTimeout": 30.000000000
     },
@@ -106,9 +90,7 @@
         "A Gradle project requires at least the `settings.gradle` file. But before we start with Gradle, let's add version",
         "control so that we can keep track of our changes.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -116,9 +98,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git init --initial-branch=main"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -128,9 +108,7 @@
         "Set Git's user (_developer_) name, using the providing variable. Press enter after entering your name and the rest will",
         "update automatically. ",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "variable",
@@ -139,8 +117,6 @@
       "parameters": [
         "Albert Attard"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "sensitive": false
     },
     {
@@ -164,9 +140,7 @@
         "update automatically. The email is more important than the name as Git uses this to identify you in the event you push",
         "these to a remote repository.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "variable",
@@ -175,8 +149,6 @@
       "parameters": [
         "albertattard@gmail.com"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "sensitive": false
     },
     {
@@ -198,9 +170,7 @@
       "parameters": [
         "Let's verify that our Git configuration was properly applied.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -208,9 +178,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git config --list --local"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -239,9 +207,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "touch 'settings.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -250,9 +216,7 @@
       "parameters": [
         "The file `settings.gradle`, is empty, and that's all good for now. Let's try to list all tasks again.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -261,8 +225,6 @@
       "parameters": [
         "gradle tasks"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -307,9 +269,7 @@
         "While this is good, it is better to configure the project's name as this makes the project independent of the",
         "directories name.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -325,9 +285,7 @@
         "a [Jar file](https://docs.oracle.com/en/java/javase/17/docs/specs/jar/jar.html), unless otherwise specified, the Jar",
         "file will have the name of the project. This may break other things that rely on the Jar file to have a specific name. ",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -341,9 +299,7 @@
         "@@ -0,0 +1 @@",
         "+rootProject.name = 'gradle-fundamentals-manual'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -366,9 +322,7 @@
         "",
         "The string `\"Hello ${name}\"` will be interpolated and the message `Hello Albert Attard` will be printed instead.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -377,9 +331,7 @@
       "parameters": [
         "If we list the files and the directories under our directory, we will see a `.gradle` directly.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -387,9 +339,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "ls -la"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -400,9 +350,7 @@
         "information about the Gradle project structure can be",
         "found [here](https://docs.gradle.org/current/userguide/directory_layout.html#dir:project_root).",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -410,9 +358,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "tree '.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -421,9 +367,7 @@
       "parameters": [
         "This directory should not go into the version control (Git) and we should ignore it.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -431,9 +375,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "touch '.gitignore'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -453,9 +395,7 @@
         "While we may not be using all of these, it's a good idea to ignore them nevertheless, given that these files should not",
         "be version controlled.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -473,9 +413,7 @@
         "+bin",
         "+build",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -484,9 +422,7 @@
       "parameters": [
         "Let's list the files and directories that are under version control.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -494,9 +430,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git status"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -505,9 +439,7 @@
       "parameters": [
         "We are now all set and can add both the `.gitignore` and the `settings.gradle` files and commit them.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -516,18 +448,14 @@
       "parameters": [
         "git add .",
         "git commit --message 'Create gradle project'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "d3271d57-072d-4f7e-9c52-b128806b1c3f",
       "parameters": [
         "The build.gradle file"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -535,9 +463,7 @@
       "parameters": [
         "Gradle tasks are defined in a file named `build.gradle`, referred to as the _Gradle build script_.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -546,9 +472,7 @@
       "parameters": [
         "touch 'build.gradle'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -559,9 +483,7 @@
         "world_](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:hello_world) example, in the",
         "[_Build Script Basics_](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html) chapter.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -579,9 +501,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -597,9 +517,7 @@
         "method, provides a lazy way to create tasks. There are different ways how a Gradle task can be created. This is the",
         "recommended way as the task is only created when needed. This becomes apparent in projects with large build scripts.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -614,9 +532,7 @@
         "with the IO. If all tasks are initialised, even those that are not required or used, then our task needs to",
         "unnecessarily wait for all tasks to be initialised, incurring unnecessarily delays.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -634,9 +550,7 @@
         "The [`doFirst { }`](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:doFirst%28org.gradle.api.Action%29),",
         "on the other hand, is invoked first as the name indicates.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -645,9 +559,7 @@
       "parameters": [
         "Let's take our task for a spin.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -655,9 +567,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle hello"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -674,9 +584,7 @@
         "",
         "Printing output is not very common and not that much useful, but it's an easy way to start.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -693,9 +601,7 @@
         "both tasks _a_ and _b_ will be executed. If, on the other hand, we invoke task _a_, then only task _a_ is executed as",
         "this does not depend on any other task.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -706,9 +612,7 @@
         "as it is defined within this project's `build.gradle` file. Furthermore, the tasks names within a project need to be",
         "unique as otherwise Gradle will not be able to tell them apart. Let's list the available Gradle tasks for this project.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -716,9 +620,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle tasks"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -731,9 +633,7 @@
         "To see all tasks and more detail, run gradle tasks --all",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -741,9 +641,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle tasks --all"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -762,9 +660,7 @@
         "Also note that the other tasks have a description, while our `hello` tasks does not. Let's add our task to a group and",
         "provide it a description.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -783,9 +679,7 @@
         "         println 'Hello Gradle'",
         "     }",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -794,9 +688,7 @@
       "parameters": [
         "Let's list the project's tasks again.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -804,9 +696,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle tasks"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -822,9 +712,7 @@
         "",
         "This is a good point to stop and commit our changes.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -833,18 +721,14 @@
       "parameters": [
         "git add .",
         "git commit --message 'Add hello gradle task'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "a176ddf4-eb2f-4e8b-853d-562eddd8ecc6",
       "parameters": [
         "Gradle Build phases"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -866,9 +750,7 @@
         "This section covers these phases and compares between lazy and eager task creation. Let's start by tagging our progress",
         "so that we can always go back to this point in time and replay these steps.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -876,9 +758,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git tag --annotate 'v1' --message 'Gradle Build phases'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -887,9 +767,7 @@
       "parameters": [
         "Let's introduce `println` statements at various places so that we can observe when these are printed.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -921,9 +799,7 @@
         "+",
         "+println 'The initialization build phase'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -932,9 +808,7 @@
       "parameters": [
         "Now let's run our `hello` tasks again.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -942,9 +816,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle hello"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -993,9 +865,7 @@
         "",
         "Let's commit our progress, before proceeding any further.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1004,9 +874,7 @@
       "parameters": [
         "git add .",
         "git commit --message 'Print message for each build phase'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1015,9 +883,7 @@
       "parameters": [
         "Let's register a new task.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1042,9 +908,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1053,9 +917,7 @@
       "parameters": [
         "Now we have two tasks.  Let's run the `hello` task again and see what's executed and when.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1063,9 +925,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle hello"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1089,9 +949,7 @@
         "eager, [an older](https://docs.gradle.org/current/dsl/org.gradle.api.Project.html#org.gradle.api.Project:task%28java.lang.String%29),",
         "approach.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1112,9 +970,7 @@
         "     group = 'Greetings'",
         "     description = 'A simple task that prints a simple message'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1123,9 +979,7 @@
       "parameters": [
         "Let's run the `hello` tasks again and observe the output.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1133,9 +987,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle hello"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1155,9 +1007,7 @@
         "The execution build phase (from within the hello task)",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1170,9 +1020,7 @@
         "Let say that the `bye` task's configuration is slow as it accesses the filesystem, for example. This will also impact",
         "the execution of the `hello` task even when the `bye` task is not invoked or required.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1180,9 +1028,7 @@
       "parameters": [
         "Let's simulate this by using an artificial delay of 5 seconds (5000 milliseconds) and try it out.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1200,9 +1046,7 @@
         "+    sleep 5000",
         " }",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1214,9 +1058,7 @@
         "",
         "Now, let's run the `hello` task one more time.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1225,8 +1067,6 @@
       "parameters": [
         "gradle hello"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 10.000000000
     },
     {
@@ -1248,9 +1088,7 @@
         "",
         "Let's revert our changes and use the `register()` method instead and keep the artificial delay.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1271,9 +1109,7 @@
         "     group = 'Greetings'",
         "     description = 'A simple task that prints a simple message'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1283,9 +1119,7 @@
         "Now let's run the `hello` Gradle task again. Remember that the `bye` Gradle task still has the artificial delay of 5",
         "seconds.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1293,9 +1127,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle hello"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1308,9 +1140,7 @@
         "BUILD SUCCESSFUL in 1s",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1324,9 +1154,7 @@
         "Gradle will evaluate the `bye` task's configuration and will have to wait for it to completes. In this case, Gradle",
         "has to wait 5 seconds before executing the `bye` task.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1335,9 +1163,7 @@
       "parameters": [
         "Let's clean our examples and delete the unnecessary `println` statements and artificial delay.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1380,9 +1206,7 @@
         "-",
         "-println 'The initialization build phase'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1391,9 +1215,7 @@
       "parameters": [
         "Let's run both tasks, to make sure that we didn't break anything by mistake.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1401,9 +1223,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle hello bye"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1412,9 +1232,7 @@
       "parameters": [
         "Now that we have both tasks ready, let's commit our changes.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1423,9 +1241,7 @@
       "parameters": [
         "git add .",
         "git commit --message 'Add bye gradle task'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
@@ -1433,9 +1249,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "Task dependencies and ordering"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1452,9 +1266,7 @@
         "",
         "Let's tag our progress before we start.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1462,9 +1274,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git tag --annotate 'v2' --message 'Task dependencies and ordering'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1474,9 +1284,7 @@
         "Let's make the Gradle task `bye` depends on `hello`. This means that when we run the `bye` task, the `hello` task is",
         "executed as well, even if it is not included in the list of tasks.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1494,9 +1302,7 @@
         "+    dependsOn tasks.named('hello')",
         " }",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1504,9 +1310,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle bye"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1523,9 +1327,7 @@
         "See you later, Gradle",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1541,9 +1343,7 @@
         "depend on the _compile code_ task as otherwise it cannot run. The tests will run on the compiled code, and without the",
         "compiled code, there are no tests to run.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1554,9 +1354,7 @@
         "and `bye` Gradle tasks are executed, we can set the `hello` to run before the `bye`. Let's revert our last change for",
         "now.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1574,9 +1372,7 @@
         "-    dependsOn tasks.named('hello')",
         " }",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1585,9 +1381,7 @@
       "parameters": [
         "Now, let's execute both tasks.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1595,9 +1389,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle bye hello"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1616,9 +1408,7 @@
         "",
         "We can control that, by using the `mustRunAfter`, as shown next.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1636,9 +1426,7 @@
         "+    mustRunAfter tasks.named('hello')",
         " }",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1647,9 +1435,7 @@
       "parameters": [
         "Now let's run the `bye` task.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1657,9 +1443,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle bye"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1675,9 +1459,7 @@
         "",
         "Now, let's execute both the `bye` and the `hello` tasks in this order.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1685,9 +1467,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle bye hello"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1705,9 +1485,7 @@
         "See you later, Gradle",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1731,9 +1509,7 @@
         "> 'should run after' dependencies have been run or not. You should use 'should run after' where the ordering is",
         "> helpful but not strictly required.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1743,9 +1519,7 @@
         "We can instruct Gradle to run a task (say _a_) after another task (say _b_) even if that task (_a_) is not executed,",
         "using the `finalizedBy`, as shown next.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1771,9 +1545,7 @@
         "-    mustRunAfter tasks.named('hello')",
         " }",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1783,9 +1555,7 @@
         "We removed the `mustRunAfter` from the `bye` task and added the `finalizedBy` to the `hello` task. Now let's run",
         "the `hello` task alone.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1793,9 +1563,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle hello"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1812,9 +1580,7 @@
         "See you later, Gradle",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1842,9 +1608,7 @@
         "the `test` task is executed too. On the other hand, if we run the `test` task, then the `jacocoTestReport` task is also",
         "executed after the `test` task.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1853,9 +1617,7 @@
       "parameters": [
         "This wraps up dependencies and ordering. Let's revert these changes before moving on to the next section.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -1875,9 +1637,7 @@
         " ",
         " tasks.register('bye') {",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1886,18 +1646,14 @@
       "parameters": [
         "The code is as it was at the beginning of the section, thus we have nothing to commit.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "2777fbe3-3a87-436f-8847-ea373cf41b9c",
       "parameters": [
         "The Gradle Wrapper"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1909,9 +1665,7 @@
         "of Gradle, included with the project. Instead of using the installed version of Gradle, we will use the wrapper instead",
         "which will ensure that the same version of Gradle is used irrespective from where it is executed.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1928,9 +1682,7 @@
         "will not work on previous version of Gradle. For example, Java 17 is only supported starting from Gradle 7.3 as shown in",
         "the [compatibility matrix](https://docs.gradle.org/current/userguide/compatibility.html).",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -1947,9 +1699,7 @@
         "upgrade the Gradle version in one place, commit those changes and then everyone else will get the new changes, very",
         "similar to [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code).",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1957,9 +1707,7 @@
       "parameters": [
         "Let's start by tagging the current state of the project before we start with the Gradle wrapper.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1967,9 +1715,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git tag --annotate 'v3' --message 'Gradle Wrapper'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -1978,9 +1724,7 @@
       "parameters": [
         "The Gradle wrapper can be added using the `wrapper` task.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -1988,9 +1732,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle tasks"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2007,9 +1749,7 @@
         "",
         "Let's run the `wrapper` task",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2017,9 +1757,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "gradle wrapper"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2029,9 +1767,7 @@
         "The Gradle wrapper is found in a folder named `gradle`. Let's see the folder structure of our project after the Gradle",
         "wrapper was created.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2039,9 +1775,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "tree ."
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2067,9 +1801,7 @@
         "used to invoke Gradle commands. For example, instead of invoking the `gradle tasks` to list the tasks that belong to",
         "this Gradle project, we can use the wrapper instead as shown next.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2077,9 +1809,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew tasks"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2091,9 +1821,7 @@
         "The `gradle/wrapper/gradle-wrapper.properties` file contains the Gradle wrapper properties. We can define which version",
         "to use from this file. Let's see the contents of this file.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2101,9 +1829,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "cat 'gradle/wrapper/gradle-wrapper.properties'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2119,9 +1845,7 @@
         "",
         "We can check the Gradle wrapper version using the `--version` argument as shown next.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2130,8 +1854,6 @@
       "parameters": [
         "./gradlew --version"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 300.000000000
     },
     {
@@ -2150,9 +1872,7 @@
         "We can adjust the Gradle wrapper version manually by updating the `gradle/wrapper/gradle-wrapper.properties` file, or",
         "using the `wrapper` task with the `--gradle-version` as its argument, as shown next.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2161,8 +1881,6 @@
       "parameters": [
         "./gradlew wrapper --gradle-version=7.3"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 300.000000000
     },
     {
@@ -2173,9 +1891,7 @@
         "download the binaries for this version of Gradle and cache it for the future runs. The next Gradle command will take a",
         "bit longer to execute for this reason.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2184,8 +1900,6 @@
       "parameters": [
         "./gradlew --version"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 300.000000000
     },
     {
@@ -2195,9 +1909,7 @@
       "parameters": [
         "If we look into the `gradle/wrapper/gradle-wrapper.properties` file, we will see that it's pointing to the new version.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2205,9 +1917,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "cat 'gradle/wrapper/gradle-wrapper.properties'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2216,9 +1926,7 @@
       "parameters": [
         "Let's go back to the latest version of Gradle.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2227,8 +1935,6 @@
       "parameters": [
         "./gradlew wrapper --gradle-version=7.3.3"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -2238,9 +1944,7 @@
       "parameters": [
         "Verify that we are using version 7.3.3 of Gradle.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2248,9 +1952,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew --version"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2259,9 +1961,7 @@
       "parameters": [
         "Now we are back to version 7.3.3.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -2288,9 +1988,7 @@
         "",
         "If you delete the contents of this directory, Gradle will re-download these binaries again automatically.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -2306,9 +2004,7 @@
         "The Gradle wrapper is a program that automatically downloads the correct version of Gradle for us. The Gradle tasks",
         "executed by the Gradle wrapper, `./gradlew`, are handles in the same way as when we use the installed version of Gradle.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -2331,9 +2027,7 @@
         "I prefer to have Gradle installed locally as I can quickly create the project I need. The Gradle `init` task is",
         "interactive and provides some neat options, such as choosing Kotlin over Groovy as the Gradle configuration language.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2342,9 +2036,7 @@
       "parameters": [
         "Let's add the Gradle wrapper to the version source control.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2353,18 +2045,14 @@
       "parameters": [
         "git add .",
         "git commit --message 'Add gradle wrapper'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "25105cb5-9823-4868-9354-994fc541cbb5",
       "parameters": [
         "Gradle Plugins"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2376,9 +2064,7 @@
         "",
         "Before we start, let's start by tagging our code.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2386,9 +2072,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "git tag --annotate 'v4' --message 'Gradle Plugins'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2398,9 +2082,7 @@
         "Tasks are part of a [plugin](https://docs.gradle.org/current/userguide/plugins.html). Gradle provides",
         "a [repository](https://plugins.gradle.org/) where you can search for plugins.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -2415,9 +2097,7 @@
         "the `./gradle tasks` command, we saw all that Gradle could do. A Gradle plugin comprise a set of tasks, configuration",
         "objects and conventions.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2426,9 +2106,7 @@
       "parameters": [
         "Let's see what our project is capable of, by listing its tasks.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2437,8 +2115,6 @@
       "parameters": [
         "./gradlew tasks"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -2474,9 +2150,7 @@
         "",
         "Let's introduce the [`base` plugin](https://docs.gradle.org/current/userguide/base_plugin.html).",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2496,9 +2170,7 @@
         "     group = 'Greetings'",
         "     description = 'A simple task that prints a simple message'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2507,9 +2179,7 @@
       "parameters": [
         "Now let's list the tasks again.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2517,9 +2187,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew tasks"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2543,9 +2211,7 @@
         "",
         "Let's run the `build` task.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2553,9 +2219,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew build"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2568,9 +2232,7 @@
         "",
         "We can use the `--console=verbose` argument to see all the tasks that are executed.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2578,9 +2240,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew build --console=verbose"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2589,9 +2249,7 @@
       "parameters": [
         "We can use another plugin to determine which tasks depend on what.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2610,9 +2268,7 @@
         " ",
         " tasks.register('hello') {",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "question",
@@ -2627,9 +2283,7 @@
         "The `taskinfo` plugin is developed and maintained by a third party and thus we need to indicate which version of the",
         "plugin we want to use.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2638,9 +2292,7 @@
       "parameters": [
         "Let's list all tasks, as this plugin does not use groups for the tasks that it introduces.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2649,8 +2301,6 @@
       "parameters": [
         "./gradlew tasks --all"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 300.000000000
     },
     {
@@ -2673,9 +2323,7 @@
         "",
         "Let's see what tasks the `build` task depends on.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2684,8 +2332,6 @@
       "parameters": [
         "./gradlew build tiTree"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -2704,9 +2350,7 @@
         "",
         "Task names can be long, and Gradle is allows us to type partial names instead as shown next.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2714,9 +2358,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew build tT"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2727,9 +2369,7 @@
         "",
         "This concludes the plugin section. Let's commit our changes before moving to the next section.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2738,18 +2378,14 @@
       "parameters": [
         "git add .",
         "git commit --message 'Add base and task info plugins'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "a3eb9187-4e2f-45eb-98d2-b2891b68afbd",
       "parameters": [
         "The Gradle Daemon"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2763,9 +2399,7 @@
         "",
         "Let's list all Gradle Daemon.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2773,9 +2407,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew --status"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2787,9 +2419,7 @@
         "",
         "We can stop all Gradle Daemons using the `--stop` argument.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2797,9 +2427,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew --stop"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2807,9 +2435,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "./gradlew --status"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2819,9 +2445,7 @@
         "Next time we run a Gradle task, another daemon will be created. We can also instruct Gradle not to use a daemon, as",
         "shown next.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2830,8 +2454,6 @@
       "parameters": [
         "./gradlew build --no-daemon"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -2847,18 +2469,14 @@
         "Daemon will be stopped at the end of the build ",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "section",
       "id": "4c51b615-8460-46e2-95ae-e48200c98030",
       "parameters": [
         "Create Gradle Project"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2872,18 +2490,14 @@
         "directory if exists so that we start on a clean slate. This ensures that we don't have any residue from previous runs of",
         "this example.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "7dfd6885-945d-481d-ab56-23e7c00ff7f0",
       "parameters": [
         "rm -rf 'gradle-fundamentals-init'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2892,18 +2506,14 @@
         "Create the directory from where we will be working. All subsequent commands are to be executed from within this",
         "directory.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
       "id": "04523b30-d856-4145-9736-a34f1447b99f",
       "parameters": [
         "mkdir 'gradle-fundamentals-init'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2911,9 +2521,7 @@
       "parameters": [
         "Let's version control this directory so that we can keep track of the changes.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2921,9 +2529,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "git init --initial-branch=main"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -2932,9 +2538,7 @@
       "parameters": [
         "We need to configure Git's user name and email address and we can reuse the variables that we set before.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2957,9 +2561,7 @@
       "parameters": [
         "Let's verify that our Git configuration was properly applied.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -2967,9 +2569,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "git config --list --local"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3014,9 +2614,7 @@
         "you will have fewer steps to follow. Note that software does need to be migrated especially when security",
         "vulnerabilities are discovered (like the infamous [Log4J Shell vulnerability](https://en.wikipedia.org/wiki/Log4Shell)).",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3025,8 +2623,6 @@
       "parameters": [
         "gradle init --type basic --dsl groovy --project-name gradle-fundamentals-init"
       ],
-      "variables": [],
-      "environmentVariables": [],
       "commandTimeout": 30.000000000
     },
     {
@@ -3036,9 +2632,7 @@
       "parameters": [
         "Let's see what the Gradle `init` task has created.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3046,9 +2640,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "ls -la"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3067,9 +2659,7 @@
         "-rw-r--r--  1 root root  373 Apr 27 12:34 settings.gradle",
         "```",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3078,9 +2668,7 @@
       "parameters": [
         "The Gradle `init` task has created several things for us, including the Gradle wrapper.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3088,9 +2676,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "tree gradle"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3109,9 +2695,7 @@
         "",
         "Let's see what's in the `settings.gradle` file.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3119,9 +2703,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "cat 'settings.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3131,9 +2713,7 @@
         "The file contains some comments, which we can delete, and the project name. Let's delete the comments as we don't need",
         "these.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -3156,9 +2736,7 @@
         "-",
         " rootProject.name = 'gradle-fundamentals-init'",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3167,9 +2745,7 @@
       "parameters": [
         "Let's see what's in the `build.gradle` file.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3177,9 +2753,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "cat 'build.gradle'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3188,9 +2762,7 @@
       "parameters": [
         "This file contains just comments. Let's empty the file first.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -3209,9 +2781,7 @@
         "- * Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.3.3/samples",
         "- */",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3220,9 +2790,7 @@
       "parameters": [
         "Now, let's add the plugins and the `hello` and `bye` tasks that we created before.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -3255,9 +2823,7 @@
         "+    }",
         "+}",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3266,9 +2832,7 @@
       "parameters": [
         "Let see what's in the 'gradle/wrapper/gradle-wrapper.properties' file.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3276,9 +2840,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "cat 'gradle/wrapper/gradle-wrapper.properties'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3290,9 +2852,7 @@
         "need to do anything and the command is only shown here for completeness. This command is idempotent and running it again",
         "will not change anything.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3300,9 +2860,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "./gradlew wrapper --gradle-version=7.3.3"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3311,9 +2869,7 @@
       "parameters": [
         "The Gradle `init` command also included the `.gitignore` file. Let's see its contents.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3321,9 +2877,7 @@
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
         "cat '.gitignore'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3334,9 +2888,7 @@
         "folders, such as `.idea` used by [IntelliJ](https://www.jetbrains.com/idea/) and `.vscode` (and `bin`) used",
         "by [VS Code](https://code.visualstudio.com/) and some of its plugins.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -3357,9 +2909,7 @@
         "+bin",
         " build",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "markdown",
@@ -3368,9 +2918,7 @@
       "parameters": [
         "We create the same project, this time using the Gradle `init` task, which simplifies the process.",
         ""
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     },
     {
       "type": "command",
@@ -3379,9 +2927,7 @@
       "parameters": [
         "git add .",
         "git commit --message 'Create project with two tasks'"
-      ],
-      "variables": [],
-      "environmentVariables": []
+      ]
     }
   ]
 }
