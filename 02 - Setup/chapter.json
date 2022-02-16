@@ -114,7 +114,7 @@
         "The current version should be printed.",
         "",
         "```",
-        "SDKMAN 5.13.1",
+        "SDKMAN 5.13.2",
         "```"
       ]
     },
@@ -161,7 +161,7 @@
       "type": "command",
       "id": "dd9430c6-e9a6-455d-bdd3-66c2bf5bb1f4",
       "parameters": [
-        "y | sdk install java 17.0.2-oracle"
+        "echo 'y' | sdk install java 17.0.2-oracle"
       ],
       "commandTimeout": 120.000000000
     },
@@ -170,7 +170,7 @@
       "id": "6fd6fc59-b4a2-461e-ad35-e6961fb2bd67",
       "parameters": [
         "Question:1",
-        "Why did we pipe `y` to the `sdk install ...` command?",
+        "Why did we pipe `y` (`echo 'y'`) to the `sdk install ...` command?",
         "Answer:4",
         "The `sdk` command is interactive and will ask you whether you like to set this version as the default version. Due to",
         "the limitations of the Sociable Weaver Application, we are not able to interact with the command. Therefore, we need to",
@@ -261,7 +261,7 @@
       "type": "command",
       "id": "b80dfd82-5959-4862-8f87-7e65ebebbb4e",
       "parameters": [
-        "y | sdk install gradle 7.4"
+        "echo 'y' | sdk install gradle 7.4"
       ],
       "commandTimeout": 30.000000000
     },
@@ -322,6 +322,17 @@
       "id": "93f74907-91c7-4d1e-9742-ef3cfe5be6b7",
       "parameters": [
         "tree --version"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "66a29f2e-535b-479d-b86e-076425afd54b",
+      "parameters": [
+        "The `tree` command can be installed using the [brew](https://brew.sh/) package manager, if that's available.",
+        "",
+        "```",
+        "brew install tree",
+        "```"
       ]
     }
   ]
