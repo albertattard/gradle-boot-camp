@@ -526,7 +526,7 @@
         "as `integrationTest`. You can set up",
         "this [manually](https://docs.gradle.org/current/userguide/java_testing.html#sec:configuring_java_integration_tests) or",
         "use a plugin, such as the [Gradle TestSets plugin](https://github.com/unbroken-dome/gradle-testsets-plugin).",
-        "Alternatively you can use",
+        "Alternatively you can use the",
         "new [`testing` extension](https://docs.gradle.org/current/dsl/org.gradle.testing.base.TestingExtension.html).",
         ""
       ]
@@ -1211,8 +1211,9 @@
       "id": "747e106b-81dc-4936-ac35-9181b85a6b53",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Applications use third-party dependencies, and so far we have not used any. In this section we will make use of the ",
-        "(infamous) [log4j logging library](https://logging.apache.org/log4j/2.x/) to demonstrate further plugins.",
+        "Applications use third-party dependencies, and so far we have not used any. In this section we will make use of the, ",
+        "[infamous](https://en.wikipedia.org/wiki/Log4Shell), [log4j logging library](https://logging.apache.org/log4j/2.x/) to",
+        "demonstrate further plugins.",
         ""
       ]
     },
@@ -2306,6 +2307,24 @@
       "parameters": [
         "git add .",
         "git commit --message 'Fix log4j vulnerability'"
+      ]
+    },
+    {
+      "type": "section",
+      "id": "d29f3d2f-c868-4449-9ca5-f458def11eaf",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Version Control"
+      ]
+    },
+    {
+      "type": "todo",
+      "id": "7bc36f8c-7f4d-48be-954b-bbec617e96be",
+      "parameters": [
+        "Talk about ",
+        "- How to exclude dependencies when these are not needed",
+        "- How to control the version of a transitive dependency",
+        ""
       ]
     },
     {

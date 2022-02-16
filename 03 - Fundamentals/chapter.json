@@ -1679,8 +1679,8 @@
         "Gradle is not 100% backwards compatible. Gradle 7",
         "introduced [breaking changes](https://docs.gradle.org/7.0/userguide/upgrading_version_6.html#changes_7.0), and what",
         "worked with Gradle 6 may not necessary works on Gradle 7. Another programmer may introduce new Gradle features which",
-        "will not work on previous version of Gradle. For example, Java 17 is only supported starting from Gradle 7.3 as shown in",
-        "the [compatibility matrix](https://docs.gradle.org/current/userguide/compatibility.html).",
+        "will not work on previous version of Gradle. For example, Java 17 is only supported starting from Gradle 7.3, as shown",
+        "in the [compatibility matrix](https://docs.gradle.org/current/userguide/compatibility.html).",
         ""
       ]
     },
@@ -1969,7 +1969,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "Question:2",
-        "This was quick. How come Gradle did not download the version 7.4?",
+        "That was quick. How come Gradle did not download the version 7.4?",
         "",
         "Answer:16",
         "Gradle version 7.4 was downloaded before and saved in `~/.gradle/wrapper/dists` directory (unless otherwise configure)",
