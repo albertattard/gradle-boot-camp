@@ -139,7 +139,7 @@
         "user.email=${DEVELOPER_EMAIL}",
         "```",
         "",
-        "Let's create a basic Gradle project using Groovy as the DSL language, and set the Gradle version to 7.3.3.",
+        "Let's create a basic Gradle project using Groovy as the DSL language, and set the Gradle version to 7.4.",
         ""
       ],
       "variables": [
@@ -153,7 +153,7 @@
       "workingDirectory": "custom-gradle-task",
       "parameters": [
         "gradle init --type basic --dsl groovy --project-name custom-gradle-task",
-        "./gradlew wrapper --gradle-version=7.3.3",
+        "./gradlew wrapper --gradle-version=7.4",
         "./gradlew --version"
       ],
       "commandTimeout": 60.000000000
@@ -181,7 +181,7 @@
         "- * The settings file is used to specify which projects to include in your build.",
         "- *",
         "- * Detailed information about configuring a multi-project build in Gradle can be found",
-        "- * in the user manual at https://docs.gradle.org/7.3.3/userguide/multi_project_builds.html",
+        "- * in the user manual at https://docs.gradle.org/7.4/userguide/multi_project_builds.html",
         "- */",
         "-",
         " rootProject.name = 'custom-gradle-task'",

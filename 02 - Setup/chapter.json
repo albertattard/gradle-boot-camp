@@ -154,14 +154,14 @@
       "type": "markdown",
       "id": "1c66fcff-4c83-421a-bbaa-3a6f9713f4d3",
       "parameters": [
-        "Install the latest version of Java by Oracle, `17.0.1-oracle`."
+        "Install the latest version of Java by Oracle, `17.0.2-oracle`."
       ]
     },
     {
       "type": "command",
       "id": "dd9430c6-e9a6-455d-bdd3-66c2bf5bb1f4",
       "parameters": [
-        "y | sdk install java 17.0.1-oracle"
+        "y | sdk install java 17.0.2-oracle"
       ],
       "commandTimeout": 120.000000000
     },
@@ -193,7 +193,7 @@
       "type": "command",
       "id": "b46c6187-ce55-4a26-831d-0e99091a0775",
       "parameters": [
-        "sdk default java 17.0.1-oracle"
+        "sdk default java 17.0.2-oracle"
       ]
     },
     {
@@ -253,7 +253,7 @@
       "type": "markdown",
       "id": "c44531da-1218-4f28-93dc-339ae69a61a6",
       "parameters": [
-        "Install the latest version of Gradle, `7.3.3`.",
+        "Install the latest version of Gradle, `7.4`.",
         ""
       ]
     },
@@ -261,7 +261,7 @@
       "type": "command",
       "id": "b80dfd82-5959-4862-8f87-7e65ebebbb4e",
       "parameters": [
-        "y | sdk install gradle 7.3.3"
+        "y | sdk install gradle 7.4"
       ],
       "commandTimeout": 30.000000000
     },
@@ -277,7 +277,7 @@
       "type": "command",
       "id": "08a3cc9d-e995-4e4b-9a00-b6e99bb4656a",
       "parameters": [
-        "sdk default gradle 7.3.3"
+        "sdk default gradle 7.4"
       ]
     },
     {

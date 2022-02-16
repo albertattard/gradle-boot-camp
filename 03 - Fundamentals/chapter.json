@@ -1836,11 +1836,11 @@
       "id": "6e5e9660-ae9b-4220-9288-334a38d000a7",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "The Gradle wrapper uses the same version of the local Gradle, 7.3.3 in our case as that's the version we have",
+        "The Gradle wrapper uses the same version of the local Gradle, 7.4 in our case as that's the version we have",
         "installed.",
         "",
         "```",
-        "distributionUrl=https\\://services.gradle.org/distributions/gradle-7.3.3-bin.zip",
+        "distributionUrl=https\\://services.gradle.org/distributions/gradle-7.4-bin.zip",
         "```",
         "",
         "We can check the Gradle wrapper version using the `--version` argument as shown next.",
@@ -1861,11 +1861,11 @@
       "id": "f983eebf-8458-478c-bf28-609055c92bd0",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "We are using Gradle version 7.3.3 as indicated by the output.",
+        "We are using Gradle version 7.4 as indicated by the output.",
         "",
         "```",
         "------------------------------------------------------------",
-        "Gradle 7.3.3",
+        "Gradle 7.4",
         "------------------------------------------------------------",
         "```",
         "",
@@ -1933,7 +1933,7 @@
       "id": "cd3c4abd-f827-4818-b32e-fd1611e11c12",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "./gradlew wrapper --gradle-version=7.3.3"
+        "./gradlew wrapper --gradle-version=7.4"
       ],
       "commandTimeout": 30.000000000
     },
@@ -1942,7 +1942,7 @@
       "id": "b483f7e0-8c68-46b4-b9db-79ef8635ed72",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Verify that we are using version 7.3.3 of Gradle.",
+        "Verify that we are using version 7.4 of Gradle.",
         ""
       ]
     },
@@ -1959,7 +1959,7 @@
       "id": "9733b9fc-cd19-4fa2-8897-478aba2250ae",
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
-        "Now we are back to version 7.3.3.",
+        "Now we are back to version 7.4.",
         ""
       ]
     },
@@ -1969,21 +1969,21 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "Question:2",
-        "This was quick. How come Gradle did not download the version 7.3.3?",
+        "This was quick. How come Gradle did not download the version 7.4?",
         "",
         "Answer:16",
-        "Gradle version 7.3.3 was downloaded before and saved in `~/.gradle/wrapper/dists` directory (unless otherwise configure)",
+        "Gradle version 7.4 was downloaded before and saved in `~/.gradle/wrapper/dists` directory (unless otherwise configure)",
         ". If we list the contents of this directory we will find all cached Gradle binaries.",
         "",
         "```",
         "ls -l ~/.gradle/wrapper/dists",
         "```",
         "",
-        "We worked with only two versions, 7.3 and 7.3.3.",
+        "We worked with only two versions, 7.3 and 7.4.",
         "",
         "```",
         "drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.3-bin",
-        "drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.3.3-bin",
+        "drwxr-xr-x  3 albertattard  staff  96 Apr 27 12:34 gradle-7.4-bin",
         "```",
         "",
         "If you delete the contents of this directory, Gradle will re-download these binaries again automatically.",
@@ -2415,7 +2415,7 @@
       "workingDirectory": "gradle-fundamentals-manual",
       "parameters": [
         "Here we have one Gradle Daemon running. The Gradle Daemon is version dependent, thus cannot use a Gradle Daemon for",
-        "version 7.3 to run a task for version 7.3.3. ",
+        "version 7.3 to run a task for version 7.4. ",
         "",
         "We can stop all Gradle Daemons using the `--stop` argument.",
         ""
@@ -2465,7 +2465,7 @@
         "single-use daemon is created and then destroyed as indicated in the output.",
         "",
         "```",
-        "To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.3.3/userguide/gradle_daemon.html#sec:disabling_the_daemon.",
+        "To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.4/userguide/gradle_daemon.html#sec:disabling_the_daemon.",
         "Daemon will be stopped at the end of the build ",
         "```",
         ""
@@ -2731,7 +2731,7 @@
         "- * The settings file is used to specify which projects to include in your build.",
         "- *",
         "- * Detailed information about configuring a multi-project build in Gradle can be found",
-        "- * in the user manual at https://docs.gradle.org/7.3.3/userguide/multi_project_builds.html",
+        "- * in the user manual at https://docs.gradle.org/7.4/userguide/multi_project_builds.html",
         "- */",
         "-",
         " rootProject.name = 'gradle-fundamentals-init'",
@@ -2778,7 +2778,7 @@
         "- * This file was generated by the Gradle 'init' task.",
         "- *",
         "- * This is a general purpose Gradle build.",
-        "- * Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.3.3/samples",
+        "- * Learn more about Gradle by exploring our samples at https://docs.gradle.org/7.4/samples",
         "- */",
         ""
       ]
@@ -2859,7 +2859,7 @@
       "id": "5049d699-c978-4854-924d-fe26800bc324",
       "workingDirectory": "gradle-fundamentals-init",
       "parameters": [
-        "./gradlew wrapper --gradle-version=7.3.3"
+        "./gradlew wrapper --gradle-version=7.4"
       ]
     },
     {
