@@ -1,0 +1,14 @@
+{
+  "entries": [
+    {
+      "type": "chapter",
+      "id": "76fb2642-f8c8-4460-ad97-472bafa5a999",
+      "parameters": [
+        "Title:1",
+        "Custom Gradle Plugin",
+        "Description:1",
+        "A simple Gradle plugin example"
+      ]
+    }
+  ]
+}

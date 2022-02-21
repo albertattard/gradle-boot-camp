@@ -2315,65 +2315,491 @@
       "id": "d29f3d2f-c868-4449-9ca5-f458def11eaf",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "Version Control"
+        "Managing Transitive Dependencies"
       ]
     },
     {
-      "type": "todo",
-      "id": "7bc36f8c-7f4d-48be-954b-bbec617e96be",
+      "type": "command",
+      "id": "03e15561-683c-4889-b0fe-d458ce66142b",
+      "workingDirectory": "single-java-project",
       "parameters": [
-        "Talk about ",
+        "git tag --annotate 'v5' --message 'Managing Transitive Dependencies'"
+      ]
+    },
+    {
+      "type": "subsection",
+      "id": "6d737c7f-1916-40f7-8625-2eaf24df4f2c",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Exclude Transitive Dependencies"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "2241236c-429b-425a-b63c-e9c6b902bd4f",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 70f2ce7..a7f3584 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -26,6 +26,7 @@ repositories {",
+        " }",
+        " ",
+        " dependencies {",
+        "+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        " }",
+        " ",
+        ""
+      ]
+    },
+    {
+      "type": "command",
+      "id": "f96e20ec-eead-4ed6-a71d-aacf91336455",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew run"
+      ],
+      "expectedExitValue": 1
+    },
+    {
+      "type": "markdown",
+      "id": "8c9c7c08-207a-402a-b98f-ed47eda6bcbf",
+      "workingDirectory": "single-java-project",
+      "parameters": [
         "",
-        "- How to exclude transitive dependencies when these are not needed",
-        "  ",
-        "  ```",
-        "  dependencies {",
-        "    implementation ('group:module:version') {",
-        "      exclude 'group:module'",
-        "    }",
-        "  }",
-        "  ```",
-        "  ",
-        "- How to exclude transitive dependencies for a given configuration",
-        "  ",
-        "  ```",
-        "  dependencies {",
-        "    implementation 'group:module:version'",
-        "    configurations.implementation {",
-        "      exclude 'group:module'",
-        "    }",
-        "  }",
-        "  ```",
-        "  ",
-        "- How to replace one dependency with another, for example logback with",
-        "  log4j [as recommended by Spring](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto.logging.log4j)",
-        "  ",
-        "  ```",
-        "  dependencies {",
-        "    implementation 'group:module:version'",
-        "    modules {",
-        "      module('group:module') {",
-        "        replacedBy 'group:module', '(Optional) Reason'",
-        "      }",
-        "    }",
-        "  }",
-        "  ```",
-        "  ",
-        "- How to add a constraint to increase the version of a transitive dependency",
-        "  ",
-        "  ```",
-        "  dependencies {",
-        "    implementation 'group:module:version'",
-        "    constraints {",
-        "      implementation('group:module:version') {",
-        "        because '(Optional) Reason'",
-        "      }",
-        "    }",
-        "  }",
-        "  ```",
-        "  ",
-        "  Note tat Gradle always picks the highest version.  So if the constraint is pointing to a lower version, then this is",
-        "  ignored by Gradle.",
+        "",
+        "```",
+        "> Task :run FAILED",
+        "SLF4J: Class path contains multiple SLF4J bindings.",
+        "SLF4J: Found binding in [jar:file:/Users/albertattard/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j-impl/2.17.1/84692d456bcce689355d33d68167875e486954dd/log4j-slf4j-impl-2.17.1.jar!/org/slf4j/impl/StaticLoggerBinder.class]",
+        "SLF4J: Found binding in [jar:file:/Users/albertattard/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.2.10/f69d97ef3335c6ab82fc21dfb77ac613f90c1221/logback-classic-1.2.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]",
+        "SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.",
+        "SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]",
+        "Exception in thread \"main\" java.lang.ExceptionInInitializerError",
+        "Caused by: org.apache.logging.log4j.LoggingException: log4j-slf4j-impl cannot be present with log4j-to-slf4j",
+        "        at org.apache.logging.slf4j.Log4jLoggerFactory.validateContext(Log4jLoggerFactory.java:60)",
+        "        at org.apache.logging.slf4j.Log4jLoggerFactory.newLogger(Log4jLoggerFactory.java:44)",
+        "        at org.apache.logging.slf4j.Log4jLoggerFactory.newLogger(Log4jLoggerFactory.java:33)",
+        "        at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getLogger(AbstractLoggerAdapter.java:53)",
+        "        at org.apache.logging.slf4j.Log4jLoggerFactory.getLogger(Log4jLoggerFactory.java:33)",
+        "        at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:363)",
+        "        at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:388)",
+        "        at gbc.Main.<clinit>(Main.java:8)",
+        "```"
+      ]
+    },
+    {
+      "type": "command",
+      "id": "799ff9cd-29fe-428f-97ee-12d3b6f0ce5e",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew dependencies --configuration compileClasspath"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "8789c4a9-a87f-4b1f-8559-9620dfedcf1e",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index a7f3584..53da13c 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -26,7 +26,9 @@ repositories {",
+        " }",
+        " ",
+        " dependencies {",
+        "-    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'",
+        "+    implementation('org.springframework.boot:spring-boot-starter-web:2.6.3') {",
+        "+        exclude group: 'ch.qos.logback', module: 'logback-classic'",
+        "+    }",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        " }",
+        " ",
+        ""
+      ]
+    },
+    {
+      "type": "command",
+      "id": "c800c69d-b14a-432a-aa31-5edbe5c38b1a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew run"
+      ],
+      "expectedExitValue": 1
+    },
+    {
+      "type": "markdown",
+      "id": "26636f0f-fad8-41b6-aef5-30d1f1c0cd37",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "```",
+        "> Task :run FAILED",
+        "Exception in thread \"main\" java.lang.ExceptionInInitializerError",
+        "Caused by: org.apache.logging.log4j.LoggingException: log4j-slf4j-impl cannot be present with log4j-to-slf4j",
+        "        at org.apache.logging.slf4j.Log4jLoggerFactory.validateContext(Log4jLoggerFactory.java:60)",
+        "        at org.apache.logging.slf4j.Log4jLoggerFactory.newLogger(Log4jLoggerFactory.java:44)",
+        "        at org.apache.logging.slf4j.Log4jLoggerFactory.newLogger(Log4jLoggerFactory.java:33)",
+        "        at org.apache.logging.log4j.spi.AbstractLoggerAdapter.getLogger(AbstractLoggerAdapter.java:53)",
+        "        at org.apache.logging.slf4j.Log4jLoggerFactory.getLogger(Log4jLoggerFactory.java:33)",
+        "        at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:363)",
+        "        at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:388)",
+        "        at gbc.Main.<clinit>(Main.java:8)",
+        "```"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "5719594e-047c-4474-a274-d24f8e4c4926",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 53da13c..646edeb 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -28,6 +28,7 @@ repositories {",
+        " dependencies {",
+        "     implementation('org.springframework.boot:spring-boot-starter-web:2.6.3') {",
+        "         exclude group: 'ch.qos.logback', module: 'logback-classic'",
+        "+        exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'",
+        "     }",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        " }",
+        ""
+      ]
+    },
+    {
+      "type": "command",
+      "id": "6e1885d5-9d4f-484e-abe0-c73b6a3ab29a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew run"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "d3f91a4d-bdf6-4dac-a48a-65f47beafe91",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "[27-Apr-2077 12:34:56:789] [DEBUG] [Main:11] - Gradle boot camp",
+        "```",
+        ""
+      ]
+    },
+    {
+      "type": "subsection",
+      "id": "972d28cb-a038-4731-bb27-a997260c392f",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Exclude Transitive Dependencies for a whole Configuration"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "ff603dc4-e10e-4d07-aeaf-3331c50f08be",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 646edeb..c4acfc4 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -30,6 +30,7 @@ dependencies {",
+        "         exclude group: 'ch.qos.logback', module: 'logback-classic'",
+        "         exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'",
+        "     }",
+        "+    implementation 'org.springframework.boot:spring-boot-starter-hateoas:2.6.3'",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        " }",
+        " ",
+        ""
+      ]
+    },
+    {
+      "type": "command",
+      "id": "5bfca410-67b9-4091-856b-7c92a4992b55",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew run"
+      ],
+      "expectedExitValue": 1
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "28fa5d43-4679-4e13-a575-a20ac8f89aa3",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index c4acfc4..2ff3ba2 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -26,12 +26,14 @@ repositories {",
+        " }",
+        " ",
+        " dependencies {",
+        "-    implementation('org.springframework.boot:spring-boot-starter-web:2.6.3') {",
+        "+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'",
+        "-        exclude group: 'ch.qos.logback', module: 'logback-classic'",
+        "-        exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'",
+        "-    }",
+        "     implementation 'org.springframework.boot:spring-boot-starter-hateoas:2.6.3'",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        "+",
+        "+    configurations.implementation {",
+        "+        exclude group: 'ch.qos.logback', module: 'logback-classic'",
+        "+        exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'",
+        "+    }",
+        " }",
+        " ",
+        " tasks.named('check') {",
+        ""
+      ]
+    },
+    {
+      "type": "command",
+      "id": "902ea24e-e9bb-4df1-9cdc-11a1ff332515",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew run"
+      ]
+    },
+    {
+      "type": "subsection",
+      "id": "813cfaae-b597-4403-8bf9-602bb26a2de3",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Replace Transitive Dependencies"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "60185986-0471-4bc3-93bd-ab5ef75a0521",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "[17.7.2. Configure Log4j for Logging](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto.logging.log4j)"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "280667a5-c3c1-43e7-8871-f0bf2e1989ee",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 2ff3ba2..4d73792 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -30,9 +30,13 @@ dependencies {",
+        "     implementation 'org.springframework.boot:spring-boot-starter-hateoas:2.6.3'",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        " ",
+        "-    configurations.implementation {",
+        "-        exclude group: 'ch.qos.logback', module: 'logback-classic'",
+        "-        exclude group: 'org.apache.logging.log4j', module: 'log4j-to-slf4j'",
+        "+    modules {",
+        "+        module('ch.qos.logback:logback-classic') {",
+        "+            replacedBy 'org.apache.logging.log4j:log4j-slf4j-impl', 'Use Log4j2 instead of Logback'",
+        "+        }",
+        "+        module('org.apache.logging.log4j:log4j-to-slf4j') {",
+        "+            replacedBy 'org.apache.logging.log4j:log4j-slf4j-impl', 'The bridge is not required'",
+        "+        }",
+        "     }",
+        " }",
+        " ",
+        ""
+      ]
+    },
+    {
+      "type": "subsection",
+      "id": "b58f3327-da66-4633-acac-d4011a4b364c",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Use a newer Transitive Dependency"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "500119f9-34d4-49f2-a019-713fbaa3d2cd",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 43bd59b..70f2ce7 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -26,18 +26,7 @@ repositories {",
+        " }",
+        " ",
+        " dependencies {",
+        "-    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.3'",
+        "-    implementation 'org.springframework.boot:spring-boot-starter-hateoas:2.6.3'",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        "-",
+        "-    modules {",
+        "-        module('ch.qos.logback:logback-classic') {",
+        "-            replacedBy 'org.apache.logging.log4j:log4j-slf4j-impl', 'Use Log4j2 instead of Logback'",
+        "-        }",
+        "-        module('org.apache.logging.log4j:log4j-to-slf4j') {",
+        "-            replacedBy 'org.apache.logging.log4j:log4j-slf4j-impl', 'The bridge is not required'",
+        "-        }",
+        "-    }",
+        " }",
+        " ",
+        " tasks.named('check') {",
+        ""
+      ]
+    },
+    {
+      "type": "command",
+      "id": "1bcb2900-8f3e-4f3e-a81e-5a00b0bd5cb9",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew dependencies --configuration compileClasspath"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "081a7018-ce9a-4446-a845-bb433454b38b",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "compileClasspath - Compile classpath for source set 'main'.",
+        "\\--- org.apache.logging.log4j:log4j-slf4j-impl:2.17.1",
+        "     +--- org.slf4j:slf4j-api:1.7.25",
+        "     \\--- org.apache.logging.log4j:log4j-api:2.17.1",
+        "```",
+        "",
+        "[1.7.36](https://mvnrepository.com/artifact/org.slf4j/slf4j-api/1.7.36)"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "8c43c94e-caec-4563-a009-897b97a1fcb6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 70f2ce7..4384ac0 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -27,6 +27,12 @@ repositories {",
+        " ",
+        " dependencies {",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        "+",
+        "+    constraints {",
+        "+        implementation('org.slf4j:slf4j-api:1.7.36') {",
+        "+            because 'Use the latest version'",
+        "+        }",
+        "+    }",
+        " }",
+        " ",
+        " tasks.named('check') {",
+        ""
+      ]
+    },
+    {
+      "type": "command",
+      "id": "cae6ed5e-d821-4854-9def-91660fcb58cb",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew dependencies --configuration compileClasspath"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "8a8bfed0-686e-4aaf-b336-f532c063dafc",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "compileClasspath - Compile classpath for source set 'main'.",
+        "+--- org.apache.logging.log4j:log4j-slf4j-impl:2.17.1",
+        "|    +--- org.slf4j:slf4j-api:1.7.25 -> 1.7.36",
+        "|    \\--- org.apache.logging.log4j:log4j-api:2.17.1",
+        "\\--- org.slf4j:slf4j-api:1.7.36 (c)",
+        "",
+        "(c) - dependency constraint",
+        "```"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "34449649-6da7-4277-8f05-b2b741288215",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index 4384ac0..d9633d5 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -29,8 +29,8 @@ dependencies {",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        " ",
+        "     constraints {",
+        "-        implementation('org.slf4j:slf4j-api:1.7.36') {",
+        "-            because 'Use the latest version'",
+        "+        implementation('org.slf4j:slf4j-api:1.7.0') {",
+        "+            because 'Use an older version'",
+        "         }",
+        "     }",
+        " }",
+        ""
+      ]
+    },
+    {
+      "type": "command",
+      "id": "efccbefe-0b21-450a-b1be-5775fba73b76",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "./gradlew dependencies --configuration compileClasspath"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "8a673f1d-a07f-483e-a8c5-8f9f2244556a",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "",
+        "",
+        "```",
+        "compileClasspath - Compile classpath for source set 'main'.",
+        "+--- org.apache.logging.log4j:log4j-slf4j-impl:2.17.1",
+        "|    +--- org.slf4j:slf4j-api:1.7.25",
+        "|    \\--- org.apache.logging.log4j:log4j-api:2.17.1",
+        "\\--- org.slf4j:slf4j-api:1.7.0 -> 1.7.25 (c)",
+        "",
+        "(c) - dependency constraint",
+        "```"
+      ]
+    },
+    {
+      "type": "git-apply-patch",
+      "id": "646391ef-458d-4689-b5b1-c92dab79df81",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "diff --git a/build.gradle b/build.gradle",
+        "index d9633d5..70f2ce7 100644",
+        "--- a/build.gradle",
+        "+++ b/build.gradle",
+        "@@ -27,12 +27,6 @@ repositories {",
+        " ",
+        " dependencies {",
+        "     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'",
+        "-",
+        "-    constraints {",
+        "-        implementation('org.slf4j:slf4j-api:1.7.0') {",
+        "-            because 'Use an older version'",
+        "-        }",
+        "-    }",
+        " }",
+        " ",
+        " tasks.named('check') {",
         ""
       ]
     },
@@ -2404,7 +2830,7 @@
       "id": "31df643b-5570-44c0-bc6a-936aba231f8d",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "git tag --annotate 'v5' --message 'Testing'"
+        "git tag --annotate 'v6' --message 'Testing'"
       ]
     },
     {
@@ -2857,7 +3283,7 @@
       "id": "bda73e53-e442-4a58-989d-1344cd665277",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "git tag --annotate 'v6' --message 'Package the application'"
+        "git tag --annotate 'v7' --message 'Package the application'"
       ]
     },
     {
@@ -3519,7 +3945,7 @@
       "id": "257137d2-2413-489a-a5af-bf7aed83e3fd",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "git tag --annotate 'v7' --message 'The ShadowJar plugin'"
+        "git tag --annotate 'v8' --message 'The ShadowJar plugin'"
       ]
     },
     {

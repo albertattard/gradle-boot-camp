@@ -7,6 +7,7 @@
     "03 - Fundamentals/chapter.json",
     "04 - Java Application/chapter.json",
     "05 - Multi-project Application/chapter.json",
-    "06 - Custom Gradle Task/chapter.json"
+    "06 - Custom Gradle Task/chapter.json",
+    "07 - Custom Gradle Plugin/chapter.json"
   ]
 }
