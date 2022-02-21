@@ -2319,6 +2319,23 @@
       ]
     },
     {
+      "type": "markdown",
+      "id": "f8809ff5-406c-41ee-872b-6fdc452bfbaa",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Dependencies come with baggage.  When we include a dependency, we also include its dependencies, referred to as ",
+        "_transitive dependencies_, and their dependencies.  There are cases where we need to manage the transitive dependencies, ",
+        "such as",
+        "",
+        "- Exclude transitive dependencies",
+        "- Replace a dependency with another (for example using Log4J instead of Logback)",
+        "- Use a newer version of a transitive dependency to address security concerns",
+        "",
+        "Let's start by marking our progress.",
+        ""
+      ]
+    },
+    {
       "type": "command",
       "id": "03e15561-683c-4889-b0fe-d458ce66142b",
       "workingDirectory": "single-java-project",
@@ -2332,6 +2349,22 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "Exclude Transitive Dependencies"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "c6f1c6c4-f549-4521-ae38-1c5711aa40d6",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "There are cases when a transitive dependency needs to be excluded.  This can be for various reasons, such as",
+        "",
+        "- It cause conflict with some other dependencies",
+        "- It is not used by the project and taking unnecessary space",
+        "",
+        "Consider the following ",
+        "[Spring Boot Starter Web](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web)",
+        "dependency.",
+        ""
       ]
     },
     {
@@ -2355,6 +2388,14 @@
       ]
     },
     {
+      "type": "markdown",
+      "id": "28d2bfff-fdea-4a09-9a90-e49d7b814e5c",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "We simply added one dependency to the build, without changing anything else.  Now let's run the application."
+      ]
+    },
+    {
       "type": "command",
       "id": "f96e20ec-eead-4ed6-a71d-aacf91336455",
       "workingDirectory": "single-java-project",
@@ -2368,7 +2409,7 @@
       "id": "8c9c7c08-207a-402a-b98f-ed47eda6bcbf",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "Unfortunately, the application fails to run as we have multiple SLF4J bindings, as indicated by the error.",
         "",
         "```",
         "> Task :run FAILED",
@@ -2387,7 +2428,11 @@
         "        at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:363)",
         "        at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:388)",
         "        at gbc.Main.<clinit>(Main.java:8)",
-        "```"
+        "```",
+        "",
+        "The Spring Boot Starter Web added the Logback transitive dependency, which caused the conflict.  This can be seen by the",
+        "Gradle dependencies task.",
+        ""
       ]
     },
     {
@@ -2396,6 +2441,29 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "./gradlew dependencies --configuration compileClasspath"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "37239fd2-742b-441c-944c-b0ea7c4dc739",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The Spring Boot Starter Web, pulled in the",
+        "[Spring Boot Starter Logging](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-logging),",
+        "which pulled in the [Logback Classic Module](https://mvnrepository.com/artifact/ch.qos.logback/logback-classic), as",
+        "shown next.",
+        "",
+        "```",
+        "|    |    +--- org.springframework.boot:spring-boot-starter-logging:2.6.3",
+        "|    |    |    +--- ch.qos.logback:logback-classic:1.2.10",
+        "|    |    |    |    +--- ch.qos.logback:logback-core:1.2.10",
+        "|    |    |    |    \\--- org.slf4j:slf4j-api:1.7.32 -> 1.7.33",
+        "```",
+        "",
+        "We now have two loggers and SLF4L does not know which one to use and fails.",
+        "",
+        "We need to instruct Gradle to exclude the Logback transitive dependency, as shown next.",
+        ""
       ]
     },
     {
@@ -2422,6 +2490,14 @@
       ]
     },
     {
+      "type": "markdown",
+      "id": "adbccd06-6bc6-4cdb-8e52-73758e5f1ae4",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's run the application once more."
+      ]
+    },
+    {
       "type": "command",
       "id": "c800c69d-b14a-432a-aa31-5edbe5c38b1a",
       "workingDirectory": "single-java-project",
@@ -2435,6 +2511,11 @@
       "id": "26636f0f-fad8-41b6-aef5-30d1f1c0cd37",
       "workingDirectory": "single-java-project",
       "parameters": [
+        "The application fails to run once more, this time due to a different error.  Spring Boot Starter Web pulled in the",
+        "[Apache Log4j to SLF4J Adapter](https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-to-slf4j) transitive",
+        "dependency as well, which conflicts with our Log4J dependency.  In fact if you think about it, having both ",
+        "`log4j-slf4j-impl` and `log4j-to-slf4j` will create an infinite loop as SLF4J will pass the logs to Log4J (due to",
+        "`log4j-slf4j-impl`) which in turn will pass the logs back to SLF4j (due to `log4j-to-slf4j`) and so on.",
         "",
         "```",
         "> Task :run FAILED",
@@ -2448,7 +2529,9 @@
         "        at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:363)",
         "        at org.slf4j.LoggerFactory.getLogger(LoggerFactory.java:388)",
         "        at gbc.Main.<clinit>(Main.java:8)",
-        "```"
+        "```",
+        "",
+        "We need to exclude this transitive dependency as well."
       ]
     },
     {
@@ -2472,6 +2555,14 @@
       ]
     },
     {
+      "type": "markdown",
+      "id": "5a8e865f-a394-4336-8893-d69dc409fc8b",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Let's run the application once more, with both transitive dependencies excluded."
+      ]
+    },
+    {
       "type": "command",
       "id": "6e1885d5-9d4f-484e-abe0-c73b6a3ab29a",
       "workingDirectory": "single-java-project",
@@ -2484,11 +2575,13 @@
       "id": "d3f91a4d-bdf6-4dac-a48a-65f47beafe91",
       "workingDirectory": "single-java-project",
       "parameters": [
-        "",
+        "This time the application runs.",
         "",
         "```",
         "[27-Apr-2077 12:34:56:789] [DEBUG] [Main:11] - Gradle boot camp",
         "```",
+        "",
+        "Gradle excluded both transitive dependencies from the classpath, and this avoiding the conflict.",
         ""
       ]
     },
@@ -2498,6 +2591,16 @@
       "workingDirectory": "single-java-project",
       "parameters": [
         "Exclude Transitive Dependencies for a whole Configuration"
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "36123bfe-a909-4fda-b04a-0b5e1238c050",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The same transitive dependency may be pulled in by multiple dependencies.  Consider the ",
+        "[Spring Boot Starter HATEOAS](https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-hateoas) ",
+        "dependency, shown next."
       ]
     },
     {
@@ -2521,6 +2624,15 @@
       ]
     },
     {
+      "type": "markdown",
+      "id": "eea26a7f-6a7e-4475-b462-f358a6fde99b",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "The Spring Boot Starter HATEOAS dependency, pulls in Logback and causes the same problem we had when we added the Spring",
+        "Boot Starter Web dependency."
+      ]
+    },
+    {
       "type": "command",
       "id": "5bfca410-67b9-4091-856b-7c92a4992b55",
       "workingDirectory": "single-java-project",
@@ -2528,6 +2640,15 @@
         "./gradlew run"
       ],
       "expectedExitValue": 1
+    },
+    {
+      "type": "markdown",
+      "id": "1bede52c-e201-433c-a1e8-73711eac85cd",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "We can exclude the transitive dependencies from the Spring Boot Starter HATEOAS dependency, but Gradle provides an ",
+        "easier solution.  We can exclude a transitive dependency from a whole configuration, such as `implementation`."
+      ]
     },
     {
       "type": "git-apply-patch",
@@ -2558,6 +2679,16 @@
         " ",
         " tasks.named('check') {",
         ""
+      ]
+    },
+    {
+      "type": "markdown",
+      "id": "f1ad0b01-f6c0-4d62-9d35-46f7bd61b176",
+      "workingDirectory": "single-java-project",
+      "parameters": [
+        "Now, irrespective which dependency pulls in these two excluded transitive dependencies, Gradle will exclude them.  This",
+        "is a safer approach as we don't have to worry about which dependency (or transitive dependency) has pulled in other",
+        "dependencies which are conflicting with our Log4J."
       ]
     },
     {
